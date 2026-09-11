@@ -25,6 +25,22 @@ Satu kalimat untuk dipajang di booth dan diucapkan waktu sidang:
 
 > *"Semua yang ada di meja ini pernah ada di daftar barang hilang seseorang."*
 
+### Tiga hal dari aplikasi yang langsung dipakai di merchandise
+
+1. **Kode `BLK-XXXX`.** Aplikasi sudah memberi tiap barang kode seperti
+   `BLK-2F71`, `BLK-2E08`, `BLK-2FF5`. Cetak kode berformat sama di tiap
+   hangtag dan tiap Tag Balikin — merchandise-nya langsung terbaca sebagai
+   barang yang **sudah terdaftar**, bukan suvenir. Sediakan satu rentang khusus
+   untuk pameran (misalnya `BLK-P001`…`BLK-P300`) supaya tidak bentrok dengan
+   data asli.
+2. **Tagline.** "Yang hilang, balik lagi. Karena kita saling jaga." — masuk ke
+   hangtag, belakang kartu, dan backdrop. Tidak perlu mengarang kalimat baru.
+3. **Sepuluh warna dominan.** Filter pencarian aplikasi memakai Hitam, Putih,
+   Cokelat, Abu, Merah, Biru, Hijau, Kuning, Pink, Motif. Itu **sistem penataan
+   meja yang sudah jadi**: susun Tag Balikin dan gantungan menurut warna
+   dominan, beri label seperti di filter. Pengunjung langsung paham cara app-nya
+   mencari barang, tanpa dijelaskan.
+
 ---
 
 ## Tingkat prioritas
@@ -87,7 +103,8 @@ serius.
 - **Bahan** akrilik bening/teal 3 mm, potong heksagon *pointy-top* 40 mm
   (bentuk wadah yang sama dengan app), atau kuningan *etching* untuk versi
   premium 10 buah.
-- **Muka depan** logogram Balikin + nomor seri `BLK-0001`.
+- **Muka depan** logogram Balikin + kode `BLK-P001` (format yang sama dengan
+  kode barang di aplikasi).
 - **Muka belakang** QR + kalimat:
   > **Barang ini terdaftar di Balikin.**
   > Menemukannya? Pindai — pemiliknya langsung tahu.
@@ -103,9 +120,10 @@ serius.
 2. **Pakai QR dinamis** (satu tautan pendek yang tujuannya bisa diubah), supaya
    setelah pameran arahnya bisa dipindah tanpa mencetak ulang.
 3. **Jangan cetak identitas pemilik di tag.** Justru itu nilai jualnya, dan itu
-   pula jawaban untuk pertanyaan penguji soal privasi: penemu tidak pernah
-   melihat data pemilik, pertemuan diatur lewat aplikasi. Tulis kalimat ini di
-   hangtag-nya.
+   pula jawaban untuk pertanyaan penguji soal privasi. Onboarding aplikasi sudah
+   menjanjikannya hitam di atas putih — *"Nomor HP dan email tidak pernah tampil
+   di profil publik"* — jadi kalimat di hangtag tinggal mengutip janji itu, bukan
+   mengarang yang baru.
 4. Uji pindai dari jarak 30 cm di bawah lampu booth yang remang **sebelum**
    produksi massal.
 
@@ -149,6 +167,17 @@ Susun tiga tingkat hadiah supaya penjaga booth tidak bingung siapa dapat apa:
 | **Lewat** | 1 stiker | Siapa pun yang mampir |
 | **Ikut demo** | Stiker + Kartu Balikin + 1 gantungan acak | Yang menyelesaikan alur di prototipe |
 | **Penguji & dosen** | Tote bag berisi Tag Balikin premium (kuningan), tumbler, notes, pin, dan buku GSM | Siapkan 5–8 set, susun rapi |
+
+### Satu item yang belum masuk daftar: kartu QRIS meja
+
+Aplikasi punya fitur tip lewat QRIS dengan janji yang kuat — **"Tip masuk 100%
+ke kamu, Balikin tak memungut potongan."** Cetak satu **akrilik QRIS berdiri**
+untuk meja booth: heksagon, QR di tengah, kalimat itu di bawahnya. Biayanya
+15–30rb, dan gunanya dua: memperagakan fitur yang tidak bisa ditunjukkan lewat
+merchandise apa pun, sekaligus memberi penguji sesuatu yang konkret untuk
+ditanyakan soal model bisnis. Kalau QRIS-nya belum aktif, tandai jelas
+**"peraga — belum aktif"**; jangan pasang QR yang menerima uang sungguhan
+tanpa rekening yang siap.
 
 ---
 

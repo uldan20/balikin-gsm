@@ -9,24 +9,31 @@ di bawah.
 
 ## Hitung mundur
 
-### T-8 sampai T-6 minggu · Mengunci identitas
+### T-8 sampai T-6 minggu · Menyelaraskan
 
-- [ ] Eksplorasi logo — minimal 20 sketsa, mengerucut ke 3 arah
-- [ ] Uji 3 arah logo di 16 px dan hitam-putih
-- [ ] **Kunci logo final** ← semua hal di bawah ini menunggu langkah ini
+Logo, tagline, gaya ilustrasi, dan rancangan aplikasi sudah ada — tahap ini
+bukan merancang, tapi membereskan yang bentrok supaya tidak terlanjur tercetak.
+
+- [ ] **Kunci nama 5 Tingkat Komunitas.** Pustaka ikon dan aplikasi belum sama
+      ("Penolong" vs "Penolong Andal"). Nama ini akan tercetak di gantungan kunci
+- [ ] **Kunci daftar kategori barang** — 13 di pustaka ikon, 8 di onboarding,
+      10 di filter pencarian
+- [ ] **Ambil nilai warna dari berkas rancangan**, konversi ke CMYK + padankan
+      Pantone. Jangan mengambil dari layar
 - [ ] Pilih typeface utama & sekunder (pastikan lisensinya boleh dipakai)
-- [ ] Konversi palet ke CMYK + padankan Pantone
-- [ ] Putuskan arah maskot (lihat tabel A/B/C di `struktur-gsm.md`)
+- [ ] Ekspor logo dalam semua konfigurasi + versi satu warna untuk sablon
 
-### T-6 sampai T-5 minggu · Sistem
+### T-6 sampai T-5 minggu · Menulis aturan
 
-- [ ] Gambar maskot: 1 pose baku + 3 pose pendukung + 4 ekspresi
+- [ ] Tulis halaman **heksagon vs sudut membulat** — aturan yang paling mendesak
+- [ ] Ukur konstruksi logo di kisi 60°, tetapkan `x`, clear space, ukuran minimum
+- [ ] Uji logo di 16 px; siapkan versi sederhana kalau menggumpal
+- [ ] Lembar karakter ilustrasi: 2–3 karakter, pose baku + ekspresi
 - [ ] Susun pola heksagon (3 kerapatan)
-- [ ] Tulis aturan Bab II: clear space, ukuran minimum, 12 larangan
-- [ ] Rancang ikon aplikasi di semua ukuran
 - [ ] **Pesan plushie sekarang kalau jadi dibuat** — lead time 3–5 minggu
       plus putaran persetujuan sampel. Ini satu-satunya item yang tidak bisa
-      dikejar belakangan
+      dikejar belakangan. Pertimbangkan **lencana heksagon** sebagai plushie,
+      bukan karakter manusia — jauh lebih mudah dibuat dan tetap terbaca Balikin
 
 ### T-5 sampai T-4 minggu · Desain produksi
 
@@ -35,6 +42,10 @@ di bawah.
 - [ ] Susun poster penelitian A1
 - [ ] Buat halaman tujuan QR dan **uji dari HP orang lain**
 - [ ] Kunci QR pendek dinamis (supaya tujuannya bisa diubah pasca-pameran)
+- [ ] Siapkan rentang kode pameran `BLK-P001`…`BLK-P300` supaya tidak bentrok
+      dengan kode barang asli di aplikasi
+- [ ] Foto *mockup* Bab IV dari layar aplikasi yang sudah jadi — bagian
+      termurah sekarang, tinggal menata frame yang ada
 - [ ] Minta *quote* tertulis ke minimal 2 vendor per jenis barang
 
 ### T-4 sampai T-3 minggu · Produksi gelombang satu
@@ -92,7 +103,7 @@ Buang Tingkat C seluruhnya. Kerjakan hanya ini:
 
 | Prioritas | Item | Alasan |
 | --- | --- | --- |
-| 1 | Logo + ikon app | Tidak ada yang bisa dicetak tanpa ini |
+| 1 | Ekspor logo + kunci nama tingkat & kategori | Setengah hari kerja, tapi ini yang tercetak di semua barang |
 | 2 | Stiker + Kartu Balikin | Cetak paling cepat (2–5 hari), dampak per rupiah paling tinggi |
 | 3 | Backdrop + X-banner + poster A1 | Kerangka booth; 3–7 hari |
 | 4 | Tag Balikin akrilik | Item pahlawan; masih muat di 7–14 hari kalau dipesan sekarang |
@@ -100,7 +111,8 @@ Buang Tingkat C seluruhnya. Kerjakan hanya ini:
 | 6 | GSM versi PDF + 1 eksemplar cetak | Jilid spiral di percetakan kampus, 1–2 hari |
 
 Lupakan plushie, pin enamel, dan kaus bordir — ketiganya tidak akan sampai
-tepat waktu. **Pin enamel bisa diganti pin peniti cetak (*button badge*)**
+tepat waktu. Standee bisa memakai ilustrasi onboarding yang sudah jadi, jadi
+tidak memakan waktu gambar sama sekali. **Pin enamel bisa diganti pin peniti cetak (*button badge*)**
 yang jadi dalam sehari dan harganya seperlima.
 
 ---

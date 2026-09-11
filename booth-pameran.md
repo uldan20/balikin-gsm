@@ -11,16 +11,17 @@ satu hal yang tidak dimiliki keduanya: **produknya bisa dicoba di tempat.**
 
 | # | Item | Ukuran | Est. biaya | Catatan |
 | --- | --- | --- | --- | --- |
-| D1 | **Backdrop** | 2 × 2,5 m | 150–250rb | Logo besar + tagline. Latar pola heksagon opasitas rendah |
+| D1 | **Backdrop** | 2 × 2,5 m | 150–250rb | Logo + *"Yang hilang, balik lagi. Karena kita saling jaga."* Latar pola heksagon opasitas rendah |
 | D2 | **Lampu strip / spot** | — | 50–150rb | Pembeda terbesar antara booth biasa dan booth yang "jadi". Booth referensi kedua memakai *backlight* di logo |
 | D3 | **Poster penelitian** | A1 | 40–70rb | Latar belakang · Metode · Proses · Temuan · Kesimpulan — susunan yang sama dengan booth referensi |
 | D4 | **X-banner** | 60 × 160 cm | 70–100rb | Alur app dalam 4 langkah, dipasang di sisi luar supaya menarik orang lewat |
-| D5 | **Standee maskot** | 120–160 cm | 150–300rb | *Print* + potong + kaki penyangga. Buat 2 kalau maskotnya sepasang |
+| D5 | **Standee adegan serah terima** | 120–160 cm | 150–300rb | Pakai ilustrasi onboarding yang sudah ada: dua warga menyerahkan tas. Tidak perlu menggambar apa pun yang baru |
 | D6 | **Taplak meja** | sesuai meja | 80–150rb | Logo di bagian yang menggantung ke depan |
 | D7 | **Riser / kotak susun** | 3 tinggi | 50–100rb | Kotak kardus dibungkus kertas teal. Meja datar terlihat berantakan; meja bertingkat terlihat ditata |
 | D8 | **Rak gantung hangtag** | — | 50–100rb | Untuk gantungan kunci & pin, seperti rak kawat di kedua booth referensi |
 | D9 | **Papan Legenda** | A2, papan tulis | 60–120rb | Papan peringkat pengunjung — lihat bagian interaksi |
 | D10 | **Papan Barang Hilang Pameran** | A3 | 30–50rb | Lihat bagian interaksi |
+| D11 | **Akrilik QRIS meja** | heksagon ±12 cm | 15–30rb | *"Tip masuk 100% ke kamu"* — memperagakan fitur tip. Tandai "peraga" kalau belum aktif |
 
 **Perkiraan perangkat booth: Rp 750rb – 1,5 juta**
 
@@ -30,8 +31,9 @@ satu hal yang tidak dimiliki keduanya: **produknya bisa dicoba di tempat.**
 
 ```
                     ┌─────────────────────────────────┐
-                    │  BACKDROP — logo besar + tagline │
-                    │  "Barangmu pulang."              │
+                    │  BACKDROP — logo + tagline       │
+                    │  "Yang hilang, balik lagi.       │
+                    │   Karena kita saling jaga."      │
                     └─────────────────────────────────┘
     [STANDEE]        ┌──────────┐ ┌──────────┐        [STANDEE]
      maskot          │ Papan    │ │ Papan    │         maskot
@@ -68,7 +70,8 @@ dalam 90 detik.
 
 1. Pengunjung mengambil satu barang dari **Kotak Barang Temuan** — kotak kayu
    atau keranjang rotan berisi barang "temuan": kunci, payung lipat, tumbler,
-   dompet bekas, kacamata. Tiap barang digantungi Tag Balikin ber-QR.
+   dompet bekas, kacamata. Tiap barang digantungi Tag Balikin ber-QR berkode
+   `BLK-P0xx`, persis seperti kode barang di aplikasi.
 2. **Pindai QR** dengan HP sendiri → membuka prototipe Balikin di halaman
    "Kamu menemukan barang ini".
 3. Jalankan alurnya: foto → pilih kategori → tandai lokasi → kirim.
@@ -109,7 +112,8 @@ sendiri.
 
 ### Sudut foto
 
-Standee maskot + tulisan timbul "Barangmu pulang." + tagar `#Balikin`.
+Standee adegan serah terima + tulisan timbul *"Yang hilang, balik lagi."*
++ tagar `#Balikin`.
 Kedua booth referensi punya sudut ini — itu yang mengubah pengunjung jadi
 penyebar.
 

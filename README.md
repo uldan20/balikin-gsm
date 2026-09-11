@@ -10,6 +10,10 @@ Dari repo [`uldan20/balikin`](https://github.com/uldan20/balikin):
 
 | Aset | Status | Masuk GSM di |
 | --- | --- | --- |
+| **Logo** — logogram heksagon + wordmark, sudah dipakai di splash, header, dan ikon aplikasi | Selesai, aturannya belum ditulis | Bab II |
+| **Tagline** — "Yang hilang, balik lagi. Karena kita saling jaga." | Selesai | Bab I & II |
+| **Gaya ilustrasi** — karakter warga, datar, hangat; teal · terakota · emas | Selesai, aturannya belum ditulis | Bab III |
+| **Rancangan aplikasi** — onboarding, peta, feed, pencarian, detail, profil, notifikasi | Selesai (WIP) | Bab IV |
 | Bahasa visual **Sudut Enam (Hexcut)** — kisi 60°, sudut dipangkas, sambungan mitre | Selesai | Bab III |
 | 98 ikon × 2 varian (garis & padat) = 196 komponen | Selesai | Bab III |
 | 76 file SVG mandiri + versi *tintable* | Selesai | Lampiran |
@@ -17,17 +21,37 @@ Dari repo [`uldan20/balikin`](https://github.com/uldan20/balikin):
 | Filosofi bentuk (6 prinsip) | Selesai | Bab II & III |
 | 5 Tingkat Komunitas, 9 Lencana Pencapaian, 13 Kategori Barang | Selesai | Bab III & IV |
 
-Sistem ikon adalah bagian GSM yang biasanya paling lama dikerjakan, dan itu
-sudah beres. Sisa pekerjaan terbesar ada di **logo** — belum ada sama sekali.
+Tidak ada jalur kritis yang menghambat produksi. Logo, tagline, gaya
+ilustrasi, dan seluruh rancangan aplikasi sudah jadi — yang tersisa adalah
+**menuliskan aturannya**, bukan merancang ulang.
 
 ## Yang belum ada
 
-1. **Logo** (logogram + wordmark + lockup) — jalur kritis, semua penerapan menunggu ini
-2. **Tipografi resmi** — typeface utama & sekunder, hierarki
-3. **Maskot / gaya ilustrasi** — untuk standee, plushie, dan stiker
-4. **Pola heksagon** (honeycomb pattern) untuk latar dan kemasan
-5. **Aturan pemakaian** — clear space, ukuran minimum, larangan
-6. **Penerapan** — stationery, social media, signage, merchandise
+1. **Aturan pemakaian logo** — clear space, ukuran minimum, konfigurasi, larangan
+2. **Tipografi resmi** — typeface utama & sekunder, hierarki, lisensi
+3. **Aturan kapan heksagon, kapan sudut membulat** — lihat catatan di `struktur-gsm.md`
+4. **Lembar karakter ilustrasi** — konstruksi, pose baku, ekspresi, larangan
+5. **Pola heksagon** (honeycomb pattern) untuk latar dan kemasan
+6. **Baku warna cetak** — konversi CMYK/Pantone dan uji kontras
+7. **Penerapan luar aplikasi** — stationery, signage, merchandise
+
+## Tiga hal yang perlu diselaraskan lebih dulu
+
+Ditemukan waktu membandingkan pustaka ikon dengan WIP rancangan aplikasi.
+Selesaikan sebelum GSM naik cetak, supaya manualnya tidak bertentangan dengan
+aplikasinya sendiri:
+
+1. **Nama tingkat komunitas.** `Tiers.tsx` menulis Warga Baru · Tetangga Baik ·
+   Penolong · Penjaga Kota · Legenda Balikin. Aplikasi menampilkan "Penolong
+   Andal", "Penjaga Kota", "Legenda Balikin", dan jenjang poin "Emas". Kunci
+   satu daftar — nama tingkat ini akan tercetak di gantungan kunci.
+2. **Nama kategori barang.** Pustaka ikon punya 13 kategori; onboarding
+   aplikasi menampilkan 8 (Tas & Dompet, Kunci, HP & Elektronik, Dokumen,
+   Kartu identitas, Hewan, Aksesoris, Lainnya) dan filter pencarian
+   menampilkan 10 (termasuk "Botol & bekal", "Perhiasan"). Samakan.
+3. **Nilai warna.** Palet aplikasi terlihat sedikit lebih hangat dan lebih tua
+   daripada `tokens` di `base.tsx`. Ambil nilai dari berkas rancangan, lalu
+   perbarui `tokens` — atau sebaliknya — tapi jangan biarkan dua sumber.
 
 ## Peta dokumen
 

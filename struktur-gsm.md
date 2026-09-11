@@ -25,11 +25,11 @@ sama sekali).
 | --- | --- | --- |
 | Latar belakang | Masalah barang hilang & rendahnya tingkat pengembalian | OLAH |
 | Visi & misi | | BARU |
-| Nilai merek | Usulan: **Jujur, Gotong royong, Aman, Tanpa drama** | BARU |
+| Nilai merek | Turunkan dari yang sudah dijanjikan aplikasi: **kepercayaan terukur** (rating, KTP terverifikasi, jumlah barang kembali), **tanpa potongan** ("Tip masuk 100% ke kamu"), **privasi penemu-pemilik**, **gotong royong warga** | OLAH |
 | Positioning | Bukan marketplace, bukan forum — *layanan pengembalian* | BARU |
 | Target audiens | Primer, sekunder, persona singkat | OLAH |
 | Kepribadian merek | Skala sifat (hangat↔formal, polos↔canggih) | BARU |
-| *Brand essence* | Satu kalimat. Usulan: **"Barangmu pulang."** | BARU |
+| *Brand essence* | Sudah ada di splash: **"Yang hilang, balik lagi. Karena kita saling jaga."** | OLAH |
 | Nada bicara | Contoh kalimat benar/salah untuk notifikasi & chat | BARU |
 
 > **Kenapa nada bicara penting di sini.** Balikin menangani orang yang sedang
@@ -41,40 +41,43 @@ sama sekali).
 
 ## Bab II — Identitas Utama / Logo (14–18 hal.)
 
-**Ini jalur kritis.** Semua bab sesudahnya menunggu logo final.
+**Logonya sudah ada** — logogram heksagon dengan simbol balik di dalamnya,
+berpasangan dengan wordmark "Balikin", sudah terpakai di splash, header
+`⬡ BALIKIN · SUKABUMI`, dan ikon aplikasi. Yang belum ada bukan bentuknya,
+tapi **aturan pemakaiannya**. Bab ini jadi pekerjaan mendokumentasikan, bukan
+merancang — jauh lebih cepat, dan tidak lagi menghambat produksi apa pun.
 
 | Halaman | Isi | Status |
 | --- | --- | --- |
-| Konsep & filosofi logo | Heksagon, panah balik, sarang lebah | BARU |
+| Konsep & filosofi logo | Heksagon, panah balik, sarang lebah — tulis alasannya, bentuknya sudah ada | OLAH |
 | Proses perancangan | Sketsa → digitalisasi → penyederhanaan (sertakan yang gagal) | BARU |
-| Konstruksi & grid | Logo dibangun di kisi 60° yang sama dengan ikon | BARU |
+| Proses perancangan | Sketsa → digitalisasi → penyederhanaan (sertakan yang tidak dipakai) | OLAH |
+| Konstruksi & grid | Ukur ulang logo yang sudah ada di kisi 60°, buktikan konsistensinya dengan ikon | OLAH |
 | Anatomi | Nama tiap bagian: logogram, wordmark, *lockup* | BARU |
 | Clear space | Satuan `x` = tinggi heksagon logogram | BARU |
 | Ukuran minimum | Cetak (mm) & digital (px), diuji betulan | BARU |
 | Konfigurasi | Horizontal, vertikal, logogram saja, wordmark saja | BARU |
-| Ikon aplikasi | Semua ukuran, *safe area*, versi adaptif Android | BARU |
+| Ikon aplikasi | Sudah ada versi utamanya — lengkapi semua ukuran, *safe area*, versi adaptif Android | OLAH |
 | Varian warna | Positif, negatif, monokrom, emas, satu warna | BARU |
 | Penempatan di latar | Terang, gelap, warna merek, foto ramai | BARU |
 | Larangan | Min. 12 contoh ✗ (diregang, diputar, dibayangi, diganti warna, dioutline, ditempel gradasi, dipakai sebagai pola, diganti font, ditambah efek, dipepet elemen lain, dipakai di latar kontras rendah, disusun ulang) | BARU |
-| Lockup dengan tagline | Jarak & perbandingan ukuran | BARU |
+| Lockup dengan tagline | "Yang hilang, balik lagi. Karena kita saling jaga." — jarak & perbandingan ukuran | OLAH |
 | Co-branding | Lockup dengan logo kampus/mitra, garis pemisah | BARU |
 
-> **Arah logo yang paling nyambung dengan aset yang sudah ada.** Repo ikon
-> sudah menetapkan heksagon sebagai wadah (tile kategori, avatar, tombol
-> lapor) dan menjelaskan sarang lebah sebagai metafora komunitas. Logo yang
-> lahir dari kisi itu akan terasa satu keluarga sejak halaman pertama.
-> Tiga arah yang layak dieksplorasi:
+> **Yang perlu ditulis, bukan dirancang.** Logo sudah dipakai di produk, jadi
+> pekerjaan Bab II adalah membedah yang sudah ada:
 >
-> 1. **Heksagon + panah balik** — panah yang melengkung kembali ke dalam sel.
->    Paling lugas membaca "balikin".
-> 2. **Dua sel bersandar** — dua heksagon yang berbagi satu sisi: yang
->    kehilangan dan yang menemukan. Paling dekat dengan filosofi di README.
-> 3. **Sel + titik emas** — heksagon berlubang dengan satu titik emas kembali
->    ke tengah: barang yang pulang ke tempatnya. Paling hemat bentuk, paling
->    aman di ukuran 16 px.
->
-> Apa pun yang dipilih, uji di 16 px sebelum dikunci — ikon aplikasi adalah
-> tempat logo ini paling sering dilihat.
+> 1. **Ukur konstruksinya.** Letakkan logogram di kisi 60° dan buktikan tiap
+>    sisinya jatuh di sumbu yang sama dengan 196 ikon Sudut Enam. Kalau ternyata
+>    tidak persis, ini saat terbaik membetulkannya — sebelum tercetak di akrilik.
+> 2. **Tetapkan `x`.** Pilih satu satuan (tinggi logogram, atau lebar sel
+>    heksagonnya) lalu turunkan clear space dan ukuran minimum darinya.
+> 3. **Uji 16 px.** Ikon aplikasi adalah tempat logo ini paling sering dilihat.
+>    Kalau simbol di dalam heksagon menggumpal, siapkan versi sederhana khusus
+>    ukuran kecil dan tulis kapan versi itu dipakai.
+> 4. **Kumpulkan larangannya dari kesalahan nyata**, bukan dari daftar umum —
+>    misalnya logo di atas foto ramai (ada di feed), logo di atas warna status
+>    merah/hijau, logo berdampingan dengan logo kampus.
 
 ## Bab III — Elemen Visual Pendukung (18–22 hal.)
 
@@ -97,10 +100,29 @@ sama sekali).
 | Larangan ikon | Jangan dibulatkan, jangan digradasi, jangan dicampur pustaka lain | OLAH |
 | Pola heksagon | Kerapatan, opasitas, kapan boleh dipakai sebagai latar | BARU |
 | Elemen grafis | Wadah heksagon, bidang chamfer, garis pemisah, bingkai | OLAH |
-| Maskot | Konstruksi, proporsi, pose baku, ekspresi, larangan | BARU |
-| Gaya ilustrasi | Garis, warna, tingkat detail | BARU |
+| **Heksagon vs sudut membulat** | Kapan pakai yang mana — lihat catatan di bawah | BARU |
+| Bingkai status | Bingkai hijau untuk DITEMUKAN, terakota untuk HILANG (sudah dipakai di detail barang) | OLAH |
+| Karakter ilustrasi | Konstruksi, proporsi, pose baku, ekspresi, larangan | OLAH |
+| Gaya ilustrasi | Datar, hangat, tanpa garis tepi; teal · terakota · emas | OLAH |
 | Fotografi | Tone, subjek, perlakuan, contoh ✓/✗ | BARU |
 | Grid & layout | Margin, kolom, modul heksagon | BARU |
+
+> **Aturan yang paling mendesak ditulis: kapan heksagon, kapan membulat.**
+> Pustaka ikon berkata "sudut dipangkas, tidak pernah dibulatkan" — tapi
+> aplikasinya penuh kartu, tombol, dan foto bersudut membulat. Keduanya tidak
+> bertentangan, mereka bekerja di lapis yang berbeda, dan itulah yang perlu
+> dinyatakan hitam di atas putih sebelum vendor salah menebak:
+>
+> | Lapis | Bentuk | Contoh di aplikasi |
+> | --- | --- | --- |
+> | **Tanda** — identitas, tingkat, penghargaan, tombol lapor | Heksagon, sudut tajam | Logogram, tombol lapor, lencana tingkat, tanda centang keberhasilan |
+> | **Wadah** — permukaan yang memuat isi | Sudut membulat | Kartu barang, foto, tombol biasa, kolom isian, *sheet* |
+> | **Gambar** — ikon di dalam wadah | Kisi 60°, chamfer, mitre | 196 ikon Sudut Enam |
+>
+> Tanpa halaman ini, orang berikutnya yang memakai GSM akan membulatkan
+> heksagonnya atau menajamkan kartunya — dua-duanya merusak sistem. Ini juga
+> jawaban untuk penguji yang bertanya kenapa ikonnya bersudut tapi antarmukanya
+> tidak.
 
 > **Warna sudah hampir jadi.** `src/icons/hexcut/base.tsx` mengekspor objek
 > `tokens` berisi 12 warna yang sudah dipakai konsisten di seluruh pustaka.
@@ -108,24 +130,31 @@ sama sekali).
 > Jangan ubah nilai HEX-nya — 196 komponen dan 196 file SVG sudah terlanjur
 > memakainya.
 
-> **Maskot — keputusan yang masih terbuka.** Tiga arah, pilih satu sebelum
-> produksi merchandise dimulai:
+> **Maskot — pertanyaannya sudah terjawab oleh aplikasinya sendiri.** Layar
+> onboarding sudah memakai karakter warga: dua perempuan menyerahkan tas dengan
+> hati di antaranya, dan satu karakter mengangkat lencana heksagon emas. Datar,
+> hangat, tanpa garis tepi, berpalet teal–terakota–emas. **Itu maskotnya.**
 >
-> | Arah | Isi | Cocok untuk | Risiko |
-> | --- | --- | --- | --- |
-> | **A. Lebah** | Satu lebah pengantar; menyambung metafora sarang lebah di README | Plushie, standee, logo sekunder | Lebah sudah dipakai banyak merek |
-> | **B. Warga heksagon** | Karakter manusia mengikuti 5 Tingkat Komunitas | Standee, papan peringkat, sistem tingkat | Butuh 5 desain sekaligus |
-> | **C. Keluarga Barang Hilang** | Kunci, payung, tumbler, dompet, kacamata yang hidup — "barang juga pengin pulang" | Plushie, stiker, komik pendek, gantungan | Gaya wajah harus dijembatani ke ikon yang bersudut |
+> Jangan mengarang *cast* baru untuk pameran. Yang perlu dikerjakan justru
+> sebaliknya — **mengangkat yang sudah ada jadi sistem**:
 >
-> **Rekomendasi: C, dengan A sebagai elemen sistem.** Arah C langsung lahir
-> dari 13 Kategori Barang yang sudah ada, menghasilkan satu *cast* untuk
-> merchandise tanpa mengarang konsep baru, dan memberi pameran sisi emosional
-> yang tidak dimiliki ikon geometris. Heksagon/sarang tetap jadi wadah dan
-> pola sistemnya. Konsekuensinya, GSM perlu satu halaman khusus yang
-> menjelaskan **bagaimana gaya maskot yang bulat dan ramah bisa hidup
-> berdampingan dengan ikon yang bersudut tajam** — jawabannya: maskot memakai
-> siluet bersudut yang sama tapi diberi wajah, dan tidak pernah tampil di
-> dalam komponen UI.
+> 1. **Beri nama dan lembar karakter.** 2–3 karakter, masing-masing 1 pose baku
+>    + 3 pose pendukung + 4 ekspresi. Tanpa ini, ilustrasi berikutnya akan
+>    terlihat digambar orang lain.
+> 2. **Adegan serah terima adalah adegan kuncinya.** Dua orang, satu tas, satu
+>    hati. Itu inti emosional seluruh produk dan langsung jadi **standee booth**
+>    tanpa menggambar ulang apa pun.
+> 3. **Untuk barang koleksi, pakai heksagon — bukan karakter.** Lencana
+>    heksagon dan 5 Tingkat Komunitas sudah jadi sistem yang rapi. Karakter
+>    manusia sulit jadi plushie yang enak dilihat; **lencana heksagon jauh lebih
+>    mudah** dan tetap terbaca sebagai Balikin.
+>
+> Konsekuensi untuk GSM: satu halaman yang menjelaskan **bagaimana ilustrasi
+> yang bulat dan hangat hidup berdampingan dengan ikon yang bersudut tajam.**
+> Jawabannya sudah terlihat di aplikasi — dua lapis yang berbeda peran:
+> ilustrasi untuk bercerita (onboarding, keadaan kosong, keberhasilan), ikon
+> untuk bekerja (navigasi, status, kategori). Ilustrasi tidak pernah masuk ke
+> dalam komponen UI, ikon tidak pernah dipakai bercerita. Tulis aturan itu.
 
 ## Bab IV — Penerapan Identitas (16–20 hal.)
 
@@ -159,14 +188,19 @@ sama sekali).
 
 Kerjakan menurun — tiap langkah memakai hasil langkah sebelumnya.
 
-1. **Logo** (Bab II) — semua menunggu ini. Kunci dulu sebelum apa pun dicetak.
-2. **Tipografi + baku warna cetak** (Bab III) — cepat, sekali duduk.
-3. **Maskot & gaya ilustrasi** (Bab III) — penentu seluruh merchandise.
-4. **Pola & elemen grafis** (Bab III) — bahan latar untuk semua penerapan.
-5. **Penerapan** (Bab IV) — kerjakan yang dipakai di pameran lebih dulu:
-   backdrop → X-banner → hangtag → merchandise → stationery.
-6. **Bab I & Bab 0** — tulis terakhir, waktu isinya sudah kelihatan semua.
-7. **Lampiran** — sekali *sweep* di akhir.
+1. **Selaraskan tiga hal yang bentrok** (nama tingkat, nama kategori, nilai
+   warna — lihat `README.md`). Cepat, dan menentukan apa yang tercetak.
+2. **Baku warna cetak + tipografi** (Bab III) — ambil nilainya dari berkas
+   rancangan aplikasi, bukan dari layar.
+3. **Aturan heksagon vs membulat** (Bab III) — satu halaman, dampaknya besar.
+4. **Bedah logo & tulis aturannya** (Bab II) — mengukur, bukan merancang.
+5. **Lembar karakter ilustrasi** (Bab III) — angkat yang sudah ada jadi sistem.
+6. **Pola & elemen grafis** (Bab III) — bahan latar untuk semua penerapan.
+7. **Penerapan** (Bab IV) — kerjakan yang dipakai di pameran lebih dulu:
+   backdrop → X-banner → hangtag → merchandise → stationery. Layar aplikasi
+   yang sudah jadi tinggal difoto ke *mockup*; ini bagian termurah sekarang.
+8. **Bab I & Bab 0** — tulis terakhir, waktu isinya sudah kelihatan semua.
+9. **Lampiran** — sekali *sweep* di akhir.
 
 ## Bentuk akhir GSM
 
