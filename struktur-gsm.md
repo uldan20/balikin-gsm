@@ -87,6 +87,8 @@ merancang — jauh lebih cepat, dan tidak lagi menghambat produksi apa pun.
 | Palet sekunder | `#34A28F` `#15655B` `#12564D` `#F3D77C` | OLAH |
 | Palet netral | `#FBF8F3` `#F1ECE3` `#A99F90` `#211C16` | OLAH |
 | Warna semantik | Hilang `#BC5A3C` · Ditemukan · Sudah kembali · Ditolak | OLAH |
+| **Tangga warna tingkat** | Krem → mint → teal → terakota → emas. Lima langkah, sudah dipakai di layar Tingkat & Poin | OLAH |
+| Warna hasil verifikasi | Teal "cocok" · amber "belum meyakinkan" · terakota "tidak cocok" | OLAH |
 | Perbandingan warna | Aturan 60-30-10, contoh komposisi benar/salah | BARU |
 | Kontras & aksesibilitas | Uji WCAG AA teks di atas tiap warna | BARU |
 | Tipografi utama | Typeface, berat, contoh kalimat, lisensi | BARU |
@@ -123,6 +125,13 @@ merancang — jauh lebih cepat, dan tidak lagi menghambat produksi apa pun.
 > heksagonnya atau menajamkan kartunya — dua-duanya merusak sistem. Ini juga
 > jawaban untuk penguji yang bertanya kenapa ikonnya bersudut tapi antarmukanya
 > tidak.
+
+> **Tangga warna tingkat adalah palet kelima yang belum tercatat.** Layar
+> Tingkat & Poin menaikkan warna bersama tingkatnya: **Warga Baru** krem,
+> **Tetangga Baik** mint, **Penolong** teal, **Penjaga Kota** terakota, **Legenda
+> Balikin** emas. Itu skala semantik lima langkah yang berdiri sendiri — bukan
+> palet primer, bukan warna status — dan harus punya halamannya sendiri di GSM,
+> lengkap dengan nilai cetaknya. Tali gantungan kunci mengambil warna dari sini.
 
 > **Warna sudah hampir jadi.** `src/icons/hexcut/base.tsx` mengekspor objek
 > `tokens` berisi 12 warna yang sudah dipakai konsisten di seluruh pustaka.

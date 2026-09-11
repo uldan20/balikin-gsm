@@ -41,10 +41,12 @@ Ditemukan waktu membandingkan pustaka ikon dengan WIP rancangan aplikasi.
 Selesaikan sebelum GSM naik cetak, supaya manualnya tidak bertentangan dengan
 aplikasinya sendiri:
 
-1. **Nama tingkat komunitas.** `Tiers.tsx` menulis Warga Baru · Tetangga Baik ·
-   Penolong · Penjaga Kota · Legenda Balikin. Aplikasi menampilkan "Penolong
-   Andal", "Penjaga Kota", "Legenda Balikin", dan jenjang poin "Emas". Kunci
-   satu daftar — nama tingkat ini akan tercetak di gantungan kunci.
+1. **Bentuk lencana tingkat.** Namanya sudah cocok — layar Tingkat & Poin
+   memakai persis lima nama di `Tiers.tsx`. Yang belum cocok adalah **wadahnya**.
+   README pustaka ikon menjanjikan heksagon terputus → kotak → heksagon utuh →
+   perisai → letusan 12 sudut; aplikasi memakai cincin → persegi membulat
+   berhati → heksagon berlian → perisai-bintang → letusan emas. Gantungan kunci
+   akan dicetak dari salah satunya, jadi kunci dulu yang mana.
 2. **Nama kategori barang.** Pustaka ikon punya 13 kategori; onboarding
    aplikasi menampilkan 8 (Tas & Dompet, Kunci, HP & Elektronik, Dokumen,
    Kartu identitas, Hewan, Aksesoris, Lainnya) dan filter pencarian

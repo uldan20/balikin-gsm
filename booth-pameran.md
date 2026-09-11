@@ -22,8 +22,10 @@ satu hal yang tidak dimiliki keduanya: **produknya bisa dicoba di tempat.**
 | D9 | **Papan Legenda** | A2, papan tulis | 60–120rb | Papan peringkat pengunjung — lihat bagian interaksi |
 | D10 | **Papan Barang Hilang Pameran** | A3 | 30–50rb | Lihat bagian interaksi |
 | D11 | **Akrilik QRIS meja** | heksagon ±12 cm | 15–30rb | *"Tip masuk 100% ke kamu"* — memperagakan fitur tip. Tandai "peraga" kalau belum aktif |
+| D12 | **Panel Ciri Rahasia** | A2 | 60–120rb | Bidang paling penting di booth. Lihat bagian interaksi |
+| D13 | **Peta Titik Aman Sukabumi** | A3 | 30–50rb | Balai Kota, Pos Polisi Cikole, Kafe Ruang Temu — membuat proyeknya terbaca sebagai rancangan untuk kota nyata |
 
-**Perkiraan perangkat booth: Rp 750rb – 1,5 juta**
+**Perkiraan perangkat booth: Rp 855rb – 1,7 juta**
 
 ---
 
@@ -35,11 +37,11 @@ satu hal yang tidak dimiliki keduanya: **produknya bisa dicoba di tempat.**
                     │  "Yang hilang, balik lagi.       │
                     │   Karena kita saling jaga."      │
                     └─────────────────────────────────┘
-    [STANDEE]        ┌──────────┐ ┌──────────┐        [STANDEE]
-     maskot          │ Papan    │ │ Papan    │         maskot
-     kiri            │ Legenda  │ │ Barang   │         kanan
-                     │          │ │ Hilang   │
-                     └──────────┘ └──────────┘
+    [STANDEE]     ┌─────────┐┌─────────┐┌─────────┐   [STANDEE]
+     serah        │ Panel   ││ Papan   ││ Papan   │    serah
+     terima       │ CIRI    ││ Legenda ││ Barang  │    terima
+     kiri         │ RAHASIA ││         ││ Hilang  │    kanan
+                  └─────────┘└─────────┘└─────────┘
     ╔════════════════════════════════════════════════════════╗
     ║  RISER TINGGI   tumbler · payung · tote · buku GSM      ║
     ║  RISER SEDANG   notes · mug · lap kacamata · plushie    ║
@@ -51,8 +53,8 @@ satu hal yang tidak dimiliki keduanya: **produknya bisa dicoba di tempat.**
     ║   │ TEMUAN    │   │ (charger)│   └──────────────────┘  ║
     ║   └───────────┘   └──────────┘                          ║
     ╚════════════════════════════════════════════════════════╝
-             [RAK HANGTAG]                  [POSTER A1]
-          gantungan kunci & pin            di samping/di belakang
+             [RAK HANGTAG]      [PETA TITIK AMAN]    [POSTER A1]
+          gantungan kunci & pin        A3          di samping/di belakang
 ```
 
 **Aturan penataan:** tiga tinggi, tiga zona. Zona kiri untuk **dicoba**
@@ -76,9 +78,14 @@ dalam 90 detik.
    "Kamu menemukan barang ini".
 3. Jalankan alurnya: foto → pilih kategori → tandai lokasi → kirim.
 4. Layar menampilkan **"Barang berhasil dibalikin"** + lencana *Balik Pertama*.
-5. Tunjukkan layarnya ke penjaga booth → tukar dengan paket giveaway + satu
-   gantungan Tingkat Komunitas acak.
-6. Tulis nama depan di **Papan Legenda**, lengkap dengan tingkat yang didapat.
+5. **Tutup lingkarannya dengan kode serah terima.** Penjaga booth menunjukkan
+   kode empat huruf di layarnya (mekanik `4K7Q` yang sudah ada di aplikasi).
+   Pengunjung mencocokkan kode itu di layarnya sendiri, lalu barangnya
+   "diserahkan". Ini langkah yang paling diingat orang — dan langkah yang paling
+   dekat dengan cara app-nya benar-benar bekerja.
+6. Tukar dengan paket giveaway + satu gantungan Tingkat Komunitas acak +
+   **Kartu Pencapaian** yang ditulisi nama dan tingkat mereka.
+7. Tulis nama depan di **Papan Legenda**, lengkap dengan tingkat yang didapat.
 
 **Kenapa ini bekerja untuk sidang.** Dalam satu interaksi, penguji melihat
 langsung: alur pemindaian, alur pelaporan, kategori barang, sistem lencana,
@@ -109,6 +116,32 @@ bukti lapangan bahwa masalah yang diangkat itu nyata.
 Papan peringkat pengunjung. Nama depan + tingkat yang didapat. Memperagakan
 sistem tingkat komunitas, dan membuat orang memotret booth untuk mencari nama
 sendiri.
+
+### Panel "Ciri Rahasia" — bidang yang wajib ada
+
+Satu papan A2 khusus menjelaskan fitur yang paling layak dipertahankan di
+sidang, dan satu-satunya yang tidak bisa diperagakan lewat merchandise:
+
+> Pelapor mengunci satu ciri yang **tidak difoto** — isi kantong dalam, goresan
+> di sudut, jumlah kartu. AI menyusun tiga pertanyaan dari ciri itu, menilai
+> jawaban pengklaim, lalu menampilkannya berdampingan dengan catatan pelapor.
+> **Keputusan akhir tetap di tangan pemilik, bukan mesin.**
+
+Tampilkan tiga layar berdampingan: pertanyaan AI → jawaban pengklaim →
+hasil "cocok 3 dari 3". Beri satu kalimat besar di atasnya: *"Bagaimana Balikin
+membedakan pemilik asli dari pengaku-ngaku."*
+
+Kalau ada satu papan yang dibaca penguji sampai habis, ini papannya.
+
+### Peta Titik Aman Sukabumi
+
+Peta cetak kecil (A3) berisi titik serah terima yang disarankan aplikasi —
+Balai Kota Sukabumi, Pos Polisi Cikole, Kafe Ruang Temu — ditandai dengan
+keterangan seperti di aplikasi: jarak, jam buka, ada/tidaknya CCTV.
+
+Murah, dan gunanya besar: peta itu membuat proyeknya terbaca sebagai rancangan
+untuk **kota yang nyata**, bukan aplikasi yang bisa ada di mana saja. Penguji
+dari Sukabumi akan langsung mengenali tempatnya.
 
 ### Sudut foto
 

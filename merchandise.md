@@ -50,7 +50,7 @@ cukup untuk booth yang utuh.**
 
 ### Tingkat A — Wajib ada
 
-Tanpa lima ini booth terasa kosong dan demonya tidak jalan.
+Tanpa keenam ini booth terasa kosong dan demonya tidak jalan.
 
 | # | Item | Kenapa wajib | Jumlah | Est. satuan | Est. total |
 | --- | --- | --- | --- | --- | --- |
@@ -59,8 +59,9 @@ Tanpa lima ini booth terasa kosong dan demonya tidak jalan.
 | A3 | **Stiker heksagon** — lembar A3 isi 12–16 | Termurah, paling cepat habis, penanda laptop & tumbler | 40 lembar | 15–25rb | 600rb–1jt |
 | A4 | **Gantungan kunci akrilik** — 5 Tingkat Komunitas | Mekanik koleksi, memancing orang balik lagi ke booth | 100 (20×5) | 7–15rb | 700rb–1,5jt |
 | A5 | **Tumbler** — kategori barang paling sering hilang | Item pajangan besar, isi foto utama poster | 12–20 | 35–60rb | 420rb–1,2jt |
+| A6 | **Kartu Pencapaian** — 10 × 15 cm, artcarton 260gr | Bentuknya datang dari layar "Bagikan pencapaian" di aplikasi. Hadiah penutup demo | 100 | 3–6rb | 300–600rb |
 
-**Perkiraan Tingkat A: Rp 3,5 – 7 juta**
+**Perkiraan Tingkat A: Rp 3,8 – 7,6 juta**
 
 ### Tingkat B — Sangat menolong
 
@@ -140,13 +141,18 @@ serius.
 Lima tingkat yang sudah ada di `Tiers.tsx`, bentuk wadahnya sudah naik
 bertingkat dari heksagon terputus sampai letusan 12 sudut:
 
-| Tingkat | Ikon | Warna tali |
-| --- | --- | --- |
-| Warga Baru | `TierNew` | Netral `#A99F90` |
-| Tetangga Baik | `TierNeighbor` | Teal muda `#34A28F` |
-| Penolong | `TierHelper` | Teal `#1B7A6E` |
-| Penjaga Kota | `TierGuardian` | Teal tua `#15655B` |
-| Legenda Balikin | `TierLegend` | Emas `#C8952E` |
+Warna talinya **jangan dikarang** — aplikasi sudah punya tangga warnanya di
+layar Tingkat & Poin, dan tangga itu naik bersama tingkatnya:
+
+| Tingkat | Ambang poin | Warna di aplikasi | Warna tali |
+| --- | --- | --- | --- |
+| Warga Baru | 0 – 150 PN | Krem / putih tulang | Krem |
+| Tetangga Baik | 150 – 400 PN | Mint | Mint |
+| Penolong | 400 – 900 PN | Teal | Teal `#1B7A6E` |
+| Penjaga Kota | 900 – 2.000 PN | Terakota / tembaga | Terakota `#BC5A3C` |
+| Legenda Balikin | 2.000 PN ke atas | Emas | Emas `#C8952E` |
+
+Ambil nilai tepatnya dari berkas rancangan, bukan dari daftar ini.
 
 Bagikan **acak** ("gacha") — pengunjung yang mendapat Warga Baru akan bertanya
 bagaimana caranya naik tingkat, dan pertanyaan itu adalah pintu masuk untuk
@@ -167,6 +173,24 @@ Susun tiga tingkat hadiah supaya penjaga booth tidak bingung siapa dapat apa:
 | **Lewat** | 1 stiker | Siapa pun yang mampir |
 | **Ikut demo** | Stiker + Kartu Balikin + 1 gantungan acak | Yang menyelesaikan alur di prototipe |
 | **Penguji & dosen** | Tote bag berisi Tag Balikin premium (kuningan), tumbler, notes, pin, dan buku GSM | Siapkan 5–8 set, susun rapi |
+
+### Kartu Pencapaian — merchandise yang sudah ada di dalam aplikasi
+
+Aplikasi punya layar **"Bagikan pencapaian"**: kartu bergambar lencana, nama,
+jumlah poin, dan jumlah barang dikembalikan, lengkap dengan tautan
+`balikin.id/u/<nama>` dan sakelar "Tampilkan nama" / "Tampilkan statistik".
+Itu **merchandise yang sudah dirancang** — tinggal dicetak.
+
+Untuk pameran, buat versinya di atas kertas: kartu ukuran pos (10 × 15 cm),
+artcarton 260gr, satu sisi penuh gambar lencana, sisi lain kosong untuk ditulis
+tangan. Pengunjung yang menyelesaikan demo mendapat kartunya, ditulisi nama dan
+tingkat yang mereka capai, lalu difoto di sudut foto.
+
+Biaya 3–6rb per kartu untuk 100 buah, dan hasilnya lebih dekat ke produk
+daripada gantungan kunci mana pun — karena bentuknya memang datang dari
+aplikasinya sendiri. Kalau ada anggaran lebih dan mau tampil mengesankan, cetak
+lewat printer instax/termal di meja supaya kartunya keluar di depan mata
+pengunjung.
 
 ### Satu item yang belum masuk daftar: kartu QRIS meja
 
@@ -194,3 +218,26 @@ kekurangan anggaran:
 - **Merchandise hewan peliharaan** (kalung ber-QR) — nilainya kuat dan sangat
   nyambung dengan kategori "Hewan", tapi keselamatan hewan butuh uji bahan
   sendiri. Simpan sebagai **rekomendasi pengembangan** di bab penutup laporan.
+
+## Catatan: merchandise bukan bagian terkuat proyek ini
+
+Setelah melihat alur lengkap aplikasinya, ini perlu dikatakan terus terang.
+Yang paling layak dipertahankan di sidang bukan tote bag atau gantungan kunci,
+tapi tiga keputusan rancang di dalam produknya:
+
+1. **Ciri rahasia.** Pelapor mengunci satu ciri yang tidak difoto; AI menyusun
+   tiga pertanyaan darinya; jawaban pengklaim dinilai lalu ditampilkan
+   berdampingan — dan **keputusan akhir tetap di tangan pemilik.** Itu jawaban
+   untuk masalah terberat lost & found (klaim palsu) yang tidak diselesaikan
+   dengan menambah tombol.
+2. **Titik aman serah terima.** Menyarankan lokasi ramai ber-CCTV, dengan kode
+   serah terima empat huruf yang harus dicocokkan di lokasi. Keselamatan
+   dirancang, bukan diserahkan ke pengguna.
+3. **Tip tanpa potongan.** "Tip masuk 100% ke penolong" adalah pendirian, dan
+   pendirian yang bisa dipertanyakan penguji dari sisi model bisnis — justru
+   itu yang membuatnya menarik untuk dibahas.
+
+Merchandise bekerja untuk **menarik orang ke meja**. Tiga hal di atas yang
+membuat mereka bertahan dan membuat penguji terkesan. Pastikan ada bidang di
+booth yang menjelaskan ketiganya — jangan sampai meja penuh barang tapi tidak
+ada satu pun panel yang menerangkan ciri rahasia.
