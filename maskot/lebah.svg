@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Lebah Sarang — maskot Balikin">
+  <defs><clipPath id="badanLebah"><ellipse cx="100" cy="122" rx="46" ry="40"/></clipPath></defs>
+  <ellipse cx="58" cy="72" rx="30" ry="17" fill="#CFE6E0" transform="rotate(-28 58 72)"/>
+  <ellipse cx="142" cy="72" rx="30" ry="17" fill="#CFE6E0" transform="rotate(28 142 72)"/>
+  <ellipse cx="100" cy="122" rx="46" ry="40" fill="#C8952E"/>
+  <g clip-path="url(#badanLebah)">
+    <path d="M40 102h120v15H40z" fill="#211C16" opacity=".82"/>
+    <path d="M40 130h120v15H40z" fill="#211C16" opacity=".82"/>
+  </g>
+  <path d="M86 38q-6-14 2-20" stroke="#211C16" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M114 38q6-14-2-20" stroke="#211C16" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <circle cx="88" cy="17" r="5" fill="#211C16"/>
+  <circle cx="112" cy="17" r="5" fill="#211C16"/>
+  <circle cx="100" cy="64" r="32" fill="#C8952E"/>
+  <ellipse cx="74" cy="72" rx="8" ry="5" fill="#BC5A3C" opacity=".3"/>
+  <ellipse cx="126" cy="72" rx="8" ry="5" fill="#BC5A3C" opacity=".3"/>
+  <circle cx="88" cy="60" r="6.5" fill="#211C16"/>
+  <circle cx="112" cy="60" r="6.5" fill="#211C16"/>
+  <path d="M91 76q9 9 18 0" stroke="#211C16" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M62 132L82 148" stroke="#A87722" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M138 132L118 148" stroke="#A87722" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M100 132L119 143V165L100 176L81 165V143Z" fill="#1B7A6E"/>
+  <circle cx="100" cy="154" r="5" fill="#F3D77C"/>
+</svg>

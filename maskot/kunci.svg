@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Kunci — maskot Barang Bertag Balikin">
+  <path d="M66 66L34 84" stroke="#A87722" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M134 66L166 84" stroke="#A87722" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M91 92h18v84H91z" fill="#C8952E"/>
+  <path d="M109 134h18v13h-18z" fill="#C8952E"/>
+  <path d="M109 154h13v13h-13z" fill="#C8952E"/>
+  <path d="M100 20L134.6 40V80L100 100L65.4 80V40Z" fill="#C8952E"/>
+  <ellipse cx="76" cy="70" rx="8" ry="5" fill="#BC5A3C" opacity=".3"/>
+  <ellipse cx="124" cy="70" rx="8" ry="5" fill="#BC5A3C" opacity=".3"/>
+  <circle cx="88" cy="56" r="6.5" fill="#211C16"/>
+  <circle cx="112" cy="56" r="6.5" fill="#211C16"/>
+  <path d="M91 73q9 9 18 0" stroke="#211C16" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M100 20q22-6 30 6" stroke="#15655B" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M134 22L146 29V43L134 50L122 43V29Z" fill="#1B7A6E"/>
+  <circle cx="134" cy="36" r="3.5" fill="#C8952E"/>
+</svg>
