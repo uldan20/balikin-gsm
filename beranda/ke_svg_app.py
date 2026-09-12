@@ -15,12 +15,15 @@ KET = 'Satuan piksel logis. Huruf: Archivo, Plus Jakarta Sans.'
 
 # ekstraktor memakai lebar badan halaman, jadi ukuran artboard ditulis di sini
 BERKAS = [
-  ('Main', 'Balikin — Beranda hub, kartu ketiga reputasi', 'beranda-a-reputasi', 384, 844),
-  ('BerandaB', 'Balikin — Beranda hub, kartu ketiga jelajahi', 'beranda-b-jelajahi', 384, 844),
-  ('Kartu1', 'Balikin — Kartu 1 Barang di sekitarmu', 'kartu-1-barang-di-sekitarmu', 390, 254),
-  ('Kartu2', 'Balikin — Kartu 2 Mau lapor apa hari ini', 'kartu-2-lapor', 390, 162),
-  ('Kartu3A', 'Balikin — Kartu 3A Reputasimu', 'kartu-3a-reputasi', 390, 254),
-  ('Kartu3B', 'Balikin — Kartu 3B Jelajahi peta', 'kartu-3b-jelajahi', 390, 254),
+  ('Main', 'Balikin — Beranda A: lapor terang + reputasi', 'beranda-a-reputasi', 384, 844),
+  ('BerandaB', 'Balikin — Beranda B: lapor teal + pintu jelajahi', 'beranda-b-jelajahi', 384, 844),
+  ('BerandaC', 'Balikin — Beranda C: versi kartu peta', 'beranda-c-peta', 384, 844),
+  ('Kartu1', 'Balikin — Kartu 1 Barang di sekitarmu', 'kartu-1-barang-di-sekitarmu', 390, 272),
+  ('Kartu2A', 'Balikin — Kartu 2A Lapor, versi terang', 'kartu-2a-lapor-terang', 390, 180),
+  ('Kartu2B', 'Balikin — Kartu 2B Lapor, versi teal', 'kartu-2b-lapor-teal', 390, 180),
+  ('Kartu3A', 'Balikin — Kartu 3A Reputasimu', 'kartu-3a-reputasi', 390, 248),
+  ('Kartu3C', 'Balikin — Kartu 3C Pintu ke halaman Jelajahi', 'kartu-3c-pintu-jelajahi', 390, 248),
+  ('Kartu3B', 'Balikin — Kartu 3B Jelajahi peta (disimpan)', 'kartu-3b-jelajahi-peta', 390, 248),
 ]
 
 if __name__ == '__main__':

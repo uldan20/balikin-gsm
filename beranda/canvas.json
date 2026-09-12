@@ -14,39 +14,63 @@
       "y": 0,
       "w": 384,
       "h": 844,
-      "title": "Beranda B · kartu jelajahi"
+      "title": "Beranda B · lapor teal + jelajahi"
+    },
+    {
+      "file": "BerandaC.dc.html",
+      "x": 940,
+      "y": 0,
+      "w": 384,
+      "h": 844,
+      "title": "Beranda C · versi peta"
     },
     {
       "file": "Kartu1.dc.html",
-      "x": 940,
+      "x": 1410,
       "y": 0,
       "w": 390,
-      "h": 254,
+      "h": 272,
       "title": "Kartu 1 · Barang di sekitarmu"
     },
     {
-      "file": "Kartu2.dc.html",
-      "x": 940,
+      "file": "Kartu2A.dc.html",
+      "x": 1410,
       "y": 340,
       "w": 390,
-      "h": 162,
-      "title": "Kartu 2 · Lapor"
+      "h": 180,
+      "title": "Kartu 2A · Lapor terang"
+    },
+    {
+      "file": "Kartu2B.dc.html",
+      "x": 1410,
+      "y": 560,
+      "w": 390,
+      "h": 180,
+      "title": "Kartu 2B · Lapor teal"
     },
     {
       "file": "Kartu3A.dc.html",
-      "x": 940,
-      "y": 620,
+      "x": 1410,
+      "y": 780,
       "w": 390,
-      "h": 254,
+      "h": 248,
       "title": "Kartu 3A · Reputasi"
     },
     {
-      "file": "Kartu3B.dc.html",
-      "x": 940,
-      "y": 900,
+      "file": "Kartu3C.dc.html",
+      "x": 1410,
+      "y": 1060,
       "w": 390,
-      "h": 254,
-      "title": "Kartu 3B · Jelajahi"
+      "h": 248,
+      "title": "Kartu 3C · Pintu Jelajahi"
+    },
+    {
+      "file": "Kartu3B.dc.html",
+      "x": 1410,
+      "y": 1340,
+      "w": 390,
+      "h": 248,
+      "title": "Kartu 3B · Peta (disimpan)"
     }
   ],
   "annotations": [

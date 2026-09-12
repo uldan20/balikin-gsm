@@ -13,9 +13,10 @@ import os, json
 from kit_app import *
 
 KX, KW = 22, 340                      # kotak kosong di berkas beranda
-K1Y, K1H = 128, 214
-K2Y, K2H = 362, 122
-K3Y, K3H = 508, 214
+JARAK = 16                            # antar kartu dan ke panel navigasi
+K1Y, K1H = 128, 232
+K2Y, K2H = 376, 140
+K3Y, K3H = 532, 208                   # 532 + 208 = 740, tombol navigasi mulai 756
 
 # =============================================================== kartu 1
 def folder_svg():
@@ -38,19 +39,19 @@ def folder_svg():
         return '<g' + t + ' filter="url(#bay)">' + isi + '</g>'
 
     catatan = ('<g transform="rotate(-8 228 42)" filter="url(#bay)">'
-               '<rect x="172" y="4" width="112" height="76" rx="12" fill="#FFFFFF"/>'
+               '<rect x="172" y="4" width="118" height="82" rx="12" fill="#FFFFFF"/>'
                '<text x="184" y="24" font-family="' + AR + '" font-size="9" font-weight="700" '
                'letter-spacing="1" fill="' + TINTA + '">DI SEKITARMU</text>'
                '<rect x="184" y="32" width="88" height="1" fill="#E4E0D6"/>')
     baris = [('Dompet kulit cokelat', TERRA), ('Kunci motor', EMAS), ('Kartu pelajar', TEAL)]
     for i, (t, c) in enumerate(baris):
-        yy = 46 + i * 14
+        yy = 48 + i * 15
         catatan += ('<rect x="184" y="' + str(yy - 5) + '" width="5" height="5" rx="2" fill="' + c + '"/>'
                     '<text x="195" y="' + str(yy) + '" font-family="' + PJ + '" font-size="8" '
                     'fill="#5C7A72">' + t + '</text>')
     catatan += '</g>'
 
-    return ('<svg width="340" height="152" viewBox="0 0 340 152" fill="none" '
+    return ('<svg width="340" height="170" viewBox="0 0 340 170" fill="none" '
             'style="display:block;position:absolute;left:0;bottom:-4px">'
             '<defs>'
             '<filter id="bay" x="-40%" y="-40%" width="180%" height="180%">'
@@ -58,40 +59,86 @@ def folder_svg():
             + grad('f1', '#D9713F', TERRA) + grad('f2', '#E9BC5A', EMAS)
             + grad('f3', '#A8DFCE', '#7CC3AE') + grad('f4', '#F2ECE0', '#DDD5C6')
             + grad('f5', '#2E9A7C', TEAL_G) + '</defs>'
-            + folder('f1', 8, 66, 100, 74, -17, '#B04A22')
-            + folder('f4', 232, 66, 100, 74, 17, '#C9C0AE')
-            + folder('f2', 48, 52, 108, 80, -10, '#C99A2C')
-            + folder('f3', 182, 52, 108, 80, 10, '#5FB29A')
-            + folder('f5', 102, 62, 134, 94, -2, '#0B463A', '42', 26)
+            + folder('f1', 4, 74, 108, 80, -17, '#B04A22')
+            + folder('f4', 228, 74, 108, 80, 17, '#C9C0AE')
+            + folder('f2', 44, 58, 116, 86, -10, '#C99A2C')
+            + folder('f3', 180, 58, 116, 86, 10, '#5FB29A')
+            + folder('f5', 98, 68, 144, 102, -2, '#0B463A', '42', 28)
             + catatan
             + '</svg>')
 
 def kartu1(x=KX, y=K1Y, w=KW, h=K1H):
     return kartu(x, y, w, h,
-                 judul_kartu('Barang di sekitarmu', '42 barang menunggu pemiliknya', 20, ukuran=18)
+                 judul_kartu('Barang di sekitarmu', '42 barang menunggu pemiliknya', 22, ukuran=19)
                  + folder_svg())
 
 # =============================================================== kartu 2
-def tombol_lapor(judul, ket, ikon_, ga, gb, kiri, atas=30, lebar=150):
-    return dv(P(x=kiri, y=atas, w=lebar, h=84, z=4,
-                lain='background:linear-gradient(145deg,' + ga + ' 0%,' + gb + ' 100%);'
-                     'border-radius:18px;box-shadow:0 8px 18px rgba(18,51,44,.16);'
-                     'padding:10px 12px;box-sizing:border-box;'),
-              dv('width:18px;height:21px;background:rgba(255,255,255,.24);' + HEKS_T
-                 + 'display:grid;place-items:center;', ik(ikon_, 10, PUTIH))
-              + dv(font(PJ, 12, 700, PUTIH, -.2, 1.1) + 'margin-top:5px;white-space:nowrap;', judul)
-              + dv(font(PJ, 9, 500, 'rgba(255,255,255,.78)', None, 1.25) + 'margin-top:2px;', ket))
+# Satu kartu = satu pintu ke halaman "Mau lapor apa hari ini?".
+# Bukan dua tombol pilihan — pilihannya ada di halaman tujuan.
 
-def kartu2(x=KX, y=K2Y, w=KW, h=K2H):
-    isi = (dv(P(x=16, y=10, z=3, lain=font(AR, 15, 700, TINTA, -.3, 1.1)), 'Mau lapor apa hari ini?')
-           + dv(P(r=14, y=9, z=3, lain='background:' + MINT_M + ';border-radius:11px;padding:4px 9px;'
-                  'display:flex;align-items:center;gap:5px;'),
-                teks(font(PJ, 9, 700, TEAL, .8), 'LAPOR') + ik('panah', 11, TEAL))
-           + tombol_lapor('Barang saya hilang', 'Penemu bisa menghubungimu.',
-                          'cari', '#CF6B3C', TERRA_G, 16)
-           + tombol_lapor('Saya menemukan', 'Reputasimu ikut tumbuh.',
-                          'bag', '#22896D', TEAL_G, 174))
+def folder_mini():
+    """Dua folder menyembul di tepi kanan: isyarat dua folder tujuan laporan."""
+    def grad(id_, a_, b_):
+        return ('<linearGradient id="' + id_ + '" x1="0%" y1="0%" x2="30%" y2="100%">'
+                '<stop offset="0%" stop-color="' + a_ + '"/>'
+                '<stop offset="100%" stop-color="' + b_ + '"/></linearGradient>')
+    def fol(id_, x, y, w, h, rot, gelap):
+        cx, cy = x + w // 2, y + h // 2
+        return ('<g transform="rotate(' + str(rot) + ' ' + str(cx) + ' ' + str(cy) + ')" filter="url(#bm)">'
+                '<rect x="' + str(x + 5) + '" y="' + str(y) + '" width="' + str(w - 28)
+                + '" height="20" rx="7" fill="' + gelap + '"/>'
+                '<rect x="' + str(x) + '" y="' + str(y + 9) + '" width="' + str(w) + '" height="'
+                + str(h) + '" rx="13" fill="url(#' + id_ + ')"/></g>')
+    return ('<svg width="150" height="140" viewBox="0 0 150 140" fill="none" '
+            'style="display:block;position:absolute;right:0;top:0">'
+            '<defs><filter id="bm" x="-40%" y="-40%" width="180%" height="180%">'
+            '<feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#123B34" flood-opacity="0.2"/></filter>'
+            + grad('m1', '#D9713F', TERRA) + grad('m2', '#2E9A7C', TEAL_G) + '</defs>'
+            + fol('m1', 14, 22, 96, 66, -12, '#B04A22')
+            + fol('m2', 44, 50, 104, 72, 8, '#0B463A') + '</svg>')
+
+def kartu2a(x=KX, y=K2Y, w=KW, h=K2H):
+    """Versi A — terang, senada kartu 1, folder menyembul di kanan."""
+    isi = (folder_mini()
+           + dv(P(x=18, y=20, z=4, lain=font(PJ, 9, 700, TEAL, 1.3)), 'LAPORAN BARU')
+           + dv(P(x=18, y=34, w=200, z=4, lain=font(AR, 16, 700, TINTA, -.4, 1.15)),
+                'Mau lapor apa hari ini?')
+           + dv(P(x=18, y=60, w=172, z=4, lain=font(PJ, 10, 500, REDUP, None, 1.35)),
+                'Barang hilang atau barang temuan, mulai dari sini.')
+           + dv(P(x=18, y=100, z=4, lain='display:flex;align-items:center;gap:8px;'),
+                dv('background:' + TEAL + ';border-radius:15px;padding:7px 13px;display:flex;'
+                   'align-items:center;gap:6px;box-shadow:0 6px 14px rgba(27,122,99,.28);',
+                   teks(font(PJ, 11, 700, PUTIH, -.1), 'Buat laporan') + ik('panah', 12, PUTIH))
+                + dv('background:' + MINT_M + ';border-radius:12px;padding:5px 9px;',
+                     teks(font(PJ, 9, 700, TEAL, .6), '&plusmn;3 MENIT'))))
     return kartu(x, y, w, h, isi)
+
+def kartu2b(x=KX, y=K2Y, w=KW, h=K2H):
+    """Versi B — teal pekat, satu aksi besar, pola sarang samar."""
+    sarang_ = ('<svg width="' + str(w) + '" height="' + str(h) + '" viewBox="0 0 ' + str(w) + ' '
+               + str(h) + '" fill="none" style="display:block;position:absolute;left:0;top:0">'
+               '<g fill="none" stroke="#FFFFFF" stroke-opacity="0.09" stroke-width="2">'
+               '<path d="M262 -18L306 8V60L262 86L218 60V8Z"/>'
+               '<path d="M330 30L374 56V108L330 134L286 108V56Z"/>'
+               '<path d="M262 82L306 108V160L262 186L218 160V108Z"/></g></svg>')
+    heks = dv(P(x=18, y=26, w=44, h=50, z=4,
+                lain='background:rgba(251,248,243,.16);' + HEKS + 'display:grid;place-items:center;'),
+              ik('tambah', 20, PUTIH))
+    isi = (sarang_ + heks
+           + dv(P(x=74, y=28, z=4, lain=font(PJ, 9, 700, MINT, 1.3)), 'LAPORAN BARU')
+           + dv(P(x=74, y=44, w=200, z=4, lain=font(AR, 19, 700, KRIM, -.4, 1.15)),
+                'Mau lapor apa hari ini?')
+           + dv(P(x=18, y=92, w=210, z=4, lain=font(PJ, 10, 500, 'rgba(207,230,224,.8)', None, 1.35)),
+                'Barang hilang atau barang temuan — dua-duanya mulai dari satu halaman.')
+           + dv(P(r=18, b=18, z=4,
+                  lain='background:' + PUTIH + ';border-radius:16px;padding:8px 14px;display:flex;'
+                       'align-items:center;gap:7px;box-shadow:0 8px 18px rgba(13,47,41,.3);'),
+                teks(font(PJ, 11, 700, TINTA, -.1), 'Pilih folder') + ik('panah', 12, TEAL)))
+    return kartu(x, y, w, h, isi,
+                 bg='linear-gradient(140deg,' + TEAL + ' 0%,' + TEAL_G + ' 78%,#0B4638 100%)',
+                 bayang='0 12px 28px rgba(15,90,72,.26)')
+
+kartu2 = kartu2a
 
 # =============================================================== kartu 3A
 def lencana_heks(px, isi_, a=MINT, b=TEAL, cincin=True):
@@ -122,9 +169,9 @@ def kartu3a(x=KX, y=K3Y, w=KW, h=K3H):
            + dv(P(x=120, y=138, z=4, lain='display:flex;align-items:baseline;gap:4px;'),
                 teks(font(PJ, 10, 500, 'rgba(207,230,224,.82)'), '180 poin lagi ke')
                 + teks(font(PJ, 10, 700, MINT), 'Penjaga Kota'))
-           + dv(P(x=20, y=166, w=300, h=1, z=4, lain='background:rgba(251,248,243,.1);'))
-           + dv(P(x=20, y=178, z=4, lain='display:flex;align-items:center;gap:7px;'), ''.join(mini))
-           + dv(P(r=20, y=182, z=4, lain='display:flex;align-items:center;gap:4px;'),
+           + dv(P(x=20, y=160, w=300, h=1, z=4, lain='background:rgba(251,248,243,.1);'))
+           + dv(P(x=20, y=172, z=4, lain='display:flex;align-items:center;gap:7px;'), ''.join(mini))
+           + dv(P(r=20, y=176, z=4, lain='display:flex;align-items:center;gap:4px;'),
                 teks(font(PJ, 10, 600, MINT), '5 dari 9 lencana') + ik('panah', 11, MINT)))
     return kartu(x, y, w, h, isi,
                  bg='linear-gradient(152deg,' + GELAP_A + ' 0%,' + GELAP_B + ' 100%)',
@@ -173,7 +220,7 @@ def kartu3b(x=KX, y=K3Y, w=KW, h=K3H):
                 'Jelajahi peta sekitarmu')
            + dv(P(x=20, y=150, z=5, lain=font(PJ, 10, 500, 'rgba(251,248,243,.76)')),
                 '12 titik aktif &middot; diperbarui 2 menit lalu')
-           + dv(P(x=20, y=168, z=5, lain='display:flex;align-items:center;'),
+           + dv(P(x=20, y=162, z=5, lain='display:flex;align-items:center;'),
                 avatar(0, '#E8C7A8') + avatar(1, '#B9CDE6') + avatar(2, '#D8B0A2') + avatar(3, MINT)
                 + teks(font(PJ, 10, 600, 'rgba(251,248,243,.8)') + 'margin-left:8px;', '+18 warga')))
     # tombol buka peta
@@ -182,29 +229,81 @@ def kartu3b(x=KX, y=K3Y, w=KW, h=K3H):
               teks(font(PJ, 12, 700, TINTA, -.1), 'Buka peta') + ik('panah', 13, TEAL))
     return kartu(x, y, w, h, isi, bg=GELAP_B, bayang='0 12px 30px rgba(13,47,41,.26)')
 
-# =============================================================== layar penuh
-def beranda(kartu3):
-    return layar(bar_status() + kepala() + kartu1() + kartu2() + kartu3 + bar_bawah('beranda'))
+# =============================================================== kartu 3C
+# Pintu ke halaman Jelajahi secara utuh — cuplikan isinya, bukan peta.
+UBIN = [('wallet', '#D9713F', TERRA, -10), ('kunci', '#E9BC5A', EMAS, -5),
+        ('ponsel', '#2E9A7C', TEAL_G, 0), ('dokumen', '#A8DFCE', '#6FBCA4', 5),
+        ('bag', '#F2ECE0', '#D9D0BF', 10), ('tumbler', '#8FD4C4', TEAL, 14)]
 
-tulis('Main.dc.html', beranda(kartu3a()))
-tulis('BerandaB.dc.html', beranda(kartu3b()))
+def ubin_svg(w=340, atas=116, px=96, pitch=60):
+    grad = ''
+    ubin = ''
+    for i, (_, a_, b_, rot) in enumerate(UBIN):
+        gid = 'u' + str(i)
+        grad += ('<linearGradient id="' + gid + '" x1="0%" y1="0%" x2="20%" y2="100%">'
+                 '<stop offset="0%" stop-color="' + a_ + '"/>'
+                 '<stop offset="100%" stop-color="' + b_ + '"/></linearGradient>')
+        x = -6 + i * pitch
+        y = atas + abs(i - 2) * 4
+        ubin += ('<g transform="rotate(' + str(rot) + ' ' + str(x + px // 2) + ' ' + str(y + px // 2)
+                 + ')" filter="url(#bu)">'
+                 '<rect x="' + str(x) + '" y="' + str(y) + '" width="' + str(px) + '" height="' + str(px)
+                 + '" rx="24" fill="url(#' + gid + ')"/></g>')
+    return ('<svg width="' + str(w) + '" height="208" viewBox="0 0 ' + str(w) + ' 208" fill="none" '
+            'style="display:block;position:absolute;left:0;top:0">'
+            '<defs><filter id="bu" x="-40%" y="-40%" width="180%" height="180%">'
+            '<feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#123B34" flood-opacity="0.22"/>'
+            '</filter>' + grad + '</defs>' + ubin + '</svg>')
+
+def kartu3c(x=KX, y=K3Y, w=KW, h=K3H):
+    ikon_ubin = ''
+    for i, (nama, _, _, rot) in enumerate(UBIN):
+        cx = -6 + i * 60 + 48
+        cy = 116 + abs(i - 2) * 4 + 40
+        putih = i in (0, 1, 2, 5)
+        ikon_ubin += dv(P(x=cx - 13, y=cy - 13, z=6,
+                          lain='transform:rotate(' + str(rot) + 'deg);'),
+                        ik(nama, 26, 'rgba(255,255,255,.9)' if putih else 'rgba(18,51,44,.45)'))
+    saring = []
+    for lab, aktif in (('Semua', True), ('Dompet', False), ('Kunci', False), ('Kartu', False)):
+        saring.append(dv('background:' + (TINTA if aktif else PUTIH) + ';border-radius:14px;'
+                         'padding:6px 12px;flex:none;box-shadow:0 4px 10px rgba(18,51,44,.08);',
+                         teks(font(PJ, 10, 700, KRIM if aktif else REDUP, .2), lab)))
+    isi = (judul_kartu('Jelajahi sekitarmu', '12 titik aktif &middot; 18 warga ikut mencari', 20, ukuran=19)
+           + dv(P(x=16, y=72, w=w - 32, z=5, lain='display:flex;gap:7px;overflow:hidden;'),
+                ''.join(saring))
+           + ubin_svg(w) + ikon_ubin)
+    return kartu(x, y, w, h, isi, bg=MINT_M)
+
+# =============================================================== layar penuh
+def beranda(kartu2_, kartu3_):
+    return layar(bar_status() + kepala() + kartu1() + kartu2_ + kartu3_ + bar_bawah('beranda'))
+
+tulis('Main.dc.html', beranda(kartu2a(), kartu3a()))
+tulis('BerandaB.dc.html', beranda(kartu2b(), kartu3c()))
+tulis('BerandaC.dc.html', beranda(kartu2a(), kartu3b()))
 
 # kartu mandiri — latar transparan supaya gampang ditempel
 def mandiri(nama, f, h):
     tulis(nama, papan(390, h + 40, f(20, 20, KW, h)))
 
 mandiri('Kartu1.dc.html', kartu1, K1H)
-mandiri('Kartu2.dc.html', kartu2, K2H)
+mandiri('Kartu2A.dc.html', kartu2a, K2H)
+mandiri('Kartu2B.dc.html', kartu2b, K2H)
 mandiri('Kartu3A.dc.html', kartu3a, K3H)
 mandiri('Kartu3B.dc.html', kartu3b, K3H)
+mandiri('Kartu3C.dc.html', kartu3c, K3H)
 
 kanvas = {"artboards": [
   {"file": "Main.dc.html", "x": 0, "y": 0, "w": W, "h": H, "title": "Beranda A · kartu reputasi"},
-  {"file": "BerandaB.dc.html", "x": 470, "y": 0, "w": W, "h": H, "title": "Beranda B · kartu jelajahi"},
-  {"file": "Kartu1.dc.html", "x": 940, "y": 0, "w": 390, "h": K1H + 40, "title": "Kartu 1 · Barang di sekitarmu"},
-  {"file": "Kartu2.dc.html", "x": 940, "y": 340, "w": 390, "h": K2H + 40, "title": "Kartu 2 · Lapor"},
-  {"file": "Kartu3A.dc.html", "x": 940, "y": 620, "w": 390, "h": K3H + 40, "title": "Kartu 3A · Reputasi"},
-  {"file": "Kartu3B.dc.html", "x": 940, "y": 900, "w": 390, "h": K3H + 40, "title": "Kartu 3B · Jelajahi"}],
+  {"file": "BerandaB.dc.html", "x": 470, "y": 0, "w": W, "h": H, "title": "Beranda B · lapor teal + jelajahi"},
+  {"file": "BerandaC.dc.html", "x": 940, "y": 0, "w": W, "h": H, "title": "Beranda C · versi peta"},
+  {"file": "Kartu1.dc.html", "x": 1410, "y": 0, "w": 390, "h": K1H + 40, "title": "Kartu 1 · Barang di sekitarmu"},
+  {"file": "Kartu2A.dc.html", "x": 1410, "y": 340, "w": 390, "h": K2H + 40, "title": "Kartu 2A · Lapor terang"},
+  {"file": "Kartu2B.dc.html", "x": 1410, "y": 560, "w": 390, "h": K2H + 40, "title": "Kartu 2B · Lapor teal"},
+  {"file": "Kartu3A.dc.html", "x": 1410, "y": 780, "w": 390, "h": K3H + 40, "title": "Kartu 3A · Reputasi"},
+  {"file": "Kartu3C.dc.html", "x": 1410, "y": 1060, "w": 390, "h": K3H + 40, "title": "Kartu 3C · Pintu Jelajahi"},
+  {"file": "Kartu3B.dc.html", "x": 1410, "y": 1340, "w": 390, "h": K3H + 40, "title": "Kartu 3B · Peta (disimpan)"}],
  "annotations": [{"id": "catatan", "x": 0, "y": -170, "w": 900,
    "text": "Beranda sebagai hub — layar 390 × 844. Dua versi kartu ketiga: A reputasi, B pintu ke Jelajahi.\n"
            "Empat kartu juga berdiri sendiri di kolom kanan supaya gampang ditempel ke berkas beranda yang sudah ada."}],
