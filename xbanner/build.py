@@ -291,3 +291,232 @@ canvas = {
 }
 open(os.path.join(OUT, 'canvas.json'), 'w', encoding='utf-8').write(json.dumps(canvas, indent=2, ensure_ascii=False))
 print('selesai:', ', '.join(sorted(os.listdir(OUT))))
+
+# =====================================================================
+#  VERSI BARU — arah D, E, F. Maskot resmi: Lebah Sarang.
+# =====================================================================
+LEBAH = ('<defs><clipPath id="bdn"><ellipse cx="100" cy="122" rx="46" ry="40"/></clipPath></defs>'
+ '<ellipse cx="58" cy="72" rx="30" ry="17" fill="#CFE6E0" transform="rotate(-28 58 72)"/>'
+ '<ellipse cx="142" cy="72" rx="30" ry="17" fill="#CFE6E0" transform="rotate(28 142 72)"/>'
+ '<ellipse cx="100" cy="122" rx="46" ry="40" fill="#C8952E"/>'
+ '<g clip-path="url(#bdn)"><path d="M40 102h120v15H40z" fill="#211C16" opacity=".82"/>'
+ '<path d="M40 130h120v15H40z" fill="#211C16" opacity=".82"/></g>'
+ '<path d="M86 38q-6-14 2-20" stroke="#211C16" stroke-width="4.5" stroke-linecap="round" fill="none"/>'
+ '<path d="M114 38q6-14-2-20" stroke="#211C16" stroke-width="4.5" stroke-linecap="round" fill="none"/>'
+ '<circle cx="88" cy="17" r="5" fill="#211C16"/><circle cx="112" cy="17" r="5" fill="#211C16"/>'
+ '<circle cx="100" cy="64" r="32" fill="#C8952E"/>'
+ '<ellipse cx="74" cy="72" rx="8" ry="5" fill="#BC5A3C" opacity=".3"/>'
+ '<ellipse cx="126" cy="72" rx="8" ry="5" fill="#BC5A3C" opacity=".3"/>'
+ '<circle cx="88" cy="60" r="6.5" fill="#211C16"/><circle cx="112" cy="60" r="6.5" fill="#211C16"/>'
+ '<path d="M91 76q9 9 18 0" stroke="#211C16" stroke-width="4.5" stroke-linecap="round" fill="none"/>'
+ '<path d="M62 132L82 148" stroke="#A87722" stroke-width="12" stroke-linecap="round" fill="none"/>'
+ '<path d="M138 132L118 148" stroke="#A87722" stroke-width="12" stroke-linecap="round" fill="none"/>'
+ '<path d="M100 132L119 143V165L100 176L81 165V143Z" fill="#1B7A6E"/>'
+ '<circle cx="100" cy="154" r="5" fill="#F3D77C"/>')
+
+def bee(px, rot=0, style=''):
+    return ('<svg width="%d" height="%d" viewBox="0 0 200 200" style="display:block;'
+            'transform:rotate(%sdeg);%s">%s</svg>') % (px, px, rot, style, LEBAH)
+
+def hexpath(cx, cy, r):
+    s = round(r * 0.8660254, 2); h = round(r / 2, 2)
+    return 'M%s %sL%s %sL%s %sL%s %sL%s %sL%s %sZ' % (
+        cx, cy-r, cx+s, cy-h, cx+s, cy+h, cx, cy+r, cx-s, cy+h, cx-s, cy-h)
+
+NAMA = 'Uldan Pamungkas · 20210060127'
+KAMPUS = 'Desain Komunikasi Visual · Universitas Nusa Putra Sukabumi'
+
+def kredit(color, rule):
+    return ('<div style="border-top:1px solid %s;padding-top:16px;display:flex;'
+            'justify-content:space-between;gap:16px;font-size:12.5px;line-height:1.4;color:%s">'
+            '<span>%s</span><span style="text-align:right">%s</span></div>') % (rule, color, NAMA, KAMPUS)
+
+# ---------------- D · JEJAK PULANG ----------------
+NODES = [
+ (TERRA, 'HILANG',       'Dompet tertinggal di angkot, sore hari.',            'pin',    True),
+ (TEAL,  'DILAPORKAN',   'Foto, kategori, lokasi. Empat langkah, dua menit.',  'camera', False),
+ (TEAL,  'DICOCOKKAN',   'Sistem menemukan laporan mirip — kemiripan 92%.',    'scan',   False),
+ (TEAL,  'DIVERIFIKASI', 'Tiga pertanyaan dari ciri rahasia, terjawab benar.', 'grid',   False),
+ (TEALD, 'PULANG',       'Serah terima di titik aman ber-CCTV.',               'check',  True),
+]
+def node(color, label, body, icon, big):
+    d = 66 if big else 54
+    return ('<div style="display:flex;align-items:flex-start;gap:20px;position:relative">'
+            '<div style="flex:none;width:%dpx;height:%dpx;display:grid;place-items:center;background:%s;'
+            'clip-path:polygon(50%% 0,100%% 25%%,100%% 75%%,50%% 100%%,0 75%%,0 25%%)">%s</div>'
+            '<div style="display:flex;flex-direction:column;gap:4px;padding-top:%dpx">'
+            '<span style="font-family:%s;font-size:11.5px;font-weight:700;letter-spacing:.2em;color:%s">%s</span>'
+            '<span style="font-size:16.5px;line-height:1.35;color:%s;max-width:300px">%s</span>'
+            '</div></div>') % (d, int(d*1.15), color, ic(icon, int(d*.52), CREAM),
+                               10 if big else 6, PJ, color, label, '#4F4740', body)
+
+d = ['<div style="width:600px;height:1600px;background:%s;display:flex;flex-direction:column;'
+     'overflow:hidden">' % CREAM,
+  '<div style="padding:46px 46px 0">%s</div>' % logo(INK, GOLD, 34, 'SUKABUMI', MUTED),
+  '<div style="padding:44px 46px 0;position:relative">'
+  '<h1 style="margin:0;font-family:%s;font-weight:700;font-size:60px;line-height:.94;letter-spacing:-.04em;'
+  'color:%s">Yang hilang,<br><span style="color:%s">balik pulang.</span></h1>'
+  '<p style="margin:20px 0 0;max-width:330px;font-size:17px;line-height:1.5;color:#4F4740">'
+  'Bukan cuma yang kehilangan yang bingung. Yang menemukan juga.</p>'
+  '<div style="position:absolute;right:22px;top:-10px">%s</div>'
+  '<div style="position:absolute;right:24px;top:140px;width:172px">%s</div></div>'
+  % (AR, INK, TEAL, bee(124, -16), mark(TERRA, 29)),
+  # rel jejak
+  '<div style="position:relative;margin:48px 0 0;padding:0 46px;flex-grow:1">'
+  '<div style="position:absolute;left:79px;top:34px;bottom:96px;width:0;'
+  'border-left:3px dashed %s;opacity:.45"></div>'
+  '<div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;height:100%%">%s</div>'
+  '</div>' % (TEAL, ''.join(node(*n) for n in NODES)),
+  '<div style="padding:0 46px 38px;display:flex;flex-direction:column;gap:24px">',
+  '<div style="display:flex;align-items:center;gap:20px;background:%s;padding:20px 22px">%s'
+  '<div style="display:flex;flex-direction:column;gap:5px">'
+  '<span style="font-family:%s;font-weight:700;font-size:21px;color:%s">Coba jejaknya sendiri.</span>'
+  '<span style="font-size:14px;line-height:1.4;color:#6B6258">Prototipe Balikin — pindai di sini.</span>'
+  '<span style="font-family:%s;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:%s">BALIKIN.ID</span>'
+  '</div></div>'
+  % (FILL, qr(104, TEALD, CREAM), AR, INK, PJ, TEAL),
+  kredit(MUTED, LINE), '</div></div>']
+open(os.path.join(OUT, 'Main.dc.html'), 'w', encoding='utf-8').write(doc(''.join(d)))
+print('Main.dc.html (D · Jejak Pulang)')
+
+# ---------------- E · SARANG ----------------
+def comb(w, h, r, stroke, op):
+    import math
+    s = r * math.sqrt(3); cells = []
+    k = 0; y = 0
+    while y < h + r:
+        y = r + k * 1.5 * r
+        off = 0 if k % 2 == 0 else s / 2
+        x = off - s
+        while x < w + s:
+            cells.append(hexpath(round(x, 1), round(y, 1), r)); x += s
+        k += 1
+    return ('<svg viewBox="0 0 %d %d" style="position:absolute;inset:0;width:100%%;height:100%%" '
+            'aria-hidden="true"><g fill="none" stroke="%s" stroke-width="1.6" opacity="%s">%s</g></svg>'
+            ) % (w, h, stroke, op, ''.join('<path d="%s"/>' % c for c in cells))
+
+def cell(cx, cy, r, fill, stroke, inner=''):
+    return ('<path d="%s" fill="%s" stroke="%s" stroke-width="2.4"/>%s'
+            ) % (hexpath(cx, cy, r), fill, stroke, inner)
+
+def cellicon(cx, cy, name, px, color):
+    sc = px / 100.0
+    return ('<g transform="translate(%s,%s) scale(%s)" fill="none" stroke-linejoin="miter" '
+            'stroke-miterlimit="8" style="color:%s">%s</g>'
+            ) % (round(cx - px/2, 1), round(cy - px/2, 1), round(sc, 4), color, ICONS[name])
+
+R = 74
+RING = [(-128.2, 0, 'wallet'), (128.2, 0, 'scan'), (-64.1, -111, 'camera'),
+        (64.1, -111, 'bag'), (-64.1, 111, 'coin'), (64.1, 111, 'check')]
+CX, CY = 300, 706
+cluster = ''.join(cell(CX+dx, CY+dy, R, 'rgba(251,248,243,.07)', 'rgba(251,248,243,.5)')
+                  + cellicon(CX+dx, CY+dy, n, 54, '#CFE6E0') for dx, dy, n in RING)
+cluster += cell(CX, CY, R + 6, GOLD, GOLD)
+
+e = ['<div style="width:600px;height:1600px;position:relative;overflow:hidden;background:%s;'
+     'display:flex;flex-direction:column">' % TEALD,
+  comb(600, 1600, 86, CREAM, '.11'),
+  '<div style="position:relative;padding:46px 46px 0">%s</div>'
+  % logo(CREAM, GOLD, 34, 'KOMUNITAS SUKABUMI', 'rgba(251,248,243,.55)'),
+  '<div style="position:relative;padding:44px 46px 0">'
+  '<h1 style="margin:0;font-family:%s;font-weight:700;font-size:58px;line-height:.93;letter-spacing:-.04em;'
+  'color:%s">Yang hilang,<br><span style="color:%s">balik pulang.</span></h1>'
+  '<p style="margin:20px 0 0;max-width:330px;font-size:17px;line-height:1.5;color:rgba(251,248,243,.8)">'
+  'Satu sel hanya berdiri kalau sel di sebelahnya ikut menahan. Begitu juga kota.</p>'
+  '<div style="position:absolute;right:24px;top:120px;width:172px">%s</div></div>'
+  % (AR, CREAM, GOLDL, mark(GOLDL, 29)),
+  # sarang + lebah
+  '<div style="position:relative;height:470px;margin-top:6px">'
+  '<svg viewBox="0 0 600 470" style="position:absolute;inset:0;width:100%%;height:100%%">'
+  '<g transform="translate(0,-470)">%s</g></svg>'
+  '<div style="position:absolute;left:50%%;top:174px;transform:translateX(-50%%)">%s</div>'
+  '</div>' % (cluster, bee(122)),
+  '<div style="position:relative;margin-top:auto;padding:0 46px 38px;display:flex;flex-direction:column;gap:22px">',
+  '<div style="background:%s;padding:22px 24px">'
+  '<span style="font-family:%s;font-size:11px;font-weight:700;letter-spacing:.2em;color:%s">TEMUAN AWAL</span>'
+  '<p style="margin:9px 0 0;font-size:17.5px;line-height:1.45;color:%s">Penemu barang kerap ragu bertindak — '
+  '<b>takut dituduh mencuri</b>, atau tidak tahu cara mengembalikannya dengan aman.</p></div>' % (CREAM, PJ, MUTED, INK),
+  '<div style="display:flex;align-items:center;gap:20px;background:rgba(251,248,243,.09);padding:20px 22px;'
+  'border:1.5px solid rgba(251,248,243,.22)">%s'
+  '<div style="display:flex;flex-direction:column;gap:5px">'
+  '<span style="font-family:%s;font-weight:700;font-size:21px;color:%s">Masuk ke sarangnya.</span>'
+  '<span style="font-size:14px;line-height:1.4;color:rgba(251,248,243,.75)">Prototipe Balikin — pindai di sini.</span>'
+  '<span style="font-family:%s;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:%s">BALIKIN.ID</span>'
+  '</div></div>' % (qr(100, TEALD, CREAM), AR, CREAM, PJ, GOLDL),
+  kredit('rgba(251,248,243,.6)', 'rgba(251,248,243,.2)'), '</div></div>']
+open(os.path.join(OUT, 'Sarang.dc.html'), 'w', encoding='utf-8').write(doc(''.join(e)))
+print('Sarang.dc.html (E · Sarang)')
+
+# ---------------- F · DUA SISI ----------------
+KACAU = [('wallet', 44, 78, -22, 70), ('bag', 420, 96, 17, 62), ('camera', 190, 168, -9, 52),
+         ('scan', 486, 210, 28, 54), ('pin', 96, 250, 13, 48), ('coin', 330, 236, -19, 58),
+         ('grid', 498, 340, -12, 46), ('check', 470, 432, 22, 44)]
+kacau = ''.join(
+  '<div style="position:absolute;left:%dpx;top:%dpx;transform:rotate(%sdeg);opacity:.3">%s</div>'
+  % (x, y, rot, ic(n, px, CREAM)) for n, x, y, rot, px in KACAU)
+rapi = ''.join('<div style="flex:1;display:grid;place-items:center">%s</div>' % ic(n, 40, TEAL)
+               for n in ('wallet', 'bag', 'camera', 'scan', 'pin', 'coin'))
+
+f = ['<div style="width:600px;height:1600px;position:relative;overflow:hidden;background:%s">' % CREAM,
+  # panel atas: kekacauan
+  '<div style="position:absolute;left:0;top:0;width:600px;height:700px;background:%s;'
+  'clip-path:polygon(0 0,100%% 0,100%% 86%%,0 100%%)">%s</div>' % (TERRA, kacau),
+  '<div style="position:absolute;left:0;top:0;width:600px;padding:46px 46px 0;box-sizing:border-box">%s'
+  '<h1 style="margin:44px 0 0;font-family:%s;font-weight:700;font-size:56px;line-height:.95;'
+  'letter-spacing:-.04em;color:%s">Yang menemukan<br>pun bingung.</h1>'
+  '<p style="margin:20px 0 0;max-width:390px;font-size:17.5px;line-height:1.5;color:rgba(251,248,243,.88)">'
+  'Takut dituduh mencuri. Tidak tahu harus lapor ke mana. Jadi barangnya diam di tempatnya.</p>'
+  '<div style="margin-top:44px;width:190px">%s</div></div>'
+  % (logo(CREAM, GOLDL, 34, 'SUKABUMI', 'rgba(251,248,243,.6)'), AR, CREAM, mark(GOLDL, 31)),
+  # lebah menyeberangi jahitan
+  '<div style="position:absolute;right:36px;top:556px;z-index:3">%s</div>' % bee(146, -14),
+  # panel bawah: keteraturan
+  '<div style="position:absolute;left:0;top:700px;width:600px;height:900px;padding:96px 46px 38px;'
+  'box-sizing:border-box;display:flex;flex-direction:column;gap:26px">',
+  '<h2 style="margin:0;font-family:%s;font-weight:700;font-size:56px;line-height:.95;letter-spacing:-.04em;'
+  'color:%s">Yang hilang,<br><span style="color:%s">balik pulang.</span></h2>' % (AR, INK, TEAL),
+  '<div style="display:flex;gap:6px;border-top:2px solid %s;border-bottom:2px solid %s;padding:18px 0">%s</div>'
+  % (WASH, WASH, rapi),
+  '<div style="display:flex;flex-direction:column;gap:14px">%s</div>' % ''.join(
+    '<div style="display:flex;gap:14px;align-items:baseline">'
+    '<span style="flex:none;width:8px;height:13px;background:%s;'
+    'clip-path:polygon(50%% 0,100%% 25%%,100%% 75%%,50%% 100%%,0 75%%,0 25%%)"></span>'
+    '<span style="font-size:17px;line-height:1.4;color:#4F4740"><b style="color:%s">%s</b> %s</span></div>'
+    % (TEAL, INK, t, b) for t, b in [
+      ('Ciri rahasia.', 'Satu ciri yang tidak difoto, dikunci pemiliknya.'),
+      ('Titik aman.', 'Serah terima di tempat ramai ber-CCTV, pakai kode.'),
+      ('Reputasi, bukan uang.', 'Poin dan lencana untuk yang menolong.')]),
+  '<div style="margin-top:auto;display:flex;flex-direction:column;gap:22px">'
+  '<div style="display:flex;align-items:center;gap:20px;background:%s;padding:20px 22px">%s'
+  '<div style="display:flex;flex-direction:column;gap:5px">'
+  '<span style="font-family:%s;font-weight:700;font-size:21px;color:%s">Pindai, coba sendiri.</span>'
+  '<span style="font-size:14px;line-height:1.4;color:#6B6258">Prototipe Balikin.</span>'
+  '<span style="font-family:%s;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:%s">BALIKIN.ID</span>'
+  '</div></div>%s</div>'
+  % (FILL, qr(100, TEALD, CREAM), AR, INK, PJ, TEAL, kredit(MUTED, LINE)),
+  '</div></div>']
+open(os.path.join(OUT, 'DuaSisi.dc.html'), 'w', encoding='utf-8').write(doc(''.join(f)))
+print('DuaSisi.dc.html (F · Dua Sisi)')
+
+# ---------------- canvas dua halaman ----------------
+canvas = {
+  "pages": [{"id": "page-1", "name": "Versi baru"}, {"id": "page-2", "name": "Versi awal"}],
+  "artboards": [
+    {"file": "Main.dc.html",    "x": 0,    "y": 0, "w": 600, "h": 1600, "title": "D · Jejak Pulang", "page": "page-1"},
+    {"file": "Sarang.dc.html",  "x": 760,  "y": 0, "w": 600, "h": 1600, "title": "E · Sarang",       "page": "page-1"},
+    {"file": "DuaSisi.dc.html", "x": 1520, "y": 0, "w": 600, "h": 1600, "title": "F · Dua Sisi",     "page": "page-1"},
+    {"file": "Grafik.dc.html",  "x": 2280, "y": 0, "w": 600, "h": 760,  "title": "Elemen grafis",    "page": "page-1"},
+    {"file": "MaskotAwal.dc.html", "x": 0,    "y": 0, "w": 600, "h": 1600, "title": "A · Maskot",       "page": "page-2"},
+    {"file": "Tipografi.dc.html",  "x": 760,  "y": 0, "w": 600, "h": 1600, "title": "B · Tipografi",    "page": "page-2"},
+    {"file": "KartuBarang.dc.html","x": 1520, "y": 0, "w": 600, "h": 1600, "title": "C · Kartu Barang", "page": "page-2"}
+  ],
+  "annotations": [
+    {"id": "skala", "x": 0, "y": -170, "w": 700, "page": "page-1",
+     "text": "X-banner 60 × 160 cm. Artboard 600 × 1600 px — 1 px = 1 mm.\nMaskot resmi: Lebah Sarang. Tagline: “Yang hilang, balik pulang.”\nNama, NIM, prodi, dan temuan diambil dari naskah skripsi REVISI 24 Juni."},
+    {"id": "lama", "x": 0, "y": -150, "w": 700, "page": "page-2",
+     "text": "Tiga versi pertama, disimpan sebagai catatan. Belum memakai maskot lebah dan masih memakai tagline lama."}
+  ],
+  "launch": {"view": "canvas", "page": "page-1"}
+}
+open(os.path.join(OUT, 'canvas.json'), 'w', encoding='utf-8').write(json.dumps(canvas, indent=2, ensure_ascii=False))
+print('canvas.json — 2 halaman')

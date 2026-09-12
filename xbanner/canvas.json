@@ -1,4 +1,14 @@
 {
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Versi baru"
+    },
+    {
+      "id": "page-2",
+      "name": "Versi awal"
+    }
+  ],
   "artboards": [
     {
       "file": "Main.dc.html",
@@ -6,8 +16,44 @@
       "y": 0,
       "w": 600,
       "h": 1600,
+      "title": "D · Jejak Pulang",
+      "page": "page-1"
+    },
+    {
+      "file": "Sarang.dc.html",
+      "x": 760,
+      "y": 0,
+      "w": 600,
+      "h": 1600,
+      "title": "E · Sarang",
+      "page": "page-1"
+    },
+    {
+      "file": "DuaSisi.dc.html",
+      "x": 1520,
+      "y": 0,
+      "w": 600,
+      "h": 1600,
+      "title": "F · Dua Sisi",
+      "page": "page-1"
+    },
+    {
+      "file": "Grafik.dc.html",
+      "x": 2280,
+      "y": 0,
+      "w": 600,
+      "h": 760,
+      "title": "Elemen grafis",
+      "page": "page-1"
+    },
+    {
+      "file": "MaskotAwal.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 600,
+      "h": 1600,
       "title": "A · Maskot",
-      "print": "fixed"
+      "page": "page-2"
     },
     {
       "file": "Tipografi.dc.html",
@@ -16,7 +62,7 @@
       "w": 600,
       "h": 1600,
       "title": "B · Tipografi",
-      "print": "fixed"
+      "page": "page-2"
     },
     {
       "file": "KartuBarang.dc.html",
@@ -25,42 +71,29 @@
       "w": 600,
       "h": 1600,
       "title": "C · Kartu Barang",
-      "print": "fixed"
-    },
-    {
-      "file": "Grafik.dc.html",
-      "x": 0,
-      "y": 1780,
-      "w": 600,
-      "h": 760,
-      "title": "Elemen grafis",
-      "print": "fixed"
+      "page": "page-2"
     }
   ],
   "annotations": [
     {
       "id": "skala",
       "x": 0,
+      "y": -170,
+      "w": 700,
+      "page": "page-1",
+      "text": "X-banner 60 × 160 cm. Artboard 600 × 1600 px — 1 px = 1 mm.\nMaskot resmi: Lebah Sarang. Tagline: “Yang hilang, balik pulang.”\nNama, NIM, prodi, dan temuan diambil dari naskah skripsi REVISI 24 Juni."
+    },
+    {
+      "id": "lama",
+      "x": 0,
       "y": -150,
-      "w": 600,
-      "text": "X-banner 60 × 160 cm. Artboard 600 × 1600 px — 1 px = 1 mm, jadi ukuran di sini bisa dibaca langsung sebagai milimeter cetak.\nTagline: “Yang hilang, balik pulang.”"
-    },
-    {
-      "id": "qr-catatan",
-      "x": 1520,
-      "y": 1680,
-      "w": 600,
-      "text": "QR di ketiga banner masih placeholder — ganti dengan QR pendek dinamis yang mengarah ke prototipe sebelum naik cetak."
-    },
-    {
-      "id": "foto-catatan",
-      "x": 760,
-      "y": 1680,
-      "w": 600,
-      "text": "Versi C memakai ikon Sudut Enam sebagai isi kartu. Kalau ada foto barang yang bagus, tukar — kartunya jadi jauh lebih meyakinkan."
+      "w": 700,
+      "page": "page-2",
+      "text": "Tiga versi pertama, disimpan sebagai catatan. Belum memakai maskot lebah dan masih memakai tagline lama."
     }
   ],
   "launch": {
-    "view": "canvas"
+    "view": "canvas",
+    "page": "page-1"
   }
 }

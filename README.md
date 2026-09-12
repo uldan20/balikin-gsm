@@ -11,6 +11,8 @@ Dari repo [`uldan20/balikin`](https://github.com/uldan20/balikin):
 | Aset | Status | Masuk GSM di |
 | --- | --- | --- |
 | **Logo** — logogram heksagon + wordmark, sudah dipakai di splash, header, dan ikon aplikasi | Selesai, aturannya belum ditulis | Bab II |
+| **Judul skripsi, nama, NIM, pembimbing** — dari naskah REVISI 24 Juni | Ada | Bab 0 & I |
+| **Maskot** — Lebah Sarang (`maskot/lebah.svg`) | Dipilih | Bab III |
 | **Tagline** — "Yang hilang, balik pulang." | Ditetapkan | Bab I & II |
 | **Elemen grafis tulisan tangan** — "Small Things Make a Big Difference" | Ditetapkan, aturannya belum ditulis | Bab III |
 | **Gaya ilustrasi** — karakter warga, datar, hangat; teal · terakota · emas | Selesai, aturannya belum ditulis | Bab III |
@@ -70,3 +72,36 @@ aplikasinya sendiri:
 Seluruh angka rupiah di dokumen ini **estimasi kasar** untuk menyusun anggaran,
 bukan penawaran. Harga cetak bergerak mengikuti kota, kuantitas, dan bahan —
 selalu minta *quote* tertulis ke vendor sebelum mengunci anggaran.
+
+## Data resmi dari naskah skripsi
+
+Diambil dari `REVISI_24_JUNI.docx`. Pakai ini di semua materi cetak, jangan
+mengetik ulang dari ingatan:
+
+- **Judul** — Perancangan UI/UX Aplikasi Lost and Found "Balikin" Berbasis
+  Sistem Reputasi Komunitas dengan Pendekatan Design Thinking (Studi Kasus di
+  Sukabumi)
+- **Penulis** — Uldan Pamungkas · 20210060127
+- **Program studi** — Desain Komunikasi Visual, Fakultas Teknik, Komputer dan
+  Desain, Universitas Nusa Putra Sukabumi
+- **Pembimbing I** — Firman Mutaqin, S.Ds., M.Ds
+- **Pembimbing II** — Rifky Nugraha, S.Pd., M.Ds
+- **Metode** — penelitian perancangan, metode campuran berdominasi kualitatif,
+  kerangka Design Thinking (Empathize–Define–Ideate–Prototype–Test). Usability
+  diukur dengan Single Ease Question (SEQ)
+- **Landasan** — Self-Determination Theory (Ryan & Deci, 2000) untuk kebutuhan
+  kompetensi dan keterhubungan; bystander effect (Latané & Darley, 1970) sebagai
+  latar konteks sosial
+- **Temuan yang paling kuat untuk materi cetak** — penemu barang kerap ragu
+  bertindak: takut dituduh mencuri, atau tidak tahu cara mengembalikannya dengan
+  aman
+
+### Satu hal yang perlu diselaraskan dengan naskah
+
+Tujuan penelitian menulis sistem reputasi sebagai **"bentuk pengakuan, bukan
+imbalan uang"**, sementara rancangan aplikasi sekarang punya fitur **tip lewat
+QRIS**. Dua-duanya bisa benar — poin reputasi memang bukan uang, dan tip itu
+ucapan terima kasih sukarela dari pemilik yang terpisah dari sistem poin — tapi
+naskahnya belum mengatakan itu. Penguji hampir pasti menanyakannya. Tambahkan
+satu paragraf di Batasan Masalah atau di bab perancangan yang memisahkan
+keduanya secara eksplisit.
