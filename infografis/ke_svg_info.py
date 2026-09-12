@@ -13,9 +13,11 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'svg')
 
 if __name__ == '__main__':
     for berkas, judul, nama in [
-        ('Main', 'Infografis Balikin — I1 Pustaka Ikon Sudut Enam', 'infografis-i1-pustaka-ikon'),
-        ('Perjalanan', 'Infografis Balikin — I2 Perjalanan Sebuah Dompet', 'infografis-i2-perjalanan'),
-        ('Tingkat', 'Infografis Balikin — I3 Naik Tingkat', 'infografis-i3-naik-tingkat')]:
+        ('Main', 'Infografis Penelitian Balikin — versi terang', 'infografis-penelitian-terang'),
+        ('Gelap', 'Infografis Penelitian Balikin — versi gelap', 'infografis-penelitian-gelap'),
+        ('Ikon', 'Balikin — Pustaka Ikon Sudut Enam (cadangan)', 'cadangan-pustaka-ikon'),
+        ('Perjalanan', 'Balikin — Perjalanan Sebuah Dompet (cadangan)', 'cadangan-perjalanan'),
+        ('Tingkat', 'Balikin — Naik Tingkat (cadangan)', 'cadangan-naik-tingkat')]:
         svg = bangun('/tmp/claude-0/inf-' + berkas + '.json', judul)
         keluar = os.path.join(OUT, nama + '.svg')
         open(keluar, 'w', encoding='utf-8').write(svg)

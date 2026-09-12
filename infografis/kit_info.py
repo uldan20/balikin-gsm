@@ -8,6 +8,7 @@ _here = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(_here, '..', 'showcase'))
 from kit import (W, H, CREAM, INK, TEAL, TEALD, TEALB, TEALX, GOLD, GOLDL, TERRA, WASH,
                  LINE, MUTED, FILL, MINT, AR, PJ, CV, HEX, doc, sarang, bee, logo)
+from build import mark
 from ikon import ik, IKON
 
 TERL = '#EDCFC2'          # terakota muda — turunan untuk blok data
@@ -124,3 +125,31 @@ def stiker_heks(isi_, px, bg=GOLD, rot=0, x=None, y=None, z=14, r=None):
 def lembar(latar, isi):
     return ('<div style="width:' + str(W) + 'px;height:' + str(H) + 'px;position:relative;'
             'overflow:hidden;background:' + latar + '">' + isi + '</div>')
+
+# ---------------- dipakai bersama dua skrip bangun ----------------
+OUT = _here
+
+def tulis(nama, isi_, latar):
+    open(os.path.join(OUT, nama), 'w', encoding='utf-8').write(doc(lembar(latar, isi_), latar))
+    print(nama)
+
+def potong(n=14):
+    """Sudut dipangkas, bukan dibulatkan — kiri atas dan kanan bawah."""
+    return ('clip-path:polygon(' + str(n) + 'px 0,100% 0,100% calc(100% - ' + str(n) + 'px),'
+            'calc(100% - ' + str(n) + 'px) 100%,0 100%,0 ' + str(n) + 'px);')
+
+def svg_lapis(isi_, z=2):
+    return ('<svg style="position:absolute;left:0;top:0;width:' + str(W) + 'px;height:' + str(H)
+            + 'px;z-index:' + str(z) + '" viewBox="0 0 ' + str(W) + ' ' + str(H) + '" fill="none">'
+            + isi_ + '</svg>')
+
+def kartu_bagian(x, y, w, h, tag, warna_tag, isi_, bg=CREAM, fg_tag=CREAM, pad=34):
+    """Kartu bagian dengan label pil yang menumpang di tepi atas — seperti acuan."""
+    pil_ = dv(P(x=26, y=-17, z=3,
+                lain='background:' + warna_tag + ';' + potong(9) + 'padding:9px 18px;'),
+              teks(font(AR, 15, 700, fg_tag, 1) + 'white-space:nowrap;', tag))
+    badan = dv(P(x=0, y=0, w=w, h=h,
+                 lain='background:' + bg + ';' + potong(18) + 'box-sizing:border-box;padding:'
+                      + str(pad) + 'px 28px 24px;box-shadow:0 18px 40px rgba(12,40,36,.13);'
+                      'overflow:hidden;'), isi_)
+    return dv(P(x=x, y=y, w=w, h=h, z=6), badan + pil_)

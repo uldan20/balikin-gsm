@@ -6,32 +6,55 @@
       "y": 0,
       "w": 1122,
       "h": 1587,
-      "title": "I1 · Pustaka Ikon"
+      "title": "A · Papan Penelitian (terang)"
     },
     {
-      "file": "Perjalanan.dc.html",
+      "file": "Gelap.dc.html",
       "x": 1280,
       "y": 0,
       "w": 1122,
       "h": 1587,
-      "title": "I2 · Perjalanan Sebuah Dompet"
+      "title": "B · Papan Penelitian (gelap)"
     },
     {
-      "file": "Tingkat.dc.html",
-      "x": 2560,
+      "file": "Ikon.dc.html",
+      "x": 2688,
       "y": 0,
       "w": 1122,
       "h": 1587,
-      "title": "I3 · Naik Tingkat"
+      "title": "Cadangan · Pustaka Ikon"
+    },
+    {
+      "file": "Perjalanan.dc.html",
+      "x": 3968,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "Cadangan · Perjalanan"
+    },
+    {
+      "file": "Tingkat.dc.html",
+      "x": 5248,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "Cadangan · Naik Tingkat"
     }
   ],
   "annotations": [
     {
-      "id": "catatan",
+      "id": "utama",
       "x": 0,
-      "y": -200,
+      "y": -210,
+      "w": 1000,
+      "text": "Dua versi papan infografis penelitian A3 (297 × 420 mm). Isi lima bagian wajib: latar belakang, temuan permasalahan, tujuan penelitian, metode penelitian & perancangan, kesimpulan.\nSeluruh angka dikutip dari REVISI_24_JUNI.docx — SEQ 6,1/7 pada 50 responden; kuesioner 60 responden; observasi 1–5 Mei 2025."
+    },
+    {
+      "id": "cadangan",
+      "x": 2688,
+      "y": -150,
       "w": 900,
-      "text": "Tiga lembar infografis A3 potret 297 × 420 mm — artboard 1122 × 1587 px (A3 pada 96 ppi).\nSemua angka diambil dari repo aplikasi (src/icons/hexcut), layar prototipe, dan naskah TA.\nAngka yang perlu dicek ulang ke prototipe ditandai di README.md folder ini."
+      "text": "Tiga lembar tematik dari putaran sebelumnya, disimpan sebagai cadangan — bisa dipakai sebagai papan pendukung di booth, bukan papan utama."
     }
   ],
   "launch": {

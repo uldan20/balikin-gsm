@@ -92,6 +92,7 @@ i1 += [
   kepala('Pustaka Ikon', 'Sudut Enam',
          'Balikin memakai 196 komponen ikon — 98 bentuk, masing-masing tersedia dalam varian '
          'garis dan padat. Semuanya digambar di kisi 60° yang sama.'),
+  dv(P(x=44, y=150, z=10), mark(TERRA, 18, -6)),
   legenda([(MINT, 'Aksi & formulir', False), (TERL, 'Barang & bayar', False),
            (GOLDL, 'Reputasi', False), (CREAM, 'Navigasi & sistem', True)], 318),
   # keping "x2 varian padat"
@@ -109,7 +110,7 @@ i1 += [
   kaki_info('pustaka ikon Balikin · src/icons/hexcut', 1418, kiri=False),
   pita(TERRA, 'BALIKIN · SUDUT ENAM · 196 KOMPONEN'),
 ]
-tulis('Main.dc.html', ''.join(i1), WASH)
+tulis('Ikon.dc.html', ''.join(i1), WASH)
 
 # ==================================================== I2 · PERJALANAN
 LANGKAH = [
@@ -214,6 +215,7 @@ i2 += [
   kepala('Perjalanan', 'Sebuah Dompet',
          'Tujuh langkah dari tertinggal di angkot sampai kembali ke pemiliknya — '
          'dan siapa yang bergerak di tiap langkah.'),
+  dv(P(x=44, y=150, z=10), mark(TERRA, 18, -6)),
   legenda([(TERRA, 'Pemilik kehilangan', False), (TEAL, 'Aplikasi bekerja', False),
            (GOLD, 'Barang pulang', False)], 318),
   kartu_catatan(['Temuan lapangan: penemu kerap ragu bertindak — takut dituduh mencuri, '
@@ -328,6 +330,7 @@ i3 += [
   kepala('Naik Tingkat', 'Lima Tingkat Komunitas',
          'Poin hanya bertambah kalau ada barang yang benar-benar kembali. Luas tiap pita di bawah '
          'sebanding dengan jarak poin yang harus ditempuh.'),
+  dv(P(x=44, y=150, z=10), mark(TERRA, 18, -6)),
   legenda([(KRIM, 'Warga Baru', True), (MINTT, 'Tetangga Baik', False), (TEAL, 'Penolong', False),
            (TERRA, 'Penjaga Kota', False), (GOLD, 'Legenda Balikin', False)], 318),
   kartu_catatan(['Poin adalah bentuk pengakuan, bukan imbalan uang. Tip lewat QRIS bersifat '
@@ -339,16 +342,4 @@ i3 += [
 ]
 tulis('Tingkat.dc.html', ''.join(i3), MINT)
 
-# ==================================================== kanvas
-kanvas = {"artboards": [
-  {"file": "Main.dc.html", "x": 0, "y": 0, "w": W, "h": H, "title": "I1 · Pustaka Ikon"},
-  {"file": "Perjalanan.dc.html", "x": 1280, "y": 0, "w": W, "h": H, "title": "I2 · Perjalanan Sebuah Dompet"},
-  {"file": "Tingkat.dc.html", "x": 2560, "y": 0, "w": W, "h": H, "title": "I3 · Naik Tingkat"}],
- "annotations": [{"id": "catatan", "x": 0, "y": -200, "w": 900,
-   "text": "Tiga lembar infografis A3 potret 297 × 420 mm — artboard 1122 × 1587 px (A3 pada 96 ppi).\n"
-           "Semua angka diambil dari repo aplikasi (src/icons/hexcut), layar prototipe, dan naskah TA.\n"
-           "Angka yang perlu dicek ulang ke prototipe ditandai di README.md folder ini."}],
- "launch": {"view": "canvas"}}
-open(os.path.join(OUT, 'canvas.json'), 'w', encoding='utf-8').write(
-    json.dumps(kanvas, indent=2, ensure_ascii=False))
-print('canvas.json — ' + str(len(kanvas['artboards'])) + ' artboard')
+# kanvas.json ditulis oleh build_riset.py — lembar ini jadi cadangan di sana.
