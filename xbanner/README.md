@@ -58,3 +58,28 @@ Archivo untuk judul, Plus Jakarta Sans untuk teks, Caveat untuk elemen tulisan
 tangan. Ekspor PNG/PDF dari kanvas belum bisa menyertakan huruf Google Fonts —
 hasil ekspor memakai huruf cadangan. Untuk cetak akhir, gambar ulang di
 Illustrator dengan huruf yang sudah dipasang, atau ekspor dari berkas rancangan.
+
+## Berkas SVG
+
+`xbanner-sarang.svg` — versi **E · Sarang** sebagai vektor asli, dibangun oleh
+`svg_sarang.py` dari koordinat yang diukur langsung dari `Sarang.dc.html`, jadi
+bentuknya sama persis dengan yang tampil di kanvas.
+
+- **Ukuran** `600mm × 1600mm` (60 × 160 cm). Terbuka di Illustrator dan Figma
+  langsung pada ukuran cetak sebenarnya — tidak perlu diperbesar.
+- **Lapisan** diberi nama Indonesia: `latar`, `kepala`, `judul`, `paragraf`,
+  `tulisan-tangan`, `sarang`, `lebah`, `temuan`, `kode-qr`, `kredit`.
+- **Teks masih hidup**, bukan kurva. Pasang dulu tiga hurufnya sebelum membuka:
+  **Archivo**, **Plus Jakarta Sans**, dan **Caveat** — ketiganya gratis di
+  Google Fonts. Tanpa itu, hurufnya akan diganti otomatis dan tata letaknya
+  bergeser.
+
+### Sebelum naik cetak
+
+1. Ganti grup `kode-qr` dengan QR asli yang mengarah ke prototipe. Yang sekarang
+   pola tiruan dan tidak bisa dipindai.
+2. Ubah semua teks jadi kurva (Type › Create Outlines), atau kirim PDF dengan
+   huruf tertanam.
+3. Beri *bleed* 3 mm di keempat sisi.
+4. Bidang teal `#15655B` menutup hampir seluruh bidang — minta contoh cetak
+   dulu, warna ini gampang meleset ke biru dan tintanya berat.
