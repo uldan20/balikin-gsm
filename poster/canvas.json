@@ -1,0 +1,72 @@
+{
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Poster penelitian"
+    },
+    {
+      "id": "page-2",
+      "name": "Infografis"
+    }
+  ],
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "P1 · Kolom",
+      "page": "page-1"
+    },
+    {
+      "file": "LimaTahap.dc.html",
+      "x": 1280,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "P2 · Lima Tahap",
+      "page": "page-1"
+    },
+    {
+      "file": "Perjalanan.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "I1 · Perjalanan Sebuah Dompet",
+      "page": "page-2"
+    },
+    {
+      "file": "Reputasi.dc.html",
+      "x": 1280,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "I2 · Sarang Kepercayaan",
+      "page": "page-2"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "ukuran-p",
+      "x": 0,
+      "y": -190,
+      "w": 760,
+      "page": "page-1",
+      "text": "A3 potret 297 × 420 mm. Artboard 1122 × 1587 px (A3 pada 96 ppi).\nDua susunan berbeda dari isi yang sama: P1 membagi per bagian, P2 menjadikan lima tahap Design Thinking sebagai sumbu poster.\nBagian Kesimpulan sengaja ditandai MENUNGGU DATA — naskah sendiri menulis hasil usability diisi setelah data terkumpul."
+    },
+    {
+      "id": "ukuran-i",
+      "x": 0,
+      "y": -190,
+      "w": 760,
+      "page": "page-2",
+      "text": "A3 potret 297 × 420 mm. Infografis menjelaskan produknya, bukan penelitiannya.\nI1 menceritakan perjalanan satu barang; I2 membedah sistem reputasi yang jadi judul skripsi."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}
