@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="420mm" viewBox="0 0 1122 1587" role="img" aria-label="Poster Balikin — S2 Editorial">
+<title>Poster Balikin — S2 Editorial</title>
+<desc>A3 potret 297 x 420 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs><linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="488" y1="-43" x2="634" y2="1630"><stop offset="0%" stop-color="#12564D" stop-opacity="1"/><stop offset="34%" stop-color="#1B7A6E" stop-opacity="1"/><stop offset="72%" stop-color="#C8952E" stop-opacity="1"/><stop offset="100%" stop-color="#F0DCA8" stop-opacity="1"/></linearGradient><filter id="f2" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="44" stdDeviation="45" flood-color="#0C2824" flood-opacity="0.34"/></filter></defs>
+<rect x="0" y="0" width="1122" height="1587" fill="#FBF8F3"/>
+<rect x="0" y="0" width="1122" height="1587" fill="url(#g1)"/>
+<g opacity="0.13"><text x="-40" y="1125" font-family="Archivo" font-size="300" font-weight="700" fill="#FBF8F3" letter-spacing="-14">BALIKIN</text></g>
+<rect x="361" y="486" width="428" height="894" rx="58" fill="#211C16" filter="url(#f2)"/>
+<rect x="375" y="500" width="400" height="942" fill="#12564D"/>
+<path d="M407 559L421 567L421 583L407 591L393 583L393 567Z" fill="#FBF8F3" fill-opacity="0.11"/>
+<rect x="433" y="560" width="278" height="13" rx="7" fill="#FBF8F3" fill-opacity="0.11"/>
+<rect x="433" y="580" width="278" height="9" rx="5" fill="#FBF8F3" fill-opacity="0.07"/>
+<rect x="723" y="558" width="34" height="34" rx="17" fill="#FBF8F3" fill-opacity="0.11"/>
+<rect x="393" y="606" width="364" height="648" rx="20" fill="#FBF8F3" fill-opacity="0.07"/>
+<path d="M459 710L474 718L474 735L459 744L444 735L444 718Z" fill="#FBF8F3" fill-opacity="0.11"/>
+<path d="M616 664L628 671L628 685L616 691L604 685L604 671Z" fill="#FBF8F3" fill-opacity="0.11"/>
+<path d="M536 865L555 876L555 897L536 908L517 897L517 876Z" fill="#FBF8F3" fill-opacity="0.22"/>
+<path d="M661 943L674 950L674 965L661 972L648 965L648 950Z" fill="#FBF8F3" fill-opacity="0.11"/>
+<text x="500" y="1206" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#FBF8F3" letter-spacing="3" fill-opacity="0.5">LAYAR APLIKASI</text>
+<g opacity="0.8"><text x="492" y="1224" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#FBF8F3" fill-opacity="0.5">ganti dengan tangkapan layar</text></g>
+<rect x="393" y="1265" width="44" height="44" rx="12" fill="#FBF8F3" fill-opacity="0.11"/>
+<rect x="448" y="1274" width="309" height="11" rx="6" fill="#FBF8F3" fill-opacity="0.11"/>
+<rect x="448" y="1292" width="309" height="8" rx="4" fill="#FBF8F3" fill-opacity="0.07"/>
+<rect x="393" y="1320" width="44" height="44" rx="12" fill="#FBF8F3" fill-opacity="0.11"/>
+<rect x="448" y="1330" width="309" height="11" rx="6" fill="#FBF8F3" fill-opacity="0.11"/>
+<rect x="448" y="1346" width="309" height="8" rx="4" fill="#FBF8F3" fill-opacity="0.07"/>
+<rect x="393" y="1378" width="364" height="46" rx="22" fill="#FBF8F3" fill-opacity="0.11"/>
+<path d="M418 1390L428 1396L428 1406L418 1412L409 1406L409 1396Z" fill="#FBF8F3" fill-opacity="0.22"/>
+<path d="M497 1390L506 1396L506 1406L497 1412L487 1406L487 1396Z" fill="#FBF8F3" fill-opacity="0.22"/>
+<path d="M575 1390L584 1396L584 1406L575 1412L566 1406L566 1396Z" fill="#FBF8F3" fill-opacity="0.22"/>
+<path d="M653 1390L663 1396L663 1406L653 1412L644 1406L644 1396Z" fill="#FBF8F3" fill-opacity="0.22"/>
+<path d="M732 1390L741 1396L741 1406L732 1412L722 1406L722 1396Z" fill="#FBF8F3" fill-opacity="0.22"/>
+<g transform="translate(-54 0)"><rect x="575" y="513" width="108" height="30" rx="15" fill="#211C16"/></g>
+<text x="64" y="67" font-family="Plus Jakarta Sans" font-size="14" font-weight="400" fill="#FBF8F3" fill-opacity="0.55">UI/UX</text>
+<text x="64" y="88" font-family="Plus Jakarta Sans" font-size="16" font-weight="600" fill="#FBF8F3">Aplikasi Mobile</text>
+<text x="291" y="67" font-family="Plus Jakarta Sans" font-size="14" font-weight="400" fill="#FBF8F3" fill-opacity="0.55">Kategori</text>
+<text x="291" y="88" font-family="Plus Jakarta Sans" font-size="16" font-weight="600" fill="#FBF8F3">Lost &amp; Found</text>
+<text x="500" y="67" font-family="Plus Jakarta Sans" font-size="14" font-weight="400" fill="#FBF8F3" fill-opacity="0.55">Metode</text>
+<text x="500" y="88" font-family="Plus Jakarta Sans" font-size="16" font-weight="600" fill="#FBF8F3">Design Thinking</text>
+<path d="M912 58L923 65V77L912 84L902 77V65Z" stroke="#FBF8F3" stroke-width="2" stroke-linejoin="miter"></path><path d="M916 69L914 72H911L909 69L911 66H914Z" fill="#F3D77C"></path>
+<text x="942" y="79" font-family="Archivo" font-size="27" font-weight="700" fill="#FBF8F3" letter-spacing="1">BALIKIN</text>
+<text x="64" y="231" font-family="Archivo" font-size="92" font-weight="700" fill="#FBF8F3" letter-spacing="-4">Barang yang</text><text x="64" y="317" font-family="Archivo" font-size="92" font-weight="700" fill="#FBF8F3" letter-spacing="-4">hilang punya</text>
+<text x="64" y="404" font-family="Archivo" font-size="92" font-weight="700" fill="#FBF8F3" letter-spacing="-4" fill-opacity="0.45">alamat pulang</text>
+<text x="758" y="213" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">Balikin mempertemukan</text><text x="758" y="246" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">pemilik dan penemu</text><text x="758" y="279" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">lewat satu sistem —</text><text x="758" y="313" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">dengan verifikasi ciri</text><text x="758" y="346" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">rahasia, titik serah terima</text><text x="758" y="379" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">yang aman, dan reputasi</text><text x="758" y="413" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">yang tumbuh dari</text><text x="758" y="446" font-family="Plus Jakarta Sans" font-size="23" font-weight="400" fill="#FBF8F3" fill-opacity="0.9">menolong.</text>
+<text x="64" y="571" font-family="Plus Jakarta Sans" font-size="14" font-weight="400" fill="#FBF8F3" fill-opacity="0.55">Studi Kasus</text>
+<text x="64" y="593" font-family="Plus Jakarta Sans" font-size="17" font-weight="600" fill="#FBF8F3">Sukabumi</text>
+<text x="64" y="636" font-family="Plus Jakarta Sans" font-size="14" font-weight="400" fill="#FBF8F3" fill-opacity="0.55">Luaran</text>
+<text x="64" y="658" font-family="Plus Jakarta Sans" font-size="17" font-weight="600" fill="#FBF8F3">Prototipe Figma</text>
+<text x="882" y="1123" font-family="Plus Jakarta Sans" font-size="19" font-weight="400" fill="#211C16">Riset</text>
+<text x="882" y="1154" font-family="Plus Jakarta Sans" font-size="19" font-weight="400" fill="#211C16">Wireframe</text>
+<text x="882" y="1185" font-family="Plus Jakarta Sans" font-size="19" font-weight="400" fill="#211C16">Desain Antarmuka</text>
+<text x="882" y="1216" font-family="Plus Jakarta Sans" font-size="19" font-weight="400" fill="#211C16">Prototipe</text>
+<text x="882" y="1247" font-family="Plus Jakarta Sans" font-size="19" font-weight="400" fill="#211C16">Uji Usability</text>
+<g opacity="0.72"><text x="64" y="1496" font-family="Plus Jakarta Sans" font-size="15" font-weight="400" fill="#211C16">Uldan Pamungkas · 20210060127</text><text x="64" y="1518" font-family="Plus Jakarta Sans" font-size="15" font-weight="400" fill="#211C16">Desain Komunikasi Visual · Universitas Nusa Putra Sukabumi</text></g>
+<g opacity="0.72"><text x="544" y="1518" font-family="Plus Jakarta Sans" font-size="14" font-weight="700" fill="#211C16" letter-spacing="3">BALIKIN.ID</text></g>
+</svg>

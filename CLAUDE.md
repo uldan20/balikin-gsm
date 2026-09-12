@@ -29,7 +29,8 @@ Sebelum mengirim berkas, hitung sisanya:
 grep -oE '\-?[0-9]+\.[0-9]+' berkas.svg | sort -u
 ```
 
-Yang boleh tersisa hanya nilai `opacity`. Sisanya perbaiki.
+Yang boleh tersisa hanya nilai `opacity` dan **sudut putaran** di dalam
+`rotate(...)` — keduanya bukan koordinat. Sisanya perbaiki.
 
 ## Ukuran cetak
 
