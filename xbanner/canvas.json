@@ -1,0 +1,66 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 600,
+      "h": 1600,
+      "title": "A · Maskot",
+      "print": "fixed"
+    },
+    {
+      "file": "Tipografi.dc.html",
+      "x": 760,
+      "y": 0,
+      "w": 600,
+      "h": 1600,
+      "title": "B · Tipografi",
+      "print": "fixed"
+    },
+    {
+      "file": "KartuBarang.dc.html",
+      "x": 1520,
+      "y": 0,
+      "w": 600,
+      "h": 1600,
+      "title": "C · Kartu Barang",
+      "print": "fixed"
+    },
+    {
+      "file": "Grafik.dc.html",
+      "x": 0,
+      "y": 1780,
+      "w": 600,
+      "h": 760,
+      "title": "Elemen grafis",
+      "print": "fixed"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "skala",
+      "x": 0,
+      "y": -150,
+      "w": 600,
+      "text": "X-banner 60 × 160 cm. Artboard 600 × 1600 px — 1 px = 1 mm, jadi ukuran di sini bisa dibaca langsung sebagai milimeter cetak.\nTagline: “Yang hilang, balik pulang.”"
+    },
+    {
+      "id": "qr-catatan",
+      "x": 1520,
+      "y": 1680,
+      "w": 600,
+      "text": "QR di ketiga banner masih placeholder — ganti dengan QR pendek dinamis yang mengarah ke prototipe sebelum naik cetak."
+    },
+    {
+      "id": "foto-catatan",
+      "x": 760,
+      "y": 1680,
+      "w": 600,
+      "text": "Versi C memakai ikon Sudut Enam sebagai isi kartu. Kalau ada foto barang yang bagus, tukar — kartunya jadi jauh lebih meyakinkan."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

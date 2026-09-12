@@ -33,8 +33,9 @@ Satu kalimat untuk dipajang di booth dan diucapkan waktu sidang:
    barang yang **sudah terdaftar**, bukan suvenir. Sediakan satu rentang khusus
    untuk pameran (misalnya `BLK-P001`…`BLK-P300`) supaya tidak bentrok dengan
    data asli.
-2. **Tagline.** "Yang hilang, balik lagi. Karena kita saling jaga." — masuk ke
-   hangtag, belakang kartu, dan backdrop. Tidak perlu mengarang kalimat baru.
+2. **Tagline.** "Yang hilang, balik pulang." — masuk ke hangtag, belakang kartu,
+   dan backdrop, didampingi elemen tulisan tangan "Small Things Make a Big
+   Difference" yang hadir sekali di tiap bidang.
 3. **Sepuluh warna dominan.** Filter pencarian aplikasi memakai Hitam, Putih,
    Cokelat, Abu, Merah, Biru, Hijau, Kuning, Pink, Motif. Itu **sistem penataan
    meja yang sudah jadi**: susun Tag Balikin dan gantungan menurut warna

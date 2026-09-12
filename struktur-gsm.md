@@ -29,7 +29,7 @@ sama sekali).
 | Positioning | Bukan marketplace, bukan forum — *layanan pengembalian* | BARU |
 | Target audiens | Primer, sekunder, persona singkat | OLAH |
 | Kepribadian merek | Skala sifat (hangat↔formal, polos↔canggih) | BARU |
-| *Brand essence* | Sudah ada di splash: **"Yang hilang, balik lagi. Karena kita saling jaga."** | OLAH |
+| *Brand essence* | **"Yang hilang, balik pulang."** | OLAH |
 | Nada bicara | Contoh kalimat benar/salah untuk notifikasi & chat | BARU |
 
 > **Kenapa nada bicara penting di sini.** Balikin menangani orang yang sedang
@@ -61,7 +61,7 @@ merancang — jauh lebih cepat, dan tidak lagi menghambat produksi apa pun.
 | Varian warna | Positif, negatif, monokrom, emas, satu warna | BARU |
 | Penempatan di latar | Terang, gelap, warna merek, foto ramai | BARU |
 | Larangan | Min. 12 contoh ✗ (diregang, diputar, dibayangi, diganti warna, dioutline, ditempel gradasi, dipakai sebagai pola, diganti font, ditambah efek, dipepet elemen lain, dipakai di latar kontras rendah, disusun ulang) | BARU |
-| Lockup dengan tagline | "Yang hilang, balik lagi. Karena kita saling jaga." — jarak & perbandingan ukuran | OLAH |
+| Lockup dengan tagline | "Yang hilang, balik pulang." — jarak & perbandingan ukuran | BARU |
 | Co-branding | Lockup dengan logo kampus/mitra, garis pemisah | BARU |
 
 > **Yang perlu ditulis, bukan dirancang.** Logo sudah dipakai di produk, jadi
@@ -101,6 +101,7 @@ merancang — jauh lebih cepat, dan tidak lagi menghambat produksi apa pun.
 | Dua pengecualian bentuk | `BadgeStar` lima sudut, `AchNightWatch` lengkung | ADA |
 | Larangan ikon | Jangan dibulatkan, jangan digradasi, jangan dicampur pustaka lain | OLAH |
 | Pola heksagon | Kerapatan, opasitas, kapan boleh dipakai sebagai latar | BARU |
+| **Elemen grafis tulisan tangan** | "Small Things Make a Big Difference" — bentuk tumpuk & satu baris, garis bawah, kemiringan, larangan | BARU |
 | Elemen grafis | Wadah heksagon, bidang chamfer, garis pemisah, bingkai | OLAH |
 | **Heksagon vs sudut membulat** | Kapan pakai yang mana — lihat catatan di bawah | BARU |
 | Bingkai status | Bingkai hijau untuk DITEMUKAN, terakota untuk HILANG (sudah dipakai di detail barang) | OLAH |
@@ -108,6 +109,18 @@ merancang — jauh lebih cepat, dan tidak lagi menghambat produksi apa pun.
 | Gaya ilustrasi | Datar, hangat, tanpa garis tepi; teal · terakota · emas | OLAH |
 | Fotografi | Tone, subjek, perlakuan, contoh ✓/✗ | BARU |
 | Grid & layout | Margin, kolom, modul heksagon | BARU |
+
+> **Elemen grafis tulisan tangan.** Kalimat "Small Things Make a Big Difference"
+> hadir sekali di tiap desain sebagai pendamping tagline utama — tidak pernah
+> dua kali dalam satu bidang, tidak pernah lebih besar dari taglinenya. Dua
+> bentuk: **tumpuk** empat baris untuk sudut dan margin, **satu baris** untuk
+> pita mendatar. Garis bawahnya satu tarikan berujung bulat yang sedikit naik di
+> akhir, selalu di bawah baris terakhir dan tidak pernah menyentuh hurufnya.
+> Kemiringan −3° sampai −7°.
+>
+> Sementara ini dipasang dengan huruf **Caveat 600**. Kalau sempat, ganti dengan
+> tulisan tanganmu sendiri yang di-scan — untuk karya Tugas Akhir itu jauh lebih
+> jujur, dan penguji hampir pasti menanyakan asal huruf tulisan tangannya.
 
 > **Aturan yang paling mendesak ditulis: kapan heksagon, kapan membulat.**
 > Pustaka ikon berkata "sudut dipangkas, tidak pernah dibulatkan" — tapi

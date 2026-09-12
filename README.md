@@ -11,7 +11,8 @@ Dari repo [`uldan20/balikin`](https://github.com/uldan20/balikin):
 | Aset | Status | Masuk GSM di |
 | --- | --- | --- |
 | **Logo** — logogram heksagon + wordmark, sudah dipakai di splash, header, dan ikon aplikasi | Selesai, aturannya belum ditulis | Bab II |
-| **Tagline** — "Yang hilang, balik lagi. Karena kita saling jaga." | Selesai | Bab I & II |
+| **Tagline** — "Yang hilang, balik pulang." | Ditetapkan | Bab I & II |
+| **Elemen grafis tulisan tangan** — "Small Things Make a Big Difference" | Ditetapkan, aturannya belum ditulis | Bab III |
 | **Gaya ilustrasi** — karakter warga, datar, hangat; teal · terakota · emas | Selesai, aturannya belum ditulis | Bab III |
 | **Rancangan aplikasi** — onboarding, peta, feed, pencarian, detail, profil, notifikasi | Selesai (WIP) | Bab IV |
 | Bahasa visual **Sudut Enam (Hexcut)** — kisi 60°, sudut dipangkas, sambungan mitre | Selesai | Bab III |

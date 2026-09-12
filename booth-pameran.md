@@ -11,10 +11,10 @@ satu hal yang tidak dimiliki keduanya: **produknya bisa dicoba di tempat.**
 
 | # | Item | Ukuran | Est. biaya | Catatan |
 | --- | --- | --- | --- | --- |
-| D1 | **Backdrop** | 2 × 2,5 m | 150–250rb | Logo + *"Yang hilang, balik lagi. Karena kita saling jaga."* Latar pola heksagon opasitas rendah |
+| D1 | **Backdrop** | 2 × 2,5 m | 150–250rb | Logo + *"Yang hilang, balik pulang."* Latar pola heksagon opasitas rendah |
 | D2 | **Lampu strip / spot** | — | 50–150rb | Pembeda terbesar antara booth biasa dan booth yang "jadi". Booth referensi kedua memakai *backlight* di logo |
 | D3 | **Poster penelitian** | A1 | 40–70rb | Latar belakang · Metode · Proses · Temuan · Kesimpulan — susunan yang sama dengan booth referensi |
-| D4 | **X-banner** | 60 × 160 cm | 70–100rb | Alur app dalam 4 langkah, dipasang di sisi luar supaya menarik orang lewat |
+| D4 | **X-banner** | 60 × 160 cm | 70–100rb | Tiga versi rancangan ada di folder `xbanner/`. Dipasang di sisi luar supaya menarik orang lewat |
 | D5 | **Standee adegan serah terima** | 120–160 cm | 150–300rb | Pakai ilustrasi onboarding yang sudah ada: dua warga menyerahkan tas. Tidak perlu menggambar apa pun yang baru |
 | D6 | **Taplak meja** | sesuai meja | 80–150rb | Logo di bagian yang menggantung ke depan |
 | D7 | **Riser / kotak susun** | 3 tinggi | 50–100rb | Kotak kardus dibungkus kertas teal. Meja datar terlihat berantakan; meja bertingkat terlihat ditata |
@@ -34,8 +34,7 @@ satu hal yang tidak dimiliki keduanya: **produknya bisa dicoba di tempat.**
 ```
                     ┌─────────────────────────────────┐
                     │  BACKDROP — logo + tagline       │
-                    │  "Yang hilang, balik lagi.       │
-                    │   Karena kita saling jaga."      │
+                    │  "Yang hilang, balik pulang."    │
                     └─────────────────────────────────┘
     [STANDEE]     ┌─────────┐┌─────────┐┌─────────┐   [STANDEE]
      serah        │ Panel   ││ Papan   ││ Papan   │    serah
@@ -145,7 +144,7 @@ dari Sukabumi akan langsung mengenali tempatnya.
 
 ### Sudut foto
 
-Standee adegan serah terima + tulisan timbul *"Yang hilang, balik lagi."*
+Standee adegan serah terima + tulisan timbul *"Yang hilang, balik pulang."*
 + tagar `#Balikin`.
 Kedua booth referensi punya sudut ini — itu yang mengubah pengunjung jadi
 penyebar.
