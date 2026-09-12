@@ -161,14 +161,17 @@ class Svg:
                     % (N(k['x'] - sp), N(k['y'] - sp), N(k['w'] + 2 * sp), N(k['h'] + 2 * sp), rx, l['w'],
                        ' fill-opacity="%g"' % l['a'] if l['a'] < .999 else ''))
         return keluar
-    def keluar(s, judul):
+    def keluar(s, judul, ukuran=None, desc=None):
+        """ukuran: pasangan nilai atribut width/height. Bawaannya A3 potret."""
+        lw, lh = ukuran or ('297mm', '420mm')
+        ket = desc or 'A3 potret 297 x 420 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.'
         return ('<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" '
-                'width="297mm" height="420mm" viewBox="0 0 %d %d" role="img" aria-label="%s">\n'
-                '<title>%s</title>\n<desc>A3 potret 297 x 420 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>\n'
+                'width="%s" height="%s" viewBox="0 0 %d %d" role="img" aria-label="%s">\n'
+                '<title>%s</title>\n<desc>%s</desc>\n'
                 '<defs>%s</defs>\n%s\n</svg>\n'
-                ) % (s.w, s.h, judul, judul, ''.join(s.defs), '\n'.join(s.badan))
+                ) % (lw, lh, s.w, s.h, judul, judul, ket, ''.join(s.defs), '\n'.join(s.badan))
 
-def bangun(jalur_json, judul):
+def bangun(jalur_json, judul, ukuran=None, desc=None):
     d = json.load(open(jalur_json, encoding='utf-8'))
     s = Svg(d['w'], d['h'])
     for n in d['simpul']:
@@ -280,7 +283,7 @@ def bangun(jalur_json, judul):
                             t['fw'], w, ls, ao, E(ln['t'])))
         if bag:
             s.badan.append(buka + ''.join(bag) + tutup)
-    return s.keluar(judul)
+    return s.keluar(judul, ukuran, desc)
 
 if __name__ == '__main__':
     for berkas, judul, nama in [

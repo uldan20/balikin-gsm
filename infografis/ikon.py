@@ -53,6 +53,11 @@ IKON = {
           '<path d="M70 22L78 26V34L70 38L62 34V26Z" stroke="currentColor" stroke-width="6"/>',
  'tumbler': '<path d="M40 10H60V24L68 38V80L60 90H40L32 80V38L40 24Z" stroke="currentColor" stroke-width="7"/>'
             '<path d="M32 52H68" stroke="currentColor" stroke-width="6"/>',
+ 'rumah': '<path d="M12 48L50 16L88 48" stroke="currentColor" stroke-width="7"/>'
+          '<path d="M24 42V76L32 84H68L76 76V42" stroke="currentColor" stroke-width="7"/>'
+          '<path d="M42 84V62H58V84" stroke="currentColor" stroke-width="6"/>',
+ 'kompas': '<path d="M50 12L83 31V69L50 88L17 69V31Z" stroke="currentColor" stroke-width="7"/>'
+           '<path d="M64 36L54 54L36 64L46 46Z" stroke="currentColor" stroke-width="6"/>',
  # lima wadah tingkat — siluetnya mengikuti Tiers.tsx di repo aplikasi
  'tk1': '<path d="M50 17L78 33V67L50 83L22 67V33Z" stroke="currentColor" stroke-width="7" '
         'stroke-dasharray="9 8" opacity=".8"/>'
