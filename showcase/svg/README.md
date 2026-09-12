@@ -48,3 +48,10 @@ dan satu sudut putaran pada S3 — dua-duanya bukan koordinat.
 2. S5 punya **dua slot foto** bertanda garis putus-putus.
 3. Ubah teks jadi kurva, atau kirim PDF dengan huruf tertanam.
 4. Beri *bleed* 3 mm.
+
+## Perbaikan 12 September
+
+Ikon garis sempat terisi hitam di berkas SVG: atribut `fill="none"` milik
+`<svg>` pembungkus hilang waktu tag dilucuti, sehingga tiap `<path>` yang hanya
+punya `stroke` diisi warna bawaan. `ke_svg.py` sekarang memasang ulang atribut
+penampilan itu sebagai atribut grup. Keenam berkas sudah dibangun ulang.

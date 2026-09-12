@@ -186,8 +186,20 @@ def bangun(jalur_json, judul):
                 isi = isi.replace('id="%s"' % lama, 'id="%s-%s"' % (lama, akhiran))
                 isi = isi.replace('url(#%s)' % lama, 'url(#%s-%s)' % (lama, akhiran))
             isi = bakar_fragmen(isi, sx, k['x'] - vb[0] * sx, k['y'] - vb[1] * sx)
+            # atribut penampilan milik <svg> pembungkus ikut hilang waktu tag dilucuti —
+            # tanpa fill="none" tiap <path> bergaris akan terisi hitam. Pasang ulang
+            # sebagai atribut grup. stroke-width sengaja tidak dibawa: skalanya sudah
+            # dibakar ke dalam tiap path.
+            pembuka = re.match(r'^<svg([^>]*)>', n['isi'])
+            bawa = []
+            for nama_atr in ('fill', 'stroke', 'stroke-linejoin', 'stroke-linecap',
+                             'stroke-miterlimit', 'fill-rule'):
+                m_atr = re.search(r'(?:^|\s)' + nama_atr + r'="([^"]*)"', pembuka.group(1) if pembuka else '')
+                if m_atr: bawa.append('%s="%s"' % (nama_atr, m_atr.group(1)))
             if 'currentColor' in isi and n.get('warnaTeks'):
-                isi = '<g color="%s">%s</g>' % (urai_warna(n['warnaTeks'])[0], isi)
+                bawa.insert(0, 'color="%s"' % urai_warna(n['warnaTeks'])[0])
+            if bawa:
+                isi = '<g %s>%s</g>' % (' '.join(bawa), isi)
             s.badan.append(buka + isi + tutup)
             continue
         bag = []

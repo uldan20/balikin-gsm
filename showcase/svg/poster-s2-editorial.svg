@@ -38,7 +38,7 @@
 <text x="291" y="88" font-family="Plus Jakarta Sans" font-size="16" font-weight="600" fill="#FBF8F3">Lost &amp; Found</text>
 <text x="500" y="67" font-family="Plus Jakarta Sans" font-size="14" font-weight="400" fill="#FBF8F3" fill-opacity="0.55">Metode</text>
 <text x="500" y="88" font-family="Plus Jakarta Sans" font-size="16" font-weight="600" fill="#FBF8F3">Design Thinking</text>
-<path d="M912 58L923 65V77L912 84L902 77V65Z" stroke="#FBF8F3" stroke-width="2" stroke-linejoin="miter"></path><path d="M916 69L914 72H911L909 69L911 66H914Z" fill="#F3D77C"></path>
+<g fill="none"><path d="M912 58L923 65V77L912 84L902 77V65Z" stroke="#FBF8F3" stroke-width="2" stroke-linejoin="miter"></path><path d="M916 69L914 72H911L909 69L911 66H914Z" fill="#F3D77C"></path></g>
 <text x="942" y="79" font-family="Archivo" font-size="27" font-weight="700" fill="#FBF8F3" letter-spacing="1">BALIKIN</text>
 <text x="64" y="231" font-family="Archivo" font-size="92" font-weight="700" fill="#FBF8F3" letter-spacing="-4">Barang yang</text><text x="64" y="317" font-family="Archivo" font-size="92" font-weight="700" fill="#FBF8F3" letter-spacing="-4">hilang punya</text>
 <text x="64" y="404" font-family="Archivo" font-size="92" font-weight="700" fill="#FBF8F3" letter-spacing="-4" fill-opacity="0.45">alamat pulang</text>

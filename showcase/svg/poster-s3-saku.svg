@@ -46,6 +46,6 @@
 <rect x="744" y="1388" width="145" height="52" rx="30" fill="#FBF8F3" fill-opacity="0.14"/><rect x="745" y="1388" width="143" height="50" rx="29" fill="none" stroke="#FBF8F3" stroke-width="2" stroke-opacity="0.34"/><text x="772" y="1417" font-family="Plus Jakarta Sans" font-size="17" font-weight="600" fill="#FBF8F3">balikin.id</text>
 <g opacity="0.7"><text x="70" y="1500" font-family="Plus Jakarta Sans" font-size="15" font-weight="400" fill="#FBF8F3">Uldan Pamungkas · 20210060127</text><text x="70" y="1522" font-family="Plus Jakarta Sans" font-size="15" font-weight="400" fill="#FBF8F3">Desain Komunikasi Visual · Universitas Nusa Putra Sukabumi</text></g>
 <g opacity="0.7"><text x="936" y="1522" font-family="Plus Jakarta Sans" font-size="14" font-weight="700" fill="#FBF8F3" letter-spacing="3">BALIKIN.ID</text></g>
-<path d="M90 67L105 76V92L90 101L75 92V76Z" stroke="#FBF8F3" stroke-width="3" stroke-linejoin="miter"></path><path d="M94 82L92 85H88L86 82L88 78H92Z" fill="#F3D77C"></path>
+<g fill="none"><path d="M90 67L105 76V92L90 101L75 92V76Z" stroke="#FBF8F3" stroke-width="3" stroke-linejoin="miter"></path><path d="M94 82L92 85H88L86 82L88 78H92Z" fill="#F3D77C"></path></g>
 <text x="124" y="95" font-family="Archivo" font-size="36" font-weight="700" fill="#FBF8F3" letter-spacing="2">BALIKIN</text>
 </svg>

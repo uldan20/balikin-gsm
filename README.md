@@ -38,7 +38,7 @@ ilustrasi, dan seluruh rancangan aplikasi sudah jadi — yang tersisa adalah
 6. **Baku warna cetak** — konversi CMYK/Pantone dan uji kontras
 7. **Penerapan luar aplikasi** — stationery, signage, merchandise
 
-## Tiga hal yang perlu diselaraskan lebih dulu
+## Empat hal yang perlu diselaraskan lebih dulu
 
 Ditemukan waktu membandingkan pustaka ikon dengan WIP rancangan aplikasi.
 Selesaikan sebelum GSM naik cetak, supaya manualnya tidak bertentangan dengan
@@ -57,6 +57,11 @@ aplikasinya sendiri:
 3. **Nilai warna.** Palet aplikasi terlihat sedikit lebih hangat dan lebih tua
    daripada `tokens` di `base.tsx`. Ambil nilai dari berkas rancangan, lalu
    perbarui `tokens` — atau sebaliknya — tapi jangan biarkan dua sumber.
+4. **Ambang poin tiap tingkat.** `communityTiers` di `Tiers.tsx` menulis
+   0 · 100 · 400 · 1.000 · 2.500 PN; layar Tingkat & Poin di prototipe memakai
+   0–150 · 150–400 · 400–900 · 900–2.000 · 2.000+. Hanya angka 400 yang sama.
+   Infografis dan poster sekarang memakai angka prototipe — kunci dulu yang
+   benar sebelum semuanya naik cetak.
 
 ## Peta dokumen
 
@@ -66,6 +71,9 @@ aplikasinya sendiri:
 | [`merchandise.md`](merchandise.md) | Konsep, daftar item, spesifikasi, prioritas, estimasi biaya |
 | [`booth-pameran.md`](booth-pameran.md) | Tata letak booth, display, interaksi pengunjung |
 | [`timeline-produksi.md`](timeline-produksi.md) | Hitung mundur, lead time vendor, checklist |
+| [`showcase/`](showcase) | Enam poster showcase A3 + ekspor SVG |
+| [`infografis/`](infografis) | Tiga infografis A3 + ekspor SVG |
+| [`xbanner/`](xbanner) | Tiga arah X-banner 600 × 1600 mm |
 
 ## Catatan harga
 

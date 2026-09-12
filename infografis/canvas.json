@@ -1,0 +1,40 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "I1 · Pustaka Ikon"
+    },
+    {
+      "file": "Perjalanan.dc.html",
+      "x": 1280,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "I2 · Perjalanan Sebuah Dompet"
+    },
+    {
+      "file": "Tingkat.dc.html",
+      "x": 2560,
+      "y": 0,
+      "w": 1122,
+      "h": 1587,
+      "title": "I3 · Naik Tingkat"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "catatan",
+      "x": 0,
+      "y": -200,
+      "w": 900,
+      "text": "Tiga lembar infografis A3 potret 297 × 420 mm — artboard 1122 × 1587 px (A3 pada 96 ppi).\nSemua angka diambil dari repo aplikasi (src/icons/hexcut), layar prototipe, dan naskah TA.\nAngka yang perlu dicek ulang ke prototipe ditandai di README.md folder ini."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
