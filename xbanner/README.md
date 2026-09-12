@@ -69,6 +69,11 @@ bentuknya sama persis dengan yang tampil di kanvas.
   langsung pada ukuran cetak sebenarnya — tidak perlu diperbesar.
 - **Lapisan** diberi nama Indonesia: `latar`, `kepala`, `judul`, `paragraf`,
   `tulisan-tangan`, `sarang`, `lebah`, `temuan`, `kode-qr`, `kredit`.
+- **Seluruh koordinat bilangan bulat.** Tidak ada `scale()` tersisa — semua
+  transform dibakar ke data path oleh `rapi.py`, dan tiap grup gambar diberi
+  bidang tak terlihat supaya Figma melaporkan W/H yang bulat. Ke-18 grup di
+  berkas ini bingkainya bulat. Lebar lapisan *teks* tetap berdesimal karena
+  ditentukan metrik huruf — itu berlaku untuk teks apa pun di Figma.
 - **Teks masih hidup**, bukan kurva. Pasang dulu tiga hurufnya sebelum membuka:
   **Archivo**, **Plus Jakarta Sans**, dan **Caveat** — ketiganya gratis di
   Google Fonts. Tanpa itu, hurufnya akan diganti otomatis dan tata letaknya
