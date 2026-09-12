@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100mm" height="24mm" viewBox="0 0 400 96" role="img" aria-label="Balikin — Dudukan standee, slot 3,25 mm">
+<title>Balikin — Dudukan standee, slot 3,25 mm</title>
+<desc>Akrilik 3 mm, cetak UV. 4 satuan = 1 mm. Lapisan POTONG magenta tidak dicetak.</desc>
+<g id="badan"><path d="M12 0H388C396 0 400 4 400 12L400 84C400 92 396 96 388 96H12C4 96 0 92 0 84L0 12C0 4 4 0 12 0Z" fill="#0B4638"/><rect x="60" y="42" width="280" height="13" rx="6" fill="#FFFFFF" stroke="#FF00FF" stroke-width="2"/></g>
+<g id="teks"><text x="200" y="30" font-family="Archivo,'Arial Narrow',Helvetica,sans-serif" font-size="15" font-weight="700" fill="rgba(251,248,243,.5)" text-anchor="middle" letter-spacing="3">BALIKIN</text></g>
+<g id="POTONG"><path d="M12 0H388C396 0 400 4 400 12L400 84C400 92 396 96 388 96H12C4 96 0 92 0 84L0 12C0 4 4 0 12 0Z" fill="none" stroke="#FF00FF" stroke-width="2"/></g>
+</svg>
