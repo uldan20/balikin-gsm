@@ -1,0 +1,208 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 840,
+      "h": 592,
+      "title": "01 · Sampul"
+    },
+    {
+      "file": "H02.dc.html",
+      "x": 900,
+      "y": 0,
+      "w": 840,
+      "h": 592,
+      "title": "02 · Daftar Isi"
+    },
+    {
+      "file": "H03.dc.html",
+      "x": 1800,
+      "y": 0,
+      "w": 840,
+      "h": 592,
+      "title": "03 · Pembatas Bab I"
+    },
+    {
+      "file": "H04.dc.html",
+      "x": 2700,
+      "y": 0,
+      "w": 840,
+      "h": 592,
+      "title": "04 · Produk dan pengguna"
+    },
+    {
+      "file": "H05.dc.html",
+      "x": 3600,
+      "y": 0,
+      "w": 840,
+      "h": 592,
+      "title": "05 · Tagline & kepribadian"
+    },
+    {
+      "file": "H06.dc.html",
+      "x": 4500,
+      "y": 0,
+      "w": 840,
+      "h": 592,
+      "title": "06 · Pembatas Bab II"
+    },
+    {
+      "file": "H07.dc.html",
+      "x": 0,
+      "y": 700,
+      "w": 840,
+      "h": 592,
+      "title": "07 · Logogram"
+    },
+    {
+      "file": "H08.dc.html",
+      "x": 900,
+      "y": 700,
+      "w": 840,
+      "h": 592,
+      "title": "08 · Konstruksi"
+    },
+    {
+      "file": "H09.dc.html",
+      "x": 1800,
+      "y": 700,
+      "w": 840,
+      "h": 592,
+      "title": "09 · Ruang aman"
+    },
+    {
+      "file": "H10.dc.html",
+      "x": 2700,
+      "y": 700,
+      "w": 840,
+      "h": 592,
+      "title": "10 · Ukuran minimum"
+    },
+    {
+      "file": "H11.dc.html",
+      "x": 3600,
+      "y": 700,
+      "w": 840,
+      "h": 592,
+      "title": "11 · Konfigurasi"
+    },
+    {
+      "file": "H12.dc.html",
+      "x": 4500,
+      "y": 700,
+      "w": 840,
+      "h": 592,
+      "title": "12 · Warna logo"
+    },
+    {
+      "file": "H13.dc.html",
+      "x": 0,
+      "y": 1400,
+      "w": 840,
+      "h": 592,
+      "title": "13 · Larangan"
+    },
+    {
+      "file": "H14.dc.html",
+      "x": 900,
+      "y": 1400,
+      "w": 840,
+      "h": 592,
+      "title": "14 · Pembatas Bab III"
+    },
+    {
+      "file": "H15.dc.html",
+      "x": 1800,
+      "y": 1400,
+      "w": 840,
+      "h": 592,
+      "title": "15 · Palet warna"
+    },
+    {
+      "file": "H16.dc.html",
+      "x": 2700,
+      "y": 1400,
+      "w": 840,
+      "h": 592,
+      "title": "16 · Tipografi"
+    },
+    {
+      "file": "H17.dc.html",
+      "x": 3600,
+      "y": 1400,
+      "w": 840,
+      "h": 592,
+      "title": "17 · Sudut Enam"
+    },
+    {
+      "file": "H18.dc.html",
+      "x": 4500,
+      "y": 1400,
+      "w": 840,
+      "h": 592,
+      "title": "18 · Pustaka ikon"
+    },
+    {
+      "file": "H19.dc.html",
+      "x": 0,
+      "y": 2100,
+      "w": 840,
+      "h": 592,
+      "title": "19 · Pola sarang"
+    },
+    {
+      "file": "H20.dc.html",
+      "x": 900,
+      "y": 2100,
+      "w": 840,
+      "h": 592,
+      "title": "20 · Maskot"
+    },
+    {
+      "file": "H21.dc.html",
+      "x": 1800,
+      "y": 2100,
+      "w": 840,
+      "h": 592,
+      "title": "21 · Tulisan tangan"
+    },
+    {
+      "file": "H22.dc.html",
+      "x": 2700,
+      "y": 2100,
+      "w": 840,
+      "h": 592,
+      "title": "22 · Pembatas Bab IV"
+    },
+    {
+      "file": "H23.dc.html",
+      "x": 3600,
+      "y": 2100,
+      "w": 840,
+      "h": 592,
+      "title": "23 · Layar dan cetak"
+    },
+    {
+      "file": "H24.dc.html",
+      "x": 4500,
+      "y": 2100,
+      "w": 840,
+      "h": 592,
+      "title": "24 · Merchandise & booth"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "catatan",
+      "x": 0,
+      "y": -160,
+      "w": 1000,
+      "text": "Buku GSM Balikin — 24 halaman A5 lanskap 210 × 148 mm (840 × 592 px, 4 satuan = 1 mm).\nTata letak dan hierarki sudah dikunci; isi teks, tangkapan layar, dan foto cetakan masih placeholder.\nUrut membaca dari kiri ke kanan, enam halaman per baris."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
