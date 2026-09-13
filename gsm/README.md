@@ -1,8 +1,12 @@
 # Buku GSM — 24 halaman A5 lanskap
 
 210 × 148 mm, art paper 150 gsm, jilid spiral. Artboard 840 × 592 px
-(4 satuan = 1 mm). Gaya mengikuti poster showcase: bidang besar, tipografi
-tegas, banyak ruang kosong — **tata letaknya yang dikunci, isinya masih
+(4 satuan = 1 mm).
+
+Gaya presentasi **brand identity** — acuannya papan identitas merek di Behance:
+tipografi besar bercampur, ruang kosong murah hati, blok warna penuh halaman,
+kartu bersudut membulat besar, dan supergrafis heksagon yang keluar tepi
+halaman. **Tata letaknya dikunci; tangkapan layar dan foto cetakan masih
 placeholder.**
 
 | Hal. | Isi | Berkas |
@@ -18,30 +22,36 @@ placeholder.**
 | 22 | Pembatas Bab IV | `H22` |
 | 23–24 | Layar dan cetak · Merchandise & booth | `H23`–`H24` |
 
-## Latar dan supergrafis
+## Aturan tata letak
 
-Halaman isi tidak polos — tiap halaman memakai empat lapis yang sama, warnanya
-mengikuti bab:
+Satu sistem dipakai di seluruh buku, jadi halaman mana pun terbaca sebagai satu
+keluarga:
 
-1. **Bidang miring 30°** — sudut yang sama dengan sisi heksagon, memotong
-   halaman dari tepi atas ke sudut bawah. Arahnya berganti kiri–kanan tiap
-   halaman, jadi kalau bukunya dibuka, dua halaman saling mencerminkan.
-2. **Pola sarang** hanya di dalam bidang miring itu, bukan di seluruh halaman —
-   supaya polanya punya tepi dan terbaca sebagai grafis, bukan tekstur.
-3. **Angka hantu** nomor bagian setinggi 300 px, opasitas 6%, menyembul di tepi.
-4. **Indeks tepi** — pita warna bab di sisi kanan, posisinya turun satu tingkat
-   tiap bab, jadi keempat bab terlihat bertingkat waktu buku ditutup.
+- **Tepi halaman 56 px**, lebar isi 728 px. Dua kolom 340 + 48 + 340;
+  tiga kolom 224 + 28 + 224 + 28 + 224.
+- **Kepala halaman**: label bab di kiri, nomor halaman di kanan, garis rambut
+  di y = 72. Kaki halaman dibiarkan kosong kecuali ada yang perlu dikatakan.
+- **Judul bagian** dicampur dua gaya — Archivo tebal + Archivo miring, selalu
+  dipecah di **batas kata**, tidak pernah di tengah kata. Satu kalimat
+  ringkasan rata kanan di seberangnya.
+- **Supergrafis**: satu heksagon besar, bidang tint 5%, keluar tepi bawah
+  halaman. Warnanya mengikuti bab (teal · teal tua · emas · terakota). Arahnya
+  berganti kiri–kanan tiap halaman.
+- **Pembatas bab** memakai warna penuh halaman: angka romawi hantu di kiri
+  bawah, judul besar di kiri atas, daftar isi bab di kanan.
+- Kartu putih **radius 16–26 px**. Tidak ada bayangan kecuali pada mockup.
 
-Kepala halaman diberi heksagon kecil dan garis rambut sewarna bab. Kotak
-spesimen mengambang dengan bayangan tipis di atas bidang itu.
+## Huruf
 
-Pembatas bab memakai lapis yang sama dengan arah tetap ke kanan.
+Archivo (judul, wordmark, angka), Plus Jakarta Sans (teks, label), Caveat (satu
+kalimat tulisan tangan). Halaman memuat sendiri ketiganya dari Google Fonts,
+lengkap dengan **varian miring Archivo** yang dipakai di judul campur.
 
 ## Yang masih placeholder
 
 - **Tangkapan layar aplikasi** di halaman 04 dan 23 — sekarang ponsel kosong.
 - **Foto cetakan asli** di halaman 23 dan 24 — sekarang blok warna.
-- **Lembar ikon lengkap** di halaman 18 — sekarang 18 dari 98 bentuk.
+- **Lembar ikon lengkap** di halaman 18 — sekarang 16 dari 98 bentuk.
 - **Nilai CMYK dan Pantone** di halaman 15 — menunggu uji cetak pertama.
 - **Pose maskot tambahan** di halaman 20.
 
@@ -57,8 +67,14 @@ python3 build_gsm.py                 # 24 halaman + canvas.json
 node lihat.mjs $PWD/Main.dc.html     # potret PNG
 ```
 
-`kit_gsm.py` memuat kepala halaman, judul bagian, kotak spesimen, lambang,
-pola sarang, dan mockup ponsel. Satu pembatas bab dipakai ulang empat kali.
+`kit_gsm.py` memuat seluruh perkakasnya: `tajuk()` judul campur, `mata()`
+kata-mata, `blok()` kartu, `gambar()` mockup, `heks()` supergrafis, `sarang()`
+pola, `lambang()` logo, `ponsel()` purwarupa, dan `bingkai()` kepala halaman.
+Satu pembatas bab dipakai ulang empat kali.
+
+> Potret PNG memakai huruf cadangan kalau Google Fonts tidak terjangkau dari
+> mesin perender. Pasang Archivo, Plus Jakarta Sans, dan Caveat ke sistem kalau
+> mau potretnya sesuai berkas aslinya.
 
 ## Kalau nanti diekspor ke cetak
 

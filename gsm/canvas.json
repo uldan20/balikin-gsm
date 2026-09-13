@@ -197,9 +197,9 @@
     {
       "id": "catatan",
       "x": 0,
-      "y": -160,
-      "w": 1000,
-      "text": "Buku GSM Balikin — 24 halaman A5 lanskap 210 × 148 mm (840 × 592 px, 4 satuan = 1 mm).\nTata letak dan hierarki sudah dikunci; isi teks, tangkapan layar, dan foto cetakan masih placeholder.\nUrut membaca dari kiri ke kanan, enam halaman per baris."
+      "y": -170,
+      "w": 1040,
+      "text": "GSM Balikin — 24 halaman A5 lanskap 210 × 148 mm (840 × 592 px, 4 satuan = 1 mm).\nGaya presentasi brand identity: tipografi besar bercampur, blok warna penuh, kartu bersudut membulat, supergrafis heksagon.\nTangkapan layar aplikasi dan foto cetakan masih placeholder. Urut membaca kiri ke kanan, enam halaman per baris."
     }
   ],
   "launch": {

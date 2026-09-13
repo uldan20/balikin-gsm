@@ -1,523 +1,613 @@
 # -*- coding: utf-8 -*-
-"""Buku GSM Balikin — 24 halaman A5 lanskap. Tata letak dikunci, isi placeholder."""
+"""Buku GSM Balikin — 24 halaman A5 lanskap.
+
+Register editorial: tipografi besar bercampur, ruang kosong murah hati, blok
+warna penuh halaman, kartu bersudut membulat. Isi teks sudah benar; tangkapan
+layar dan foto cetakan masih placeholder.
+"""
 import os, json
 from kit_gsm import *
-DIR = os.path.dirname(os.path.abspath(__file__))
 
-HAL = []                                  # (berkas, judul kanvas)
+HAL = []                                   # (berkas, judul kanvas)
+BAB_W = [TEAL, TEAL_G, EMAS, TERRA]        # warna aksen tiap bab
 
-# halaman isi -> (indeks bab, angka hantu)
-BAB_HAL = {4: (0, '1'), 5: (0, '2'),
-           7: (1, '1'), 8: (1, '2'), 9: (1, '3'), 10: (1, '4'), 11: (1, '5'), 12: (1, '6'), 13: (1, '7'),
-           15: (2, '1'), 16: (2, '2'), 17: (2, '3'), 18: (2, '4'), 19: (2, '5'), 20: (2, '6'), 21: (2, '7'),
-           23: (3, '1'), 24: (3, '2')}
-
-def simpan(nomor, nama, isi, latar=CREAM):
+def simpan(nomor, nama, isi, latar=KRIM):
     berkas = ('Main' if nomor == 1 else 'H%02d' % nomor) + '.dc.html'
-    if nomor in BAB_HAL:
-        bab, hantu = BAB_HAL[nomor]
-        sisi = 'kanan' if nomor % 2 else 'kiri'
-        isi = latar_halaman(bab, hantu, sisi) + indeks_tepi(bab) + garis_kepala(bab) + isi
     tulis(berkas, halaman(isi, latar), latar)
     HAL.append((berkas, '%02d · %s' % (nomor, nama)))
 
-def pembatas(nomor, angka, judul, ringkas, daftar, warna, warna2):
-    isi = (dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'), sarang(CREAM, '.09', 3))
-           + dv(P(x=0, y=0, w=W, h=H, z=1,
-                  lain='background:rgba(251,248,243,.08);' + bidang_miring('kanan')))
-           + dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'),
-                '<svg width="' + str(W) + '" height="' + str(H) + '" viewBox="0 0 ' + str(W) + ' '
-                + str(H) + '" fill="none"><path d="M840 107L0 592" stroke="' + CREAM
-                + '" stroke-width="2" opacity=".28"/></svg>')
-           + dv(P(x=M, y=120, z=5, lain=font(AR, 150, 700, 'rgba(251,248,243,.22)', -6, 1)), angka)
-           + dv(P(x=M + 8, y=196, z=6, lain=font(PJ, 10, 700, EMAS_M, 4)), 'BAB ' + angka)
-           + dv(P(x=M + 8, y=216, w=460, z=6, lain=font(AR, 44, 700, CREAM, -1.5, 1.1)), judul)
-           + dv(P(x=M + 8, y=316, w=420, z=6, lain=font(PJ, 13, 400, 'rgba(207,230,224,.85)', None, 1.6)), ringkas)
-           + dv(P(r=M, y=150, w=250, z=6), ''.join(
-               dv('display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(251,248,243,.16);',
-                  tk(font(AR, 12, 700, EMAS_M, 1) + 'width:26px;flex:none;', h)
-                  + tk(font(PJ, 12, 500, CREAM), t)) for h, t in daftar))
-           + dv(P(r=M, b=40, z=6), lambang(34, CREAM, EMAS_M)))
-    return isi, 'linear-gradient(145deg,' + warna + ' 0%,' + warna2 + ' 100%)'
+def latar_bab(i, sisi='kanan'):
+    """Supergrafis halus di sudut halaman — bidang tint, bukan garis yang memotong isi."""
+    c = BAB_W[i]
+    if sisi == 'kanan':
+        return heks(r=-268, b=-232, d=520, warna=c, tebal=0, op='.05', z=1)
+    return heks(x=-268, b=-232, d=520, warna=c, tebal=0, op='.05', z=1)
 
-# ---------------------------------------------------------------- 01 sampul
-s = (dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'), sarang(CREAM, '.1', 3))
-     + dv(P(x=M, y=56, z=6), lambang(46, CREAM, EMAS_M))
-     + dv(P(r=M, y=62, z=6, lain=font(PJ, 10, 700, 'rgba(207,230,224,.8)', 4, 1, 'right')),
-          'GRAPHIC STANDARD MANUAL<br><span style="opacity:.6">EDISI PERTAMA &middot; 2026</span>')
-     + dv(P(x=M, y=214, z=6, lain=font(AR, 124, 700, CREAM, -6, 1)), 'BALIKIN')
-     + dv(P(x=M + 6, y=348, z=6, lain=font(AR, 26, 700, EMAS_M, -.5)), 'Yang hilang, balik pulang.')
-     + dv(P(x=M + 6, y=392, w=430, z=6, lain=font(PJ, 12, 400, 'rgba(207,230,224,.8)', None, 1.6)),
-          'Panduan identitas visual aplikasi lost and found berbasis sistem reputasi komunitas.')
-     + dv(P(x=M, b=44, z=6, lain=font(PJ, 11, 500, 'rgba(207,230,224,.7)', None, 1.6)),
-          'Uldan Pamungkas &middot; 20210060127<br>Desain Komunikasi Visual &middot; Universitas Nusa Putra Sukabumi')
-     + dv(P(r=M, b=40, w=196, h=226, z=5, lain='background:rgba(251,248,243,.08);' + HEKS_T))
-     + dv(P(r=64, b=88, z=7, lain='width:132px;height:150px;background:' + EMAS_M + ';' + HEKS
-            + 'display:grid;place-items:center;'), lambang(62, TEAL_X, TEAL)))
-simpan(1, 'Sampul', s, 'linear-gradient(150deg,' + TEAL + ' 0%,' + TEAL_X + ' 100%)')
+def bagian(no, baris, ringkas='', x=M, y=104, w=400, uk=46, warna=INK, redup=REDUP, th='.95'):
+    s = mata(x, y, 'Bagian ' + no, redup) if no else ''
+    yy = y + (26 if no else 0)
+    s += tajuk(x, yy, w, baris, uk, warna, -2, th)
+    yy += int(uk * float(th)) * len(baris) + 18
+    if ringkas:
+        s += teks(x, yy, w, ringkas, 12, redup, 400, '1.6')
+    return s
 
-# ---------------------------------------------------------------- 02 daftar isi
-BAB = [('I', 'Tentang Balikin', '03 – 05', TEAL),
-       ('II', 'Identitas Utama', '06 – 13', TEAL_G),
-       ('III', 'Elemen Visual', '14 – 21', EMAS),
-       ('IV', 'Penerapan', '22 – 24', TERRA)]
+def catatan(x, y, w, isi, jarak=92):
+    return ''.join(kartu_teks(x, y + i * jarak, w, a, b) for i, (a, b) in enumerate(isi))
+
+def kartu_aturan(x, y, w, h, atas, isi, bg=PUTIH, tepi=GARIS, fg=REDUP):
+    return blok(x, y, w, h, dv(P(x=18, y=16, w=w - 36, lain=font(PJ, 9, 700, fg, 2)), atas.upper())
+                + dv(P(x=18, y=38, w=w - 36, lain=font(PJ, 11, 400, INK, None, '1.5')), isi),
+                bg, 16, 6, tepi)
+
+# ================================================================ 01 sampul
+s = (dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'), sarang(KRIM, '.07', 3))
+     + heks(r=-200, y=-96, d=470, warna=MINT, tebal=2, op='.34', z=2)
+     + heks(r=-56, b=-160, d=310, warna=MINT, tebal=2, op='.22', z=2)
+     + heks(x=-104, b=-186, d=280, warna=EMAS_M, tebal=0, op='.13', z=2)
+     + dv(P(x=M, y=44, z=8), lambang(38, KRIM, EMAS_M))
+     + mata(None, 50, 'Graphic Standard Manual', rgba(MINT_M, '.85'), r=M, rt='right')
+     + mata(None, 68, 'Edisi 01 · 2026', rgba(MINT_M, '.5'), r=M, rt='right')
+     + mata(M, 192, 'Identitas Visual Aplikasi', rgba(MINT_M, '.7'))
+     + tajuk(M, 214, 728, [[('BALIKIN', '')]], 150, KRIM, -7, '1', z=8)
+     + garis(M, 386, 728, rgba(MINT_M, '.28'), z=8)
+     + tajuk(M, 406, 700, [[('Yang hilang, ', ''), ('balik pulang.', 'c')]], 34, KRIM, -1, '1.1')
+     + teks(M, 458, 380, 'Panduan baku pemakaian logo, warna, huruf, ikon, dan penerapan '
+            'identitas Balikin.', 12, rgba(MINT_M, '.72'))
+     + garis(M, 516, 728, rgba(MINT_M, '.2'), z=8)
+     + teks(None, None, 320, 'Uldan Pamungkas &middot; 20210060127<br>'
+            'Desain Komunikasi Visual &middot; Universitas Nusa Putra Sukabumi',
+            11, rgba(MINT_M, '.62'), 500, '1.55', r=M, b=42, rt='right')
+     + mata(M, None, '24 halaman · A5 lanskap', rgba(MINT_M, '.5'), b=48))
+simpan(1, 'Sampul', s, 'linear-gradient(150deg,' + TEAL_G + ' 0%,' + TEAL_X + ' 100%)')
+
+# ================================================================ 02 daftar isi
+BAB = [('I', 'Tentang Balikin', '03', '05', TEAL,
+        'Produk, pengguna, tagline, dan kepribadian.'),
+       ('II', 'Identitas Utama', '06', '13', TEAL_G,
+        'Logogram, konstruksi, ruang aman, ukuran, konfigurasi, warna, larangan.'),
+       ('III', 'Elemen Visual', '14', '21', EMAS,
+        'Palet, huruf, Sudut Enam, ikon, pola, maskot, tulisan tangan.'),
+       ('IV', 'Penerapan', '22', '24', TERRA,
+        'Layar, cetak, merchandise, dan meja pameran.')]
 baris = ''
-for a, t, h, c in BAB:
-    baris += dv('display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid ' + GARIS + ';',
-                dv('width:30px;height:34px;background:' + c + ';' + HEKS + 'display:grid;'
-                   'place-items:center;flex:none;', tk(font(AR, 13, 700, PUTIH), a))
-                + tk(font(AR, 20, 700, INK, -.4) + 'flex:1;', t)
-                + tk(font(PJ, 12, 700, REDUP, 1), h))
-s = (kepala('Daftar isi', 2)
-     + dv(P(x=M, y=90, z=6, lain=font(AR, 44, 700, INK, -1.5, 1)), 'Daftar Isi')
-     + dv(P(x=M, y=152, w=340, z=6, lain=font(PJ, 12, 400, REDUP, None, 1.55)),
-          'Manual ini mengunci cara memakai identitas Balikin — logo, warna, huruf, ikon, '
-          'maskot, dan penerapannya di aplikasi maupun cetak.')
-     + dv(P(r=M, y=96, w=400, z=6), baris)
-     + dv(P(x=M, b=48, z=6), lambang(30, TEAL, EMAS))
-     + dv(P(x=M + 44, b=52, z=6, lain=font(PJ, 10, 700, REDUP, 3)), '24 HALAMAN &middot; A5 LANSKAP'))
+for i, (a, t, h1, h2, c, ket) in enumerate(BAB):
+    baris += (dv(P(x=0, y=i * 106, w=436, h=1, lain='background:' + GARIS + ';'))
+              + dv(P(x=0, y=i * 106 + 22, lain=font(AR, 30, 700, c, -1, 1)), a)
+              + dv(P(x=64, y=i * 106 + 20, lain=font(AR, 22, 700, INK, -.5)), t)
+              + dv(P(x=64, y=i * 106 + 50, w=300, lain=font(PJ, 11, 400, REDUP, None, '1.5')), ket)
+              + dv(P(r=0, y=i * 106 + 24, lain=font(PJ, 11, 700, REDUP, 1)), h1 + '–' + h2))
+s = (latar_bab(0)
+     + mata(M, 44, 'Balikin · Graphic Standard Manual')
+     + dv(P(r=M, y=38, z=8, lain=font(AR, 15, 700, REDUP)), '02')
+     + garis(M, 72, KOL)
+     + tajuk(M, 118, 280, [[('Daftar', '')], [('Isi', 'm')]], 58, INK, -2, '.94')
+     + teks(M, 260, 250, 'Manual ini mengunci cara memakai identitas Balikin — apa yang boleh, '
+            'apa yang tidak, dan kenapa.', 12, REDUP)
+     + dv(P(x=348, y=104, w=436, z=8), baris)
+     + dv(P(x=348, y=528, w=436, h=1, z=8, lain='background:' + GARIS + ';'))
+     + dv(P(x=M, b=52, z=8), lambang(30, TEAL, EMAS))
+     + mata(M + 44, None, '24 halaman · A5 lanskap 210 × 148 mm', REDUP, b=60))
 simpan(2, 'Daftar Isi', s)
 
-# ---------------------------------------------------------------- 03 pembatas I
-s, bg = pembatas(3, 'I', 'Tentang<br>Balikin', 'Apa itu Balikin, untuk siapa, dan bagaimana ia '
-                 'ingin terdengar.', [('04', 'Produk dan pengguna'), ('05', 'Tagline & kepribadian')],
-                 TEAL_T, TEAL_G)
+# ================================================================ pembatas bab
+def pembatas(nomor, angka_, judul_, ringkas, daftar, c1, c2, aksen=EMAS_M):
+    rows = ''
+    for i, (h, t) in enumerate(daftar):
+        rows += (dv(P(x=0, y=i * 42, w=300, h=1, lain='background:' + rgba(KRIM, '.22') + ';'))
+                 + dv(P(x=0, y=i * 42 + 13, lain=font(PJ, 11, 700, aksen, 1)), h)
+                 + dv(P(x=42, y=i * 42 + 12, lain=font(PJ, 12, 500, KRIM)), t))
+    n = len(daftar)
+    isi = (dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'), sarang(KRIM, '.08', 3))
+           + heks(r=-180, y=-120, d=420, warna=KRIM, tebal=2, op='.2', z=2)
+           + heks(x=-120, b=-160, d=300, warna=KRIM, tebal=2, op='.14', z=2)
+           + angka(M - 8, None, angka_, 300, KRIM, '.13', 2, b=-64, sp=-10)
+           + dv(P(x=M, y=44, z=8), lambang(34, KRIM, aksen))
+           + mata(None, 50, 'Bab ' + angka_, rgba(KRIM, '.6'), r=M, rt='right')
+           + mata(M, 168, 'Bab ' + angka_, aksen)
+           + tajuk(M, 192, 360, judul_, 60, KRIM, -2, '.94')
+           + teks(M, 192 + 56 * len(judul_) + 20, 320, ringkas, 12, rgba(KRIM, '.72'))
+           + dv(P(r=M, y=300 - n * 21, w=300, z=8), rows)
+           + dv(P(r=M, y=300 - n * 21 + n * 42, w=300, h=1, z=8,
+                  lain='background:' + rgba(KRIM, '.22') + ';'))
+           + mata(None, None, 'Balikin · Graphic Standard Manual', rgba(KRIM, '.45'),
+                  r=M, b=54, rt='right'))
+    return isi, 'linear-gradient(145deg,' + c1 + ' 0%,' + c2 + ' 100%)'
+
+s, bg = pembatas(3, 'I', [[('Tentang', '')], [('Balikin', 'm')]],
+                 'Apa itu Balikin, untuk siapa dibuat, dan bagaimana ia ingin terdengar.',
+                 [('04', 'Produk dan pengguna'), ('05', 'Tagline & kepribadian')], TEAL_T, TEAL_G)
 simpan(3, 'Pembatas Bab I', s, bg)
 
-# ---------------------------------------------------------------- 04 tentang
-s = (kepala('Bab I · Tentang Balikin', 4)
-     + judul_bagian('1', 'Produk dan pengguna', 'Aplikasi lost and found untuk warga Sukabumi. '
-                    'Penemu melapor, pemilik mencari, keduanya bertemu di titik aman.')
-     + dv(P(x=M, y=210, w=330, z=6), ''.join(
-         dv('display:flex;gap:12px;margin-top:14px;',
-            dv('width:26px;height:30px;background:' + MINT_M + ';' + HEKS + 'display:grid;'
-               'place-items:center;flex:none;', ik(i, 14, TEAL))
-            + dv('flex:1;', dv(font(AR, 13, 700, INK), a)
-                 + dv(font(PJ, 11, 400, REDUP, None, 1.4) + 'margin-top:3px;', b)))
-         for i, a, b in (('cari', 'Melapor kehilangan', 'Empat langkah, dua menit.'),
-                         ('bag', 'Melapor temuan', 'Foto, kategori, lokasi.'),
-                         ('bintang', 'Reputasi komunitas', 'Poin dan lencana, bukan uang.'))))
-     + kotak(452, 96, 340, 400, sarang(TEAL, '.1', 2), FILL, 18)
-     + ponsel(500, 140, 118, 7, rot=-4)
-     + ponsel(636, 178, 118, 6, rot=5)
-     + label(452, 516, 'Placeholder — ganti dengan tangkapan layar asli'))
+# ================================================================ 04 produk & pengguna
+fitur = ''
+for i, (n, a, b) in enumerate((('cari', 'Melapor kehilangan', 'Empat langkah, dua menit.'),
+                               ('bag', 'Melapor temuan', 'Foto, kategori, titik lokasi.'),
+                               ('bintang', 'Reputasi komunitas', 'Poin dan lencana, bukan uang.'))):
+    y = i * 76
+    fitur += (dv(P(x=0, y=y, w=38, h=42, z=7, lain='background:' + MINT_M + ';' + HEKS
+                   + 'display:grid;place-items:center;'), ik(n, 18, TEAL))
+              + dv(P(x=56, y=y + 4, lain=font(AR, 15, 700, INK, -.2)), a)
+              + dv(P(x=56, y=y + 26, w=260, lain=font(PJ, 11, 400, REDUP, None, '1.5')), b))
+s = (latar_bab(0)
+     + bingkai('Bab I · Tentang Balikin', 4)
+     + bagian('01', [[('Produk', '')], [('dan pengguna', 'm')]],
+              'Aplikasi lost and found untuk warga Sukabumi. Penemu melapor, pemilik mencari, '
+              'keduanya bertemu di titik aman yang disepakati.', w=340)
+     + dv(P(x=M, y=316, w=340, z=8), fitur)
+     + gambar(444, 104, 340, 424, 'Placeholder — ganti tangkapan layar asli',
+              ponsel(38, 52, 118, layar_app(118 - 12, 118 * 61 // 30 - 12, TEAL), -5)
+              + ponsel(180, 116, 118, layar_app(118 - 12, 118 * 61 // 30 - 12, TEAL_G), 6)))
 simpan(4, 'Produk dan pengguna', s)
 
-# ---------------------------------------------------------------- 05 tagline
+# ================================================================ 05 tagline
 sifat = ''
-for t, k in (('Hangat', 'bukan formal'), ('Jelas', 'bukan pintar'),
-             ('Rendah hati', 'bukan pamer'), ('Tenang', 'bukan heboh')):
-    sifat += kotak(0, 0, 0, 0)  # penjaga urutan
-sifat = ''.join(
-    dv('flex:1;background:' + PUTIH + ';border-radius:14px;padding:14px 16px;box-sizing:border-box;',
-       dv(font(AR, 17, 700, TEAL, -.3), t) + dv(font(PJ, 10, 500, REDUP) + 'margin-top:4px;', k))
-    for t, k in (('Hangat', 'bukan formal'), ('Jelas', 'bukan pintar'),
-                 ('Rendah hati', 'bukan pamer'), ('Tenang', 'bukan heboh')))
-s = (kepala('Bab I · Tentang Balikin', 5)
-     + judul_bagian('2', 'Tagline & kepribadian')
-     + dv(P(x=M, y=170, w=W - M * 2, z=6, lain=font(AR, 54, 700, INK, -2, 1.1, 'center')),
-          'Yang hilang, balik pulang.')
-     + dv(P(x=0, y=250, w=W, z=6, lain=font(PJ, 12, 400, REDUP, None, 1.5, 'center')),
-          'Kalimat penutup di tiap materi. Selalu diakhiri titik. Jangan diterjemahkan.')
-     + dv(P(x=M, y=316, w=W - M * 2, z=6, lain='display:flex;gap:12px;'), sifat)
-     + dv(P(x=M, b=50, w=W - M * 2, z=6,
-            lain='display:flex;align-items:baseline;justify-content:space-between;gap:20px;'),
-          tk('font-family:' + CV + ';font-size:30px;font-weight:600;color:' + TEAL
-             + ';white-space:nowrap;', 'Small things make a big difference')
-          + tk(font(PJ, 10, 700, REDUP, 3) + 'white-space:nowrap;',
-               'ELEMEN TULISAN TANGAN &middot; HAL. 21')))
+for i, (t, k) in enumerate((('Hangat', 'bukan formal'), ('Jelas', 'bukan pintar'),
+                            ('Rendah hati', 'bukan pamer'), ('Tenang', 'bukan heboh'))):
+    sifat += blok(i * 186, 0, 170, 116,
+                  dv(P(x=18, y=22, lain=font(AR, 19, 700, TEAL, -.4)), t)
+                  + dv(P(x=18, y=52, lain=font(PJ, 11, 400, REDUP)), k)
+                  + dv(P(x=18, b=18, w=24, h=2, lain='background:' + EMAS_M + ';')),
+                  PUTIH, 18, 6, GARIS)
+s = (latar_bab(0, 'kiri')
+     + bingkai('Bab I · Tentang Balikin', 5)
+     + mata(M, 104, 'Bagian 02 · Tagline & kepribadian')
+     + blok(M, 130, KOL, 216,
+            tengah(KOL, 216,
+                   tajuk(None, None, 660, [[('Yang hilang, ', ''), ('balik pulang.', 'c')]],
+                         62, INK, -2, '1.05', rt='center'))
+            + dv(P(x=0, y=0, w=KOL, h=216, z=1, lain='overflow:hidden;'), sarang(TEAL, '.07', 3)),
+            MINT_M, 28, 4)
+     + teks(M, 362, KOL, 'Kalimat penutup di tiap materi. Selalu diakhiri titik, tidak pernah '
+            'diterjemahkan, tidak pernah dipotong.', 12, REDUP, 400, '1.6', rt='center')
+     + dv(P(x=M, y=412, w=KOL, z=8), sifat)
+     + garis(M, H - 78, KOL)
+     + mata(M, None, 'Kepribadian merek', REDUP, b=44)
+     + tangan(None, None, 'Small things make a big difference', TEAL, 26, -2, 9, r=M, b=38))
 simpan(5, 'Tagline & kepribadian', s)
 
-# ---------------------------------------------------------------- 06 pembatas II
-s, bg = pembatas(6, 'II', 'Identitas<br>Utama', 'Logogram, konstruksi, ruang aman, ukuran, '
-                 'konfigurasi, warna, dan larangan.',
+# ================================================================ 06 pembatas II
+s, bg = pembatas(6, 'II', [[('Identitas', '')], [('Utama', 'm')]],
+                 'Logogram dan seluruh aturan yang menjaganya tetap dikenali.',
                  [('07', 'Logogram'), ('08', 'Konstruksi'), ('09', 'Ruang aman'),
                   ('10', 'Ukuran minimum'), ('11', 'Konfigurasi'), ('12', 'Warna logo'),
                   ('13', 'Larangan')], TEAL, TEAL_X)
 simpan(6, 'Pembatas Bab II', s, bg)
 
-# ---------------------------------------------------------------- 07 logogram
-s = (kepala('Bab II · Identitas Utama', 7)
-     + judul_bagian('1', 'Logogram')
-     + kotak(M, 150, 372, 346, dv(P(x=0, y=0, w=372, h=346, lain='display:grid;place-items:center;'),
-                                  lambang(150, TEAL, EMAS)), PUTIH, 18)
-     + label(M, 516, 'Logogram utama — heksagon bergaris dengan sel emas di dalamnya')
-     + dv(P(x=460, y=160, w=332, z=6), ''.join(
-         catatan(0, i * 92, 332, a, b) for i, (a, b) in enumerate((
-             ('Heksagon', 'Sel sarang — satu warga, satu sel. Enam sisi, sudut 60°, sambungan mitre.'),
-             ('Sel emas di tengah', 'Barang yang kembali. Selalu emas, tidak pernah warna lain.'),
-             ('Garis terbuka', 'Heksagonnya bergaris, bukan padat — komunitas yang bisa dimasuki.')))))
-     + dv(P(x=460, y=440, w=332, z=6, lain='background:' + MINT_M + ';border-radius:12px;padding:12px 14px;'),
-          dv(font(PJ, 11, 400, INK, None, 1.45), 'Logogram tidak pernah dipakai tanpa ruang aman. '
-             'Lihat halaman 09.')))
+# ================================================================ 07 logogram
+gag = ''
+for i, (n, a, b) in enumerate((('warga', 'Sel sarang', 'Satu warga, satu sel. Komunitas dibangun '
+                                'dari orang yang mau repot sedikit.'),
+                               ('coin', 'Sel emas di tengah', 'Barang yang kembali. Selalu emas, '
+                                'tidak pernah warna lain.'),
+                               ('perisai', 'Heksagon terbuka', 'Bergaris, bukan padat — '
+                                'komunitas yang masih bisa dimasuki.'))):
+    x = i * 252
+    gag += (dv(P(x=x, y=0, w=36, h=40, z=7, lain='background:' + EMAS_M + ';' + HEKS
+                 + 'display:grid;place-items:center;'), ik(n, 19, TEAL_X))
+            + dv(P(x=x, y=54, lain=font(AR, 15, 700, INK, -.2)), a)
+            + dv(P(x=x, y=76, w=210, lain=font(PJ, 11, 400, REDUP, None, '1.5')), b))
+s = (latar_bab(1)
+     + bingkai('Bab II · Identitas Utama', 7)
+     + bagian('01', [[('Logogram', '')]],
+              'Satu bentuk, dibaca dua arah: sarang yang menampung, dan barang yang kembali ke '
+              'tengahnya.', w=320)
+     + blok(M, 282, 340, 106,
+            dv(P(x=22, y=22, w=296, lain=font(PJ, 11, 400, INK, None, '1.55')),
+               'Logogram tidak pernah dipakai tanpa ruang aman. Aturannya di halaman 09.'),
+            MINT_M, 20, 4)
+     + blok(432, 96, 352, 296, tengah(352, 296, lambang(148, TEAL, EMAS)), PUTIH, 26, 4, GARIS)
+     + mata(432, 348, 'Logogram utama', REDUP, z=9, w=352, rt='center')
+     + garis(M, 416, KOL)
+     + mata(M, 432, 'Lambang ini menggabungkan tiga gagasan', INK)
+     + dv(P(x=M, y=462, w=KOL, z=8), gag))
 simpan(7, 'Logogram', s)
 
-# ---------------------------------------------------------------- 08 konstruksi
-kisi = ''.join('<path d="M' + str(60 + i * 30) + ' 0V320" stroke="' + TEAL + '" stroke-width="1" '
-               'opacity=".18"/>' for i in range(11))
-kisi += ''.join('<path d="M0 ' + str(20 + i * 30) + 'H360" stroke="' + TEAL + '" stroke-width="1" '
-                'opacity=".18"/>' for i in range(10))
-s = (kepala('Bab II · Identitas Utama', 8)
-     + judul_bagian('2', 'Konstruksi', 'Seluruh bentuk diturunkan dari satu satuan X — setengah '
-                    'lebar heksagon. Tidak ada ukuran yang dikarang.')
-     + kotak(M, 196, 372, 300,
-             '<svg width="372" height="300" viewBox="0 0 372 300" style="display:block">'
-             '<g transform="translate(6 -10)">' + kisi + '</g>'
-             '<path d="M186 40L280 95V205L186 260L92 205V95Z" fill="none" stroke="' + TEAL
-             + '" stroke-width="9" stroke-linejoin="miter"/>'
-             '<path d="M212 128L199 150H173L160 128L173 106H199Z" fill="' + EMAS + '"/>'
-             '<path d="M92 278H280" stroke="' + TERRA + '" stroke-width="2"/>'
-             '<path d="M92 272V284M280 272V284" stroke="' + TERRA + '" stroke-width="2"/>'
-             '<text x="186" y="294" font-family="' + PJ + '" font-size="11" font-weight="700" '
-             'fill="' + TERRA + '" text-anchor="middle">2X</text></svg>', PUTIH, 18)
-     + dv(P(x=460, y=200, w=332, z=6), ''.join(
-         catatan(0, i * 86, 332, a, b) for i, (a, b) in enumerate((
-             ('Satuan X', 'Setengah lebar heksagon. Semua jarak kelipatan X.'),
-             ('Sudut 60°', 'Kisi isometrik. Tidak ada sudut lain di logo.'),
-             ('Tebal garis', 'X ÷ 6. Ikut mengecil kalau logonya mengecil.')))))
-     + label(M, 516, 'Jangan menggambar ulang logo. Pakai berkas vektor yang disediakan.', TERRA))
+# ================================================================ 08 konstruksi
+kisi = ''.join('<path d="M' + str(46 + i * 30) + ' 0V330" stroke="' + TEAL + '" stroke-width="1" '
+               'opacity=".16"/>' for i in range(11))
+kisi += ''.join('<path d="M0 ' + str(24 + i * 30) + 'H384" stroke="' + TEAL + '" stroke-width="1" '
+                'opacity=".16"/>' for i in range(10))
+s = (latar_bab(1, 'kiri')
+     + bingkai('Bab II · Identitas Utama', 8)
+     + bagian('02', [[('Konstruksi', '')]],
+              'Semua ukuran diturunkan dari satu satuan X — setengah lebar heksagon. '
+              'Tidak ada angka yang dikarang.', w=300)
+     + blok(400, 96, 384, 400,
+            '<svg width="384" height="400" viewBox="0 0 384 400" style="display:block">'
+            + '<g transform="translate(0 10)">' + kisi + '</g>'
+            + '<path d="M192 60L286 115V225L192 280L98 225V115Z" fill="none" stroke="' + TEAL
+            + '" stroke-width="9" stroke-linejoin="miter"/>'
+            '<path d="M218 148L205 170H179L166 148L179 126H205Z" fill="' + EMAS + '"/>'
+            '<path d="M98 316H286" stroke="' + TERRA + '" stroke-width="2"/>'
+            '<path d="M98 308V324M286 308V324" stroke="' + TERRA + '" stroke-width="2"/>'
+            '<text x="192" y="346" font-family="' + PJ + '" font-size="11" font-weight="700" '
+            'fill="' + TERRA + '" text-anchor="middle">2X</text>'
+            '<path d="M62 115V225" stroke="' + TERRA + '" stroke-width="2"/>'
+            '<path d="M54 115H70M54 225H70" stroke="' + TERRA + '" stroke-width="2"/>'
+            '<text x="40" y="176" font-family="' + PJ + '" font-size="11" font-weight="700" '
+            'fill="' + TERRA + '" text-anchor="middle">2X</text></svg>', PUTIH, 26, 4, GARIS)
+     + catatan(M, 286, 300, (('Satuan X', 'Setengah lebar heksagon. Semua jarak kelipatan X.'),
+                             ('Sudut 60°', 'Kisi isometrik. Tidak ada sudut lain di dalam logo.'),
+                             ('Tebal garis', 'X ÷ 6. Ikut mengecil kalau logonya mengecil.')), 76)
+     + garis(M, H - 78, 300)
+     + mata(M, None, 'Jangan menggambar ulang — pakai berkas vektor', TERRA, b=44))
 simpan(8, 'Konstruksi', s)
 
-# ---------------------------------------------------------------- 09 ruang aman
-s = (kepala('Bab II · Identitas Utama', 9)
-     + judul_bagian('3', 'Ruang aman', 'Tidak ada apa pun di dalam kotak putus-putus: teks, '
-                    'gambar, tepi kertas, atau logo lain.')
-     + kotak(M, 196, 372, 300,
-             dv(P(x=76, y=56, w=220, h=188, lain='border:2px dashed ' + TERRA + ';'))
-             + dv(P(x=136, y=100, lain='display:grid;place-items:center;'), lambang(100, TEAL, EMAS))
-             + ''.join(dv(P(x=x, y=y, lain=font(PJ, 10, 700, TERRA, 1)), 'X')
-                       for x, y in ((100, 68), (100, 212), (288, 68), (288, 212)))
-             + dv(P(x=76, y=250, w=220, lain=font(PJ, 10, 700, TERRA, 1, None, 'center')),
-                  'RUANG AMAN = 1X DI SEMUA SISI'), PUTIH, 18)
-     + dv(P(x=460, y=200, w=332, z=6),
-          catatan(0, 0, 332, 'Satu X di semua sisi', 'X sama dengan setengah lebar heksagon. '
-                  'Kalau logonya membesar, ruang amannya ikut membesar.')
-          + catatan(0, 96, 332, 'Di atas foto', 'Pakai bidang warna solid di belakang logo, '
-                    'jangan menaruh logo langsung di atas foto ramai.'))
-     + dv(P(x=460, y=372, w=332, h=124, z=6,
-            lain='background:' + FILL + ';border-radius:14px;display:grid;place-items:center;'),
-          dv(font(PJ, 11, 400, REDUP, None, 1.4, 'center') + 'padding:0 18px;',
-             'Placeholder — contoh penerapan ruang aman di sampul buku dan header aplikasi.')))
+# ================================================================ 09 ruang aman
+s = (latar_bab(1)
+     + bingkai('Bab II · Identitas Utama', 9)
+     + bagian('03', [[('Ruang ', ''), ('aman', 'm')]],
+              'Tidak ada apa pun di dalam kotak putus-putus: teks, gambar, tepi kertas, '
+              'atau logo lain.', x=472, w=312)
+     + blok(M, 96, 384, 400,
+            dv(P(x=52, y=46, w=280, h=298, lain='border:2px dashed ' + TERRA + ';'))
+            + dv(P(x=122, y=116, lain='display:grid;place-items:center;'), lambang(140, TEAL, EMAS))
+            + ''.join(dv(P(x=x, y=y, lain=font(PJ, 11, 700, TERRA, 1)), 'X')
+                      for x, y in ((82, 70), (82, 296), (290, 70), (290, 296)))
+            + ''.join(dv(P(x=x, y=y, w=w, h=h, lain='background:' + TERRA_M + ';opacity:.5;'))
+                      for x, y, w, h in ((122, 46, 140, 70), (122, 273, 140, 71),
+                                         (52, 116, 70, 157), (262, 116, 70, 157)))
+            + dv(P(x=0, y=0, w=384, h=400, z=1, lain='overflow:hidden;'), halftone(TEAL, '.06', 9, 1))
+            + mata(0, None, 'Ruang aman = 1X di semua sisi', TERRA, z=9, uk=9, sp=2, w=384,
+                   rt='center', b=28), PUTIH, 26, 4, GARIS)
+     + catatan(472, 282, 312,
+               (('Satu X di semua sisi', 'Kalau logonya membesar, ruang amannya ikut membesar. '
+                 'Perbandingan tidak pernah berubah.'),
+                ('Di atas foto', 'Pakai bidang warna solid di belakang logo. Jangan menaruh logo '
+                 'langsung di atas foto ramai.')), 112))
 simpan(9, 'Ruang aman', s)
 
-# ---------------------------------------------------------------- 10 ukuran minimum
+# ================================================================ 10 ukuran minimum
 uk = ''
-for i, (px_, lab, ket) in enumerate(((96, '18 mm', 'Cetak'), (58, '32 px', 'Layar'), (34, '16 px', 'Favicon'))):
-    uk += dv(P(x=i * 124, y=0, w=112, z=6, lain='text-align:center;'),
-             dv('height:120px;display:grid;place-items:center;', lambang(px_, TEAL, EMAS))
-             + dv(font(AR, 15, 700, INK) + 'margin-top:6px;', lab)
-             + dv(font(PJ, 10, 700, REDUP, 2) + 'margin-top:2px;', ket.upper()))
-s = (kepala('Bab II · Identitas Utama', 10)
-     + judul_bagian('4', 'Ukuran minimum', 'Di bawah ukuran ini sel emasnya menutup dan '
-                    'heksagonnya jadi gumpalan. Jangan dipaksakan.')
-     + kotak(M, 210, 400, 250, dv(P(x=28, y=44, w=380, z=6), uk), PUTIH, 18)
-     + dv(P(x=488, y=214, w=304, z=6),
-          catatan(0, 0, 304, 'Cetak 18 mm', 'Diukur dari lebar heksagon, bukan tinggi kunci.')
-          + catatan(0, 84, 304, 'Layar 32 px', 'Di bawah ini pakai logogram tanpa wordmark.')
-          + catatan(0, 168, 304, 'Favicon 16 px', 'Versi padat khusus — bukan logo utama diperkecil.'))
-     + label(M, 480, 'Ukuran di halaman ini ditampilkan sesuai skala cetak sebenarnya'))
+for i, (px_, lab, ket) in enumerate(((104, '18 mm', 'Cetak'), (62, '32 px', 'Layar'),
+                                     (34, '16 px', 'Favicon'))):
+    x = i * 243
+    uk += (dv(P(x=x, y=0, w=242, h=136, lain='display:grid;place-items:center;'),
+              lambang(px_, TEAL, EMAS))
+           + dv(P(x=x, y=150, w=242, lain=font(AR, 20, 700, INK, -.5, None, 'center')), lab)
+           + dv(P(x=x, y=178, w=242, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), ket.upper())
+           + (dv(P(x=x - 1, y=14, w=1, h=180, lain='background:' + GARIS + ';')) if i else ''))
+s = (latar_bab(1, 'kiri')
+     + bingkai('Bab II · Identitas Utama', 10)
+     + bagian('04', [[('Ukuran ', ''), ('minimum', 'm')]], x=M, w=340, uk=44)
+     + teks(400, 112, 384, 'Di bawah ukuran ini sel emasnya menutup dan heksagonnya jadi '
+            'gumpalan. Jangan dipaksakan.', 12, REDUP, 400, '1.6', rt='right')
+     + blok(M, 196, KOL, 214, dv(P(x=0, y=16, w=KOL, z=6), uk), PUTIH, 26, 4, GARIS)
+     + dv(P(x=M, y=436, w=KOL, z=8), ''.join(
+         kartu_aturan(i * 243, 0, 228, 92, a, b, KRIM_2, None)
+         for i, (a, b) in enumerate((('CETAK 18 MM', 'Diukur dari lebar heksagon, bukan tinggi.'),
+                                     ('LAYAR 32 PX', 'Di bawah ini logogram saja, tanpa wordmark.'),
+                                     ('FAVICON 16 PX', 'Versi padat khusus — bukan logo diperkecil.'))))))
 simpan(10, 'Ukuran minimum', s)
 
-# ---------------------------------------------------------------- 11 konfigurasi
-def sel_konfig(x, y, w, h, isi, lab):
-    return (kotak(x, y, w, h, dv(P(x=0, y=0, w=w, h=h - 30, lain='display:grid;place-items:center;'), isi)
-                  + dv(P(x=0, b=10, w=w, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), lab.upper()),
-                  PUTIH, 14))
-wm = lambda uk, c=INK: dv('display:flex;align-items:center;gap:' + str(uk // 3) + 'px;',
-                          lambang(uk, TEAL, EMAS) + tk(font(AR, int(uk * .78), 700, c, 1), 'BALIKIN'))
-s = (kepala('Bab II · Identitas Utama', 11)
-     + judul_bagian('5', 'Konfigurasi')
-     + sel_konfig(M, 172, 352, 158, wm(44), 'Mendatar — utama')
-     + sel_konfig(440, 172, 352, 158,
-                  dv('text-align:center;', lambang(44, TEAL, EMAS) + dv('height:8px;')
-                     + tk(font(AR, 30, 700, INK, 1), 'BALIKIN')), 'Bertumpuk')
-     + sel_konfig(M, 346, 352, 158, lambang(56, TEAL, EMAS), 'Logogram saja')
-     + sel_konfig(440, 346, 352, 158,
-                  dv('text-align:center;', tk(font(AR, 26, 700, INK, 1), 'BALIKIN')
-                     + dv(font(CV, 20, 600, TEAL) + 'margin-top:2px;', 'Yang hilang, balik pulang.')),
-                  'Dengan tagline'))
+# ================================================================ 11 konfigurasi
+def sel(x, y, w, h, isi, lab, n):
+    return blok(x, y, w, h,
+                dv(P(x=0, y=0, w=w, h=h - 40, lain='display:grid;place-items:center;'), isi)
+                + dv(P(x=18, b=16, lain=font(PJ, 10, 700, REDUP, 1)), lab)
+                + dv(P(r=18, b=14, lain=font(AR, 13, 700, MINT, 0)), n), PUTIH, 22, 4, GARIS)
+s = (latar_bab(1)
+     + bingkai('Bab II · Identitas Utama', 11)
+     + bagian('05', [[('Konfigurasi', '')]], w=340, uk=44)
+     + sel(M, 166, 356, 176, kunci(44), 'Mendatar — utama', '01')
+     + sel(428, 166, 356, 176,
+           dv('text-align:center;', lambang(46, TEAL, EMAS) + dv('height:10px;')
+              + tk(font(AR, 30, 700, INK, 1), 'BALIKIN')), 'Bertumpuk', '02')
+     + sel(M, 358, 356, 176, lambang(60, TEAL, EMAS), 'Logogram saja', '03')
+     + sel(428, 358, 356, 176,
+           dv('text-align:center;', tk(font(AR, 28, 700, INK, 1), 'BALIKIN')
+              + dv('font-family:' + CV + ';font-size:22px;font-weight:600;color:' + TEAL
+                   + ';margin-top:2px;', 'Yang hilang, balik pulang.')), 'Dengan tagline', '04'))
 simpan(11, 'Konfigurasi', s)
 
-# ---------------------------------------------------------------- 12 warna logo
-def sel_warna(x, y, bg, isi, lab, tepi=False):
-    return kotak(x, y, 172, 172,
-                 dv(P(x=0, y=0, w=172, h=138, lain='display:grid;place-items:center;'), isi)
-                 + dv(P(x=0, b=12, w=172, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), lab.upper()),
-                 PUTIH, 14, lain=('border:1px solid ' + GARIS + ';') if tepi else '')
-s = (kepala('Bab II · Identitas Utama', 12)
-     + judul_bagian('6', 'Warna logo', 'Empat versi resmi. Di luar ini tidak ada.')
-     + dv(P(x=M, y=210, w=172, h=138, z=4, lain='background:' + CREAM + ';border-radius:14px;'))
-     + sel_warna(M, 210, CREAM, lambang(62, TEAL, EMAS), 'Utama di krem', True)
-     + sel_warna(M + 188, 210, TEAL_X, dv('width:172px;height:138px;background:' + TEAL_X
-                                          + ';display:grid;place-items:center;border-radius:14px 14px 0 0;',
-                                          lambang(62, CREAM, EMAS_M)), 'Di latar gelap')
-     + sel_warna(M + 376, 210, CREAM, lambang(62, INK, INK), 'Mono tinta', True)
-     + sel_warna(M + 564, 210, INK, dv('width:172px;height:138px;background:' + INK
-                                       + ';display:grid;place-items:center;border-radius:14px 14px 0 0;',
-                                       lambang(62, CREAM, CREAM)), 'Mono krem')
-     + dv(P(x=M, y=428, w=W - M * 2, z=6, lain='background:' + MINT_M + ';border-radius:14px;'
-            'padding:16px 20px;box-sizing:border-box;'),
-          dv(font(PJ, 11, 400, INK, None, 1.5),
-             'Sel emas hanya hilang di versi mono. Di versi berwarna, sel emas wajib ada — '
-             'itu yang membedakan logo Balikin dari heksagon biasa.')))
+# ================================================================ 12 warna logo
+def selw(x, bg, isi, lab, tepi=None):
+    return blok(x, 196, 173, 230,
+                dv(P(x=0, y=0, w=173, h=176, lain='background:' + bg + ';display:grid;'
+                     'place-items:center;'), isi)
+                + dv(P(x=16, y=194, lain=font(PJ, 10, 700, INK, .5)), lab), PUTIH, 20, 4,
+                tepi or GARIS)
+s = (latar_bab(1, 'kiri')
+     + bingkai('Bab II · Identitas Utama', 12)
+     + bagian('06', [[('Warna ', ''), ('logo', 'm')]], x=M, w=340, uk=44)
+     + teks(400, 112, 384, 'Empat versi resmi. Di luar empat ini tidak ada.',
+            12, REDUP, 400, '1.6', rt='right')
+     + selw(M, KRIM, lambang(64, TEAL, EMAS), 'Utama di krem')
+     + selw(M + 185, TEAL_X, lambang(64, KRIM, EMAS_M), 'Di latar gelap')
+     + selw(M + 370, KRIM, lambang(64, INK, INK), 'Mono tinta')
+     + selw(M + 555, INK, lambang(64, KRIM, KRIM), 'Mono krem')
+     + blok(M, 446, KOL, 90,
+            dv(P(x=26, y=20, w=KOL - 52, lain=font(PJ, 12, 400, INK, None, '1.6')),
+               'Sel emas hanya boleh hilang di versi mono. Di versi berwarna sel emas '
+               '<b>wajib ada</b> — itu yang membedakan logo Balikin dari heksagon biasa.'),
+            MINT_M, 20, 4))
 simpan(12, 'Warna logo', s)
 
-# ---------------------------------------------------------------- 13 larangan
-LARANG = ['Diregangkan', 'Diputar', 'Diganti warna', 'Diberi bayangan', 'Ditumpuk teks', 'Ditambah efek']
+# ================================================================ 13 larangan
+LARANG = [('Diregangkan', 'transform:scaleX(1.4);'), ('Diputar', 'transform:rotate(22deg);'),
+          ('Diganti warna', ''), ('Diberi bayangan', 'filter:blur(1px);'),
+          ('Ditumpuk teks', ''), ('Ditambah efek', 'opacity:.45;')]
 kis = ''
-for i, t in enumerate(LARANG):
-    x, y = M + (i % 3) * 248, 200 + (i // 3) * 158
-    kis += kotak(x, y, 228, 138,
-                 dv(P(x=0, y=0, w=228, h=100, lain='display:grid;place-items:center;'),
-                    dv('opacity:.45;', lambang(44, TEAL, EMAS)))
-                 + dv(P(x=0, b=12, w=228, lain=font(PJ, 10, 600, TERRA, None, None, 'center')), t)
-                 + dv(P(x=14, y=12, w=22, h=22, z=8, lain='background:' + TERRA + ';border-radius:12px;'
-                        'display:grid;place-items:center;' + font(PJ, 13, 700, PUTIH)), '&times;'), PUTIH, 14)
-s = (kepala('Bab II · Identitas Utama', 13)
-     + judul_bagian('7', 'Larangan', 'Enam hal yang membuat logo berhenti jadi logo Balikin.')
+for i, (t, g) in enumerate(LARANG):
+    x, y = M + (i % 3) * 248, 162 + (i // 3) * 176
+    dalam = lambang(46, TERRA if i == 2 else TEAL, TEAL if i == 2 else EMAS)
+    kis += blok(x, y, 232, 160,
+                dv(P(x=0, y=0, w=232, h=112, lain='display:grid;place-items:center;'),
+                   dv(g, dalam))
+                + (dv(P(x=76, y=48, z=8, lain=font(AR, 15, 700, INK, 0)), 'BALIKIN') if i == 4 else '')
+                + dv(P(x=18, b=18, lain=font(PJ, 11, 600, TERRA)), t)
+                + dv(P(r=16, y=14, w=22, h=22, z=8, lain='background:' + TERRA + ';border-radius:'
+                       '12px;display:grid;place-items:center;' + font(PJ, 13, 700, PUTIH)),
+                     '&times;'), PUTIH, 18, 4, GARIS)
+s = (latar_bab(1)
+     + bingkai('Bab II · Identitas Utama', 13)
+     + bagian('07', [[('Larangan', '')]], x=M, w=300, uk=44)
+     + teks(360, 112, 424, 'Enam hal yang membuat logo berhenti jadi logo Balikin. Kalau ragu, '
+            'pakai berkas aslinya tanpa diubah apa pun.', 12, REDUP, 400, '1.6', rt='right')
      + kis)
 simpan(13, 'Larangan', s)
 
-# ---------------------------------------------------------------- 14 pembatas III
-s, bg = pembatas(14, 'III', 'Elemen<br>Visual', 'Warna, huruf, bahasa bentuk Sudut Enam, ikon, '
-                 'pola sarang, maskot, dan tulisan tangan.',
+# ================================================================ 14 pembatas III
+s, bg = pembatas(14, 'III', [[('Elemen', '')], [('Visual', 'm')]],
+                 'Warna, huruf, bahasa bentuk, ikon, pola, maskot, dan tulisan tangan.',
                  [('15', 'Palet warna'), ('16', 'Tipografi'), ('17', 'Sudut Enam'),
                   ('18', 'Pustaka ikon'), ('19', 'Pola sarang'), ('20', 'Maskot'),
-                  ('21', 'Tulisan tangan')], EMAS, '#A87722')
+                  ('21', 'Tulisan tangan')], EMAS, EMAS_X, KRIM)
 simpan(14, 'Pembatas Bab III', s, bg)
 
-# ---------------------------------------------------------------- 15 palet
-PALET = [('Teal', TEAL, '#1B7A63', 'Warna utama'), ('Teal tua', TEAL_X, '#0B4638', 'Latar gelap'),
-         ('Mint', MINT, '#8FD4C4', 'Aksen lembut'), ('Emas', EMAS, '#C8952E', 'Penghargaan'),
-         ('Terakota', TERRA, '#C05C33', 'Peringatan'), ('Krem', CREAM, '#FBF8F3', 'Latar terang'),
-         ('Tinta', INK, '#12332C', 'Teks')]
+# ================================================================ 15 palet
+PALET = [('Teal', TEAL, '#1B7A63', 'Warna utama', KRIM),
+         ('Teal tua', TEAL_X, '#0B4638', 'Latar gelap', KRIM),
+         ('Mint', MINT, '#8FD4C4', 'Aksen lembut', INK),
+         ('Emas', EMAS, '#C8952E', 'Penghargaan', KRIM),
+         ('Terakota', TERRA, '#C05C33', 'Peringatan', KRIM),
+         ('Krem', KRIM, '#FBF8F3', 'Latar terang', INK),
+         ('Tinta', INK, '#12332C', 'Teks', KRIM)]
 sw = ''
-for i, (nama, warna, kode, guna) in enumerate(PALET):
-    x = M + i * 104
-    terang = warna in (CREAM, MINT)
-    sw += kotak(x, 196, 92, 200,
-                dv(P(x=0, y=0, w=92, h=132, lain='background:' + warna + ';'))
-                + dv(P(x=10, y=144, lain=font(AR, 13, 700, INK, -.2)), nama)
-                + dv(P(x=10, y=162, lain=font(PJ, 9, 600, REDUP, .5)), kode)
-                + dv(P(x=10, y=176, lain=font(PJ, 9, 400, REDUP)), guna),
-                PUTIH, 12, lain='border:1px solid ' + GARIS + ';')
-s = (kepala('Bab III · Elemen Visual', 15)
-     + judul_bagian('1', 'Palet warna', 'Tujuh warna. Teal untuk aksi, emas untuk penghargaan, '
-                    'terakota untuk peringatan — jangan ditukar perannya.')
-     + sw
-     + dv(P(x=M, y=424, w=W - M * 2, z=6, lain='display:flex;gap:12px;'),
-          ''.join(dv('flex:1;background:' + PUTIH + ';border-radius:12px;padding:12px 14px;'
-                     'box-sizing:border-box;border:1px solid ' + GARIS + ';',
-                     dv(font(PJ, 9, 700, REDUP, 2), a) + dv(font(PJ, 11, 400, INK, None, 1.4)
-                                                            + 'margin-top:5px;', b))
-                  for a, b in (('CMYK & PANTONE', 'Nilai cetak dikunci setelah uji cetak pertama.'),
-                               ('KONTRAS', 'Teks di atas teal wajib krem, bukan mint.'),
-                               ('PERBANDINGAN', 'Teal 60% · krem 30% · emas dan terakota 10%.')))))
+for i, (nama, warna, kode, guna, fg) in enumerate(PALET):
+    x, y = (i % 4) * 185, (i // 4) * 192
+    sw += blok(x, y, 176, 178,
+               dv(P(x=18, b=48, lain=font(AR, 18, 700, fg, -.4)), nama)
+               + dv(P(x=18, b=28, lain=font(PJ, 10, 700, fg, 1) + 'opacity:.75;'), kode)
+               + mata(18, None, guna, fg, z=7, uk=8, sp=2, b=14) .replace('position:absolute;',
+                      'position:absolute;opacity:.55;'), warna, 20, 4,
+               GARIS if warna == KRIM else None)
+sw += blok(3 * 185, 192, 176, 178,
+           dv(P(x=18, y=20, lain=font(PJ, 9, 700, REDUP, 2)), 'PERBANDINGAN')
+           + dv(P(x=18, y=42, w=140, lain=font(PJ, 11, 400, INK, None, '1.5')),
+                'Teal 60% · krem 30% · emas dan terakota 10%.')
+           + dv(P(x=18, b=26, w=140, h=10, lain='display:flex;overflow:hidden;border-radius:5px;'),
+                dv('flex:6;background:' + TEAL + ';') + dv('flex:3;background:' + KRIM_3 + ';')
+                + dv('flex:1;background:' + EMAS + ';')), KRIM_2, 20, 4)
+s = (latar_bab(2, 'kiri')
+     + bingkai('Bab III · Elemen Visual', 15)
+     + bagian('01', [[('Palet ', ''), ('warna', 'm')]], x=M, w=300, uk=44)
+     + teks(400, 112, 384, 'Tujuh warna. Teal untuk aksi, emas untuk penghargaan, terakota untuk '
+            'peringatan — perannya tidak pernah ditukar.', 12, REDUP, 400, '1.6', rt='right')
+     + dv(P(x=M, y=186, w=KOL, z=6), sw))
 simpan(15, 'Palet warna', s)
 
-# ---------------------------------------------------------------- 16 tipografi
-s = (kepala('Bab III · Elemen Visual', 16)
-     + judul_bagian('2', 'Tipografi')
-     + kotak(M, 168, 340, 330,
-             dv(P(x=24, y=16, lain=font(AR, 124, 700, TEAL, -4, 1)), 'Aa')
-             + dv(P(x=24, y=180, lain=font(AR, 22, 700, INK, -.4)), 'Archivo')
-             + dv(P(x=24, y=208, lain=font(PJ, 11, 400, REDUP, None, 1.45) + 'width:280px;'),
-                  'Judul, angka besar, wordmark. Tebal 700. Spasi huruf rapat pada ukuran besar.')
-             + dv(P(x=24, y=270, lain=font(AR, 15, 400, INK)), 'AaBbCc 0123456789'), PUTIH, 18)
-     + kotak(412, 168, 380, 158,
-             dv(P(x=22, y=18, lain=font(PJ, 44, 600, INK, -1)), 'Aa')
-             + dv(P(x=110, y=30, lain=font(AR, 18, 700, INK, -.3)), 'Plus Jakarta Sans')
-             + dv(P(x=110, y=54, w=250, lain=font(PJ, 11, 400, REDUP, None, 1.45)),
-                  'Teks isi, label, antarmuka. Tebal 400–700.'), PUTIH, 18)
-     + kotak(412, 340, 380, 158,
-             dv(P(x=22, y=24, lain='font-family:' + CV + ';font-size:44px;font-weight:600;color:'
-                  + EMAS + ';'), 'Aa')
-             + dv(P(x=110, y=30, lain=font(AR, 18, 700, INK, -.3)), 'Caveat')
-             + dv(P(x=110, y=54, w=250, lain=font(PJ, 11, 400, REDUP, None, 1.45)),
-                  'Hanya untuk satu kalimat tulisan tangan. Tidak untuk teks isi.'), PUTIH, 18))
+# ================================================================ 16 tipografi
+spek = ''
+for i, (contoh, gaya, nama, ket, huruf) in enumerate((
+        ('Aa', font(AR, 46, 700, INK, -2), 'Archivo', 'Judul, angka besar, wordmark. Tebal 700, '
+         'spasi huruf rapat.', 'AaBbCc 0123456789'),
+        ('Aa', font(PJ, 44, 600, INK, -1), 'Plus Jakarta Sans', 'Teks isi, label, antarmuka. '
+         'Tebal 400–700.', 'AaBbCc 0123456789'),
+        ('Aa', 'font-family:' + CV + ';font-size:46px;font-weight:600;color:' + EMAS + ';',
+         'Caveat', 'Satu kalimat tulisan tangan saja. Tidak untuk teks isi.', 'Yang hilang'))):
+    y = i * 122
+    spek += blok(0, y, 340, 112,
+                 dv(P(x=20, y=20, lain=gaya), contoh)
+                 + dv(P(x=104, y=18, lain=font(AR, 16, 700, INK, -.3)), nama)
+                 + dv(P(x=104, y=40, w=216, lain=font(PJ, 10, 400, REDUP, None, '1.45')), ket)
+                 + dv(P(x=104, b=12, lain=font(PJ, 10, 500, MINT, .5)), huruf), PUTIH, 20, 4, GARIS)
+s = (bingkai('Bab III · Elemen Visual', 16)
+     + blok(M, 96, 340, 432,
+            dv(P(x=0, y=0, w=340, h=432, z=1, lain='overflow:hidden;'), sarang(KRIM, '.08', 3))
+            + dv(P(x=28, y=48, z=6, lain=font(AR, 200, 700, KRIM, -10, '.8')), 'Aa')
+            + mata(28, None, 'Archivo · 700', rgba(KRIM, '.6'), b=84)
+            + dv(P(x=28, b=40, z=6, lain=font(AR, 22, 700, KRIM, -.5)), 'Huruf judul')
+            + heks(r=-90, b=-80, d=220, warna=KRIM, tebal=2, op='.2', z=2), TEAL, 26, 4)
+     + bagian('02', [[('Tipografi', '')]], x=444, y=96, w=340, uk=44)
+     + dv(P(x=444, y=180, w=340, z=6), spek))
 simpan(16, 'Tipografi', s)
 
-# ---------------------------------------------------------------- 17 sudut enam
-s = (kepala('Bab III · Elemen Visual', 17)
-     + judul_bagian('3', 'Sudut Enam', 'Bahasa bentuk Balikin: kisi 60°, sudut dipangkas bukan '
-                    'dibulatkan, sambungan mitre.')
-     + kotak(M, 196, 364, 300,
-             '<svg width="364" height="300" viewBox="0 0 364 300" style="display:block">'
-             + ''.join('<path d="M' + str(20 + i * 36) + ' 20L' + str(56 + i * 36) + ' 280" '
-                       'stroke="' + TEAL + '" stroke-width="1" opacity=".2"/>' for i in range(9))
-             + ''.join('<path d="M' + str(344 - i * 36) + ' 20L' + str(308 - i * 36) + ' 280" '
-                       'stroke="' + TEAL + '" stroke-width="1" opacity=".2"/>' for i in range(9))
-             + '<path d="M74 96H182L218 158L182 220H74L38 158Z" fill="' + MINT_M + '" stroke="'
-             + TEAL + '" stroke-width="5" stroke-linejoin="miter"/>'
-             '<path d="M250 96H326V220H250Z" fill="none" stroke="' + TERRA + '" stroke-width="4" '
-             'stroke-dasharray="8 7"/>'
-             '<path d="M262 96H326V208L314 220H250V108Z" fill="' + CREAM + '" stroke="' + TERRA
-             + '" stroke-width="5" stroke-linejoin="miter"/>'
-             '<text x="288" y="254" font-family="' + PJ + '" font-size="11" font-weight="700" '
-             'fill="' + TERRA + '" text-anchor="middle">SUDUT DIPANGKAS</text>'
-             '<text x="128" y="254" font-family="' + PJ + '" font-size="11" font-weight="700" '
-             'fill="' + TEAL + '" text-anchor="middle">KISI 60°</text></svg>', PUTIH, 18)
-     + dv(P(x=452, y=200, w=340, z=6),
-          catatan(0, 0, 340, 'Pangkas, jangan bulatkan', 'Radius membulat tidak dipakai di grafis '
-                  'identitas. Antarmuka aplikasi boleh membulat — dua bahasa yang berbeda tugas.')
-          + catatan(0, 108, 340, 'Sambungan mitre', 'Semua sudut garis bertemu tajam. '
-                    'stroke-linejoin: miter, bukan round.')
-          + catatan(0, 200, 340, 'Besar pangkasan', 'Seperenam sisi terpendek, dibulatkan ke '
-                    'bilangan bulat.')))
+# ================================================================ 17 sudut enam
+s = (latar_bab(2)
+     + bingkai('Bab III · Elemen Visual', 17)
+     + bagian('03', [[('Sudut ', ''), ('Enam', 'm')]],
+              'Bahasa bentuk Balikin: kisi 60°, sudut dipangkas bukan dibulatkan, '
+              'sambungan mitre.', x=488, w=296, uk=44)
+     + blok(M, 96, 408, 400,
+            '<svg width="408" height="400" viewBox="0 0 408 400" style="display:block">'
+            + ''.join('<path d="M' + str(-180 + i * 56) + ' 0L' + str(16 + i * 56) + ' 340" '
+                      'stroke="' + TEAL + '" stroke-width="1" opacity=".13"/>' for i in range(12))
+            + ''.join('<path d="M' + str(588 - i * 56) + ' 0L' + str(392 - i * 56) + ' 340" '
+                      'stroke="' + TEAL + '" stroke-width="1" opacity=".13"/>' for i in range(12))
+            + '<path d="M108 116H220L264 196L220 276H108L64 196Z" fill="' + MINT_M + '" stroke="'
+            + TEAL + '" stroke-width="6" stroke-linejoin="miter"/>'
+            '<path d="M288 116H384V276H288Z" fill="none" stroke="' + TERRA + '" stroke-width="2" '
+            'stroke-dasharray="7 6"/>'
+            '<path d="M314 116H384V250L358 276H288V142Z" fill="' + KRIM + '" stroke="' + TERRA
+            + '" stroke-width="6" stroke-linejoin="miter"/>'
+            '<text x="336" y="310" font-family="' + PJ + '" font-size="11" font-weight="700" '
+            'fill="' + TERRA + '" text-anchor="middle">SUDUT DIPANGKAS</text>'
+            '<text x="164" y="310" font-family="' + PJ + '" font-size="11" font-weight="700" '
+            'fill="' + TEAL + '" text-anchor="middle">KISI 60°</text></svg>'
+            + mata(0, None, 'Bahasa bentuk — Sudut Enam (Hexcut)', REDUP, z=9, uk=9, sp=2, w=408,
+                   rt='center', b=30), PUTIH, 26, 4, GARIS)
+     + catatan(488, 268, 296,
+               (('Pangkas, jangan bulatkan', 'Radius membulat tidak dipakai di grafis identitas. '
+                 'Antarmuka aplikasi boleh membulat — dua bahasa, dua tugas.'),
+                ('Sambungan mitre', 'Semua sudut garis bertemu tajam, tidak pernah round.'),
+                ('Besar pangkasan', 'Seperenam sisi terpendek, dibulatkan ke bilangan bulat.')), 88))
 simpan(17, 'Sudut Enam', s)
 
-# ---------------------------------------------------------------- 18 pustaka ikon
-IK6 = ['cari', 'wallet', 'kunci', 'ponsel', 'dokumen', 'kartu', 'peta', 'lonceng', 'gembok',
-       'obrolan', 'warga', 'bintang', 'perisai', 'jam', 'check', 'tambah', 'panah', 'grid']
+# ================================================================ 18 pustaka ikon
+IK16 = ['cari', 'wallet', 'kunci', 'ponsel', 'dokumen', 'kartu', 'peta', 'pin',
+        'lonceng', 'gembok', 'obrolan', 'warga', 'bintang', 'perisai', 'jam', 'check']
 kis = ''
-for i, n in enumerate(IK6):
-    x, y = M + (i % 9) * 82, 206 + (i // 9) * 86
-    kis += kotak(x, y, 70, 70, dv(P(x=0, y=0, w=70, h=70, lain='display:grid;place-items:center;'),
-                                  ik(n, 34, TEAL)), PUTIH, 12, lain='border:1px solid ' + GARIS + ';')
-s = (kepala('Bab III · Elemen Visual', 18)
-     + judul_bagian('4', 'Pustaka ikon')
-     + dv(P(r=M, y=86, z=6, lain='display:flex;gap:10px;'),
-          ''.join(dv('background:' + PUTIH + ';border:1px solid ' + GARIS + ';border-radius:12px;'
-                     'padding:8px 14px;text-align:center;',
-                     dv(font(AR, 22, 700, TEAL, -1), a) + dv(font(PJ, 9, 700, REDUP, 1.5)
-                                                             + 'margin-top:2px;', b))
-                  for a, b in (('98', 'BENTUK'), ('2', 'VARIAN'), ('196', 'KOMPONEN'))))
-     + kis
-     + dv(P(x=M, y=396, w=W - M * 2, z=6, lain='display:flex;gap:14px;'),
-          ''.join(dv('flex:1;background:' + PUTIH + ';border-radius:12px;padding:12px 14px;'
-                     'box-sizing:border-box;border:1px solid ' + GARIS + ';',
-                     dv(font(PJ, 9, 700, REDUP, 2), a) + dv(font(PJ, 11, 400, INK, None, 1.4)
-                                                            + 'margin-top:5px;', b))
-                  for a, b in (('KOTAK', 'Semua ikon digambar di kotak 100 × 100.'),
-                               ('TEBAL GARIS', '6–7 satuan. Tidak menipis waktu diperkecil.'),
-                               ('VARIAN', 'Garis untuk keadaan biasa, padat untuk aktif.'))))
-     + label(M, 500, 'Placeholder — 18 dari 98 bentuk. Lembar lengkap ada di lampiran.'))
+for i, n in enumerate(IK16):
+    x, y = (i % 8) * 92, (i // 8) * 92
+    kis += blok(x, y, 84, 84, tengah(84, 84, ik(n, 34, TEAL)), PUTIH, 16, 4, GARIS)
+s = (latar_bab(2, 'kiri')
+     + bingkai('Bab III · Elemen Visual', 18)
+     + bagian('04', [[('Pustaka ', ''), ('ikon', 'm')]], x=M, w=300, uk=44)
+     + dv(P(r=M, y=104, w=314, h=62, z=8),
+          ''.join(blok(i * 108, 0, 98, 62,
+                       dv(P(x=0, y=12, w=98, lain=font(AR, 22, 700, TEAL, -1, None, 'center')), a)
+                       + dv(P(x=0, y=40, w=98, lain=font(PJ, 8, 700, REDUP, 2, None, 'center')), b),
+                       PUTIH, 16, 6, GARIS)
+                  for i, (a, b) in enumerate((('98', 'BENTUK'), ('2', 'VARIAN'),
+                                              ('196', 'KOMPONEN')))))
+     + dv(P(x=M, y=204, w=KOL, z=6), kis)
+     + dv(P(x=M, y=414, w=KOL, z=8), ''.join(
+         kartu_aturan(i * 243, 0, 228, 88, a, b, KRIM_2, None)
+         for i, (a, b) in enumerate((('KOTAK', 'Semua ikon digambar di kotak 100 × 100.'),
+                                     ('TEBAL GARIS', '6–7 satuan, tidak menipis waktu diperkecil.'),
+                                     ('VARIAN', 'Garis untuk biasa, padat untuk keadaan aktif.')))))
+     + mata(M, None, '16 dari 98 bentuk — lembar lengkap ada di lampiran', REDUP, b=42))
 simpan(18, 'Pustaka ikon', s)
 
-# ---------------------------------------------------------------- 19 pola sarang
-s = (kepala('Bab III · Elemen Visual', 19)
-     + judul_bagian('5', 'Pola sarang', 'Pola latar resmi. Selalu transparan di atas bidang warna, '
-                    'tidak pernah jadi warna sendiri.')
-     + kotak(M, 200, 230, 290, sarang(TEAL, '.18', 1)
-             + dv(P(x=0, b=12, w=230, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), 'RAPAT · 26 MM'),
-             PUTIH, 16, lain='border:1px solid ' + GARIS + ';')
-     + kotak(M + 246, 200, 230, 290, sarang(TEAL, '.14', 2)
-             + dv(P(x=0, b=12, w=230, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), 'SEDANG · 52 MM'),
-             PUTIH, 16, lain='border:1px solid ' + GARIS + ';')
-     + kotak(M + 492, 200, 252, 290,
-             dv(P(x=0, y=0, w=252, h=290, lain='background:' + TEAL_X + ';'), sarang(CREAM, '.16', 3))
-             + dv(P(x=0, b=12, w=252, lain=font(PJ, 9, 700, 'rgba(251,248,243,.7)', 2, None, 'center')),
-                  'LONGGAR DI LATAR GELAP'), PUTIH, 16)
-     + label(M, 512, 'Opasitas 8–16% di latar gelap, 4–8% di latar terang. Jangan lebih pekat.'))
+# ================================================================ 19 pola sarang
+def ubin(x, bg, warna, op, k, lab, fg=REDUP, tepi=GARIS):
+    return blok(x, 180, 232, 268,
+                dv(P(x=0, y=0, w=232, h=268, z=1, lain='overflow:hidden;'), sarang(warna, op, k))
+                + mata(0, None, lab, fg, z=6, uk=8, sp=2, w=232, rt='center', b=18), bg, 22, 4, tepi)
+s = (latar_bab(2)
+     + bingkai('Bab III · Elemen Visual', 19)
+     + bagian('05', [[('Pola ', ''), ('sarang', 'm')]], x=M, w=300, uk=44)
+     + teks(400, 112, 384, 'Pola latar resmi. Selalu transparan di atas bidang warna, tidak '
+            'pernah jadi warna sendiri.', 12, REDUP, 400, '1.6', rt='right')
+     + ubin(M, PUTIH, TEAL, '.2', 1, 'Rapat · 13 mm')
+     + ubin(M + 248, PUTIH, TEAL, '.16', 2, 'Sedang · 26 mm')
+     + ubin(M + 496, TEAL_X, KRIM, '.2', 2, 'Di latar gelap · 26 mm', rgba(KRIM, '.7'), None)
+     + garis(M, 478, KOL)
+     + dv(P(x=M, y=496, w=KOL, z=8, lain='display:flex;justify-content:space-between;'),
+          mata(None, None, 'Opasitas 8–16% di latar gelap · 4–8% di latar terang', REDUP)
+              .replace('position:absolute;', '')
+          + mata(None, None, 'Tidak pernah lebih pekat', TERRA).replace('position:absolute;', '')))
 simpan(19, 'Pola sarang', s)
 
-# ---------------------------------------------------------------- 20 maskot
-from build import LEBAH
-def bee(px, rot=0):
-    return ('<svg width="' + str(px) + '" height="' + str(px) + '" viewBox="0 0 200 200" '
-            'style="display:block;transform:rotate(' + str(rot) + 'deg)">' + LEBAH + '</svg>')
-s = (kepala('Bab III · Elemen Visual', 20)
-     + judul_bagian('6', 'Maskot — Lebah Sarang')
-     + kotak(M, 168, 330, 330, dv(P(x=0, y=0, w=330, h=330, lain='display:grid;place-items:center;'),
-                                  bee(230)), PUTIH, 18)
-     + dv(P(x=412, y=176, w=380, z=6),
-          catatan(0, 0, 380, 'Kapan dipakai', 'Materi yang ramah: stiker, standee, x-banner, '
-                  'kartu ucapan. Tidak dipakai di dalam antarmuka aplikasi.')
-          + catatan(0, 96, 380, 'Ukuran minimum', '20 mm cetak. Di bawah itu sayapnya hilang.')
-          + catatan(0, 172, 380, 'Larangan', 'Jangan diubah warnanya, jangan diberi mulut lain, '
-                    'jangan dipakai sebagai logo.'))
-     + dv(P(x=412, y=372, w=380, z=6, lain='display:flex;gap:12px;'),
-          ''.join(dv('flex:1;background:' + PUTIH + ';border-radius:14px;height:126px;'
-                     'display:grid;place-items:center;border:1px solid ' + GARIS + ';', bee(76, r))
-                  for r in (-12, 0, 12)))
-     + label(412, 512, 'Tiga pose baku — placeholder, pose tambahan menyusul'))
+# ================================================================ 20 maskot
+s = (latar_bab(2, 'kiri')
+     + bingkai('Bab III · Elemen Visual', 20)
+     + blok(M, 96, 384, 432,
+            dv(P(x=0, y=0, w=384, h=432, z=1, lain='overflow:hidden;'), sarang(EMAS, '.16', 3))
+            + tengah(384, 432, bee(250))
+            + mata(0, None, 'Lebah Sarang', rgba(INK, '.45'), z=6, uk=9, sp=2, w=384, rt='center',
+                   b=22), EMAS_M, 26, 4)
+     + bagian('06', [[('Maskot', '')], [('Lebah Sarang', 'c')]], x=472, y=96, w=312, uk=42)
+     + catatan(472, 232, 312,
+               (('Kapan dipakai', 'Materi yang ramah: stiker, standee, x-banner. Tidak pernah '
+                 'di dalam antarmuka aplikasi.'),
+                ('Ukuran minimum', '20 mm cetak. Di bawah itu sayapnya hilang.'),
+                ('Larangan', 'Jangan diubah warnanya, jangan diberi mulut lain, jangan dipakai '
+                 'sebagai logo.')), 86)
+     + dv(P(x=472, y=460, w=312, z=6), ''.join(
+         blok(i * 106, 0, 98, 68, tengah(98, 68, bee(54, r)), PUTIH, 16, 6, GARIS)
+         for i, r in enumerate((-14, 0, 14)))))
 simpan(20, 'Maskot', s)
 
-# ---------------------------------------------------------------- 21 tulisan tangan
-s = (kepala('Bab III · Elemen Visual', 21)
-     + judul_bagian('7', 'Elemen tulisan tangan')
-     + kotak(M, 172, W - M * 2, 208,
-             dv(P(x=0, y=40, w=W - M * 2, lain='font-family:' + CV + ';font-size:56px;font-weight:600;'
-                  'color:' + TEAL_X + ';text-align:center;line-height:1.1;'),
-                'Small things make a big difference')
-             + '<svg width="' + str(W - M * 2) + '" height="46" viewBox="0 0 744 46" '
-             'style="position:absolute;left:0;top:142px"><path d="M180 24Q372 46 564 20" stroke="'
-             + EMAS + '" stroke-width="6" fill="none" stroke-linecap="round"/></svg>', PUTIH, 18)
-     + dv(P(x=M, y=406, w=W - M * 2, z=6, lain='display:flex;gap:14px;'),
-          ''.join(dv('flex:1;background:' + PUTIH + ';border-radius:12px;padding:14px 16px;'
-                     'box-sizing:border-box;border:1px solid ' + GARIS + ';',
-                     dv(font(PJ, 9, 700, REDUP, 2), a) + dv(font(PJ, 11, 400, INK, None, 1.45)
-                                                            + 'margin-top:6px;', b))
-                  for a, b in (('SATU PER MATERI', 'Cukup sekali di tiap lembar. Dua kali jadi ramai.'),
-                               ('SELALU MIRING', 'Putaran −6° sampai −3°. Tidak pernah lurus.'),
-                               ('WARNA', 'Teal tua, emas, atau krem. Tidak pernah terakota.')))))
+# ================================================================ 21 tulisan tangan
+s = (latar_bab(2)
+     + bingkai('Bab III · Elemen Visual', 21)
+     + bagian('07', [[('Tulisan ', ''), ('tangan', 'm')]], x=M, w=300, uk=44)
+     + mata(None, 118, 'Caveat · 600 · miring −3°', REDUP, r=M, rt='right')
+     + blok(M, 190, KOL, 216,
+            dv(P(x=0, y=0, w=KOL, h=216, z=1, lain='overflow:hidden;'), halftone(TEAL, '.05', 9, 1))
+            + dv(P(x=0, y=52, w=KOL, z=6, lain='font-family:' + CV + ';font-size:62px;'
+                   'font-weight:600;color:' + TEAL_X + ';text-align:center;line-height:1.08;'
+                   'transform:rotate(-2deg);'), 'Small things make<br>a big difference')
+            + heks(x=-60, b=-70, d=180, warna=TEAL, tebal=2, op='.12', z=2)
+            + heks(r=-50, y=-60, d=150, warna=EMAS, tebal=2, op='.18', z=2), PUTIH, 26, 4, GARIS)
+     + dv(P(x=M, y=436, w=KOL, z=8), ''.join(
+         kartu_aturan(i * 243, 0, 228, 92, a, b, KRIM_2, None)
+         for i, (a, b) in enumerate((('SATU PER MATERI', 'Cukup sekali di tiap lembar. Dua kali '
+                                      'jadi ramai.'),
+                                     ('SELALU MIRING', 'Putaran −6° sampai −2°. Tidak pernah lurus.'),
+                                     ('WARNA', 'Teal tua, emas, atau krem. Tidak pernah terakota.'))))))
 simpan(21, 'Tulisan tangan', s)
 
-# ---------------------------------------------------------------- 22 pembatas IV
-s, bg = pembatas(22, 'IV', 'Penerapan', 'Bagaimana semuanya bertemu di layar, di cetakan, '
-                 'dan di meja pameran.',
-                 [('23', 'Layar dan cetak'), ('24', 'Merchandise & booth')], '#D2713F', '#A2421D')
+# ================================================================ 22 pembatas IV
+s, bg = pembatas(22, 'IV', [[('Penerapan', '')]],
+                 'Bagaimana semuanya bertemu di layar, di cetakan, dan di meja pameran.',
+                 [('23', 'Layar dan cetak'), ('24', 'Merchandise & booth')], '#D2713F', TERRA_X)
 simpan(22, 'Pembatas Bab IV', s, bg)
 
-# ---------------------------------------------------------------- 23 layar & cetak
-s = (kepala('Bab IV · Penerapan', 23)
-     + judul_bagian('1', 'Layar dan cetak')
-     + kotak(M, 160, 330, 336, dv(P(x=0, y=0, w=330, h=336, lain='background:linear-gradient(160deg,'
-                                    + MINT_M + ' 0%,' + CREAM + ' 100%);'))
-             + ponsel(54, 46, 104, 8, rot=-5) + ponsel(178, 82, 104, 7, rot=6)
-             + dv(P(x=0, b=12, w=330, z=9, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')),
-                  'APLIKASI — PLACEHOLDER'), PUTIH, 18)
-     + kotak(412, 160, 180, 336,
-             dv(P(x=24, y=30, w=132, h=246, lain='background:' + TEAL + ';border-radius:6px;'))
-             + dv(P(x=24, y=30, w=132, h=246, lain='overflow:hidden;border-radius:6px;'), sarang(CREAM, '.14', 1))
-             + dv(P(x=0, b=12, w=180, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), 'X-BANNER'),
-             PUTIH, 18)
-     + kotak(612, 160, 180, 336,
-             dv(P(x=30, y=40, w=120, h=170, lain='background:' + CREAM + ';border:1px solid ' + GARIS
-                  + ';border-radius:4px;'))
-             + dv(P(x=44, y=60, w=92, h=54, lain='background:' + TERRA + ';border-radius:3px;'))
-             + dv(P(x=44, y=124, w=92, h=8, lain='background:' + GARIS + ';'))
-             + dv(P(x=44, y=140, w=64, h=8, lain='background:' + GARIS + ';'))
-             + dv(P(x=30, y=226, w=120, h=60, lain='background:' + TEAL_X + ';border-radius:4px;'))
-             + dv(P(x=0, b=12, w=180, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), 'POSTER & KARTU'),
-             PUTIH, 18)
-     + label(M, 516, 'Semua mockup di halaman ini placeholder — diganti foto cetakan asli'))
+# ================================================================ 23 layar & cetak
+s = (latar_bab(3)
+     + bingkai('Bab IV · Penerapan', 23)
+     + bagian('01', [[('Layar ', ''), ('dan cetak', 'm')]], x=M, w=340, uk=44)
+     + teks(440, 112, 344, 'Semua mockup di halaman ini placeholder — diganti foto cetakan asli '
+            'sebelum naik cetak.', 12, REDUP, 400, '1.6', rt='right')
+     + gambar(M, 196, 356, 332, 'Aplikasi',
+              ponsel(46, 30, 108, layar_app(96, 207, TEAL), -5)
+              + ponsel(186, 74, 108, layar_app(96, 207, TEAL_G), 6))
+     + gambar(428, 196, 172, 332, 'X-banner',
+              dv(P(x=32, y=36, w=108, h=222, z=6,
+                   lain='background:' + TEAL + ';border-radius:6px;overflow:hidden;'
+                        'box-shadow:0 12px 28px ' + rgba(INK, '.18') + ';'),
+                 sarang(KRIM, '.16', 1)
+                 + dv(P(x=0, y=0, w=108, h=222, lain='display:grid;place-items:center;'),
+                      lambang(40, KRIM, EMAS_M))),
+              'linear-gradient(150deg,' + KRIM_2 + ' 0%,' + KRIM_3 + ' 100%)', pola=False)
+     + gambar(612, 196, 172, 332, 'Poster & kartu',
+              dv(P(x=26, y=40, w=120, h=170, z=6, lain='background:' + KRIM
+                   + ';border-radius:5px;box-shadow:0 10px 24px ' + rgba(INK, '.16') + ';'))
+              + dv(P(x=38, y=56, w=96, h=58, z=7, lain='background:' + TERRA + ';border-radius:3px;'))
+              + dv(P(x=38, y=124, w=96, h=7, z=7, lain='background:' + KRIM_3 + ';'))
+              + dv(P(x=38, y=140, w=64, h=7, z=7, lain='background:' + KRIM_3 + ';'))
+              + dv(P(x=40, y=226, w=112, h=66, z=8, lain='background:' + TEAL_X
+                     + ';border-radius:5px;box-shadow:0 10px 22px ' + rgba(INK, '.2') + ';'
+                     'display:grid;place-items:center;'), lambang(24, KRIM, EMAS_M)),
+              'linear-gradient(150deg,' + KRIM_2 + ' 0%,' + KRIM_3 + ' 100%)', pola=False))
 simpan(23, 'Layar dan cetak', s)
 
-# ---------------------------------------------------------------- 24 merchandise & booth
-s = (kepala('Bab IV · Penerapan', 24)
-     + judul_bagian('2', 'Merchandise & booth')
-     + kotak(M, 160, 372, 336,
-             ''.join(dv(P(x=30 + (i % 3) * 108, y=40 + (i // 3) * 130, w=88, h=100,
-                          lain='background:' + c + ';' + (HEKS if i % 2 == 0 else '')
-                               + ('border-radius:14px;' if i % 2 else '')))
-                     for i, c in enumerate([MINT, EMAS_M, TERRA, TEAL, CREAM, EMAS]))
-             + dv(P(x=0, b=12, w=372, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')),
-                  'GANTUNGAN KUNCI · STIKER · KARTU'), PUTIH, 18)
-     + kotak(452, 160, 340, 336,
-             dv(P(x=28, y=40, w=284, h=180, lain='background:' + FILL + ';border-radius:10px;'))
-             + dv(P(x=44, y=56, w=90, h=120, lain='background:' + TEAL + ';border-radius:6px;'))
-             + dv(P(x=148, y=56, w=146, h=54, lain='background:' + CREAM + ';border:1px solid '
-                    + GARIS + ';border-radius:6px;'))
-             + dv(P(x=148, y=122, w=68, h=54, lain='background:' + EMAS_M + ';border-radius:6px;'))
-             + dv(P(x=228, y=122, w=66, h=54, lain='background:' + TERRA + ';border-radius:6px;'))
-             + dv(P(x=28, y=240, w=284, lain=font(PJ, 11, 400, REDUP, None, 1.45)),
-                  'Denah meja: x-banner di belakang, kotak barang temuan di tengah, standee QR '
-                  'dan kartu di depan.')
-             + dv(P(x=0, b=12, w=340, lain=font(PJ, 9, 700, REDUP, 2, None, 'center')), 'DENAH BOOTH'),
-             PUTIH, 18))
+# ================================================================ 24 merchandise & booth
+barang = ''
+for i, (c, bentuk) in enumerate(((MINT, 'heks'), (EMAS_M, 'bulat'), (TERRA_M, 'heks'),
+                                 (TEAL, 'bulat'), (KRIM, 'heks'), (EMAS, 'bulat'))):
+    x, y = 32 + (i % 3) * 100, 44 + (i // 3) * 122
+    g = (HEKS if bentuk == 'heks' else 'border-radius:16px;')
+    barang += dv(P(x=x, y=y, w=84, h=96, z=6, lain='background:' + c + ';' + g
+                   + 'display:grid;place-items:center;'),
+                 lambang(28, TEAL_X if c in (MINT, EMAS_M, KRIM, TERRA_M) else KRIM,
+                         EMAS if c in (MINT, KRIM, TERRA_M) else EMAS_M))
+s = (latar_bab(3, 'kiri')
+     + bingkai('Bab IV · Penerapan', 24)
+     + bagian('02', [[('Merchandise ', ''), ('& booth', 'm')]], x=M, w=400, uk=44)
+     + gambar(M, 196, 356, 300, 'Gantungan kunci · stiker · kartu', barang,
+              'linear-gradient(150deg,' + KRIM_2 + ' 0%,' + KRIM_3 + ' 100%)', pola=False)
+     + blok(428, 196, 356, 300,
+            dv(P(x=26, y=28, w=304, h=170, lain='background:' + KRIM_2 + ';border-radius:12px;'))
+            + dv(P(x=42, y=44, w=86, h=138, z=6, lain='background:' + TEAL + ';border-radius:6px;'
+                   'overflow:hidden;'), sarang(KRIM, '.18', 1))
+            + dv(P(x=142, y=44, w=170, h=62, z=6, lain='background:' + PUTIH + ';border:1px solid '
+                   + GARIS + ';border-radius:6px;'))
+            + dv(P(x=142, y=118, w=80, h=64, z=6, lain='background:' + EMAS_M + ';border-radius:6px;'))
+            + dv(P(x=232, y=118, w=80, h=64, z=6, lain='background:' + TERRA_M + ';border-radius:6px;'))
+            + dv(P(x=26, y=218, w=304, z=6, lain=font(PJ, 11, 400, REDUP, None, '1.55')),
+                 'Denah meja: x-banner di belakang, kotak barang temuan di tengah, standee QR '
+                 'dan kartu barang di depan.')
+            + mata(26, None, 'Denah booth', REDUP, z=6, uk=8, sp=2, b=18), PUTIH, 22, 4, GARIS)
+     + garis(M, 520, KOL)
+     + tangan(M, 534, 'Yang hilang, balik pulang.', TEAL, 26, -2)
+     + mata(None, 544, 'Balikin · Graphic Standard Manual · Edisi 01', REDUP, r=M, rt='right'))
 simpan(24, 'Merchandise & booth', s)
 
-# ---------------------------------------------------------------- kanvas
-papan, anot = [], []
-for i, (berkas, judul) in enumerate(HAL):
-    papan.append({"file": berkas, "x": (i % 6) * 900, "y": (i // 6) * 700,
-                  "w": W, "h": H, "title": judul})
+# ================================================================ kanvas
+papan = [{"file": b, "x": (i % 6) * 900, "y": (i // 6) * 700, "w": W, "h": H, "title": j}
+         for i, (b, j) in enumerate(HAL)]
 kanvas = {"artboards": papan,
-  "annotations": [{"id": "catatan", "x": 0, "y": -160, "w": 1000,
-    "text": "Buku GSM Balikin — 24 halaman A5 lanskap 210 × 148 mm (840 × 592 px, 4 satuan = 1 mm).\n"
-            "Tata letak dan hierarki sudah dikunci; isi teks, tangkapan layar, dan foto cetakan "
-            "masih placeholder.\nUrut membaca dari kiri ke kanan, enam halaman per baris."}],
+  "annotations": [{"id": "catatan", "x": 0, "y": -170, "w": 1040,
+    "text": "GSM Balikin — 24 halaman A5 lanskap 210 × 148 mm (840 × 592 px, 4 satuan = 1 mm).\n"
+            "Gaya presentasi brand identity: tipografi besar bercampur, blok warna penuh, "
+            "kartu bersudut membulat, supergrafis heksagon.\n"
+            "Tangkapan layar aplikasi dan foto cetakan masih placeholder. "
+            "Urut membaca kiri ke kanan, enam halaman per baris."}],
   "launch": {"view": "canvas"}}
 open(os.path.join(DIR, 'canvas.json'), 'w', encoding='utf-8').write(
     json.dumps(kanvas, indent=2, ensure_ascii=False))

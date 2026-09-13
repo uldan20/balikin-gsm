@@ -1,26 +1,47 @@
 # -*- coding: utf-8 -*-
-"""Perkakas halaman GSM — A5 lanskap 210 x 148 mm, 4 satuan = 1 mm (840 x 592).
+"""Perkakas halaman GSM Balikin — register editorial: bersih, modern, tebal.
 
-Gaya mengikuti poster showcase: bidang besar, tipografi tegas, heksagon, dan
-banyak ruang kosong. Isi teks masih placeholder; yang dikunci tata letaknya.
+Acuan: presentasi brand identity di Behance. Tipografi besar bercampur
+(Archivo tebal + Archivo miring + Caveat), ruang kosong murah hati, blok warna
+penuh halaman, kartu bersudut membulat besar, dan supergrafis heksagon yang
+keluar tepi halaman.
+
+A5 lanskap 210 x 148 mm, 4 satuan = 1 mm (840 x 592).
 """
 import os, sys
 _here = os.path.dirname(os.path.abspath(__file__))
-for sub in ('xbanner', 'infografis'):
-    sys.path.insert(0, os.path.join(_here, '..', sub))
-from build import AR, PJ, CV, FONTS
+DIR = _here
+for _sub in ('xbanner', 'infografis'):
+    sys.path.insert(0, os.path.join(_here, '..', _sub))
+from build import AR, PJ, CV, LEBAH
 from ikon import IKON
 
 W, H = 840, 592
-M = 48                                   # margin 12 mm
+M = 56                                     # tepi halaman
+KOL = W - M * 2                            # 728 — lebar isi
 
-CREAM, PUTIH, INK = '#FBF8F3', '#FFFFFF', '#12332C'
-FILL, GARIS, REDUP = '#F1ECE3', '#E2DCD0', '#6B8A81'
+FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
+         'family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&'
+         'family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&'
+         'family=Caveat:wght@500;600;700&display=swap">')
+
+# ----------------------------------------------------------------- warna
+KRIM, KRIM_2, KRIM_3 = '#FBF8F3', '#F2ECE1', '#E8E0D1'
+PUTIH = '#FFFFFF'
+INK, REDUP, GARIS = '#12332C', '#6E8078', '#E2DACB'
 TEAL, TEAL_T, TEAL_G, TEAL_X = '#1B7A63', '#25946F', '#0F5A48', '#0B4638'
-MINT, MINT_M, EMAS, EMAS_M, TERRA = '#8FD4C4', '#CFE6E0', '#C8952E', '#F3D77C', '#C05C33'
+MINT, MINT_M = '#8FD4C4', '#CFE6E0'
+EMAS, EMAS_M, EMAS_X = '#C8952E', '#F3D77C', '#A87722'
+TERRA, TERRA_M, TERRA_X = '#C05C33', '#EDCFC2', '#A2421D'
+
 HEKS = 'clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);'
 HEKS_T = 'clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);'
 
+def rgba(hx, a):
+    h = hx.lstrip('#')
+    return 'rgba(%d,%d,%d,%s)' % (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16), a)
+
+# ----------------------------------------------------------------- dasar
 def P(x=None, y=None, w=None, h=None, z=None, r=None, b=None, lain=''):
     s = 'position:absolute;'
     for k, v in (('left', x), ('top', y), ('right', r), ('bottom', b), ('width', w), ('height', h)):
@@ -36,11 +57,12 @@ def dv(g, isi=''):
 def tk(g, isi):
     return '<span style="' + g + '">' + isi + '</span>'
 
-def font(f, uk, tb=400, w=INK, sp=None, th=None, rt=None):
+def font(f, uk, tb=400, w=INK, sp=None, th=None, rt=None, miring=False):
     s = 'font-family:' + f + ';font-size:' + str(uk) + 'px;font-weight:' + str(tb) + ';color:' + w + ';'
     if sp is not None: s += 'letter-spacing:' + str(sp) + 'px;'
     if th is not None: s += 'line-height:' + str(th) + ';'
     if rt: s += 'text-align:' + rt + ';'
+    if miring: s += 'font-style:italic;'
     return s
 
 def ik(n, px, c):
@@ -48,117 +70,210 @@ def ik(n, px, c):
             'stroke-linejoin="miter" stroke-miterlimit="8" style="color:' + c + ';display:block">'
             + IKON[n] + '</svg>')
 
-def sarang(warna=TEAL, op='.08', k=2):
+def bee(px, rot=0):
+    return ('<svg width="' + str(px) + '" height="' + str(px) + '" viewBox="0 0 200 200" '
+            'style="display:block;transform:rotate(' + str(rot) + 'deg)">' + LEBAH + '</svg>')
+
+# ----------------------------------------------------------------- tekstur
+def sarang(warna=TEAL, op='.1', k=2, tebal=2):
+    """Pola sarang lebah — supergrafis latar. Selalu transparan."""
     w, h = 52 * k, 90 * k
-    P_ = lambda pts: 'M' + 'L'.join(str(x * k) + ' ' + str(y * k) for x, y in pts) + 'Z'
-    sel = [P_([(26,0),(52,15),(52,45),(26,60),(0,45),(0,15)]),
-           P_([(0,45),(26,60),(26,90),(0,105),(-26,90),(-26,60)]),
-           P_([(52,45),(78,60),(78,90),(52,105),(26,90),(26,60)])]
-    pid = 'sr' + str(k) + warna.replace('#', '')
+    Pp = lambda pts: 'M' + 'L'.join(str(x * k) + ' ' + str(y * k) for x, y in pts) + 'Z'
+    sel = [Pp([(26, 0), (52, 15), (52, 45), (26, 60), (0, 45), (0, 15)]),
+           Pp([(0, 45), (26, 60), (26, 90), (0, 105), (-26, 90), (-26, 60)]),
+           Pp([(52, 45), (78, 60), (78, 90), (52, 105), (26, 90), (26, 60)])]
+    pid = 'sr' + str(k) + str(tebal) + warna.replace('#', '')
     return ('<svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" '
             'aria-hidden="true"><defs><pattern id="' + pid + '" width="' + str(w) + '" height="'
             + str(h) + '" patternUnits="userSpaceOnUse"><g fill="none" stroke="' + warna
-            + '" stroke-width="2" opacity="' + op + '">'
+            + '" stroke-width="' + str(tebal) + '" opacity="' + op + '">'
             + ''.join('<path d="' + c + '"/>' for c in sel) + '</g></pattern></defs>'
             '<rect width="100%" height="100%" fill="url(#' + pid + ')"/></svg>')
 
-# ---------------- bagian halaman ----------------
+def halftone(warna=TEAL, op='.1', jarak=7, r=1):
+    pid = 'ht' + str(jarak) + str(r) + warna.replace('#', '')
+    return ('<svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" '
+            'aria-hidden="true"><defs><pattern id="' + pid + '" width="' + str(jarak) + '" height="'
+            + str(jarak) + '" patternUnits="userSpaceOnUse"><circle cx="' + str(r) + '" cy="'
+            + str(r) + '" r="' + str(r) + '" fill="' + warna + '" opacity="' + op + '"/></pattern>'
+            '</defs><rect width="100%" height="100%" fill="url(#' + pid + ')"/></svg>')
+
+# ----------------------------------------------------------------- supergrafis
+def heks_path(d):
+    """Jalur heksagon runcing-atas selebar d, tinggi 4/3 d."""
+    h = d * 4 // 3
+    return ('M%d 0L%d %dV%dL%d %dL0 %dV%dZ'
+            % (d // 2, d, h // 4, h * 3 // 4, d // 2, h, h * 3 // 4, h // 4))
+
+def heks(x=None, y=None, d=200, warna=TEAL, tebal=0, op='1', z=1, r=None, b=None):
+    """Heksagon besar — padat kalau tebal=0, bergaris kalau tebal>0. Boleh keluar tepi."""
+    h = d * 4 // 3
+    svg = ('<svg width="%d" height="%d" viewBox="0 0 %d %d" fill="none" style="display:block">'
+           '<path d="%s" fill="%s" stroke="%s" stroke-width="%d" stroke-linejoin="miter"/></svg>'
+           % (d, h, d, h, heks_path(d), 'none' if tebal else warna,
+              warna if tebal else 'none', tebal))
+    return dv(P(x=x, y=y, z=z, r=r, b=b, lain='opacity:' + op + ';'), svg)
+
+def cincin(x=None, y=None, d=200, warna=TEAL, tebal=2, op='.2', z=1, r=None, b=None):
+    """Lingkaran bergaris — supergrafis lembut, boleh keluar tepi."""
+    return dv(P(x=x, y=y, z=z, r=r, b=b,
+                lain='width:%dpx;height:%dpx;border:%dpx solid %s;border-radius:%dpx;'
+                     'opacity:%s;box-sizing:border-box;' % (d, d, tebal, warna, d // 2, op)))
+
+def busur(x=None, y=None, d=200, warna=TEAL, tebal=2, op='.25', z=1, r=None, b=None, arah='ka'):
+    """Seperempat busur — sudut membulat besar khas tata letak modern."""
+    sudut = {'ka': '0 0 %dpx 0', 'ki': '0 0 0 %dpx', 'kia': '%dpx 0 0 0', 'kaa': '0 %dpx 0 0'}[arah]
+    return dv(P(x=x, y=y, z=z, r=r, b=b,
+                lain='width:%dpx;height:%dpx;border:%dpx solid %s;border-radius:%s;opacity:%s;'
+                     'box-sizing:border-box;' % (d, d, tebal, warna, sudut % d, op)))
+
+# ----------------------------------------------------------------- tipografi
+def mata(x=None, y=None, teks='', warna=REDUP, z=8, uk=9, sp=3, r=None, b=None, w=None, rt=None):
+    """Kata-mata: huruf kecil tebal berspasi lebar, selalu huruf besar."""
+    return dv(P(x=x, y=y, z=z, r=r, b=b, w=w, lain=font(PJ, uk, 700, warna, sp, None, rt)),
+              teks.upper())
+
+def _seg(t, g, uk, warna):
+    if g == 'c':                                   # Caveat — aksen tulis tangan
+        return tk('font-family:' + CV + ';font-weight:600;font-size:' + str(int(uk * 1.15))
+                  + 'px;color:' + warna + ';letter-spacing:0px;', t)
+    if g == 'm':                                   # Archivo miring — kontras
+        return tk('font-family:' + AR + ';font-weight:400;font-style:italic;font-size:' + str(uk)
+                  + 'px;color:' + warna + ';', t)
+    if g == 'r':                                   # Archivo ringan
+        return tk('font-family:' + AR + ';font-weight:400;font-size:' + str(uk) + 'px;color:'
+                  + warna + ';', t)
+    return tk('font-family:' + AR + ';font-weight:700;font-size:' + str(uk) + 'px;color:'
+              + warna + ';', t)
+
+def tajuk(x=None, y=None, w=None, baris=(), uk=62, warna=INK, sp=-2, th='.98', z=8, rt=None,
+          r=None, b=None):
+    """Judul besar bercampur. baris = daftar baris, tiap baris daftar (teks, gaya).
+    gaya: '' tebal · 'r' ringan · 'm' miring · 'c' Caveat."""
+    isi = ''
+    for ln in baris:
+        if isinstance(ln, str):
+            ln = ((ln, ''),)
+        isi += dv('', ''.join(_seg(t, g, uk, warna) for t, g in ln))
+    return dv(P(x=x, y=y, w=w, z=z, r=r, b=b,
+                lain='line-height:' + str(th) + ';letter-spacing:' + str(sp) + 'px;'
+                     + ('text-align:' + rt + ';' if rt else '')), isi)
+
+def teks(x=None, y=None, w=None, isi='', uk=12, warna=REDUP, tb=400, th='1.65', z=8, rt=None,
+         r=None, b=None):
+    return dv(P(x=x, y=y, w=w, z=z, r=r, b=b, lain=font(PJ, uk, tb, warna, None, th, rt)), isi)
+
+def tangan(x=None, y=None, teks_='', warna=EMAS, uk=26, rot=-3, z=9, w=None, r=None, b=None, rt=None):
+    return dv(P(x=x, y=y, w=w, z=z, r=r, b=b,
+                lain='font-family:' + CV + ';font-size:' + str(uk) + 'px;font-weight:600;color:'
+                     + warna + ';line-height:1.15;'
+                     + ('transform:rotate(' + str(rot) + 'deg);' if rot else '')
+                     + ('text-align:' + rt + ';' if rt else '')), teks_)
+
+def angka(x=None, y=None, teks_='', uk=180, warna=None, op='.1', z=2, r=None, b=None, sp=-8):
+    """Angka hantu besar — penanda halaman di latar."""
+    return dv(P(x=x, y=y, z=z, r=r, b=b,
+                lain=font(AR, uk, 700, warna or INK, sp, 1) + 'opacity:' + op + ';'), teks_)
+
+# ----------------------------------------------------------------- garis & blok
+def garis(x=None, y=None, w=KOL, warna=GARIS, z=6, tebal=1, r=None, b=None):
+    return dv(P(x=x, y=y, w=w, h=tebal, z=z, r=r, b=b, lain='background:' + warna + ';'))
+
+def garis_v(x=None, y=None, h=100, warna=GARIS, z=6, tebal=1, r=None, b=None):
+    return dv(P(x=x, y=y, w=tebal, h=h, z=z, r=r, b=b, lain='background:' + warna + ';'))
+
+def blok(x=None, y=None, w=None, h=None, isi='', bg=PUTIH, rad=22, z=4, tepi=None, lain='',
+         r=None, b=None):
+    g = ('background:' + bg + ';border-radius:' + str(rad) + 'px;box-sizing:border-box;'
+         'overflow:hidden;')
+    if tepi:
+        g += 'border:1px solid ' + tepi + ';'
+    return dv(P(x=x, y=y, w=w, h=h, z=z, r=r, b=b, lain=g + lain), isi)
+
+def tengah(w, h, isi, lain=''):
+    return dv(P(x=0, y=0, w=w, h=h, lain='display:grid;place-items:center;' + lain), isi)
+
+def gambar(x, y, w, h, lab='', isi='', bg=None, rad=22, z=4, warna=None, pola=True, tepi=None):
+    """Blok gambar/mockup. Placeholder-nya sengaja tenang: gradasi lembut + sarang tipis."""
+    bg = bg or ('linear-gradient(150deg,' + MINT_M + ' 0%,' + KRIM_2 + ' 100%)')
+    warna = warna or REDUP
+    dalam = (dv(P(x=0, y=0, w=w, h=h, z=1, lain='overflow:hidden;'),
+                sarang(TEAL, '.09', 2) if pola else '') + isi)
+    if lab:
+        dalam += mata(0, None, lab, warna, z=9, uk=8, sp=2, w=w, rt='center', b=14)
+    return blok(x, y, w, h, dalam, bg, rad, z, tepi)
+
+def kartu_teks(x, y, w, judul, isi, z=8, uk_j=15, uk_i=11, warna_j=INK, warna_i=REDUP, h=None):
+    return dv(P(x=x, y=y, w=w, h=h, z=z),
+              dv(font(AR, uk_j, 700, warna_j, -.2), judul)
+              + dv(font(PJ, uk_i, 400, warna_i, None, '1.55') + 'margin-top:6px;', isi))
+
+def pil(teks_, bg=MINT_M, fg=INK, uk=10, sp=1, pad='6px 14px 7px'):
+    return tk('display:inline-block;background:' + bg + ';border-radius:20px;padding:' + pad
+              + ';' + font(PJ, uk, 700, fg, sp), teks_.upper())
+
+# ----------------------------------------------------------------- lambang
 def lambang(px, warna=TEAL, aksen=EMAS):
-    t = max(4, px // 12)
+    t = max(3, px // 12)
     return ('<svg width="' + str(px) + '" height="' + str(int(px * 1.12)) + '" viewBox="0 0 100 112" '
             'fill="none" style="display:block"><path d="M50 8L86 30V82L50 104L14 82V30Z" stroke="'
             + warna + '" stroke-width="' + str(t) + '" stroke-linejoin="miter"/>'
             '<path d="M61 50L55 60H45L39 50L45 40H55Z" fill="' + aksen + '"/></svg>')
 
-def kepala(bab, hal, fg=REDUP):
-    kiri = dv(P(x=M, y=30, z=9, lain=font(PJ, 9, 700, fg, 3)), bab.upper())
-    kanan = dv(P(r=M, y=26, z=9, lain=font(AR, 13, 700, fg, 1)), str(hal).zfill(2))
-    return kiri + kanan
+def kunci(px, warna=TEAL, aksen=EMAS, w=INK, sp=1):
+    """Logo mendatar — logogram + wordmark."""
+    return dv('display:flex;align-items:center;gap:' + str(max(6, px // 3)) + 'px;',
+              lambang(px, warna, aksen) + tk(font(AR, int(px * .78), 700, w, sp), 'BALIKIN'))
 
-def judul_bagian(no, judul, sub=None, y=74, warna=INK, aksen=TEAL):
-    o = dv(P(x=M, y=y, z=6, lain='display:flex;align-items:center;gap:12px;'),
-           dv('width:28px;height:32px;background:' + aksen + ';' + HEKS
-              + 'display:grid;place-items:center;flex:none;', tk(font(AR, 13, 700, PUTIH), no))
-           + tk(font(AR, 30, 700, warna, -1), judul))
-    if sub:
-        o += dv(P(x=M, y=y + 48, w=520, z=6, lain=font(PJ, 13, 400, REDUP, None, 1.5)), sub)
-    return o
-
-def label(x, y, t, warna=REDUP, sp=3, uk=9):
-    return dv(P(x=x, y=y, z=6, lain=font(PJ, uk, 700, warna, sp)), t.upper())
-
-def kotak(x, y, w, h, isi='', bg=PUTIH, radius=14, z=5, lain=''):
-    bayang = '' if 'box-shadow' in lain else 'box-shadow:0 10px 26px rgba(12,40,36,.07);'
+# ----------------------------------------------------------------- purwarupa
+def ponsel(x, y, w, isi='', rot=0, z=6, bg=None, bingkai_warna=INK, lab=None):
+    """Bingkai ponsel — tinggi ≈ 2,03 × lebar."""
+    h = w * 61 // 30
+    t = max(4, w // 18)
+    rad = max(12, w // 6)
+    layar = dv(P(x=t, y=t, w=w - t * 2, h=h - t * 2, z=2,
+                 lain='background:' + (bg or KRIM) + ';border-radius:' + str(rad - t // 2)
+                      + 'px;overflow:hidden;'), isi)
+    poni = dv(P(x=(w - w // 3) // 2, y=t, w=w // 3, h=max(5, w // 22), z=4,
+                lain='background:' + bingkai_warna + ';border-radius:0 0 8px 8px;'))
+    badan = dv(P(x=0, y=0, w=w, h=h, z=1,
+                 lain='background:' + bingkai_warna + ';border-radius:' + str(rad)
+                      + 'px;box-shadow:0 18px 40px ' + rgba(INK, '.18') + ';'))
     return dv(P(x=x, y=y, w=w, h=h, z=z,
-                lain='background:' + bg + ';border-radius:' + str(radius) + 'px;box-sizing:border-box;'
-                     'overflow:hidden;' + bayang + lain), isi)
+                lain='transform:rotate(' + str(rot) + 'deg);' if rot else ''),
+              badan + layar + poni)
 
-def catatan(x, y, w, judul, isi, warna=INK):
-    return dv(P(x=x, y=y, w=w, z=6),
-              dv(font(AR, 13, 700, warna, -.2) + 'margin-bottom:5px;', judul)
-              + dv(font(PJ, 11, 400, REDUP, None, 1.45), isi))
+def layar_app(w, h, warna_atas=TEAL, isi=''):
+    """Isi layar ponsel placeholder — kepala warna + kartu-kartu."""
+    kh = h // 4
+    kartu = ''
+    for i in range(3):
+        kartu += dv(P(x=w // 12, y=kh + 14 + i * (h // 6), w=w - w // 6, h=h // 7 - 6,
+                      lain='background:' + PUTIH + ';border-radius:10px;'))
+    return (dv(P(x=0, y=0, w=w, h=kh, lain='background:' + warna_atas + ';overflow:hidden;'),
+               sarang(KRIM, '.16', 1))
+            + dv(P(x=0, y=kh, w=w, h=h - kh, lain='background:' + KRIM_2 + ';'))
+            + kartu + isi)
 
-def ponsel(x, y, w, z=5, layar=None, rot=0):
-    h = int(round(w * 2.05)); r = max(8, w // 7); b = max(4, w // 24)
-    isi = layar if layar is not None else dv('width:100%;height:100%;background:linear-gradient(170deg,'
-                                             + MINT_M + ' 0%,' + CREAM + ' 60%,' + FILL + ' 100%);')
-    return dv(P(x=x, y=y, w=w, h=h, z=z,
-                lain='background:' + INK + ';border-radius:' + str(r) + 'px;padding:' + str(b)
-                     + 'px;box-shadow:0 12px 26px rgba(12,40,36,.2);transform:rotate(' + str(rot)
-                     + 'deg);box-sizing:border-box;'),
-              dv('width:100%;height:100%;border-radius:' + str(r - b) + 'px;overflow:hidden;', isi))
+# ----------------------------------------------------------------- kerangka halaman
+def bingkai(bab, hal, warna=REDUP, gr=GARIS, kanan=None):
+    """Kepala halaman isi: label bab kiri atas, nomor kanan atas, garis rambut."""
+    return (mata(M, 44, bab, warna)
+            + (mata(None, 44, kanan, warna, r=M + 34) if kanan else '')
+            + dv(P(r=M, y=38, z=8, lain=font(AR, 15, 700, warna, 0)), str(hal).zfill(2))
+            + garis(M, 72, KOL, gr))
 
-BAB_WARNA = [TEAL_T, TEAL, EMAS, TERRA]
-BAB_ANGKA = ['I', 'II', 'III', 'IV']
-
-def bidang_miring(sisi='kanan'):
-    """Irisan 30° — sudut yang sama dengan sisi heksagon."""
-    if sisi == 'kanan':
-        return 'clip-path:polygon(840px 107px,840px 592px,0px 592px);'
-    return 'clip-path:polygon(0px 107px,0px 592px,840px 592px);'
-
-def latar_halaman(bab_idx, hantu='', sisi='kanan'):
-    """Supergrafis halaman: bidang miring bertekstur sarang + angka hantu."""
-    warna = BAB_WARNA[bab_idx]
-    pot = bidang_miring(sisi)
-    lapis = dv(P(x=0, y=0, w=W, h=H, z=1, lain='background:' + warna + ';opacity:.07;' + pot))
-    pola = dv(P(x=0, y=0, w=W, h=H, z=1, lain=pot + 'overflow:hidden;'), sarang(warna, '.16', 2))
-    tepi = dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'),
-              '<svg width="' + str(W) + '" height="' + str(H) + '" viewBox="0 0 ' + str(W) + ' '
-              + str(H) + '" fill="none" style="display:block">'
-              + ('<path d="M840 107L0 592" stroke="' + warna + '" stroke-width="2" opacity=".3"/>'
-                 if sisi == 'kanan' else
-                 '<path d="M0 107L840 592" stroke="' + warna + '" stroke-width="2" opacity=".3"/>')
-              + '</svg>')
-    ang = ''
-    if hantu:
-        hx = (W - 210) if sisi == 'kiri' else -30
-        ang = dv(P(x=hx, y=262, z=1, lain=font(AR, 300, 700, warna, -14, 1) + 'opacity:.06;'), hantu)
-    return lapis + pola + tepi + ang
-
-def garis_kepala(bab_idx):
-    """Penanda heksagon + garis rambut di bawah kepala halaman."""
-    warna = BAB_WARNA[bab_idx]
-    return (dv(P(x=M - 22, y=27, w=12, h=14, z=7, lain='background:' + warna + ';' + HEKS))
-            + dv(P(x=M, r=M, y=50, h=1, z=4, lain='background:' + warna + ';opacity:.28;')))
-
-def indeks_tepi(bab_idx):
-    """Penanda bab di tepi kanan — bertingkat, jadi terlihat waktu buku ditutup."""
-    warna = BAB_WARNA[bab_idx]
-    y = 72 + bab_idx * 124
-    return (dv(P(r=0, y=y, w=16, h=112, z=4, lain='background:' + warna + ';'))
-            + dv(P(r=0, y=y + 44, w=16, z=5,
-                   lain=font(AR, 11, 700, PUTIH, 1, 1, 'center')), BAB_ANGKA[bab_idx]))
-
-def halaman(isi, latar=CREAM, lain=''):
+def halaman(isi, latar=KRIM):
     return ('<div style="width:' + str(W) + 'px;height:' + str(H) + 'px;position:relative;'
-            'overflow:hidden;background:' + latar + ';' + lain + '">' + isi + '</div>')
+            'overflow:hidden;background:' + latar + '">' + isi + '</div>')
 
-def doc_gsm(root, latar=CREAM):
+def doc_gsm(root, latar=KRIM):
     return ('<!doctype html>\n<html>\n<head>\n  <meta charset="utf-8">\n'
             '  <script src="./support.js"></script>\n</head>\n<body>\n<x-dc>\n<helmet>\n  ' + FONTS
-            + '\n  <style>\n    body { margin: 0; font-family: ' + PJ + '; background: ' + latar + '; }\n'
+            + '\n  <style>\n    body { margin: 0; font-family: ' + PJ + '; background: ' + latar
+            + '; -webkit-font-smoothing: antialiased; }\n'
+            '    div { box-sizing: border-box; }\n'
             '  </style>\n</helmet>\n' + root + '\n</x-dc>\n</body>\n</html>\n')
 
-def tulis(nama, isi, latar=CREAM):
+def tulis(nama, isi, latar=KRIM):
     open(os.path.join(_here, nama), 'w', encoding='utf-8').write(doc_gsm(isi, latar))
