@@ -9,7 +9,7 @@ _here = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(_here, '..', 'xbanner'))
 sys.path.insert(0, os.path.join(_here, '..', 'infografis'))
 sys.path.insert(0, os.path.join(_here, '..', 'standee'))
-from build import AR, PJ, CV
+from build import AR, PJ, CV, LEBAH
 from rapi import bakar_fragmen, bidang
 from ikon import IKON
 from build_standee import N, teks, heks, qr_kotak, sarang_def, POTONG, \
@@ -187,12 +187,60 @@ def kartu_d():
          ]
     return bungkus('Balikin — Kartu Barang D, Tag Gantung', '\n'.join(d), jalur)
 
+# ======================================================== C · BELAKANG
+# Sudut pangkas dicerminkan (kanan atas + kiri bawah) supaya pas waktu
+# dicetak bolak-balik dan dipotong sekali.
+LANGKAH = [('Pindai QR di kartu ini', 'Prototipe Balikin terbuka di HP-mu.'),
+           ('Isi laporan temuan', 'Foto, kategori, lokasi. Empat langkah, dua menit.'),
+           ('Cocokkan kode serah terima', 'Empat huruf dari penjaga meja, lalu barang berpindah.')]
+
+def kartu_c_belakang():
+    c = 40
+    jalur = ('M0 0H' + N(W - c) + 'L' + N(W) + ' ' + N(c) + 'V' + N(H) + 'H' + N(c)
+             + 'L0 ' + N(H - c) + 'Z')
+    pita = ('M0 0H' + N(W - c) + 'L' + N(W) + ' ' + N(c) + 'V88H0Z')
+    d = ['<defs>' + sarang_def(TEAL, '0.1') + '</defs>',
+         '<path d="' + jalur + '" fill="' + CREAM + '"/>',
+         '<path d="' + jalur + '" fill="url(#sarang)"/>',
+         '<path d="' + pita + '" fill="' + TEAL_X + '"/>',
+         # lambang + wordmark
+         '<path d="M44 30L68 44V72L44 86L20 72V44Z" fill="none" stroke="' + CREAM
+         + '" stroke-width="5" stroke-linejoin="miter"/>'
+         '<path d="M52 52L48 59H40L36 52L40 45H48Z" fill="' + EMAS_M + '"/>',
+         teks(84, 52, 'BALIKIN', 19, AR, 700, CREAM, 3, 'start'),
+         teks(84, 70, 'KARTU BARANG TEMUAN', 9, PJ, 700, 'rgba(207,230,224,.75)', 3, 'start'),
+         '<g id="maskot">' + bidang(58, 58, 268, 16)
+         + bakar_fragmen(LEBAH, 0.29, 268, 16) + '</g>',
+         teks(W // 2, 122, 'TIGA LANGKAH MEMBALIKIN', 10, PJ, 700, REDUP, 3),
+         ]
+    for i, (judul, ket) in enumerate(LANGKAH):
+        y = 146 + i * 56
+        d.append('<path d="' + heks(46, y + 10, 20, 17) + '" fill="' + TEAL + '"/>')
+        d.append(teks(46, y + 16, str(i + 1), 15, AR, 700, CREAM))
+        d.append(teks(78, y + 8, judul, 14, AR, 700, INK, 0, 'start'))
+        d.append(teks(78, y + 26, ket, 10, PJ, 400, REDUP, 0, 'start'))
+    d.append(garis(24, 310, W - 24))
+    # kotak kode serah terima
+    d.append(teks(W // 2, 334, 'KODE SERAH TERIMA', 9, PJ, 700, REDUP, 3))
+    for i in range(4):
+        x = 74 + i * 56
+        d.append('<rect x="' + N(x) + '" y="344" width="44" height="44" rx="10" fill="#FFFFFF" '
+                 'stroke="' + TEAL + '" stroke-width="2" stroke-dasharray="7 6"/>')
+    d.append(teks(W // 2, 402, 'diisi penjaga meja saat barang diserahkan', 9, PJ, 400, REDUP))
+    # ajakan tukar
+    d.append(pil(24, 412, W - 48, 28, 'TUKAR KARTU INI DENGAN LENCANA', EMAS_M, INK, 10))
+    d.append('<text x="' + N(W // 2) + '" y="464" font-family="' + CV + '" font-size="17" '
+             'font-weight="600" fill="' + TEAL + '" text-anchor="middle">'
+             'Small things make a big difference</text>')
+    return bungkus('Balikin — Kartu Barang C, belakang', '\n'.join(d), jalur)
+
 if __name__ == '__main__':
     OUT = os.path.join(_here, 'svg')
     for nama, isi in (('kartu-barang-a-arsip', kartu_a()),
                       ('kartu-barang-b-aplikasi', kartu_b()),
                       ('kartu-barang-c-koleksi', kartu_c()),
-                      ('kartu-barang-d-tag', kartu_d())):
+                      ('kartu-barang-d-tag', kartu_d()),
+                      ('kartu-barang-c-belakang', kartu_c_belakang())):
         open(os.path.join(OUT, nama + '.svg'), 'w', encoding='utf-8').write(isi)
         sisa = sorted(set(re.findall(r'-?\d+\.\d+', isi)))
         print('%-30s %5d B  desimal: %s' % (nama + '.svg', len(isi), sisa or 'tidak ada'))

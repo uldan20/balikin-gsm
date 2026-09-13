@@ -11,6 +11,7 @@ Art carton 260 gsm, laminasi doff, cetak dua sisi, 24 keping. Skala berkas
 | `svg/kartu-barang-a-arsip.svg` | **A · Arsip** — bingkai tipis, kode besar, seperti label museum. Paling netral dan paling murah tinta |
 | `svg/kartu-barang-b-aplikasi.svg` | **B · Kartu Aplikasi** — meniru kartu barang di dalam aplikasi: bidang gambar, keping kategori, pita teal ber-QR |
 | `svg/kartu-barang-c-koleksi.svg` | **C · Koleksi** — teal pekat, dua sudut dipangkas 60°, heksagon emas. Terasa seperti kartu koleksi |
+| `svg/kartu-barang-c-belakang.svg` | **Belakang C** — tiga langkah membalikin, kotak kode serah terima empat huruf, ajakan tukar lencana |
 | `svg/kartu-barang-d-tag.svg` | **D · Tag Gantung** — berlubang gantung dan bergaris sobek; bisa digantung langsung di barangnya |
 
 ## Isi satu kasus
@@ -26,7 +27,10 @@ ditemukan · status · QR · poin untuk penemu. Semua teks ada di bagian atas
    perbesar atau pakai tautan pendek.
 3. Lapisan `POTONG` magenta adalah garis potong — hapus sebelum cetak.
 4. Outline teks atau sematkan huruf; tambah bleed 3 mm.
-5. Belakang kartu belum dibuat — menyusul setelah salah satu arah dipilih.
+5. Belakang baru dibuat untuk **C · Koleksi** (`kartu-barang-c-belakang.svg`).
+   Sudut pangkasnya **dicerminkan** — kanan atas dan kiri bawah — supaya pas
+   waktu dicetak bolak-balik lalu dipotong sekali. Jangan diputar, cukup
+   dipasang apa adanya sebagai sisi belakang.
 
 ## Bangun ulang
 
