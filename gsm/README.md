@@ -18,6 +18,25 @@ placeholder.**
 | 22 | Pembatas Bab IV | `H22` |
 | 23–24 | Layar dan cetak · Merchandise & booth | `H23`–`H24` |
 
+## Latar dan supergrafis
+
+Halaman isi tidak polos — tiap halaman memakai empat lapis yang sama, warnanya
+mengikuti bab:
+
+1. **Bidang miring 30°** — sudut yang sama dengan sisi heksagon, memotong
+   halaman dari tepi atas ke sudut bawah. Arahnya berganti kiri–kanan tiap
+   halaman, jadi kalau bukunya dibuka, dua halaman saling mencerminkan.
+2. **Pola sarang** hanya di dalam bidang miring itu, bukan di seluruh halaman —
+   supaya polanya punya tepi dan terbaca sebagai grafis, bukan tekstur.
+3. **Angka hantu** nomor bagian setinggi 300 px, opasitas 6%, menyembul di tepi.
+4. **Indeks tepi** — pita warna bab di sisi kanan, posisinya turun satu tingkat
+   tiap bab, jadi keempat bab terlihat bertingkat waktu buku ditutup.
+
+Kepala halaman diberi heksagon kecil dan garis rambut sewarna bab. Kotak
+spesimen mengambang dengan bayangan tipis di atas bidang itu.
+
+Pembatas bab memakai lapis yang sama dengan arah tetap ke kanan.
+
 ## Yang masih placeholder
 
 - **Tangkapan layar aplikasi** di halaman 04 dan 23 — sekarang ponsel kosong.

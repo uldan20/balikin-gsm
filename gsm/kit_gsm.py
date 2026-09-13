@@ -88,9 +88,10 @@ def label(x, y, t, warna=REDUP, sp=3, uk=9):
     return dv(P(x=x, y=y, z=6, lain=font(PJ, uk, 700, warna, sp)), t.upper())
 
 def kotak(x, y, w, h, isi='', bg=PUTIH, radius=14, z=5, lain=''):
+    bayang = '' if 'box-shadow' in lain else 'box-shadow:0 10px 26px rgba(12,40,36,.07);'
     return dv(P(x=x, y=y, w=w, h=h, z=z,
                 lain='background:' + bg + ';border-radius:' + str(radius) + 'px;box-sizing:border-box;'
-                     'overflow:hidden;' + lain), isi)
+                     'overflow:hidden;' + bayang + lain), isi)
 
 def catatan(x, y, w, judul, isi, warna=INK):
     return dv(P(x=x, y=y, w=w, z=6),
@@ -106,6 +107,48 @@ def ponsel(x, y, w, z=5, layar=None, rot=0):
                      + 'px;box-shadow:0 12px 26px rgba(12,40,36,.2);transform:rotate(' + str(rot)
                      + 'deg);box-sizing:border-box;'),
               dv('width:100%;height:100%;border-radius:' + str(r - b) + 'px;overflow:hidden;', isi))
+
+BAB_WARNA = [TEAL_T, TEAL, EMAS, TERRA]
+BAB_ANGKA = ['I', 'II', 'III', 'IV']
+
+def bidang_miring(sisi='kanan'):
+    """Irisan 30° — sudut yang sama dengan sisi heksagon."""
+    if sisi == 'kanan':
+        return 'clip-path:polygon(840px 107px,840px 592px,0px 592px);'
+    return 'clip-path:polygon(0px 107px,0px 592px,840px 592px);'
+
+def latar_halaman(bab_idx, hantu='', sisi='kanan'):
+    """Supergrafis halaman: bidang miring bertekstur sarang + angka hantu."""
+    warna = BAB_WARNA[bab_idx]
+    pot = bidang_miring(sisi)
+    lapis = dv(P(x=0, y=0, w=W, h=H, z=1, lain='background:' + warna + ';opacity:.07;' + pot))
+    pola = dv(P(x=0, y=0, w=W, h=H, z=1, lain=pot + 'overflow:hidden;'), sarang(warna, '.16', 2))
+    tepi = dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'),
+              '<svg width="' + str(W) + '" height="' + str(H) + '" viewBox="0 0 ' + str(W) + ' '
+              + str(H) + '" fill="none" style="display:block">'
+              + ('<path d="M840 107L0 592" stroke="' + warna + '" stroke-width="2" opacity=".3"/>'
+                 if sisi == 'kanan' else
+                 '<path d="M0 107L840 592" stroke="' + warna + '" stroke-width="2" opacity=".3"/>')
+              + '</svg>')
+    ang = ''
+    if hantu:
+        hx = (W - 210) if sisi == 'kiri' else -30
+        ang = dv(P(x=hx, y=262, z=1, lain=font(AR, 300, 700, warna, -14, 1) + 'opacity:.06;'), hantu)
+    return lapis + pola + tepi + ang
+
+def garis_kepala(bab_idx):
+    """Penanda heksagon + garis rambut di bawah kepala halaman."""
+    warna = BAB_WARNA[bab_idx]
+    return (dv(P(x=M - 22, y=27, w=12, h=14, z=7, lain='background:' + warna + ';' + HEKS))
+            + dv(P(x=M, r=M, y=50, h=1, z=4, lain='background:' + warna + ';opacity:.28;')))
+
+def indeks_tepi(bab_idx):
+    """Penanda bab di tepi kanan — bertingkat, jadi terlihat waktu buku ditutup."""
+    warna = BAB_WARNA[bab_idx]
+    y = 72 + bab_idx * 124
+    return (dv(P(r=0, y=y, w=16, h=112, z=4, lain='background:' + warna + ';'))
+            + dv(P(r=0, y=y + 44, w=16, z=5,
+                   lain=font(AR, 11, 700, PUTIH, 1, 1, 'center')), BAB_ANGKA[bab_idx]))
 
 def halaman(isi, latar=CREAM, lain=''):
     return ('<div style="width:' + str(W) + 'px;height:' + str(H) + 'px;position:relative;'

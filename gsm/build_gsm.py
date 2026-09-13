@@ -6,13 +6,29 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 
 HAL = []                                  # (berkas, judul kanvas)
 
+# halaman isi -> (indeks bab, angka hantu)
+BAB_HAL = {4: (0, '1'), 5: (0, '2'),
+           7: (1, '1'), 8: (1, '2'), 9: (1, '3'), 10: (1, '4'), 11: (1, '5'), 12: (1, '6'), 13: (1, '7'),
+           15: (2, '1'), 16: (2, '2'), 17: (2, '3'), 18: (2, '4'), 19: (2, '5'), 20: (2, '6'), 21: (2, '7'),
+           23: (3, '1'), 24: (3, '2')}
+
 def simpan(nomor, nama, isi, latar=CREAM):
     berkas = ('Main' if nomor == 1 else 'H%02d' % nomor) + '.dc.html'
+    if nomor in BAB_HAL:
+        bab, hantu = BAB_HAL[nomor]
+        sisi = 'kanan' if nomor % 2 else 'kiri'
+        isi = latar_halaman(bab, hantu, sisi) + indeks_tepi(bab) + garis_kepala(bab) + isi
     tulis(berkas, halaman(isi, latar), latar)
     HAL.append((berkas, '%02d · %s' % (nomor, nama)))
 
 def pembatas(nomor, angka, judul, ringkas, daftar, warna, warna2):
     isi = (dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'), sarang(CREAM, '.09', 3))
+           + dv(P(x=0, y=0, w=W, h=H, z=1,
+                  lain='background:rgba(251,248,243,.08);' + bidang_miring('kanan')))
+           + dv(P(x=0, y=0, w=W, h=H, z=1, lain='overflow:hidden;'),
+                '<svg width="' + str(W) + '" height="' + str(H) + '" viewBox="0 0 ' + str(W) + ' '
+                + str(H) + '" fill="none"><path d="M840 107L0 592" stroke="' + CREAM
+                + '" stroke-width="2" opacity=".28"/></svg>')
            + dv(P(x=M, y=120, z=5, lain=font(AR, 150, 700, 'rgba(251,248,243,.22)', -6, 1)), angka)
            + dv(P(x=M + 8, y=196, z=6, lain=font(PJ, 10, 700, EMAS_M, 4)), 'BAB ' + angka)
            + dv(P(x=M + 8, y=216, w=460, z=6, lain=font(AR, 44, 700, CREAM, -1.5, 1.1)), judul)
