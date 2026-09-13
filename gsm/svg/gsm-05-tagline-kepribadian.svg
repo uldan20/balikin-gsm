@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 05 Tagline & kepribadian">
+<title>GSM Balikin — 05 Tagline & kepribadian</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M-8 131L252 304V650L-8 824L-268 650V304Z" fill="#1B7A63" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="56" y="130" width="728" height="216" rx="28" fill="#CFE6E0"/>
+<text x="96" y="258" font-family="Archivo" font-size="62" font-weight="700" fill="#12332C" letter-spacing="-2">Yang hilang,</text>
+<text x="443" y="251" font-family="Caveat" font-size="71" font-weight="600" fill="#12332C">balik pulang.</text>
+<defs><pattern patternTransform="translate(56 130)" id="sr321B7A63-u2" width="156" height="270" patternUnits="userSpaceOnUse"><g fill="none" stroke="#1B7A63" stroke-width="2" opacity=".07"><path d="M78 0L156 45L156 135L78 180L0 135L0 45Z"></path><path d="M0 135L78 180L78 270L0 315L-78 270L-78 180Z"></path><path d="M156 135L234 180L234 270L156 315L78 270L78 180Z"></path></g></pattern></defs><rect x="56" y="130" width="728" height="216" fill="url(#sr321B7A63-u2)"></rect>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<rect x="56" y="514" width="728" height="1" fill="#E2DACB"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB I · TENTANG BALIKIN</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">05</text>
+<text x="56" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 02 · TAGLINE &amp; KEPRIBADIAN</text>
+<text x="135" y="377" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">Kalimat penutup di tiap materi. Selalu diakhiri titik, tidak pernah diterjemahkan, tidak pernah dipotong.</text>
+<rect x="56" y="412" width="170" height="116" rx="18" fill="#FFFFFF"/><rect x="56" y="412" width="169" height="115" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<text x="75" y="450" font-family="Archivo" font-size="19" font-weight="700" fill="#1B7A63">Hangat</text>
+<text x="75" y="474" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">bukan formal</text>
+<rect x="75" y="507" width="24" height="2" fill="#F3D77C"/>
+<rect x="242" y="412" width="170" height="116" rx="18" fill="#FFFFFF"/><rect x="242" y="412" width="169" height="115" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<text x="261" y="450" font-family="Archivo" font-size="19" font-weight="700" fill="#1B7A63">Jelas</text>
+<text x="261" y="474" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">bukan pintar</text>
+<rect x="261" y="507" width="24" height="2" fill="#F3D77C"/>
+<rect x="428" y="412" width="170" height="116" rx="18" fill="#FFFFFF"/><rect x="428" y="412" width="169" height="115" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<text x="447" y="450" font-family="Archivo" font-size="19" font-weight="700" fill="#1B7A63">Rendah hati</text>
+<text x="447" y="474" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">bukan pamer</text>
+<rect x="447" y="507" width="24" height="2" fill="#F3D77C"/>
+<rect x="614" y="412" width="170" height="116" rx="18" fill="#FFFFFF"/><rect x="614" y="412" width="169" height="115" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<text x="633" y="450" font-family="Archivo" font-size="19" font-weight="700" fill="#1B7A63">Tenang</text>
+<text x="633" y="474" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">bukan heboh</text>
+<rect x="633" y="507" width="24" height="2" fill="#F3D77C"/>
+<text x="56" y="544" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">KEPRIBADIAN MEREK</text>
+<g transform="rotate(-2 634 539)"><text x="483" y="545" font-family="Caveat" font-size="26" font-weight="600" fill="#1B7A63">Small things make a big difference</text></g>
+</svg>

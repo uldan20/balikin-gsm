@@ -75,28 +75,29 @@ def bee(px, rot=0):
             'style="display:block;transform:rotate(' + str(rot) + 'deg)">' + LEBAH + '</svg>')
 
 # ----------------------------------------------------------------- tekstur
-def sarang(warna=TEAL, op='.1', k=2, tebal=2):
+def _pola(pid, uw, uh, dalam, w, h):
+    """Bungkus satu ubin pola. Ukurannya ditulis tegas dan kotak isiannya diberi
+    jangkar x/y — kalau dibiarkan 100% pola hilang waktu halaman diekspor ke SVG."""
+    return ('<svg width="%d" height="%d" viewBox="0 0 %d %d" '
+            'style="position:absolute;left:0;top:0;pointer-events:none" aria-hidden="true">'
+            '<defs><pattern id="%s" width="%d" height="%d" patternUnits="userSpaceOnUse">%s'
+            '</pattern></defs><rect x="0" y="0" width="%d" height="%d" fill="url(#%s)"/></svg>'
+            % (w, h, w, h, pid, uw, uh, dalam, w, h, pid))
+
+def sarang(warna=TEAL, op='.1', k=2, tebal=2, w=W, h=H):
     """Pola sarang lebah — supergrafis latar. Selalu transparan."""
-    w, h = 52 * k, 90 * k
+    uw, uh = 52 * k, 90 * k
     Pp = lambda pts: 'M' + 'L'.join(str(x * k) + ' ' + str(y * k) for x, y in pts) + 'Z'
     sel = [Pp([(26, 0), (52, 15), (52, 45), (26, 60), (0, 45), (0, 15)]),
            Pp([(0, 45), (26, 60), (26, 90), (0, 105), (-26, 90), (-26, 60)]),
            Pp([(52, 45), (78, 60), (78, 90), (52, 105), (26, 90), (26, 60)])]
-    pid = 'sr' + str(k) + str(tebal) + warna.replace('#', '')
-    return ('<svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" '
-            'aria-hidden="true"><defs><pattern id="' + pid + '" width="' + str(w) + '" height="'
-            + str(h) + '" patternUnits="userSpaceOnUse"><g fill="none" stroke="' + warna
-            + '" stroke-width="' + str(tebal) + '" opacity="' + op + '">'
-            + ''.join('<path d="' + c + '"/>' for c in sel) + '</g></pattern></defs>'
-            '<rect width="100%" height="100%" fill="url(#' + pid + ')"/></svg>')
+    dalam = ('<g fill="none" stroke="' + warna + '" stroke-width="' + str(tebal) + '" opacity="'
+             + op + '">' + ''.join('<path d="' + c + '"/>' for c in sel) + '</g>')
+    return _pola('sr' + str(k) + str(tebal) + warna.replace('#', ''), uw, uh, dalam, w, h)
 
-def halftone(warna=TEAL, op='.1', jarak=7, r=1):
-    pid = 'ht' + str(jarak) + str(r) + warna.replace('#', '')
-    return ('<svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" '
-            'aria-hidden="true"><defs><pattern id="' + pid + '" width="' + str(jarak) + '" height="'
-            + str(jarak) + '" patternUnits="userSpaceOnUse"><circle cx="' + str(r) + '" cy="'
-            + str(r) + '" r="' + str(r) + '" fill="' + warna + '" opacity="' + op + '"/></pattern>'
-            '</defs><rect width="100%" height="100%" fill="url(#' + pid + ')"/></svg>')
+def halftone(warna=TEAL, op='.1', jarak=7, r=1, w=W, h=H):
+    dalam = ('<circle cx="%d" cy="%d" r="%d" fill="%s" opacity="%s"/>' % (r, r, r, warna, op))
+    return _pola('ht' + str(jarak) + str(r) + warna.replace('#', ''), jarak, jarak, dalam, w, h)
 
 # ----------------------------------------------------------------- supergrafis
 def heks_path(d):
@@ -108,11 +109,12 @@ def heks_path(d):
 def heks(x=None, y=None, d=200, warna=TEAL, tebal=0, op='1', z=1, r=None, b=None):
     """Heksagon besar — padat kalau tebal=0, bergaris kalau tebal>0. Boleh keluar tepi."""
     h = d * 4 // 3
-    svg = ('<svg width="%d" height="%d" viewBox="0 0 %d %d" fill="none" style="display:block">'
-           '<path d="%s" fill="%s" stroke="%s" stroke-width="%d" stroke-linejoin="miter"/></svg>'
-           % (d, h, d, h, heks_path(d), 'none' if tebal else warna,
+    svg = ('<svg width="%d" height="%d" viewBox="0 0 %d %d" fill="none" '
+           'style="display:block;opacity:%s"><path d="%s" fill="%s" stroke="%s" '
+           'stroke-width="%d" stroke-linejoin="miter"/></svg>'
+           % (d, h, d, h, op, heks_path(d), 'none' if tebal else warna,
               warna if tebal else 'none', tebal))
-    return dv(P(x=x, y=y, z=z, r=r, b=b, lain='opacity:' + op + ';'), svg)
+    return dv(P(x=x, y=y, z=z, r=r, b=b), svg)
 
 def cincin(x=None, y=None, d=200, warna=TEAL, tebal=2, op='.2', z=1, r=None, b=None):
     """Lingkaran bergaris — supergrafis lembut, boleh keluar tepi."""
@@ -198,7 +200,7 @@ def gambar(x, y, w, h, lab='', isi='', bg=None, rad=22, z=4, warna=None, pola=Tr
     bg = bg or ('linear-gradient(150deg,' + MINT_M + ' 0%,' + KRIM_2 + ' 100%)')
     warna = warna or REDUP
     dalam = (dv(P(x=0, y=0, w=w, h=h, z=1, lain='overflow:hidden;'),
-                sarang(TEAL, '.09', 2) if pola else '') + isi)
+                sarang(TEAL, '.09', 2, w=w, h=h) if pola else '') + isi)
     if lab:
         dalam += mata(0, None, lab, warna, z=9, uk=8, sp=2, w=w, rt='center', b=14)
     return blok(x, y, w, h, dalam, bg, rad, z, tepi)
@@ -213,12 +215,18 @@ def pil(teks_, bg=MINT_M, fg=INK, uk=10, sp=1, pad='6px 14px 7px'):
               + ';' + font(PJ, uk, 700, fg, sp), teks_.upper())
 
 # ----------------------------------------------------------------- lambang
-def lambang(px, warna=TEAL, aksen=EMAS):
+def lambang(px, warna=TEAL, aksen=EMAS, gaya='', rentang=None):
+    """Logogram. rentang= merentangkan heksagon lewat koordinatnya sendiri, bukan
+    transform — supaya bentuknya tetap utuh waktu halaman diekspor ke SVG."""
     t = max(3, px // 12)
-    return ('<svg width="' + str(px) + '" height="' + str(int(px * 1.12)) + '" viewBox="0 0 100 112" '
-            'fill="none" style="display:block"><path d="M50 8L86 30V82L50 104L14 82V30Z" stroke="'
-            + warna + '" stroke-width="' + str(t) + '" stroke-linejoin="miter"/>'
-            '<path d="M61 50L55 60H45L39 50L45 40H55Z" fill="' + aksen + '"/></svg>')
+    r = rentang or 1
+    X = lambda v: int(round(v * r))
+    jalur = 'M%d 8L%d 30V82L%d 104L%d 82V30Z' % (X(50), X(86), X(50), X(14))
+    sel = 'M%d 50L%d 60H%dL%d 50L%d 40H%dZ' % (X(61), X(55), X(45), X(39), X(45), X(55))
+    return ('<svg width="%d" height="%d" viewBox="0 0 %d 112" fill="none" '
+            'style="display:block;%s"><path d="%s" stroke="%s" stroke-width="%d" '
+            'stroke-linejoin="miter"/><path d="%s" fill="%s"/></svg>'
+            % (X(px), int(px * 1.12), X(100), gaya, jalur, warna, t, sel, aksen))
 
 def kunci(px, warna=TEAL, aksen=EMAS, w=INK, sp=1):
     """Logo mendatar — logogram + wordmark."""
@@ -251,7 +259,7 @@ def layar_app(w, h, warna_atas=TEAL, isi=''):
         kartu += dv(P(x=w // 12, y=kh + 14 + i * (h // 6), w=w - w // 6, h=h // 7 - 6,
                       lain='background:' + PUTIH + ';border-radius:10px;'))
     return (dv(P(x=0, y=0, w=w, h=kh, lain='background:' + warna_atas + ';overflow:hidden;'),
-               sarang(KRIM, '.16', 1))
+               sarang(KRIM, '.16', 1, w=w, h=kh))
             + dv(P(x=0, y=kh, w=w, h=h - kh, lain='background:' + KRIM_2 + ';'))
             + kartu + isi)
 

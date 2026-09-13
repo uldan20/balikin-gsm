@@ -188,7 +188,27 @@ def bangun(jalur_json, judul, ukuran=None, desc=None):
             for lama in set(re.findall(r'id="([^"]+)"', isi)):
                 isi = isi.replace('id="%s"' % lama, 'id="%s-%s"' % (lama, akhiran))
                 isi = isi.replace('url(#%s)' % lama, 'url(#%s-%s)' % (lama, akhiran))
-            isi = bakar_fragmen(isi, sx, k['x'] - vb[0] * sx, k['y'] - vb[1] * sx)
+            # Isi <pattern> hidup di ruang ubinnya sendiri: kalau ikut digeser,
+            # gambarnya keluar dari ubin dan polanya jadi kosong. Sisihkan dulu,
+            # pasang lagi setelah sisanya dibakar.
+            ubin = []
+            def _sisih(m):
+                ubin.append(m.group(0))
+                return '<!--UBIN%d-->' % (len(ubin) - 1)
+            isi = re.sub(r'<pattern\b[\s\S]*?</pattern>', _sisih, isi)
+            dx, dy = k['x'] - vb[0] * sx, k['y'] - vb[1] * sx
+            isi = bakar_fragmen(isi, sx, dx, dy)
+            # Ubinnya sendiri tetap dijangkar ke ruang pengguna, jadi pergeseran dan
+            # skala yang tadi dibakar dipasang lagi lewat patternTransform — supaya
+            # fasa polanya persis sama dengan di halaman aslinya.
+            pt = []
+            if abs(dx) > .5 or abs(dy) > .5: pt.append('translate(%s %s)' % (N(dx), N(dy)))
+            if abs(sx - 1) > .001: pt.append('scale(%g)' % sx)
+            for i_u, potong in enumerate(ubin):
+                if pt and 'patternTransform' not in potong:
+                    potong = potong.replace('<pattern ', '<pattern patternTransform="%s" '
+                                            % ' '.join(pt), 1)
+                isi = isi.replace('<!--UBIN%d-->' % i_u, potong)
             # atribut penampilan milik <svg> pembungkus ikut hilang waktu tag dilucuti —
             # tanpa fill="none" tiap <path> bergaris akan terisi hitam. Pasang ulang
             # sebagai atribut grup. stroke-width sengaja tidak dibawa: skalanya sudah

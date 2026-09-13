@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 04 Produk dan pengguna">
+<title>GSM Balikin — 04 Produk dan pengguna</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs><linearGradient id="g2" gradientUnits="userSpaceOnUse" x1="480" y1="83" x2="748" y2="549"><stop offset="0%" stop-color="#CFE6E0" stop-opacity="1"/><stop offset="100%" stop-color="#F2ECE1" stop-opacity="1"/></linearGradient><filter id="f4" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#12332C" flood-opacity="0.18"/></filter><filter id="f6" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#12332C" flood-opacity="0.18"/></filter><clipPath id="c8"><path d="M66 316L84 316L94 337L84 358L66 358L56 337Z"/></clipPath><clipPath id="c10"><path d="M66 392L84 392L94 413L84 434L66 434L56 413Z"/></clipPath><clipPath id="c12"><path d="M66 468L84 468L94 489L84 510L66 510L56 489Z"/></clipPath></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M848 131L1108 304V650L848 824L588 650V304Z" fill="#1B7A63" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="444" y="104" width="340" height="424" rx="22" fill="url(#g2)"/>
+<defs><pattern patternTransform="translate(444 104)" id="sr221B7A63-u3" width="104" height="180" patternUnits="userSpaceOnUse"><g fill="none" stroke="#1B7A63" stroke-width="2" opacity=".09"><path d="M52 0L104 30L104 90L52 120L0 90L0 30Z"></path><path d="M0 90L52 120L52 180L0 210L-52 180L-52 120Z"></path><path d="M104 90L156 120L156 180L104 210L52 180L52 120Z"></path></g></pattern></defs><rect x="444" y="104" width="340" height="424" fill="url(#sr221B7A63-u3)"></rect>
+<g transform="rotate(-5 541 276)"><rect x="482" y="156" width="118" height="239" rx="19" fill="#12332C" filter="url(#f4)"/></g>
+<g transform="rotate(-5 541 276)"><rect x="488" y="162" width="106" height="227" rx="16" fill="#FBF8F3"/></g>
+<g transform="rotate(-5 541 276)"><rect x="488" y="162" width="106" height="56" fill="#1B7A63"/></g>
+<g transform="rotate(-5 541 276)"><defs><pattern patternTransform="translate(488 162)" id="sr12FBF8F3-u5" width="52" height="90" patternUnits="userSpaceOnUse"><g fill="none" stroke="#FBF8F3" stroke-width="2" opacity=".16"><path d="M26 0L52 15L52 45L26 60L0 45L0 15Z"></path><path d="M0 45L26 60L26 90L0 105L-26 90L-26 60Z"></path><path d="M52 45L78 60L78 90L52 105L26 90L26 60Z"></path></g></pattern></defs><rect x="488" y="162" width="106" height="56" fill="url(#sr12FBF8F3-u5)"></rect></g>
+<g transform="rotate(-5 541 276)"><rect x="488" y="218" width="106" height="171" fill="#F2ECE1"/></g>
+<g transform="rotate(-5 541 276)"><rect x="496" y="232" width="89" height="26" rx="10" fill="#FFFFFF"/></g>
+<g transform="rotate(-5 541 276)"><rect x="496" y="269" width="89" height="26" rx="10" fill="#FFFFFF"/></g>
+<g transform="rotate(-5 541 276)"><rect x="496" y="306" width="89" height="26" rx="10" fill="#FFFFFF"/></g>
+<g transform="rotate(-5 541 276)"><rect x="521" y="162" width="39" height="5" fill="#12332C"/></g>
+<g transform="rotate(6 683 340)"><rect x="624" y="220" width="118" height="239" rx="19" fill="#12332C" filter="url(#f6)"/></g>
+<g transform="rotate(6 683 340)"><rect x="630" y="226" width="106" height="227" rx="16" fill="#FBF8F3"/></g>
+<g transform="rotate(6 683 340)"><rect x="630" y="226" width="106" height="56" fill="#0F5A48"/></g>
+<g transform="rotate(6 683 340)"><defs><pattern patternTransform="translate(630 226)" id="sr12FBF8F3-u7" width="52" height="90" patternUnits="userSpaceOnUse"><g fill="none" stroke="#FBF8F3" stroke-width="2" opacity=".16"><path d="M26 0L52 15L52 45L26 60L0 45L0 15Z"></path><path d="M0 45L26 60L26 90L0 105L-26 90L-26 60Z"></path><path d="M52 45L78 60L78 90L52 105L26 90L26 60Z"></path></g></pattern></defs><rect x="630" y="226" width="106" height="56" fill="url(#sr12FBF8F3-u7)"></rect></g>
+<g transform="rotate(6 683 340)"><rect x="630" y="282" width="106" height="171" fill="#F2ECE1"/></g>
+<g transform="rotate(6 683 340)"><rect x="638" y="296" width="89" height="26" rx="10" fill="#FFFFFF"/></g>
+<g transform="rotate(6 683 340)"><rect x="638" y="333" width="89" height="26" rx="10" fill="#FFFFFF"/></g>
+<g transform="rotate(6 683 340)"><rect x="638" y="370" width="89" height="26" rx="10" fill="#FFFFFF"/></g>
+<g transform="rotate(6 683 340)"><rect x="663" y="226" width="39" height="5" fill="#12332C"/></g>
+<text x="479" y="510" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#6E8078" letter-spacing="2">PLACEHOLDER — GANTI TANGKAPAN LAYAR ASLI</text>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB I · TENTANG BALIKIN</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">04</text>
+<text x="56" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 01</text>
+<text x="56" y="162" font-family="Archivo" font-size="46" font-weight="700" fill="#12332C" letter-spacing="-2">Produk</text>
+<text x="56" y="205" font-family="Archivo" font-size="46" font-weight="400" fill="#12332C" letter-spacing="-2">dan pengguna</text>
+<text x="56" y="249" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">Aplikasi lost and found untuk warga Sukabumi. Penemu</text><text x="56" y="268" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">melapor, pemilik mencari, keduanya bertemu di titik aman</text><text x="56" y="288" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">yang disepakati.</text>
+<text x="112" y="332" font-family="Archivo" font-size="15" font-weight="700" fill="#12332C">Melapor kehilangan</text>
+<text x="112" y="355" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">Empat langkah, dua menit.</text>
+<text x="112" y="408" font-family="Archivo" font-size="15" font-weight="700" fill="#12332C">Melapor temuan</text>
+<text x="112" y="431" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">Foto, kategori, titik lokasi.</text>
+<text x="112" y="484" font-family="Archivo" font-size="15" font-weight="700" fill="#12332C">Reputasi komunitas</text>
+<text x="112" y="507" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">Poin dan lencana, bukan uang.</text>
+<path d="M66 316L84 316L94 337L84 358L66 358L56 337Z" fill="#CFE6E0"/>
+<g clip-path="url(#c8)"><g color="#1B7A63" fill="none" stroke-linejoin="miter" stroke-miterlimit="8"><path d="M74 331L78 333V338L74 341L70 338V333Z" stroke="currentColor" stroke-width="1"></path><path d="M77 340L81 343" stroke="currentColor" stroke-width="1"></path></g></g>
+<path d="M66 392L84 392L94 413L84 434L66 434L56 413Z" fill="#CFE6E0"/>
+<g clip-path="url(#c10)"><g color="#1B7A63" fill="none" stroke-linejoin="miter" stroke-miterlimit="8"><path d="M72 411V409l1 -2h3l1 2v2" stroke="currentColor" stroke-width="1"></path><path d="M71 411H79L81 413V417L79 419H71L69 417V413Z" stroke="currentColor" stroke-width="1"></path><path d="M72 419V415h7v4" stroke="currentColor" stroke-width="1"></path></g></g>
+<path d="M66 468L84 468L94 489L84 510L66 510L56 489Z" fill="#CFE6E0"/>
+<g clip-path="url(#c12)"><g color="#1B7A63" fill="none" stroke-linejoin="miter" stroke-miterlimit="8"><path d="M75 482L77 487L82 489L77 491L75 496L73 491L68 489L73 487Z" stroke="currentColor" stroke-width="1"></path></g></g>
+</svg>

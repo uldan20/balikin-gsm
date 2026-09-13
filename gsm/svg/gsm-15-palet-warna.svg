@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 15 Palet warna">
+<title>GSM Balikin — 15 Palet warna</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M-8 131L252 304V650L-8 824L-268 650V304Z" fill="#C8952E" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<rect x="56" y="186" width="176" height="178" rx="20" fill="#1B7A63"/>
+<text x="74" y="310" font-family="Archivo" font-size="18" font-weight="700" fill="#FBF8F3">Teal</text>
+<g opacity="0.75"><text x="74" y="332" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#FBF8F3" letter-spacing="1">#1B7A63</text></g>
+<g opacity="0.55"><text x="74" y="346" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#FBF8F3" letter-spacing="2">WARNA UTAMA</text></g>
+<rect x="241" y="186" width="176" height="178" rx="20" fill="#0B4638"/>
+<text x="259" y="310" font-family="Archivo" font-size="18" font-weight="700" fill="#FBF8F3">Teal tua</text>
+<g opacity="0.75"><text x="259" y="332" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#FBF8F3" letter-spacing="1">#0B4638</text></g>
+<g opacity="0.55"><text x="259" y="346" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#FBF8F3" letter-spacing="2">LATAR GELAP</text></g>
+<rect x="426" y="186" width="176" height="178" rx="20" fill="#8FD4C4"/>
+<text x="444" y="310" font-family="Archivo" font-size="18" font-weight="700" fill="#12332C">Mint</text>
+<g opacity="0.75"><text x="444" y="332" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#12332C" letter-spacing="1">#8FD4C4</text></g>
+<g opacity="0.55"><text x="444" y="346" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#12332C" letter-spacing="2">AKSEN LEMBUT</text></g>
+<rect x="611" y="186" width="176" height="178" rx="20" fill="#C8952E"/>
+<text x="629" y="310" font-family="Archivo" font-size="18" font-weight="700" fill="#FBF8F3">Emas</text>
+<g opacity="0.75"><text x="629" y="332" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#FBF8F3" letter-spacing="1">#C8952E</text></g>
+<g opacity="0.55"><text x="629" y="346" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#FBF8F3" letter-spacing="2">PENGHARGAAN</text></g>
+<rect x="56" y="378" width="176" height="178" rx="20" fill="#C05C33"/>
+<text x="74" y="502" font-family="Archivo" font-size="18" font-weight="700" fill="#FBF8F3">Terakota</text>
+<g opacity="0.75"><text x="74" y="524" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#FBF8F3" letter-spacing="1">#C05C33</text></g>
+<g opacity="0.55"><text x="74" y="538" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#FBF8F3" letter-spacing="2">PERINGATAN</text></g>
+<rect x="241" y="378" width="176" height="178" rx="20" fill="#FBF8F3"/><rect x="242" y="378" width="175" height="177" rx="20" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<text x="260" y="501" font-family="Archivo" font-size="18" font-weight="700" fill="#12332C">Krem</text>
+<g opacity="0.75"><text x="260" y="523" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#12332C" letter-spacing="1">#FBF8F3</text></g>
+<g opacity="0.55"><text x="260" y="537" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#12332C" letter-spacing="2">LATAR TERANG</text></g>
+<rect x="426" y="378" width="176" height="178" rx="20" fill="#12332C"/>
+<text x="444" y="502" font-family="Archivo" font-size="18" font-weight="700" fill="#FBF8F3">Tinta</text>
+<g opacity="0.75"><text x="444" y="524" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#FBF8F3" letter-spacing="1">#12332C</text></g>
+<g opacity="0.55"><text x="444" y="538" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#FBF8F3" letter-spacing="2">TEKS</text></g>
+<rect x="611" y="378" width="176" height="178" rx="20" fill="#F2ECE1"/>
+<text x="629" y="405" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="2">PERBANDINGAN</text>
+<text x="629" y="433" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#12332C">Teal 60% · krem 30% ·</text><text x="629" y="449" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#12332C">emas dan terakota 10%.</text>
+<rect x="629" y="520" width="84" height="10" fill="#1B7A63"/>
+<rect x="713" y="520" width="42" height="10" fill="#E8E0D1"/>
+<rect x="755" y="520" width="14" height="10" fill="#C8952E"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB III · ELEMEN VISUAL</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">15</text>
+<text x="56" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 01</text>
+<text x="56" y="160" font-family="Archivo" font-size="44" font-weight="700" fill="#12332C" letter-spacing="-2">Palet</text>
+<text x="160" y="160" font-family="Archivo" font-size="44" font-weight="400" fill="#12332C" letter-spacing="-2">warna</text>
+<text x="430" y="127" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">Tujuh warna. Teal untuk aksi, emas untuk penghargaan, terakota</text><text x="502" y="146" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">untuk peringatan — perannya tidak pernah ditukar.</text>
+</svg>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 09 Ruang aman">
+<title>GSM Balikin — 09 Ruang aman</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M848 131L1108 304V650L848 824L588 650V304Z" fill="#0F5A48" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="56" y="96" width="384" height="400" rx="26" fill="#FFFFFF"/><rect x="56" y="96" width="383" height="399" rx="26" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<rect x="110" y="144" width="278" height="296" fill="none" stroke="#C05C33" stroke-width="2" stroke-dasharray="4 4"/>
+<g fill="none"><path d="M249 224L299 255V328L249 359L199 328V255Z" stroke="#1B7A63" stroke-width="15" stroke-linejoin="miter"></path><path d="M264 283L256 297H242L234 283L242 269H256Z" fill="#C8952E"></path></g>
+<text x="139" y="176" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#C05C33" letter-spacing="1">X</text>
+<text x="139" y="402" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#C05C33" letter-spacing="1">X</text>
+<text x="347" y="176" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#C05C33" letter-spacing="1">X</text>
+<text x="347" y="402" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#C05C33" letter-spacing="1">X</text>
+<g opacity="0.5"><rect x="179" y="143" width="140" height="70" fill="#EDCFC2"/></g>
+<g opacity="0.5"><rect x="179" y="370" width="140" height="71" fill="#EDCFC2"/></g>
+<g opacity="0.5"><rect x="109" y="213" width="70" height="157" fill="#EDCFC2"/></g>
+<g opacity="0.5"><rect x="319" y="213" width="70" height="157" fill="#EDCFC2"/></g>
+<defs><pattern patternTransform="translate(57 97)" id="ht911B7A63-u3" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1B7A63" opacity=".06"></circle></pattern></defs><rect x="57" y="97" width="384" height="400" fill="url(#ht911B7A63-u3)"></rect>
+<text x="148" y="463" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#C05C33" letter-spacing="2">RUANG AMAN = 1X DI SEMUA SISI</text>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB II · IDENTITAS UTAMA</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">09</text>
+<text x="472" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 03</text>
+<text x="472" y="162" font-family="Archivo" font-size="46" font-weight="700" fill="#12332C" letter-spacing="-2">Ruang</text>
+<text x="612" y="162" font-family="Archivo" font-size="46" font-weight="400" fill="#12332C" letter-spacing="-2">aman</text>
+<text x="472" y="206" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">Tidak ada apa pun di dalam kotak putus-putus: teks,</text><text x="472" y="225" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">gambar, tepi kertas, atau logo lain.</text>
+<text x="472" y="294" font-family="Archivo" font-size="15" font-weight="700" fill="#12332C">Satu X di semua sisi</text>
+<text x="472" y="318" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">Kalau logonya membesar, ruang amannya ikut membesar.</text><text x="472" y="335" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">Perbandingan tidak pernah berubah.</text>
+<text x="472" y="406" font-family="Archivo" font-size="15" font-weight="700" fill="#12332C">Di atas foto</text>
+<text x="472" y="430" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">Pakai bidang warna solid di belakang logo. Jangan menaruh</text><text x="472" y="447" font-family="Plus Jakarta Sans" font-size="11" font-weight="400" fill="#6E8078">logo langsung di atas foto ramai.</text>
+</svg>

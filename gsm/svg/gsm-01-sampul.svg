@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 01 Sampul">
+<title>GSM Balikin — 01 Sampul</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs><linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="187" y1="-108" x2="653" y2="700"><stop offset="0%" stop-color="#0F5A48" stop-opacity="1"/><stop offset="100%" stop-color="#0B4638" stop-opacity="1"/></linearGradient><linearGradient id="g2" gradientUnits="userSpaceOnUse" x1="187" y1="-108" x2="653" y2="700"><stop offset="0%" stop-color="#0F5A48" stop-opacity="1"/><stop offset="100%" stop-color="#0B4638" stop-opacity="1"/></linearGradient></defs>
+<rect x="0" y="0" width="840" height="592" fill="url(#g1)"/>
+<rect x="0" y="0" width="840" height="592" fill="url(#g2)"/>
+<defs><pattern id="sr32FBF8F3-u3" width="156" height="270" patternUnits="userSpaceOnUse"><g fill="none" stroke="#FBF8F3" stroke-width="2" opacity=".07"><path d="M78 0L156 45L156 135L78 180L0 135L0 45Z"></path><path d="M0 135L78 180L78 270L0 315L-78 270L-78 180Z"></path><path d="M156 135L234 180L234 270L156 315L78 270L78 180Z"></path></g></pattern></defs><rect x="0" y="0" width="840" height="592" fill="url(#sr32FBF8F3-u3)"></rect>
+<g opacity="0.34"><g fill="none"><path d="M805 -96L1040 60V373L805 530L570 373V60Z" fill="none" stroke="#8FD4C4" stroke-width="2" stroke-linejoin="miter"></path></g></g>
+<g opacity="0.22"><g fill="none"><path d="M741 339L896 442V648L741 752L586 648V442Z" fill="none" stroke="#8FD4C4" stroke-width="2" stroke-linejoin="miter"></path></g></g>
+<g opacity="0.13"><g fill="none"><path d="M36 405L176 498V684L36 778L-104 684V498Z" fill="#F3D77C" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<g fill="none"><path d="M75 47L89 55V75L75 84L61 75V55Z" stroke="#FBF8F3" stroke-width="1" stroke-linejoin="miter"></path><path d="M79 63L77 67H73L71 63L73 59H77Z" fill="#F3D77C"></path></g>
+<text x="583" y="57" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#CFE6E0" letter-spacing="3" fill-opacity="0.85">GRAPHIC STANDARD MANUAL</text>
+<text x="675" y="75" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#CFE6E0" letter-spacing="3" fill-opacity="0.5">EDISI 01 · 2026</text>
+<text x="56" y="199" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#CFE6E0" letter-spacing="3" fill-opacity="0.7">IDENTITAS VISUAL APLIKASI</text>
+<text x="56" y="327" font-family="Archivo" font-size="150" font-weight="700" fill="#FBF8F3" letter-spacing="-7">BALIKIN</text>
+<rect x="56" y="386" width="728" height="1" fill="#CFE6E0" fill-opacity="0.28"/>
+<text x="56" y="438" font-family="Archivo" font-size="34" font-weight="700" fill="#FBF8F3" letter-spacing="-1">Yang hilang,</text>
+<text x="247" y="435" font-family="Caveat" font-size="39" font-weight="600" fill="#FBF8F3">balik pulang.</text>
+<text x="56" y="474" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#CFE6E0" fill-opacity="0.72">Panduan baku pemakaian logo, warna, huruf, ikon, dan penerapan</text><text x="56" y="493" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#CFE6E0" fill-opacity="0.72">identitas Balikin.</text>
+<rect x="56" y="516" width="728" height="1" fill="#CFE6E0" fill-opacity="0.2"/>
+<text x="611" y="530" font-family="Plus Jakarta Sans" font-size="11" font-weight="500" fill="#CFE6E0" fill-opacity="0.62">Uldan Pamungkas · 20210060127</text><text x="476" y="547" font-family="Plus Jakarta Sans" font-size="11" font-weight="500" fill="#CFE6E0" fill-opacity="0.62">Desain Komunikasi Visual · Universitas Nusa Putra Sukabumi</text>
+<text x="56" y="540" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#CFE6E0" letter-spacing="3" fill-opacity="0.5">24 HALAMAN · A5 LANSKAP</text>
+</svg>

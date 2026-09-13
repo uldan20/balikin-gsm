@@ -76,13 +76,26 @@ Satu pembatas bab dipakai ulang empat kali.
 > mesin perender. Pasang Archivo, Plus Jakarta Sans, dan Caveat ke sistem kalau
 > mau potretnya sesuai berkas aslinya.
 
-## Kalau nanti diekspor ke cetak
+## Ekspor cetak (SVG)
 
-Halaman dibangun sebagai HTML supaya gampang disunting di kanvas. Untuk berkas
-cetak, jalankan pengonversi yang sama dengan poster:
+Halaman dibangun sebagai HTML supaya gampang disunting di kanvas. Berkas
+cetaknya ada di [`svg/`](svg) — 24 SVG A5 lanskap, `width`/`height` ditulis
+dalam mm jadi terbuka pada ukuran sebenarnya di Illustrator dan Figma.
+
+Bangun ulang dengan pengonversi yang sama dengan poster:
 
 ```bash
-node ../showcase/ekstrak.mjs $PWD/H07.dc.html /tmp/claude-0/gsm-H07.json
+cd ..
+for f in gsm/Main.dc.html gsm/H*.dc.html; do
+  node showcase/ekstrak.mjs $PWD/$f /tmp/claude-0/gsmjson/$(basename $f .dc.html).json 840 592
+done
+python3 gsm/ke_svg_gsm.py
 ```
 
-lalu tulis SVG dengan `bangun(..., ukuran=('210mm', '148mm'))`.
+Dua argumen terakhir `ekstrak.mjs` adalah ukuran artboard — tanpa itu halaman
+diukur di viewport A3 dan kanvasnya jadi kelebaran.
+
+> **Pasang hurufnya dulu.** Posisi teks di SVG diambil dari hasil ukur peramban,
+> jadi Archivo, Plus Jakarta Sans, dan Caveat harus terpasang di mesin yang
+> menjalankan ekstraksi. Kalau tidak, peramban memakai huruf cadangan dan tiap
+> baris teks meleset beberapa piksel.

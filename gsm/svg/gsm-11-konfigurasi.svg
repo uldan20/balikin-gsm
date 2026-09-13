@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 11 Konfigurasi">
+<title>GSM Balikin — 11 Konfigurasi</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M848 131L1108 304V650L848 824L588 650V304Z" fill="#0F5A48" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="56" y="166" width="356" height="176" rx="22" fill="#FFFFFF"/><rect x="56" y="166" width="355" height="175" rx="22" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g fill="none"><path d="M154 214L170 224V247L154 256L139 247V224Z" stroke="#1B7A63" stroke-width="1" stroke-linejoin="miter"></path><path d="M159 232L157 237H152L150 232L152 228H157Z" fill="#C8952E"></path></g>
+<text x="190" y="244" font-family="Archivo" font-size="34" font-weight="700" fill="#12332C" letter-spacing="1">BALIKIN</text>
+<text x="75" y="321" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#6E8078" letter-spacing="1">Mendatar — utama</text>
+<text x="378" y="323" font-family="Archivo" font-size="13" font-weight="700" fill="#8FD4C4">01</text>
+<rect x="428" y="166" width="356" height="176" rx="22" fill="#FFFFFF"/><rect x="428" y="166" width="355" height="175" rx="22" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g fill="none"><path d="M565 192L581 202V226L565 236L548 226V202Z" stroke="#1B7A63" stroke-width="1" stroke-linejoin="miter"></path><path d="M570 212L567 216H562L560 212L562 207H567Z" fill="#C8952E"></path></g>
+<text x="542" y="274" font-family="Archivo" font-size="30" font-weight="700" fill="#12332C" letter-spacing="1">BALIKIN</text>
+<text x="447" y="321" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#6E8078" letter-spacing="1">Bertumpuk</text>
+<text x="750" y="323" font-family="Archivo" font-size="13" font-weight="700" fill="#8FD4C4">02</text>
+<rect x="56" y="358" width="356" height="176" rx="22" fill="#FFFFFF"/><rect x="56" y="358" width="355" height="175" rx="22" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g fill="none"><path d="M235 398L257 412V443L235 456L213 443V412Z" stroke="#1B7A63" stroke-width="3" stroke-linejoin="miter"></path><path d="M242 424L238 430H232L228 424L232 418H238Z" fill="#C8952E"></path></g>
+<text x="75" y="513" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#6E8078" letter-spacing="1">Logogram saja</text>
+<text x="378" y="515" font-family="Archivo" font-size="13" font-weight="700" fill="#8FD4C4">03</text>
+<rect x="428" y="358" width="356" height="176" rx="22" fill="#FFFFFF"/><rect x="428" y="358" width="355" height="175" rx="22" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<text x="546" y="419" font-family="Archivo" font-size="28" font-weight="700" fill="#12332C" letter-spacing="1">BALIKIN</text>
+<text x="512" y="447" font-family="Caveat" font-size="22" font-weight="600" fill="#1B7A63">Yang hilang, balik pulang.</text>
+<text x="447" y="513" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#6E8078" letter-spacing="1">Dengan tagline</text>
+<text x="750" y="515" font-family="Archivo" font-size="13" font-weight="700" fill="#8FD4C4">04</text>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB II · IDENTITAS UTAMA</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">11</text>
+<text x="56" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 05</text>
+<text x="56" y="160" font-family="Archivo" font-size="44" font-weight="700" fill="#12332C" letter-spacing="-2">Konfigurasi</text>
+</svg>

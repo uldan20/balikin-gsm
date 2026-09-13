@@ -6,7 +6,9 @@ import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 import fs from 'fs';
 
 const b = await chromium.launch();
-const p = await b.newPage({ viewport: { width: 1122, height: 1587 }, deviceScaleFactor: 1 });
+// Ukuran artboard boleh diberikan lewat argumen ke-3 dan ke-4; bawaannya A3 potret.
+const VW = parseInt(process.argv[4]) || 1122, VH = parseInt(process.argv[5]) || 1587;
+const p = await b.newPage({ viewport: { width: VW, height: VH }, deviceScaleFactor: 1 });
 await p.goto('file://' + process.argv[2]);
 await p.waitForTimeout(3200);
 

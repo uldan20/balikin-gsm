@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 12 Warna logo">
+<title>GSM Balikin — 12 Warna logo</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M-8 131L252 304V650L-8 824L-268 650V304Z" fill="#0F5A48" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="56" y="196" width="173" height="230" rx="20" fill="#FFFFFF"/><rect x="56" y="196" width="172" height="229" rx="20" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<rect x="57" y="197" width="173" height="176" fill="#FBF8F3"/>
+<g fill="none"><path d="M144 255L167 269V302L144 316L120 302V269Z" stroke="#1B7A63" stroke-width="3" stroke-linejoin="miter"></path><path d="M151 282L147 288H140L136 282L140 275H147Z" fill="#C8952E"></path></g>
+<text x="73" y="399" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#12332C" letter-spacing="0">Utama di krem</text>
+<rect x="241" y="196" width="173" height="230" rx="20" fill="#FFFFFF"/><rect x="242" y="196" width="172" height="229" rx="20" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<rect x="242" y="197" width="173" height="176" fill="#0B4638"/>
+<g fill="none"><path d="M328 255L352 269V302L328 316L305 302V269Z" stroke="#FBF8F3" stroke-width="3" stroke-linejoin="miter"></path><path d="M336 282L332 288H325L321 282L325 275H332Z" fill="#F3D77C"></path></g>
+<text x="258" y="399" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#12332C" letter-spacing="0">Di latar gelap</text>
+<rect x="426" y="196" width="173" height="230" rx="20" fill="#FFFFFF"/><rect x="426" y="196" width="172" height="229" rx="20" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<rect x="427" y="197" width="173" height="176" fill="#FBF8F3"/>
+<g fill="none"><path d="M514 255L537 269V302L514 316L490 302V269Z" stroke="#12332C" stroke-width="3" stroke-linejoin="miter"></path><path d="M521 282L517 288H510L506 282L510 275H517Z" fill="#12332C"></path></g>
+<text x="443" y="399" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#12332C" letter-spacing="0">Mono tinta</text>
+<rect x="611" y="196" width="173" height="230" rx="20" fill="#FFFFFF"/><rect x="612" y="196" width="172" height="229" rx="20" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<rect x="612" y="197" width="173" height="176" fill="#12332C"/>
+<g fill="none"><path d="M698 255L722 269V302L698 316L675 302V269Z" stroke="#FBF8F3" stroke-width="3" stroke-linejoin="miter"></path><path d="M706 282L702 288H695L691 282L695 275H702Z" fill="#FBF8F3"></path></g>
+<text x="628" y="399" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#12332C" letter-spacing="0">Mono krem</text>
+<rect x="56" y="446" width="728" height="90" rx="20" fill="#CFE6E0"/>
+<text x="82" y="481" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#12332C">Sel emas hanya boleh hilang di versi mono. Di versi berwarna sel emas</text><text x="529" y="481" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#12332C">— itu yang membedakan logo Balikin</text><text x="82" y="500" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#12332C">dari heksagon biasa.</text>
+<text x="471" y="481" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#12332C">wajib ada</text>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB II · IDENTITAS UTAMA</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">12</text>
+<text x="56" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 06</text>
+<text x="56" y="160" font-family="Archivo" font-size="44" font-weight="700" fill="#12332C" letter-spacing="-2">Warna</text>
+<text x="187" y="160" font-family="Archivo" font-size="44" font-weight="400" fill="#12332C" letter-spacing="-2">logo</text>
+<text x="533" y="127" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">Empat versi resmi. Di luar empat ini tidak ada.</text>
+</svg>

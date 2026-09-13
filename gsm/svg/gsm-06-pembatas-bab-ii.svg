@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 06 Pembatas Bab II">
+<title>GSM Balikin — 06 Pembatas Bab II</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs><linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="143" y1="-100" x2="697" y2="692"><stop offset="0%" stop-color="#1B7A63" stop-opacity="1"/><stop offset="100%" stop-color="#0B4638" stop-opacity="1"/></linearGradient><linearGradient id="g2" gradientUnits="userSpaceOnUse" x1="143" y1="-100" x2="697" y2="692"><stop offset="0%" stop-color="#1B7A63" stop-opacity="1"/><stop offset="100%" stop-color="#0B4638" stop-opacity="1"/></linearGradient></defs>
+<rect x="0" y="0" width="840" height="592" fill="url(#g1)"/>
+<rect x="0" y="0" width="840" height="592" fill="url(#g2)"/>
+<defs><pattern id="sr32FBF8F3-u3" width="156" height="270" patternUnits="userSpaceOnUse"><g fill="none" stroke="#FBF8F3" stroke-width="2" opacity=".08"><path d="M78 0L156 45L156 135L78 180L0 135L0 45Z"></path><path d="M0 135L78 180L78 270L0 315L-78 270L-78 180Z"></path><path d="M156 135L234 180L234 270L156 315L78 270L78 180Z"></path></g></pattern></defs><rect x="0" y="0" width="840" height="592" fill="url(#sr32FBF8F3-u3)"></rect>
+<g opacity="0.2"><g fill="none"><path d="M810 -120L1020 20V300L810 440L600 300V20Z" fill="none" stroke="#FBF8F3" stroke-width="2" stroke-linejoin="miter"></path></g></g>
+<g opacity="0.14"><g fill="none"><path d="M30 352L180 452V652L30 752L-120 652V452Z" fill="none" stroke="#FBF8F3" stroke-width="2" stroke-linejoin="miter"></path></g></g>
+<g opacity="0.13"><text x="48" y="583" font-family="Archivo" font-size="300" font-weight="700" fill="#FBF8F3" letter-spacing="-10">II</text></g>
+<g fill="none"><path d="M73 47L85 54V72L73 79L61 72V54Z" stroke="#FBF8F3" stroke-width="1" stroke-linejoin="miter"></path><path d="M77 61L75 64H71L69 61L71 58H75Z" fill="#F3D77C"></path></g>
+<text x="741" y="57" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#FBF8F3" letter-spacing="3" fill-opacity="0.6">BAB II</text>
+<text x="56" y="175" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#F3D77C" letter-spacing="3">BAB II</text>
+<text x="56" y="233" font-family="Archivo" font-size="60" font-weight="700" fill="#FBF8F3" letter-spacing="-2">Identitas</text>
+<text x="56" y="290" font-family="Archivo" font-size="60" font-weight="400" fill="#FBF8F3" letter-spacing="-2">Utama</text>
+<text x="56" y="340" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#FBF8F3" fill-opacity="0.72">Logogram dan seluruh aturan yang menjaganya tetap</text><text x="56" y="359" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#FBF8F3" fill-opacity="0.72">dikenali.</text>
+<rect x="484" y="153" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="484" y="175" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#F3D77C" letter-spacing="1">07</text>
+<text x="526" y="175" font-family="Plus Jakarta Sans" font-size="12" font-weight="500" fill="#FBF8F3">Logogram</text>
+<rect x="484" y="195" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="484" y="217" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#F3D77C" letter-spacing="1">08</text>
+<text x="526" y="217" font-family="Plus Jakarta Sans" font-size="12" font-weight="500" fill="#FBF8F3">Konstruksi</text>
+<rect x="484" y="237" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="484" y="259" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#F3D77C" letter-spacing="1">09</text>
+<text x="526" y="259" font-family="Plus Jakarta Sans" font-size="12" font-weight="500" fill="#FBF8F3">Ruang aman</text>
+<rect x="484" y="279" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="484" y="301" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#F3D77C" letter-spacing="1">10</text>
+<text x="526" y="301" font-family="Plus Jakarta Sans" font-size="12" font-weight="500" fill="#FBF8F3">Ukuran minimum</text>
+<rect x="484" y="321" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="484" y="343" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#F3D77C" letter-spacing="1">11</text>
+<text x="526" y="343" font-family="Plus Jakarta Sans" font-size="12" font-weight="500" fill="#FBF8F3">Konfigurasi</text>
+<rect x="484" y="363" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="484" y="385" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#F3D77C" letter-spacing="1">12</text>
+<text x="526" y="385" font-family="Plus Jakarta Sans" font-size="12" font-weight="500" fill="#FBF8F3">Warna logo</text>
+<rect x="484" y="405" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="484" y="427" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" fill="#F3D77C" letter-spacing="1">13</text>
+<text x="526" y="427" font-family="Plus Jakarta Sans" font-size="12" font-weight="500" fill="#FBF8F3">Larangan</text>
+<rect x="484" y="447" width="300" height="1" fill="#FBF8F3" fill-opacity="0.22"/>
+<text x="511" y="534" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#FBF8F3" letter-spacing="3" fill-opacity="0.45">BALIKIN · GRAPHIC STANDARD MANUAL</text>
+</svg>

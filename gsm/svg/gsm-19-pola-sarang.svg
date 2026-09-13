@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 19 Pola sarang">
+<title>GSM Balikin — 19 Pola sarang</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M848 131L1108 304V650L848 824L588 650V304Z" fill="#C8952E" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="56" y="180" width="232" height="268" rx="22" fill="#FFFFFF"/><rect x="56" y="180" width="231" height="267" rx="22" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<defs><pattern patternTransform="translate(57 181)" id="sr121B7A63-u2" width="52" height="90" patternUnits="userSpaceOnUse"><g fill="none" stroke="#1B7A63" stroke-width="2" opacity=".2"><path d="M26 0L52 15L52 45L26 60L0 45L0 15Z"></path><path d="M0 45L26 60L26 90L0 105L-26 90L-26 60Z"></path><path d="M52 45L78 60L78 90L52 105L26 90L26 60Z"></path></g></pattern></defs><rect x="57" y="181" width="232" height="268" fill="url(#sr121B7A63-u2)"></rect>
+<text x="132" y="425" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#6E8078" letter-spacing="2">RAPAT · 13 MM</text>
+<rect x="304" y="180" width="232" height="268" rx="22" fill="#FFFFFF"/><rect x="304" y="180" width="231" height="267" rx="22" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<defs><pattern patternTransform="translate(305 181)" id="sr221B7A63-u3" width="104" height="180" patternUnits="userSpaceOnUse"><g fill="none" stroke="#1B7A63" stroke-width="2" opacity=".16"><path d="M52 0L104 30L104 90L52 120L0 90L0 30Z"></path><path d="M0 90L52 120L52 180L0 210L-52 180L-52 120Z"></path><path d="M104 90L156 120L156 180L104 210L52 180L52 120Z"></path></g></pattern></defs><rect x="305" y="181" width="232" height="268" fill="url(#sr221B7A63-u3)"></rect>
+<text x="375" y="425" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#6E8078" letter-spacing="2">SEDANG · 26 MM</text>
+<rect x="552" y="180" width="232" height="268" rx="22" fill="#0B4638"/>
+<defs><pattern patternTransform="translate(552 180)" id="sr22FBF8F3-u4" width="104" height="180" patternUnits="userSpaceOnUse"><g fill="none" stroke="#FBF8F3" stroke-width="2" opacity=".2"><path d="M52 0L104 30L104 90L52 120L0 90L0 30Z"></path><path d="M0 90L52 120L52 180L0 210L-52 180L-52 120Z"></path><path d="M104 90L156 120L156 180L104 210L52 180L52 120Z"></path></g></pattern></defs><rect x="552" y="180" width="232" height="268" fill="url(#sr22FBF8F3-u4)"></rect>
+<text x="599" y="426" font-family="Plus Jakarta Sans" font-size="8" font-weight="700" fill="#FBF8F3" letter-spacing="2" fill-opacity="0.7">DI LATAR GELAP · 26 MM</text>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<rect x="56" y="478" width="728" height="1" fill="#E2DACB"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB III · ELEMEN VISUAL</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">19</text>
+<text x="56" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 05</text>
+<text x="56" y="160" font-family="Archivo" font-size="44" font-weight="700" fill="#12332C" letter-spacing="-2">Pola</text>
+<text x="148" y="160" font-family="Archivo" font-size="44" font-weight="400" fill="#12332C" letter-spacing="-2">sarang</text>
+<text x="402" y="127" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">Pola latar resmi. Selalu transparan di atas bidang warna, tidak pernah</text><text x="684" y="146" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">jadi warna sendiri.</text>
+<text x="56" y="503" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">OPASITAS 8–16% DI LATAR GELAP · 4–8% DI LATAR TERANG</text>
+<text x="590" y="503" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#C05C33" letter-spacing="3">TIDAK PERNAH LEBIH PEKAT</text>
+</svg>

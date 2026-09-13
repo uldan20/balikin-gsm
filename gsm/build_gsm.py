@@ -156,7 +156,7 @@ s = (latar_bab(0, 'kiri')
             tengah(KOL, 216,
                    tajuk(None, None, 660, [[('Yang hilang, ', ''), ('balik pulang.', 'c')]],
                          62, INK, -2, '1.05', rt='center'))
-            + dv(P(x=0, y=0, w=KOL, h=216, z=1, lain='overflow:hidden;'), sarang(TEAL, '.07', 3)),
+            + dv(P(x=0, y=0, w=KOL, h=216, z=1, lain='overflow:hidden;'), sarang(TEAL, '.07', 3, w=KOL, h=216)),
             MINT_M, 28, 4)
      + teks(M, 362, KOL, 'Kalimat penutup di tiap materi. Selalu diakhiri titik, tidak pernah '
             'diterjemahkan, tidak pernah dipotong.', 12, REDUP, 400, '1.6', rt='center')
@@ -248,7 +248,7 @@ s = (latar_bab(1)
             + ''.join(dv(P(x=x, y=y, w=w, h=h, lain='background:' + TERRA_M + ';opacity:.5;'))
                       for x, y, w, h in ((122, 46, 140, 70), (122, 273, 140, 71),
                                          (52, 116, 70, 157), (262, 116, 70, 157)))
-            + dv(P(x=0, y=0, w=384, h=400, z=1, lain='overflow:hidden;'), halftone(TEAL, '.06', 9, 1))
+            + dv(P(x=0, y=0, w=384, h=400, z=1, lain='overflow:hidden;'), halftone(TEAL, '.06', 9, 1, 384, 400))
             + mata(0, None, 'Ruang aman = 1X di semua sisi', TERRA, z=9, uk=9, sp=2, w=384,
                    rt='center', b=28), PUTIH, 26, 4, GARIS)
      + catatan(472, 282, 312,
@@ -325,16 +325,23 @@ s = (latar_bab(1, 'kiri')
 simpan(12, 'Warna logo', s)
 
 # ================================================================ 13 larangan
-LARANG = [('Diregangkan', 'transform:scaleX(1.4);'), ('Diputar', 'transform:rotate(22deg);'),
-          ('Diganti warna', ''), ('Diberi bayangan', 'filter:blur(1px);'),
-          ('Ditumpuk teks', ''), ('Ditambah efek', 'opacity:.45;')]
+LARANG = ['Diregangkan', 'Diputar', 'Diganti warna', 'Diberi bayangan', 'Ditumpuk teks',
+          'Ditambah efek']
+def salah(i):
+    if i == 0: return lambang(46, TEAL, EMAS, rentang=1.45)
+    if i == 1: return lambang(46, TEAL, EMAS, 'transform:rotate(22deg);')
+    if i == 2: return lambang(46, TERRA, TEAL)
+    if i == 3: return (dv(P(x=4, y=5, z=1, lain='opacity:.3;'), lambang(46, INK, INK))
+                       + dv(P(x=0, y=0, z=2), lambang(46, TEAL, EMAS)))
+    if i == 5: return lambang(46, TEAL, EMAS, 'opacity:.4;')
+    return lambang(46, TEAL, EMAS)
 kis = ''
-for i, (t, g) in enumerate(LARANG):
+for i, t in enumerate(LARANG):
     x, y = M + (i % 3) * 248, 162 + (i // 3) * 176
-    dalam = lambang(46, TERRA if i == 2 else TEAL, TEAL if i == 2 else EMAS)
     kis += blok(x, y, 232, 160,
-                dv(P(x=0, y=0, w=232, h=112, lain='display:grid;place-items:center;'),
-                   dv(g, dalam))
+                dv(P(x=0, y=0, w=232, h=112,
+                     lain='display:grid;place-items:center;' if i != 3 else ''),
+                   dv(P(x=93, y=34) if i == 3 else '', salah(i)))
                 + (dv(P(x=76, y=48, z=8, lain=font(AR, 15, 700, INK, 0)), 'BALIKIN') if i == 4 else '')
                 + dv(P(x=18, b=18, lain=font(PJ, 11, 600, TERRA)), t)
                 + dv(P(r=16, y=14, w=22, h=22, z=8, lain='background:' + TERRA + ';border-radius:'
@@ -405,7 +412,7 @@ for i, (contoh, gaya, nama, ket, huruf) in enumerate((
                  + dv(P(x=104, b=12, lain=font(PJ, 10, 500, MINT, .5)), huruf), PUTIH, 20, 4, GARIS)
 s = (bingkai('Bab III · Elemen Visual', 16)
      + blok(M, 96, 340, 432,
-            dv(P(x=0, y=0, w=340, h=432, z=1, lain='overflow:hidden;'), sarang(KRIM, '.08', 3))
+            dv(P(x=0, y=0, w=340, h=432, z=1, lain='overflow:hidden;'), sarang(KRIM, '.08', 3, w=340, h=432))
             + dv(P(x=28, y=48, z=6, lain=font(AR, 200, 700, KRIM, -10, '.8')), 'Aa')
             + mata(28, None, 'Archivo · 700', rgba(KRIM, '.6'), b=84)
             + dv(P(x=28, b=40, z=6, lain=font(AR, 22, 700, KRIM, -.5)), 'Huruf judul')
@@ -474,7 +481,7 @@ simpan(18, 'Pustaka ikon', s)
 # ================================================================ 19 pola sarang
 def ubin(x, bg, warna, op, k, lab, fg=REDUP, tepi=GARIS):
     return blok(x, 180, 232, 268,
-                dv(P(x=0, y=0, w=232, h=268, z=1, lain='overflow:hidden;'), sarang(warna, op, k))
+                dv(P(x=0, y=0, w=232, h=268, z=1, lain='overflow:hidden;'), sarang(warna, op, k, w=232, h=268))
                 + mata(0, None, lab, fg, z=6, uk=8, sp=2, w=232, rt='center', b=18), bg, 22, 4, tepi)
 s = (latar_bab(2)
      + bingkai('Bab III · Elemen Visual', 19)
@@ -495,7 +502,7 @@ simpan(19, 'Pola sarang', s)
 s = (latar_bab(2, 'kiri')
      + bingkai('Bab III · Elemen Visual', 20)
      + blok(M, 96, 384, 432,
-            dv(P(x=0, y=0, w=384, h=432, z=1, lain='overflow:hidden;'), sarang(EMAS, '.16', 3))
+            dv(P(x=0, y=0, w=384, h=432, z=1, lain='overflow:hidden;'), sarang(EMAS, '.16', 3, w=384, h=432))
             + tengah(384, 432, bee(250))
             + mata(0, None, 'Lebah Sarang', rgba(INK, '.45'), z=6, uk=9, sp=2, w=384, rt='center',
                    b=22), EMAS_M, 26, 4)
@@ -517,7 +524,7 @@ s = (latar_bab(2)
      + bagian('07', [[('Tulisan ', ''), ('tangan', 'm')]], x=M, w=300, uk=44)
      + mata(None, 118, 'Caveat · 600 · miring −3°', REDUP, r=M, rt='right')
      + blok(M, 190, KOL, 216,
-            dv(P(x=0, y=0, w=KOL, h=216, z=1, lain='overflow:hidden;'), halftone(TEAL, '.05', 9, 1))
+            dv(P(x=0, y=0, w=KOL, h=216, z=1, lain='overflow:hidden;'), halftone(TEAL, '.05', 9, 1, KOL, 216))
             + dv(P(x=0, y=52, w=KOL, z=6, lain='font-family:' + CV + ';font-size:62px;'
                    'font-weight:600;color:' + TEAL_X + ';text-align:center;line-height:1.08;'
                    'transform:rotate(-2deg);'), 'Small things make<br>a big difference')
@@ -550,7 +557,7 @@ s = (latar_bab(3)
               dv(P(x=32, y=36, w=108, h=222, z=6,
                    lain='background:' + TEAL + ';border-radius:6px;overflow:hidden;'
                         'box-shadow:0 12px 28px ' + rgba(INK, '.18') + ';'),
-                 sarang(KRIM, '.16', 1)
+                 sarang(KRIM, '.16', 1, w=108, h=222)
                  + dv(P(x=0, y=0, w=108, h=222, lain='display:grid;place-items:center;'),
                       lambang(40, KRIM, EMAS_M))),
               'linear-gradient(150deg,' + KRIM_2 + ' 0%,' + KRIM_3 + ' 100%)', pola=False)
@@ -584,7 +591,7 @@ s = (latar_bab(3, 'kiri')
      + blok(428, 196, 356, 300,
             dv(P(x=26, y=28, w=304, h=170, lain='background:' + KRIM_2 + ';border-radius:12px;'))
             + dv(P(x=42, y=44, w=86, h=138, z=6, lain='background:' + TEAL + ';border-radius:6px;'
-                   'overflow:hidden;'), sarang(KRIM, '.18', 1))
+                   'overflow:hidden;'), sarang(KRIM, '.18', 1, w=86, h=138))
             + dv(P(x=142, y=44, w=170, h=62, z=6, lain='background:' + PUTIH + ';border:1px solid '
                    + GARIS + ';border-radius:6px;'))
             + dv(P(x=142, y=118, w=80, h=64, z=6, lain='background:' + EMAS_M + ';border-radius:6px;'))

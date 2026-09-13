@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 840 592" role="img" aria-label="GSM Balikin — 13 Larangan">
+<title>GSM Balikin — 13 Larangan</title>
+<desc>A5 lanskap 210 x 148 mm, 4 satuan = 1 mm. Huruf: Archivo, Plus Jakarta Sans, Caveat.</desc>
+<defs></defs>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<rect x="0" y="0" width="840" height="592" fill="#FBF8F3"/>
+<g opacity="0.05"><g fill="none"><path d="M848 131L1108 304V650L848 824L588 650V304Z" fill="#0F5A48" stroke="none" stroke-width="0" stroke-linejoin="miter"></path></g></g>
+<rect x="56" y="162" width="232" height="160" rx="18" fill="#FFFFFF"/><rect x="56" y="162" width="231" height="159" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g fill="none"><path d="M173 197L197 207V231L173 242L149 231V207Z" stroke="#1B7A63" stroke-width="1" stroke-linejoin="miter"></path><path d="M180 217L176 221H170L166 217L170 212H176Z" fill="#C8952E"></path></g>
+<text x="75" y="299" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#C05C33">Diregangkan</text>
+<rect x="249" y="177" width="22" height="22" rx="12" fill="#C05C33"/><text x="256" y="190" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#FFFFFF">×</text>
+<rect x="304" y="162" width="232" height="160" rx="18" fill="#FFFFFF"/><rect x="304" y="162" width="231" height="159" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g transform="rotate(22 421 219)"><g fill="none"><path d="M421 197L438 207V231L421 241L404 231V207Z" stroke="#1B7A63" stroke-width="1" stroke-linejoin="miter"></path><path d="M426 216L423 221H419L416 216L419 212H423Z" fill="#C8952E"></path></g></g>
+<text x="323" y="299" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#C05C33">Diputar</text>
+<rect x="497" y="177" width="22" height="22" rx="12" fill="#C05C33"/><text x="504" y="190" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#FFFFFF">×</text>
+<rect x="552" y="162" width="232" height="160" rx="18" fill="#FFFFFF"/><rect x="552" y="162" width="231" height="159" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g fill="none"><path d="M669 197L686 207V231L669 241L652 231V207Z" stroke="#C05C33" stroke-width="1" stroke-linejoin="miter"></path><path d="M674 216L671 221H667L664 216L667 212H671Z" fill="#1B7A63"></path></g>
+<text x="571" y="299" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#C05C33">Diganti warna</text>
+<rect x="745" y="177" width="22" height="22" rx="12" fill="#C05C33"/><text x="752" y="190" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#FFFFFF">×</text>
+<rect x="56" y="338" width="232" height="160" rx="18" fill="#FFFFFF"/><rect x="56" y="338" width="231" height="159" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g fill="none"><path d="M177 382L194 392V416L177 426L160 416V392Z" stroke="#12332C" stroke-width="1" stroke-linejoin="miter"></path><path d="M182 401L179 406H175L172 401L175 396H179Z" fill="#12332C"></path></g>
+<g fill="none"><path d="M173 377L190 387V411L173 421L156 411V387Z" stroke="#1B7A63" stroke-width="1" stroke-linejoin="miter"></path><path d="M178 396L175 401H171L168 396L171 391H175Z" fill="#C8952E"></path></g>
+<text x="75" y="475" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#C05C33">Diberi bayangan</text>
+<rect x="249" y="353" width="22" height="22" rx="12" fill="#C05C33"/><text x="256" y="366" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#FFFFFF">×</text>
+<rect x="304" y="338" width="232" height="160" rx="18" fill="#FFFFFF"/><rect x="304" y="338" width="231" height="159" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g fill="none"><path d="M421 373L438 383V407L421 417L404 407V383Z" stroke="#1B7A63" stroke-width="1" stroke-linejoin="miter"></path><path d="M426 392L423 397H419L416 392L419 388H423Z" fill="#C8952E"></path></g>
+<text x="323" y="475" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#C05C33">Ditumpuk teks</text>
+<text x="381" y="399" font-family="Archivo" font-size="15" font-weight="700" fill="#12332C">BALIKIN</text>
+<rect x="497" y="353" width="22" height="22" rx="12" fill="#C05C33"/><text x="504" y="366" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#FFFFFF">×</text>
+<rect x="552" y="338" width="232" height="160" rx="18" fill="#FFFFFF"/><rect x="552" y="338" width="231" height="159" rx="18" fill="none" stroke="#E2DACB" stroke-width="1"/>
+<g opacity="0.4"><g fill="none"><path d="M669 373L686 383V407L669 417L652 407V383Z" stroke="#1B7A63" stroke-width="1" stroke-linejoin="miter"></path><path d="M674 392L671 397H667L664 392L667 388H671Z" fill="#C8952E"></path></g></g>
+<text x="571" y="475" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" fill="#C05C33">Ditambah efek</text>
+<rect x="745" y="353" width="22" height="22" rx="12" fill="#C05C33"/><text x="752" y="366" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#FFFFFF">×</text>
+<rect x="56" y="72" width="728" height="1" fill="#E2DACB"/>
+<text x="56" y="51" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAB II · IDENTITAS UTAMA</text>
+<text x="766" y="50" font-family="Archivo" font-size="15" font-weight="700" fill="#6E8078">13</text>
+<text x="56" y="111" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#6E8078" letter-spacing="3">BAGIAN 07</text>
+<text x="56" y="160" font-family="Archivo" font-size="44" font-weight="700" fill="#12332C" letter-spacing="-2">Larangan</text>
+<text x="377" y="127" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">Enam hal yang membuat logo berhenti jadi logo Balikin. Kalau ragu, pakai</text><text x="577" y="146" font-family="Plus Jakarta Sans" font-size="12" font-weight="400" fill="#6E8078">berkas aslinya tanpa diubah apa pun.</text>
+</svg>
