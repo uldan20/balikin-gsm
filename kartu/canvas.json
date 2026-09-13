@@ -1,0 +1,48 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 400,
+      "h": 520,
+      "title": "A · Arsip"
+    },
+    {
+      "file": "Aplikasi.dc.html",
+      "x": 480,
+      "y": 0,
+      "w": 400,
+      "h": 520,
+      "title": "B · Kartu Aplikasi"
+    },
+    {
+      "file": "Koleksi.dc.html",
+      "x": 960,
+      "y": 0,
+      "w": 400,
+      "h": 520,
+      "title": "C · Koleksi"
+    },
+    {
+      "file": "Tag.dc.html",
+      "x": 1440,
+      "y": 0,
+      "w": 400,
+      "h": 520,
+      "title": "D · Tag Gantung"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "catatan",
+      "x": 0,
+      "y": -150,
+      "w": 900,
+      "text": "Kartu Barang untuk Meja Barang Temuan — 90 × 120 mm, art carton 260 gsm, laminasi doff, cetak dua sisi.\nSatu kasus contoh (BLK-P042) dalam empat arah desain. Pola QR masih contoh; garis potong disembunyikan di tampilan ini."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}
