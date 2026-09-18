@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eksplorasi Layout Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --mint:#DBE8DF; --kream:#EAE7DC; --putih:#FFFFFF;
+    --tinta:#16322B; --redup:#6B7A75;
+    --teal:#25715F; --teal-tua:#145D52; --teal-chrome:#113932; --teal-heks:#307B6D;
+    --mint-terang:#7BDCC5; --chip:#B8ECE1; --nav-pil:#E6F2EE;
+    --terakota:#CF693C; --emas:#E5B551; --hijau-folder:#19715A; --mint-folder:#9CD8C6;
+
+    --hal-bg:#F4F1EA; --hal-teks:#16322B; --hal-redup:#6B7A75;
+    --kartu:#FFFFFF; --garis:#E2DCCF; --panggung:#ECE5DA;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --hal-bg:#141E1B; --hal-teks:#E8EDE9; --hal-redup:#9DAAA4;
+      --kartu:#1D2926; --garis:#2B3835; --panggung:#242F2C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --hal-bg:#141E1B; --hal-teks:#E8EDE9; --hal-redup:#9DAAA4;
+    --kartu:#1D2926; --garis:#2B3835; --panggung:#242F2C;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--hal-bg);color:var(--hal-teks);
+    font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .bungkus{max-width:1320px;margin:0 auto;padding:40px 16px 72px}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+
+  .kicker{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;
+    letter-spacing:1.6px;color:var(--teal);margin:0 0 10px}
+  h1{font-size:clamp(26px,5vw,38px);line-height:1.12;letter-spacing:-.6px;margin:0 0 14px;font-weight:800}
+  .intro{font-size:15px;line-height:1.62;color:var(--hal-redup);margin:0 0 10px;max-width:660px}
+
+  .kisi{display:grid;gap:24px;margin-top:36px;grid-template-columns:repeat(auto-fill,minmax(332px,1fr))}
+  .kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:20px;
+    padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+  .tajuk{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .tanda{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;
+    letter-spacing:1.3px;color:#fff;background:var(--teal);padding:3px 8px;border-radius:6px}
+  .nama{font-size:17px;font-weight:700;letter-spacing:-.2px;margin:0}
+  .pinjam{font-size:11px;font-weight:600;letter-spacing:.2px;color:var(--teal);
+    background:var(--chip);padding:3px 9px;border-radius:20px;align-self:flex-start}
+  .alasan{font-size:13.5px;line-height:1.55;color:var(--hal-redup);margin:0}
+  .alasan strong{color:var(--hal-teks)}
+  .panggung-kartu{background:var(--panggung);border-radius:16px;padding:14px 0;display:flex;
+    justify-content:center;overflow-x:auto}
+
+  /* ================= bingkai layar ================= */
+  .layar{width:384px;flex:0 0 384px;border-radius:32px;overflow:hidden;
+    box-shadow:0 14px 34px rgba(14,40,33,.18);background:var(--kream);
+    display:flex;flex-direction:column}
+  .layar.gelap{background:var(--teal-chrome)}
+  .bar{height:50px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 26px;color:var(--tinta);flex:0 0 auto}
+  .layar.gelap .bar{color:#fff}
+  .jam{font-size:15px;font-weight:700;letter-spacing:-.2px}
+  .sinyal{display:flex;align-items:center;gap:7px}
+
+  /* baris merek atas ala ToyCAD */
+  .merek{display:flex;align-items:center;justify-content:space-between;padding:2px 20px 12px}
+  .logo{width:34px;height:38px;flex:0 0 34px}
+  .pil-aksi{display:flex;align-items:center;gap:7px;background:var(--mint-terang);
+    border-radius:22px;padding:9px 15px}
+  .pil-aksi span{font-size:12.5px;font-weight:700;color:#0E3B33}
+  .layar.gelap .pil-aksi{background:transparent;padding:9px 4px}
+  .layar.gelap .pil-aksi span{color:#fff}
+
+  /* tab tersegmen ala ToyCAD */
+  .segmen{display:flex;gap:6px;margin:0 20px 14px;background:rgba(14,40,33,.08);
+    border-radius:24px;padding:4px}
+  .layar.gelap .segmen{background:rgba(255,255,255,.10)}
+  .segmen div{flex:1;text-align:center;padding:10px 0;border-radius:20px;
+    font-size:13px;font-weight:700;color:var(--redup)}
+  .segmen div.on{background:#fff;color:var(--tinta);box-shadow:0 2px 6px rgba(14,40,33,.10)}
+  .layar.gelap .segmen div{color:rgba(255,255,255,.62)}
+  .layar.gelap .segmen div.on{background:#fff;color:var(--teal-chrome)}
+
+  .badan{flex:1;padding:0 20px;min-height:0}
+
+  /* nav pil mengambang, tombol tengah heksagon */
+  .navp{padding:14px 20px 18px;flex:0 0 auto}
+  .navp .pil{height:62px;background:rgba(17,57,50,.94);border-radius:31px;display:flex;
+    align-items:center;justify-content:space-between;padding:0 12px;
+    box-shadow:0 8px 22px rgba(14,40,33,.26)}
+  .layar.gelap .navp .pil{background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.14);box-shadow:none}
+  .navp .t{width:46px;height:46px;display:flex;align-items:center;justify-content:center;position:relative}
+  .navp .t .dot{position:absolute;top:8px;right:9px;width:7px;height:7px;border-radius:50%;background:#E5484D}
+  .navp .plus{width:54px;height:58px;background:linear-gradient(150deg,#8BE8CE,var(--mint-terang));
+    display:flex;align-items:center;justify-content:center;
+    clip-path:polygon(50% 0%,93.3% 25%,93.3% 75%,50% 100%,6.7% 75%,6.7% 25%)}
+
+  /* ---------- G · dua pintu ---------- */
+  .g-kartu{border-radius:28px;padding:22px 20px;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;min-height:236px;margin-bottom:14px}
+  .g-terang{background:linear-gradient(165deg,#FFFFFF 0%,#FFFFFF 52%,#E4F0E8 100%);
+    box-shadow:0 6px 20px rgba(14,40,33,.09)}
+  .g-gelap{background:linear-gradient(165deg,#1B5A4C 0%,#123F35 100%);
+    box-shadow:0 6px 20px rgba(14,40,33,.20)}
+  .g-kartu h3{margin:0;font-size:30px;font-weight:800;letter-spacing:-1px;line-height:1.05;
+    color:var(--tinta);max-width:250px}
+  .g-gelap h3{color:#fff}
+  .g-kartu p{margin:11px 0 0;font-size:12px;line-height:1.5;color:var(--redup);max-width:238px}
+  .g-gelap p{color:#A8CFC3}
+  .g-pilih{position:absolute;top:20px;right:20px;width:28px;height:28px;border-radius:50%}
+  .g-isi{background:var(--teal);display:flex;align-items:center;justify-content:center}
+  .g-kosong{border:2px solid rgba(255,255,255,.42)}
+  .g-kaki{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:9px}
+  .g-kaki b{font-size:16px;font-weight:800;letter-spacing:-.4px;color:var(--tinta)}
+  .g-gelap .g-kaki b{color:#fff}
+  .g-pita{position:absolute;left:0;top:64px;width:5px;height:54px;border-radius:0 4px 4px 0;background:var(--terakota)}
+  .g-gelap .g-pita{background:var(--mint-terang)}
+
+  /* ---------- H · panggung ---------- */
+  .h-hero{border-radius:28px;overflow:hidden;position:relative;height:330px;
+    background:linear-gradient(170deg,#2A7F69 0%,#10473B 100%);margin-bottom:12px}
+  .h-gelembung{position:absolute;left:16px;top:18px;background:var(--terakota);color:#fff;
+    font-size:11.5px;font-weight:700;padding:8px 13px;border-radius:16px 16px 16px 4px;
+    transform:rotate(-7deg);z-index:3;box-shadow:0 5px 14px rgba(0,0,0,.2)}
+  .h-kipas{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:1}
+  .h-teks{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 18px 16px;
+    background:linear-gradient(180deg,rgba(9,42,34,0) 0%,rgba(9,42,34,.86) 62%)}
+  .h-teks b{display:block;font-size:19px;font-weight:800;letter-spacing:-.4px;color:#fff;line-height:1.2}
+  .h-teks small{display:block;font-size:10px;font-weight:500;letter-spacing:1.3px;
+    color:#9FCFC1;margin-top:5px}
+  .h-dua{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .h-mini{border-radius:20px;padding:13px;height:112px;display:flex;flex-direction:column;position:relative}
+  .h-a{background:#F3EFDF} .h-b{background:#1D5348}
+  .h-lencana{font-size:8.5px;font-weight:700;letter-spacing:.9px;color:#fff;background:var(--terakota);
+    padding:3px 8px;border-radius:9px;align-self:flex-start}
+  .h-mini b{margin-top:auto;font-size:14px;font-weight:700;letter-spacing:-.2px;color:var(--tinta)}
+  .h-b b{color:#fff}
+  .h-mini small{font-size:9px;font-weight:500;letter-spacing:.9px;color:var(--redup);margin-top:2px}
+  .h-b small{color:#8FB8AD}
+
+  /* ---------- I · kisi pintu ---------- */
+  .i-hero{background:#fff;border-radius:28px;padding:20px;position:relative;overflow:hidden;
+    margin-bottom:12px;box-shadow:0 6px 20px rgba(14,40,33,.09);min-height:172px}
+  .i-hero h3{margin:0;font-size:27px;font-weight:800;letter-spacing:-.9px;line-height:1.06;
+    color:var(--tinta);max-width:180px}
+  .i-hero p{margin:9px 0 0;font-size:11.5px;color:var(--redup);max-width:170px}
+  .i-main{width:44px;height:44px;border-radius:50%;background:var(--mint-terang);
+    display:flex;align-items:center;justify-content:center;margin-top:16px}
+  .i-gbr{position:absolute;right:-10px;bottom:-6px;pointer-events:none}
+  .i-kisi{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .i-ubin{background:#fff;border-radius:20px;padding:13px;height:126px;display:flex;
+    flex-direction:column;position:relative;overflow:hidden;box-shadow:0 4px 14px rgba(14,40,33,.07)}
+  .i-ubin .lab{font-size:9px;font-weight:700;letter-spacing:1.1px;color:var(--teal)}
+  .i-ubin b{margin-top:3px;font-size:15px;font-weight:800;letter-spacing:-.4px;color:var(--tinta);
+    line-height:1.15;position:relative;z-index:2}
+  .i-ubin svg{position:absolute;right:-6px;bottom:-6px;z-index:1}
+  .i-ubin.teal{background:var(--teal-chrome)}
+  .i-ubin.teal .lab{color:var(--mint-terang)} .i-ubin.teal b{color:#fff}
+
+  .catatan{margin:44px 0 0;padding:20px 22px;background:var(--kartu);border:1px solid var(--garis);
+    border-radius:18px;font-size:13.5px;line-height:1.65;color:var(--hal-redup);max-width:800px}
+  .catatan h3{margin:0 0 10px;font-size:15px;font-weight:700;color:var(--hal-teks)}
+  .catatan h3+h3{margin-top:18px}
+  .catatan code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
+    background:var(--panggung);padding:1px 5px;border-radius:4px;color:var(--hal-teks)}
+  .catatan ul{margin:10px 0 0;padding-left:18px} .catatan li{margin-bottom:7px}
+  .catatan strong{color:var(--hal-teks)}
+  @media (max-width:420px){ .bungkus{padding:28px 16px 56px} }
+</style>
+</head>
+<body>
+<div class="bungkus">
+
+  <header>
+    <p class="kicker">BERANDA HUB · EKSPLORASI TATA LETAK</p>
+    <h1>Tiga layout, dipinjam dari ToyCAD</h1>
+    <p class="intro">
+      Yang dipinjam dari acuan itu <strong>gerakan tata letaknya</strong>, bukan warnanya:
+      kartu pilihan sebesar layar, tab tersegmen, hero yang mendominasi, kisi dua kolom,
+      dan nav pil mengambang dengan tombol di tengah. Palet, huruf, dan bahasa heksagon
+      tetap Balikin — chrome hitam ToyCAD saya terjemahkan jadi teal tua
+      <code style="font-size:12px">#113932</code>, warna yang sudah dipakai panel reputasi Anda.
+    </p>
+  </header>
+
+  <div class="kisi" id="kisi"></div>
+
+  <div class="catatan">
+    <h3>Apa yang diambil dari acuan</h3>
+    <ul>
+      <li><strong>Kartu pilihan sebesar layar</strong> (layar 1 ToyCAD: Full Version / Kids Version)
+          → jadi G, dipakai untuk percabangan asli Balikin: kehilangan vs menemukan.</li>
+      <li><strong>Hero yang mendominasi + tab tersegmen + kartu kecil berpasangan</strong>
+          (layar 2) → jadi H.</li>
+      <li><strong>Kartu utama + kisi dua kolom berlabel</strong> (layar 3) → jadi I.</li>
+      <li><strong>Nav pil mengambang dengan tombol tengah</strong> → dipakai ketiganya.
+          Tombolnya tetap heksagon, cuma pindah dari kanan ke tengah.</li>
+    </ul>
+
+    <h3>Yang tidak saya ambil</h3>
+    <p>
+      Hitam, lime, dan render 3D mengilap. Tiga-tiganya identitas ToyCAD, bukan Balikin.
+      Balikin dibangun dari kisi 60°, sudut pangkas, dan palet hangat — kalau chrome-nya
+      jadi hitam dan aksennya lime, yang tersisa cuma tata letak orang lain.
+    </p>
+
+    <h3>Yang perlu Anda putuskan</h3>
+    <ul>
+      <li><strong>G memindahkan percabangan ke beranda.</strong> Sekarang pilihan hilang/temuan
+          ada di halaman tujuan, dan beranda cuma punya satu tombol "Buat laporan". G membalik itu.
+          Sejalan dengan temuan terkuat di <code>README.md</code> — penemu ragu bertindak —
+          karena jalur "saya menemukan" jadi kartu penuh yang setara, bukan pilihan kedua.</li>
+      <li><strong>H menuntut foto barang asli.</strong> Hero di sini masih memakai kipas folder
+          karena saya tidak punya fotonya. Dengan foto sungguhan, H paling kuat dari ketiganya —
+          orang melihat ransel yang benar-benar hilang, bukan angka 42.</li>
+      <li><strong>Panel reputasi turun di G dan H.</strong> Di I ia jadi satu ubin kisi.
+          Kalau reputasi itu inti skripsi Anda, ia mungkin tidak boleh diturunkan sejauh itu.</li>
+      <li><strong>Tombol tambah pindah ke tengah</strong> di ketiganya. Itu perubahan kebiasaan,
+          bukan cuma tata letak — perlu dicek ulang terhadap Jelajahi dan Profil.</li>
+    </ul>
+  </div>
+</div>
+
+<template id="tpl-bar">
+  <div class="bar">
+    <span class="jam">11:05</span>
+    <span class="sinyal">
+      <svg viewBox="0 0 18 12" width="17" height="11" aria-hidden="true"><rect y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" width="3" height="12" rx="1" fill="currentColor"/></svg>
+      <svg viewBox="0 0 16 12" width="15" height="11" fill="none" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M3.9 7.3a6 6 0 0 1 8.2 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="8" cy="10.3" r="1.3" fill="currentColor"/></svg>
+      <svg viewBox="0 0 25 12" width="24" height="11" fill="none" aria-hidden="true"><rect x=".6" y=".6" width="21" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.2" opacity=".45"/><rect x="2.3" y="2.3" width="17.6" height="7.4" rx="2" fill="currentColor"/><path d="M23.3 4.5v3a1.9 1.9 0 0 0 0-3Z" fill="currentColor" opacity=".45"/></svg>
+    </span>
+  </div>
+</template>
+
+<script>
+(function(){
+  /* --- lambang heksagon Balikin --- */
+  function logo(s){ s = s || 34;
+    return '<svg class="logo" width="'+s+'" height="'+(s*1.12)+'" viewBox="0 0 34 38" fill="none" aria-hidden="true">'
+      + '<path d="M17 1.5 31 9.5v17L17 34.5 3 26.5v-17Z" fill="#15655B"/>'
+      + '<path d="M17 7.5 26 12.7v10.6L17 28.5 8 23.3V12.7Z" fill="#2E8A74"/>'
+      + '<path d="M17 13.2 21.5 15.8v5.2L17 23.6 12.5 21v-5.2Z" fill="#7BDCC5"/></svg>';
+  }
+  function wordmark(warna){
+    return '<b style="color:'+warna+'">Balikin</b>';
+  }
+  var IK = {
+    rumah:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1Z" fill="#DCEDE7"/></svg>',
+    kompas:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#9FC3B9" stroke-width="1.8"/><path d="m15 9-2.2 4.8L8 16l2.2-4.8Z" fill="#9FC3B9"/></svg>',
+    chat:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4.5 6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-4 3.4V15.5H6.5a2 2 0 0 1-2-2Z" stroke="#9FC3B9" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    akun:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8.2" r="3.6" stroke="#9FC3B9" stroke-width="1.8"/><path d="M5.4 19.4a6.8 6.8 0 0 1 13.2 0" stroke="#9FC3B9" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    plus:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#0E3B33" stroke-width="3.2" stroke-linecap="round"/></svg>',
+    centang:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5 9-9" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    tongkat:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 19 16 8m0 0 3-3M16 8l3 3" stroke="#0E3B33" stroke-width="2.2" stroke-linecap="round"/><path d="M7 4v4M5 6h4M18 15v3M16.5 16.5h3" stroke="#0E3B33" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    main:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 6.5 18 12l-9 5.5Z" fill="#0E3B33"/></svg>',
+    lokasi:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>'
+  };
+
+  function nav(){
+    return '<div class="navp"><div class="pil">'
+      + '<div class="t">'+IK.rumah+'</div><div class="t">'+IK.kompas+'</div>'
+      + '<div class="plus">'+IK.plus+'</div>'
+      + '<div class="t"><span class="dot"></span>'+IK.chat+'</div><div class="t">'+IK.akun+'</div>'
+      + '</div></div>';
+  }
+
+  /* kipas folder Balikin, ukuran bisa diatur */
+  function kipas(w){
+    return '<svg width="'+w+'" height="'+Math.round(w*0.44)+'" viewBox="0 0 300 132" fill="none" aria-hidden="true">'
+      + '<defs><linearGradient id="kh'+w+'" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#22876B"/><stop offset="1" stop-color="#0F5A48"/></linearGradient>'
+      + '<linearGradient id="km'+w+'" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#ACE2D1"/><stop offset="1" stop-color="#8ACDB8"/></linearGradient></defs>'
+      + '<g transform="rotate(-15 62 74)"><rect x="12" y="34" width="60" height="16" rx="6" fill="#A8502C"/><rect x="8" y="42" width="84" height="62" rx="12" fill="#CF693C"/></g>'
+      + '<g transform="rotate(-7 104 70)"><rect x="60" y="26" width="62" height="16" rx="6" fill="#C79430"/><rect x="56" y="34" width="88" height="66" rx="12" fill="#E5B551"/></g>'
+      + '<g transform="rotate(13 236 72)"><rect x="196" y="30" width="58" height="15" rx="6" fill="#D6CFC0"/><rect x="192" y="38" width="84" height="62" rx="12" fill="#E8E1D4"/></g>'
+      + '<g transform="rotate(7 206 64)"><rect x="168" y="22" width="60" height="16" rx="6" fill="#86C7B2"/><rect x="164" y="30" width="86" height="64" rx="12" fill="url(#km'+w+')"/></g>'
+      + '<g><rect x="96" y="20" width="76" height="18" rx="7" fill="#0B4436"/><rect x="90" y="30" width="118" height="84" rx="14" fill="url(#kh'+w+')"/>'
+      + '<text x="180" y="98" text-anchor="end" font-family="\'Plus Jakarta Sans\',sans-serif" font-size="30" font-weight="800" fill="#96D8C4" letter-spacing="-1">42</text></g></svg>';
+  }
+  /* satu folder besar — dudukan foto barang di hero versi H.
+     Sengaja tanpa angka: hero H membicarakan SATU barang, bukan kumpulan. */
+  function folderSolo(w){
+    return '<svg width="'+w+'" height="'+Math.round(w*0.84)+'" viewBox="0 0 220 185" fill="none" aria-hidden="true">'
+      + '<defs><linearGradient id="fsA" x1="0" y1="0" x2=".4" y2="1">'
+      + '<stop offset="0" stop-color="#3B4149"/><stop offset="1" stop-color="#1C2026"/></linearGradient></defs>'
+      + '<rect x="46" y="16" width="92" height="22" rx="9" fill="#141319"/>'
+      + '<rect x="32" y="32" width="156" height="132" rx="20" fill="url(#fsA)"/>'
+      + '<rect x="48" y="52" width="124" height="66" rx="12" fill="#FFFFFF" opacity=".07"/>'
+      + '<circle cx="76" cy="78" r="11" fill="#FFFFFF" opacity=".13"/>'
+      + '<path d="M56 112l26-24 20 18 16-13 26 23Z" fill="#FFFFFF" opacity=".13"/></svg>';
+  }
+  function folderMini(w,a,b){
+    return '<svg width="'+w+'" height="'+w+'" viewBox="0 0 100 100" fill="none" aria-hidden="true">'
+      + '<g transform="rotate(-9 40 52)"><rect x="12" y="26" width="38" height="11" rx="4" fill="'+b+'"/><rect x="8" y="33" width="56" height="42" rx="9" fill="'+a+'"/></g></svg>';
+  }
+
+  var versi = [
+    {
+      kode:'G', nama:'Dua pintu', pinjam:'dipinjam: kartu pilihan sebesar layar (layar 1)',
+      gelap:false,
+      atas:'<div class="merek">'+logo()
+        + '<div class="pil-aksi">'+IK.tongkat+'<span>Lapor cepat</span></div></div>',
+      badan:
+        '<div class="g-kartu g-terang"><span class="g-pita"></span>'
+        + '<div class="g-pilih g-isi">'+IK.centang+'</div>'
+        + '<h3>Barang saya hilang</h3>'
+        + '<p>Cari di 42 barang yang sedang menunggu pemiliknya di Cisaat, lalu buktikan cirinya.</p>'
+        + '<div class="g-kaki">'+logo(24)+wordmark('#16322B')+'</div></div>'
+        + '<div class="g-kartu g-gelap"><span class="g-pita"></span>'
+        + '<div class="g-pilih g-kosong"></div>'
+        + '<h3>Saya menemukan barang</h3>'
+        + '<p>Serahkan tanpa harus menilai sendiri siapa pemiliknya. Asisten verifikasi yang menanyakan cirinya.</p>'
+        + '<div class="g-kaki">'+logo(24)+wordmark('#FFFFFF')+'</div></div>',
+      alasan:'Percabangan sesungguhnya di Balikin bukan "lapor atau tidak", tapi <strong>kehilangan atau menemukan</strong> '
+        + '— dan sekarang pilihan itu terkubur di halaman tujuan, di balik satu tombol "Buat laporan". '
+        + 'G menaikkannya jadi dua kartu setara sebesar layar. Ini menjawab langsung temuan terkuat skripsi Anda: '
+        + 'penemu ragu bertindak. Kalau jalurnya kartu penuh, bukan pilihan kedua, ragunya berkurang.'
+    },
+    {
+      kode:'H', nama:'Panggung', pinjam:'dipinjam: hero dominan + tab + kartu berpasangan (layar 2)',
+      gelap:true,
+      atas:'<div class="merek">'+logo()
+        + '<div class="pil-aksi" style="color:#fff">'+IK.lokasi+'<span>Cisaat · 2 km</span></div></div>'
+        + '<div class="segmen"><div class="on">Di sekitarmu</div><div>Punyaku</div></div>',
+      badan:
+        '<div class="h-hero"><div class="h-gelembung">Baru 10 menit lalu</div>'
+        + '<div class="h-kipas">'+folderSolo(214)+'</div>'
+        + '<div class="h-teks"><b>Tas ransel hitam untuk laptop</b>'
+        + '<small class="mono">HALTE CIKOLE · 1,2 KM · 531 DILIHAT</small></div></div>'
+        + '<div class="h-dua">'
+        + '<div class="h-mini h-a"><span class="h-lencana">BARU</span>'
+        + folderMini(74,'#CF693C','#A8502C')+'<b>Dompet cokelat</b><small class="mono">180 M</small></div>'
+        + '<div class="h-mini h-b"><span class="h-lencana">BARU</span>'
+        + folderMini(74,'#19715A','#0B4436')+'<b>Kunci motor</b><small class="mono">640 M</small></div>'
+        + '</div>',
+      alasan:'Beranda sekarang membuka dengan <strong>abstraksi</strong> — kipas folder dan angka 42. '
+        + 'H membukanya dengan satu barang nyata, sebesar mungkin, plus tab untuk memisahkan '
+        + '"di sekitarmu" dari "punyaku". Gelembung terakota meniru tag "Time to Print!" di acuan, '
+        + 'tapi dipakai untuk kebaruan — hal yang benar-benar mendesak di aplikasi lost &amp; found. '
+        + '<strong>Folder gelap di hero itu dudukan, bukan karya jadi:</strong> tempat foto barang '
+        + 'sungguhan nanti dipasang. Tanpa foto itu, H kehilangan sebagian besar kekuatannya.'
+    },
+    {
+      kode:'I', nama:'Kisi pintu', pinjam:'dipinjam: kartu utama + kisi dua kolom berlabel (layar 3)',
+      gelap:false,
+      atas:'<div class="merek">'+logo()
+        + '<div class="pil-aksi">'+IK.lokasi+'<span>Cisaat · 2 km</span></div></div>'
+        + '<div class="segmen"><div class="on">Mulai</div><div>Terakhir</div></div>',
+      badan:
+        '<div class="i-hero"><h3>Mau lapor apa hari ini?</h3>'
+        + '<p>Barang hilang atau temuan, mulai di sini. ±3 menit.</p>'
+        + '<div class="i-main">'+IK.main+'</div>'
+        + '<div class="i-gbr">'+kipas(190)+'</div></div>'
+        + '<div class="i-kisi">'
+        + '<div class="i-ubin"><span class="lab">PINTU</span><b>Barang<br>hilang</b>'+folderMini(84,'#CF693C','#A8502C')+'</div>'
+        + '<div class="i-ubin"><span class="lab">PINTU</span><b>Barang<br>temuan</b>'+folderMini(84,'#E5B551','#C79430')+'</div>'
+        + '<div class="i-ubin"><span class="lab">JELAJAH</span><b>Peta<br>Cisaat</b>'+folderMini(84,'#9CD8C6','#86C7B2')+'</div>'
+        + '<div class="i-ubin teal"><span class="lab">TINGKAT 3</span><b>720<br>poin</b>'+folderMini(84,'#1D5348','#0B4436')+'</div>'
+        + '</div>',
+      alasan:'Beranda sekarang adalah <strong>tumpukan vertikal kartu tak setara</strong> — yang di atas menang, '
+        + 'yang di bawah nyaris tak terlihat. I mengubahnya jadi hub sungguhan: satu kartu utama, '
+        + 'lalu empat pintu setara yang bisa dipindai sekali lihat. Reputasi turun jadi satu ubin — '
+        + 'hemat tempat, tapi periksa apakah itu terlalu jauh untuk inti skripsi Anda.'
+    }
+  ];
+
+  var kisi = document.getElementById('kisi');
+  var tplBar = document.getElementById('tpl-bar');
+
+  versi.forEach(function(v){
+    var sec = document.createElement('section');
+    sec.className = 'kartu';
+    sec.innerHTML = '<div class="tajuk"><span class="tanda">'+v.kode+'</span><h2 class="nama">'+v.nama+'</h2></div>'
+      + '<span class="pinjam">'+v.pinjam+'</span>'
+      + '<div class="panggung-kartu"><div class="layar'+(v.gelap?' gelap':'')+'"></div></div>'
+      + '<p class="alasan">'+v.alasan+'</p>';
+    var layar = sec.querySelector('.layar');
+    layar.appendChild(tplBar.content.cloneNode(true));
+    layar.insertAdjacentHTML('beforeend', v.atas + '<div class="badan">' + v.badan + '</div>' + nav());
+    kisi.appendChild(sec);
+  });
+})();
+</script>
+</body>
+</html>
