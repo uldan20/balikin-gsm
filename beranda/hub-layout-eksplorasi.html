@@ -11,8 +11,8 @@
   :root{
     --mint:#DBE8DF; --kream:#EAE7DC; --putih:#FFFFFF;
     --tinta:#16322B; --redup:#6B7A75;
-    --teal:#25715F; --teal-tua:#145D52; --teal-chrome:#113932; --teal-heks:#307B6D;
-    --mint-terang:#7BDCC5; --chip:#B8ECE1; --nav-pil:#E6F2EE;
+    --teal:#25715F; --teal-tua:#145D52; --teal-chrome:#113932;
+    --mint-terang:#7BDCC5; --chip:#B8ECE1; --rep-jalur:#33564F;
     --terakota:#CF693C; --emas:#E5B551; --hijau-folder:#19715A; --mint-folder:#9CD8C6;
 
     --hal-bg:#F4F1EA; --hal-teks:#16322B; --hal-redup:#6B7A75;
@@ -38,26 +38,25 @@
   .kicker{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;
     letter-spacing:1.6px;color:var(--teal);margin:0 0 10px}
   h1{font-size:clamp(26px,5vw,38px);line-height:1.12;letter-spacing:-.6px;margin:0 0 14px;font-weight:800}
-  .intro{font-size:15px;line-height:1.62;color:var(--hal-redup);margin:0 0 10px;max-width:660px}
+  .intro{font-size:15px;line-height:1.62;color:var(--hal-redup);margin:0;max-width:660px}
 
   .kisi{display:grid;gap:24px;margin-top:36px;grid-template-columns:repeat(auto-fill,minmax(332px,1fr))}
   .kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:20px;
-    padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+    padding:18px;display:flex;flex-direction:column;gap:13px;min-width:0}
   .tajuk{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
   .tanda{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;
     letter-spacing:1.3px;color:#fff;background:var(--teal);padding:3px 8px;border-radius:6px}
   .nama{font-size:17px;font-weight:700;letter-spacing:-.2px;margin:0}
-  .pinjam{font-size:11px;font-weight:600;letter-spacing:.2px;color:var(--teal);
-    background:var(--chip);padding:3px 9px;border-radius:20px;align-self:flex-start}
+  .pinjam{font-size:11px;font-weight:600;color:var(--teal);background:var(--chip);
+    padding:3px 9px;border-radius:20px;align-self:flex-start}
   .alasan{font-size:13.5px;line-height:1.55;color:var(--hal-redup);margin:0}
   .alasan strong{color:var(--hal-teks)}
   .panggung-kartu{background:var(--panggung);border-radius:16px;padding:14px 0;display:flex;
     justify-content:center;overflow-x:auto}
 
   /* ================= bingkai layar ================= */
-  .layar{width:384px;flex:0 0 384px;border-radius:32px;overflow:hidden;
-    box-shadow:0 14px 34px rgba(14,40,33,.18);background:var(--kream);
-    display:flex;flex-direction:column}
+  .layar{width:384px;flex:0 0 384px;border-radius:32px;overflow:hidden;background:var(--kream);
+    box-shadow:0 14px 34px rgba(14,40,33,.18);display:flex;flex-direction:column}
   .layar.gelap{background:var(--teal-chrome)}
   .bar{height:50px;display:flex;align-items:center;justify-content:space-between;
     padding:0 26px;color:var(--tinta);flex:0 0 auto}
@@ -65,16 +64,13 @@
   .jam{font-size:15px;font-weight:700;letter-spacing:-.2px}
   .sinyal{display:flex;align-items:center;gap:7px}
 
-  /* baris merek atas ala ToyCAD */
   .merek{display:flex;align-items:center;justify-content:space-between;padding:2px 20px 12px}
-  .logo{width:34px;height:38px;flex:0 0 34px}
-  .pil-aksi{display:flex;align-items:center;gap:7px;background:var(--mint-terang);
-    border-radius:22px;padding:9px 15px}
-  .pil-aksi span{font-size:12.5px;font-weight:700;color:#0E3B33}
-  .layar.gelap .pil-aksi{background:transparent;padding:9px 4px}
-  .layar.gelap .pil-aksi span{color:#fff}
+  .pil-lok{display:flex;align-items:center;gap:6px;background:var(--mint-terang);
+    border-radius:22px;padding:9px 14px}
+  .pil-lok span{font-size:12.5px;font-weight:700;color:#0E3B33}
+  .layar.gelap .pil-lok{background:transparent;padding:9px 2px}
+  .layar.gelap .pil-lok span{color:#fff}
 
-  /* tab tersegmen ala ToyCAD */
   .segmen{display:flex;gap:6px;margin:0 20px 14px;background:rgba(14,40,33,.08);
     border-radius:24px;padding:4px}
   .layar.gelap .segmen{background:rgba(255,255,255,.10)}
@@ -85,81 +81,94 @@
   .layar.gelap .segmen div.on{background:#fff;color:var(--teal-chrome)}
 
   .badan{flex:1;padding:0 20px;min-height:0}
+  .dua-kolom{display:grid;grid-template-columns:1fr 1fr;gap:11px;align-items:stretch}
+  .dua-kolom > *{height:100%}
 
-  /* nav pil mengambang, tombol tengah heksagon */
   .navp{padding:14px 20px 18px;flex:0 0 auto}
   .navp .pil{height:62px;background:rgba(17,57,50,.94);border-radius:31px;display:flex;
     align-items:center;justify-content:space-between;padding:0 12px;
     box-shadow:0 8px 22px rgba(14,40,33,.26)}
-  .layar.gelap .navp .pil{background:rgba(255,255,255,.10);
-    border:1px solid rgba(255,255,255,.14);box-shadow:none}
+  .layar.gelap .navp .pil{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);box-shadow:none}
   .navp .t{width:46px;height:46px;display:flex;align-items:center;justify-content:center;position:relative}
   .navp .t .dot{position:absolute;top:8px;right:9px;width:7px;height:7px;border-radius:50%;background:#E5484D}
   .navp .plus{width:54px;height:58px;background:linear-gradient(150deg,#8BE8CE,var(--mint-terang));
     display:flex;align-items:center;justify-content:center;
     clip-path:polygon(50% 0%,93.3% 25%,93.3% 75%,50% 100%,6.7% 75%,6.7% 25%)}
 
-  /* ---------- G · dua pintu ---------- */
-  .g-kartu{border-radius:28px;padding:22px 20px;position:relative;overflow:hidden;
-    display:flex;flex-direction:column;min-height:236px;margin-bottom:14px}
-  .g-terang{background:linear-gradient(165deg,#FFFFFF 0%,#FFFFFF 52%,#E4F0E8 100%);
-    box-shadow:0 6px 20px rgba(14,40,33,.09)}
-  .g-gelap{background:linear-gradient(165deg,#1B5A4C 0%,#123F35 100%);
-    box-shadow:0 6px 20px rgba(14,40,33,.20)}
-  .g-kartu h3{margin:0;font-size:30px;font-weight:800;letter-spacing:-1px;line-height:1.05;
-    color:var(--tinta);max-width:250px}
-  .g-gelap h3{color:#fff}
-  .g-kartu p{margin:11px 0 0;font-size:12px;line-height:1.5;color:var(--redup);max-width:238px}
-  .g-gelap p{color:#A8CFC3}
-  .g-pilih{position:absolute;top:20px;right:20px;width:28px;height:28px;border-radius:50%}
-  .g-isi{background:var(--teal);display:flex;align-items:center;justify-content:center}
-  .g-kosong{border:2px solid rgba(255,255,255,.42)}
-  .g-kaki{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:9px}
-  .g-kaki b{font-size:16px;font-weight:800;letter-spacing:-.4px;color:var(--tinta)}
-  .g-gelap .g-kaki b{color:#fff}
-  .g-pita{position:absolute;left:0;top:64px;width:5px;height:54px;border-radius:0 4px 4px 0;background:var(--terakota)}
-  .g-gelap .g-pita{background:var(--mint-terang)}
+  /* ============ KARTU 1 · barang di sekitarmu ============ */
+  .k1{background:#fff;border-radius:28px;box-shadow:0 6px 20px rgba(14,40,33,.09);
+    margin-bottom:13px;overflow:hidden;position:relative}
+  .k1 .judul{text-align:center;padding:20px 16px 0}
+  .k1 h3{margin:0;font-weight:800;letter-spacing:-.6px;color:var(--tinta)}
+  .k1 p{margin:5px 0 0;color:var(--redup)}
+  .k1 .kipas{display:block;margin:4px auto 0}
+  /* penuh */
+  .k1.penuh h3{font-size:22px} .k1.penuh p{font-size:12px} .k1.penuh{padding-bottom:12px}
+  /* hero */
+  .k1.hero{border-radius:28px;background:linear-gradient(170deg,#2A7F69 0%,#10473B 100%);
+    min-height:306px;display:flex;flex-direction:column}
+  .k1.hero .judul{text-align:left;padding:0 18px 20px;order:2}
+  .k1.hero h3{font-size:26px;color:#fff;letter-spacing:-.8px}
+  .k1.hero p{font-size:12px;color:#9FCFC1;margin-top:6px}
+  /* margin auto di keempat sisi — kipas dipusatkan di ruang sisa, bukan didorong ke dasar */
+  .k1.hero .kipas{order:1;margin:auto}
+  /* ubin */
+  .k1.ubin{margin-bottom:0;min-height:172px;display:flex;flex-direction:column}
+  .k1.ubin .judul{text-align:left;padding:14px 13px 0}
+  .k1.ubin h3{font-size:16px;line-height:1.15} .k1.ubin p{font-size:10px;margin-top:4px}
+  .k1.ubin .kipas{margin:auto -12px -6px auto}
 
-  /* ---------- H · panggung ---------- */
-  .h-hero{border-radius:28px;overflow:hidden;position:relative;height:330px;
-    background:linear-gradient(170deg,#2A7F69 0%,#10473B 100%);margin-bottom:12px}
-  .h-gelembung{position:absolute;left:16px;top:18px;background:var(--terakota);color:#fff;
-    font-size:11.5px;font-weight:700;padding:8px 13px;border-radius:16px 16px 16px 4px;
-    transform:rotate(-7deg);z-index:3;box-shadow:0 5px 14px rgba(0,0,0,.2)}
-  .h-kipas{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:1}
-  .h-teks{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 18px 16px;
-    background:linear-gradient(180deg,rgba(9,42,34,0) 0%,rgba(9,42,34,.86) 62%)}
-  .h-teks b{display:block;font-size:19px;font-weight:800;letter-spacing:-.4px;color:#fff;line-height:1.2}
-  .h-teks small{display:block;font-size:10px;font-weight:500;letter-spacing:1.3px;
-    color:#9FCFC1;margin-top:5px}
-  .h-dua{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-  .h-mini{border-radius:20px;padding:13px;height:112px;display:flex;flex-direction:column;position:relative}
-  .h-a{background:#F3EFDF} .h-b{background:#1D5348}
-  .h-lencana{font-size:8.5px;font-weight:700;letter-spacing:.9px;color:#fff;background:var(--terakota);
-    padding:3px 8px;border-radius:9px;align-self:flex-start}
-  .h-mini b{margin-top:auto;font-size:14px;font-weight:700;letter-spacing:-.2px;color:var(--tinta)}
-  .h-b b{color:#fff}
-  .h-mini small{font-size:9px;font-weight:500;letter-spacing:.9px;color:var(--redup);margin-top:2px}
-  .h-b small{color:#8FB8AD}
+  /* ============ KARTU 2 · mau lapor apa hari ini ============ */
+  .k2{background:#fff;border-radius:28px;box-shadow:0 6px 20px rgba(14,40,33,.09);
+    margin-bottom:13px;padding:18px 16px;position:relative;overflow:hidden}
+  .k2 .lab{font-size:9px;font-weight:700;letter-spacing:1.3px;color:var(--teal)}
+  .k2 h3{margin:3px 0 0;font-weight:800;letter-spacing:-.5px;color:var(--tinta);line-height:1.08}
+  .k2 .ket{margin:8px 0 0;font-size:11px;line-height:1.45;color:var(--redup);max-width:186px}
+  .k2 .aksi{display:flex;align-items:center;gap:9px;margin-top:14px}
+  .k2 .tbl{background:var(--teal);border-radius:16px;padding:9px 14px;display:flex;align-items:center;
+    gap:7px;box-shadow:0 5px 13px rgba(37,113,95,.26)}
+  .k2 .tbl span{font-size:11.5px;font-weight:700;color:#fff}
+  .k2 .kep{background:var(--chip);border-radius:13px;padding:6px 10px}
+  .k2 .kep span{font-size:9px;font-weight:700;letter-spacing:.6px;color:var(--teal-tua)}
+  .k2 .fol{position:absolute;right:-8px;bottom:-10px;pointer-events:none}
+  .k2.penuh h3{font-size:19px}
+  /* max-width 236 supaya judul jatuh jadi dua baris, bukan tiga */
+  .k2.hero{min-height:200px} .k2.hero h3{font-size:28px;max-width:236px;letter-spacing:-.9px}
+  .k2.hero .ket{font-size:12px;max-width:196px}
+  .k2.ubin{margin-bottom:0;min-height:172px;padding:14px 13px;display:flex;flex-direction:column}
+  .k2.ubin h3{font-size:16px;line-height:1.15;max-width:none}
+  .k2.ubin .ket{display:none}
+  .k2.ubin .aksi{margin-top:auto}
+  .k2.ubin .tbl{padding:8px 12px} .k2.ubin .tbl span{font-size:10.5px}
+  .k2.ubin .kep{display:none}
+  /* folder hiasan tidak muat di ubin dan menimpa tombol — dimatikan, bukan digeser */
+  .k2.ubin .fol{display:none}
 
-  /* ---------- I · kisi pintu ---------- */
-  .i-hero{background:#fff;border-radius:28px;padding:20px;position:relative;overflow:hidden;
-    margin-bottom:12px;box-shadow:0 6px 20px rgba(14,40,33,.09);min-height:172px}
-  .i-hero h3{margin:0;font-size:27px;font-weight:800;letter-spacing:-.9px;line-height:1.06;
-    color:var(--tinta);max-width:180px}
-  .i-hero p{margin:9px 0 0;font-size:11.5px;color:var(--redup);max-width:170px}
-  .i-main{width:44px;height:44px;border-radius:50%;background:var(--mint-terang);
-    display:flex;align-items:center;justify-content:center;margin-top:16px}
-  .i-gbr{position:absolute;right:-10px;bottom:-6px;pointer-events:none}
-  .i-kisi{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-  .i-ubin{background:#fff;border-radius:20px;padding:13px;height:126px;display:flex;
-    flex-direction:column;position:relative;overflow:hidden;box-shadow:0 4px 14px rgba(14,40,33,.07)}
-  .i-ubin .lab{font-size:9px;font-weight:700;letter-spacing:1.1px;color:var(--teal)}
-  .i-ubin b{margin-top:3px;font-size:15px;font-weight:800;letter-spacing:-.4px;color:var(--tinta);
-    line-height:1.15;position:relative;z-index:2}
-  .i-ubin svg{position:absolute;right:-6px;bottom:-6px;z-index:1}
-  .i-ubin.teal{background:var(--teal-chrome)}
-  .i-ubin.teal .lab{color:var(--mint-terang)} .i-ubin.teal b{color:#fff}
+  /* ============ KARTU 3 · progres reputasi ============ */
+  .k3{background:var(--teal-chrome);border-radius:28px;padding:18px 16px 14px;margin-bottom:13px}
+  .layar.gelap .k3{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+  .k3 .atas{display:flex;align-items:center;gap:13px}
+  .k3 .tk{font-size:9px;font-weight:500;letter-spacing:1.5px;color:#8FB8AD}
+  .k3 h3{margin:2px 0 0;font-weight:800;letter-spacing:.4px;color:#fff;line-height:1.1}
+  .k3 .poin{margin:5px 0 0;display:flex;align-items:baseline;gap:5px}
+  .k3 .poin b{font-weight:800;color:#fff;letter-spacing:-.5px}
+  .k3 .poin i{font-style:normal;font-size:10px;font-weight:500;color:#8FB8AD;letter-spacing:.8px}
+  .k3 .jalur{height:7px;border-radius:4px;background:var(--rep-jalur);margin-top:9px;overflow:hidden}
+  .k3 .jalur i{display:block;height:100%;width:62%;border-radius:4px;background:var(--mint-terang)}
+  .k3 .sisa{margin:7px 0 0;font-size:9.5px;color:#B5D6CD}
+  .k3 .garis{height:1px;background:rgba(255,255,255,.13);margin:13px 0 11px}
+  .k3 .bawah{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .k3 .lencana{display:flex;gap:7px}
+  .k3 .lencana i{width:22px;height:24px;background:#1D5348;display:flex;align-items:center;
+    justify-content:center;clip-path:polygon(50% 0%,93.3% 25%,93.3% 75%,50% 100%,6.7% 75%,6.7% 25%)}
+  .k3 .hit{font-size:10.5px;font-weight:700;color:var(--mint-terang)}
+  .k3.penuh h3{font-size:22px} .k3.penuh .poin b{font-size:25px}
+  .k3.ubin{margin-bottom:0;min-height:172px;padding:14px 13px;display:flex;flex-direction:column}
+  .k3.ubin .atas{gap:0;display:block}
+  .k3.ubin h3{font-size:16px} .k3.ubin .poin b{font-size:20px}
+  .k3.ubin .lambang,.k3.ubin .garis,.k3.ubin .lencana{display:none}
+  .k3.ubin .bawah{margin-top:auto;padding-top:9px}
+  .k3.ubin .hit{font-size:9.5px}
 
   .catatan{margin:44px 0 0;padding:20px 22px;background:var(--kartu);border:1px solid var(--garis);
     border-radius:18px;font-size:13.5px;line-height:1.65;color:var(--hal-redup);max-width:800px}
@@ -177,50 +186,48 @@
 
   <header>
     <p class="kicker">BERANDA HUB · EKSPLORASI TATA LETAK</p>
-    <h1>Tiga layout, dipinjam dari ToyCAD</h1>
+    <h1>Tiga susunan untuk tiga kartu yang sama</h1>
     <p class="intro">
-      Yang dipinjam dari acuan itu <strong>gerakan tata letaknya</strong>, bukan warnanya:
-      kartu pilihan sebesar layar, tab tersegmen, hero yang mendominasi, kisi dua kolom,
-      dan nav pil mengambang dengan tombol di tengah. Palet, huruf, dan bahasa heksagon
-      tetap Balikin — chrome hitam ToyCAD saya terjemahkan jadi teal tua
-      <code style="font-size:12px">#113932</code>, warna yang sudah dipakai panel reputasi Anda.
+      Isinya tidak diubah sedikit pun — <strong>Barang di sekitarmu</strong>,
+      <strong>Mau lapor apa hari ini?</strong>, dan <strong>progres reputasi</strong>, lengkap
+      dengan 42 barang, tombol Buat laporan, keping ±3 menit, 720 poin, dan 5 dari 9 lencana.
+      Yang berubah hanya <strong>siapa yang dapat panggung</strong>. Gerakan tata letaknya
+      dipinjam dari acuan ToyCAD; palet, huruf, dan bahasa heksagon tetap Balikin.
     </p>
   </header>
 
   <div class="kisi" id="kisi"></div>
 
   <div class="catatan">
-    <h3>Apa yang diambil dari acuan</h3>
+    <h3>Sumbu yang diuji: siapa yang dapat panggung</h3>
     <ul>
-      <li><strong>Kartu pilihan sebesar layar</strong> (layar 1 ToyCAD: Full Version / Kids Version)
-          → jadi G, dipakai untuk percabangan asli Balikin: kehilangan vs menemukan.</li>
-      <li><strong>Hero yang mendominasi + tab tersegmen + kartu kecil berpasangan</strong>
-          (layar 2) → jadi H.</li>
-      <li><strong>Kartu utama + kisi dua kolom berlabel</strong> (layar 3) → jadi I.</li>
-      <li><strong>Nav pil mengambang dengan tombol tengah</strong> → dipakai ketiganya.
-          Tombolnya tetap heksagon, cuma pindah dari kanan ke tengah.</li>
+      <li><strong>J — tidak ada yang menang.</strong> Ketiganya kartu penuh selebar layar,
+          bobot setara. Paling dekat dengan susunan Anda sekarang, hanya lebih tegas dan lebih lapang.
+          Konsekuensinya layar jadi panjang; reputasi hampir pasti perlu digulung.</li>
+      <li><strong>K — barang yang menang.</strong> Kartu 1 jadi hero setinggi 326px, dua kartu lain
+          mengecil jadi sepasang ubin di bawahnya. Tab memisahkan "Di sekitarmu" dari "Punyaku".
+          Semuanya muat tanpa digulung, tapi tombol Buat laporan menyusut dan keping ±3 menit hilang.</li>
+      <li><strong>L — lapor yang menang.</strong> Kartu 2 naik jadi hero dengan judul 28px,
+          barang dan reputasi turun jadi dua ubin sejajar. Paling tegas mengarahkan orang
+          untuk bertindak, bukan menelusur.</li>
     </ul>
 
-    <h3>Yang tidak saya ambil</h3>
+    <h3>Yang hilang saat kartu mengecil</h3>
     <p>
-      Hitam, lime, dan render 3D mengilap. Tiga-tiganya identitas ToyCAD, bukan Balikin.
-      Balikin dibangun dari kisi 60°, sudut pangkas, dan palet hangat — kalau chrome-nya
-      jadi hitam dan aksennya lime, yang tersisa cuma tata letak orang lain.
+      Ini pertukaran yang harus Anda sadari, bukan cacat. Dalam bentuk ubin, kartu lapor
+      kehilangan kalimat penjelas dan keping <code>±3 MENIT</code>; kartu reputasi kehilangan
+      lambang heksagon, garis pemisah, dan deretan lencana — tersisa tingkat, poin, bilah
+      progres, dan hitungan lencana. Kalau salah satu dari yang hilang itu penting untuk
+      sidang, versi yang mengecilkannya bukan pilihan.
     </p>
 
-    <h3>Yang perlu Anda putuskan</h3>
+    <h3>Yang dipinjam dari acuan</h3>
     <ul>
-      <li><strong>G memindahkan percabangan ke beranda.</strong> Sekarang pilihan hilang/temuan
-          ada di halaman tujuan, dan beranda cuma punya satu tombol "Buat laporan". G membalik itu.
-          Sejalan dengan temuan terkuat di <code>README.md</code> — penemu ragu bertindak —
-          karena jalur "saya menemukan" jadi kartu penuh yang setara, bukan pilihan kedua.</li>
-      <li><strong>H menuntut foto barang asli.</strong> Hero di sini masih memakai kipas folder
-          karena saya tidak punya fotonya. Dengan foto sungguhan, H paling kuat dari ketiganya —
-          orang melihat ransel yang benar-benar hilang, bukan angka 42.</li>
-      <li><strong>Panel reputasi turun di G dan H.</strong> Di I ia jadi satu ubin kisi.
-          Kalau reputasi itu inti skripsi Anda, ia mungkin tidak boleh diturunkan sejauh itu.</li>
-      <li><strong>Tombol tambah pindah ke tengah</strong> di ketiganya. Itu perubahan kebiasaan,
-          bukan cuma tata letak — perlu dicek ulang terhadap Jelajahi dan Profil.</li>
+      <li>Kartu sebesar layar dengan judul dominan (ToyCAD layar 1) → J</li>
+      <li>Hero dominan, tab tersegmen, sepasang kartu kecil (layar 2) → K</li>
+      <li>Kartu utama plus kisi dua kolom (layar 3) → L</li>
+      <li>Nav pil mengambang bertombol tengah → ketiganya. Tombolnya tetap heksagon,
+          hanya pindah dari kanan ke tengah.</li>
     </ul>
   </div>
 </div>
@@ -238,15 +245,13 @@
 
 <script>
 (function(){
-  /* --- lambang heksagon Balikin --- */
+  var uid = 0;
+
   function logo(s){ s = s || 34;
-    return '<svg class="logo" width="'+s+'" height="'+(s*1.12)+'" viewBox="0 0 34 38" fill="none" aria-hidden="true">'
+    return '<svg width="'+s+'" height="'+Math.round(s*1.12)+'" viewBox="0 0 34 38" fill="none" aria-hidden="true">'
       + '<path d="M17 1.5 31 9.5v17L17 34.5 3 26.5v-17Z" fill="#15655B"/>'
       + '<path d="M17 7.5 26 12.7v10.6L17 28.5 8 23.3V12.7Z" fill="#2E8A74"/>'
       + '<path d="M17 13.2 21.5 15.8v5.2L17 23.6 12.5 21v-5.2Z" fill="#7BDCC5"/></svg>';
-  }
-  function wordmark(warna){
-    return '<b style="color:'+warna+'">Balikin</b>';
   }
   var IK = {
     rumah:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1Z" fill="#DCEDE7"/></svg>',
@@ -254,12 +259,9 @@
     chat:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4.5 6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-4 3.4V15.5H6.5a2 2 0 0 1-2-2Z" stroke="#9FC3B9" stroke-width="1.8" stroke-linejoin="round"/></svg>',
     akun:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8.2" r="3.6" stroke="#9FC3B9" stroke-width="1.8"/><path d="M5.4 19.4a6.8 6.8 0 0 1 13.2 0" stroke="#9FC3B9" stroke-width="1.8" stroke-linecap="round"/></svg>',
     plus:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#0E3B33" stroke-width="3.2" stroke-linecap="round"/></svg>',
-    centang:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5 9-9" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    tongkat:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 19 16 8m0 0 3-3M16 8l3 3" stroke="#0E3B33" stroke-width="2.2" stroke-linecap="round"/><path d="M7 4v4M5 6h4M18 15v3M16.5 16.5h3" stroke="#0E3B33" stroke-width="1.8" stroke-linecap="round"/></svg>',
-    main:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M9 6.5 18 12l-9 5.5Z" fill="#0E3B33"/></svg>',
+    panah:'<svg width="12" height="12" viewBox="0 0 100 100" fill="none"><path d="M16 50h62M58 30l20 20-20 20" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     lokasi:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg>'
   };
-
   function nav(){
     return '<div class="navp"><div class="pil">'
       + '<div class="t">'+IK.rumah+'</div><div class="t">'+IK.kompas+'</div>'
@@ -268,108 +270,94 @@
       + '</div></div>';
   }
 
-  /* kipas folder Balikin, ukuran bisa diatur */
+  /* kipas folder — identik di semua versi, hanya ukurannya berbeda */
   function kipas(w){
-    return '<svg width="'+w+'" height="'+Math.round(w*0.44)+'" viewBox="0 0 300 132" fill="none" aria-hidden="true">'
-      + '<defs><linearGradient id="kh'+w+'" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#22876B"/><stop offset="1" stop-color="#0F5A48"/></linearGradient>'
-      + '<linearGradient id="km'+w+'" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#ACE2D1"/><stop offset="1" stop-color="#8ACDB8"/></linearGradient></defs>'
+    var id = 'g'+(uid++);
+    return '<svg class="kipas" width="'+w+'" height="'+Math.round(w*0.44)+'" viewBox="0 0 300 132" fill="none" aria-hidden="true">'
+      + '<defs><linearGradient id="kh'+id+'" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#22876B"/><stop offset="1" stop-color="#0F5A48"/></linearGradient>'
+      + '<linearGradient id="km'+id+'" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#ACE2D1"/><stop offset="1" stop-color="#8ACDB8"/></linearGradient></defs>'
       + '<g transform="rotate(-15 62 74)"><rect x="12" y="34" width="60" height="16" rx="6" fill="#A8502C"/><rect x="8" y="42" width="84" height="62" rx="12" fill="#CF693C"/></g>'
       + '<g transform="rotate(-7 104 70)"><rect x="60" y="26" width="62" height="16" rx="6" fill="#C79430"/><rect x="56" y="34" width="88" height="66" rx="12" fill="#E5B551"/></g>'
       + '<g transform="rotate(13 236 72)"><rect x="196" y="30" width="58" height="15" rx="6" fill="#D6CFC0"/><rect x="192" y="38" width="84" height="62" rx="12" fill="#E8E1D4"/></g>'
-      + '<g transform="rotate(7 206 64)"><rect x="168" y="22" width="60" height="16" rx="6" fill="#86C7B2"/><rect x="164" y="30" width="86" height="64" rx="12" fill="url(#km'+w+')"/></g>'
-      + '<g><rect x="96" y="20" width="76" height="18" rx="7" fill="#0B4436"/><rect x="90" y="30" width="118" height="84" rx="14" fill="url(#kh'+w+')"/>'
+      + '<g transform="rotate(7 206 64)"><rect x="168" y="22" width="60" height="16" rx="6" fill="#86C7B2"/><rect x="164" y="30" width="86" height="64" rx="12" fill="url(#km'+id+')"/></g>'
+      + '<g><rect x="96" y="20" width="76" height="18" rx="7" fill="#0B4436"/><rect x="90" y="30" width="118" height="84" rx="14" fill="url(#kh'+id+')"/>'
       + '<text x="180" y="98" text-anchor="end" font-family="\'Plus Jakarta Sans\',sans-serif" font-size="30" font-weight="800" fill="#96D8C4" letter-spacing="-1">42</text></g></svg>';
   }
-  /* satu folder besar — dudukan foto barang di hero versi H.
-     Sengaja tanpa angka: hero H membicarakan SATU barang, bukan kumpulan. */
-  function folderSolo(w){
-    return '<svg width="'+w+'" height="'+Math.round(w*0.84)+'" viewBox="0 0 220 185" fill="none" aria-hidden="true">'
-      + '<defs><linearGradient id="fsA" x1="0" y1="0" x2=".4" y2="1">'
-      + '<stop offset="0" stop-color="#3B4149"/><stop offset="1" stop-color="#1C2026"/></linearGradient></defs>'
-      + '<rect x="46" y="16" width="92" height="22" rx="9" fill="#141319"/>'
-      + '<rect x="32" y="32" width="156" height="132" rx="20" fill="url(#fsA)"/>'
-      + '<rect x="48" y="52" width="124" height="66" rx="12" fill="#FFFFFF" opacity=".07"/>'
-      + '<circle cx="76" cy="78" r="11" fill="#FFFFFF" opacity=".13"/>'
-      + '<path d="M56 112l26-24 20 18 16-13 26 23Z" fill="#FFFFFF" opacity=".13"/></svg>';
+  function folderKecil(w){
+    return '<svg width="'+w+'" height="'+Math.round(w*0.8)+'" viewBox="0 0 150 120" fill="none" aria-hidden="true">'
+      + '<g transform="rotate(-10 58 56)"><rect x="24" y="16" width="52" height="14" rx="5" fill="#A8502C"/><rect x="20" y="24" width="76" height="58" rx="11" fill="#CF693C"/></g>'
+      + '<g transform="rotate(6 104 74)"><rect x="70" y="36" width="56" height="15" rx="6" fill="#0B4436"/><rect x="66" y="44" width="82" height="62" rx="12" fill="#19715A"/></g></svg>';
   }
-  function folderMini(w,a,b){
-    return '<svg width="'+w+'" height="'+w+'" viewBox="0 0 100 100" fill="none" aria-hidden="true">'
-      + '<g transform="rotate(-9 40 52)"><rect x="12" y="26" width="38" height="11" rx="4" fill="'+b+'"/><rect x="8" y="33" width="56" height="42" rx="9" fill="'+a+'"/></g></svg>';
+  function lambangTingkat(w){
+    return '<svg class="lambang" width="'+w+'" height="'+Math.round(w*1.08)+'" viewBox="0 0 74 80" fill="none" aria-hidden="true">'
+      + '<path d="M37 3 66 20v40L37 77 8 60V20Z" fill="#1C5F51"/>'
+      + '<path d="M37 11 59 24v32L37 69 15 56V24Z" fill="#2E8A74" opacity=".85"/>'
+      + '<path d="M37 19 52 28v24l-15 9-15-9V28Z" fill="#7BDCC5" opacity=".5"/>'
+      + '<path d="M37 30l9 10-9 10-9-10Z" fill="#EAFBF5"/></svg>';
+  }
+  var LENCANA = ['m5 12 5 5 9-9','M12 3 20 8v8l-8 5-8-5V8Z','M3 5h18v12H3Z','m12 5 7 7-7 7-7-7Z','M6 3h8l4 4v14H6Z']
+    .map(function(d){ return '<i><svg width="10" height="10" viewBox="0 0 24 24" fill="none">'
+      + '<path d="'+d+'" stroke="#7BDCC5" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg></i>'; }).join('');
+
+  /* ---- tiga kartu, isi persis sama, tiga ukuran ---- */
+  function kartuBarang(m){
+    var w = m==='hero' ? 300 : (m==='ubin' ? 172 : 268);
+    /* isi kartu identik di ketiga versi — tidak ada teks tambahan di varian mana pun */
+    return '<div class="k1 '+m+'">'
+      + '<div class="judul"><h3>Barang di sekitarmu</h3><p>42 barang menunggu pemiliknya</p></div>'
+      + kipas(w) + '</div>';
+  }
+  function kartuLapor(m){
+    return '<div class="k2 '+m+'">'
+      + '<div class="lab">LAPORAN BARU</div>'
+      + '<h3>Mau lapor apa<br>hari ini?</h3>'
+      + '<p class="ket">Barang hilang atau barang temuan, mulai dari sini.</p>'
+      + '<div class="aksi"><div class="tbl"><span>Buat laporan</span>'+IK.panah+'</div>'
+      + '<div class="kep"><span class="mono">±3 MENIT</span></div></div>'
+      + '<div class="fol">'+folderKecil(m==='hero'?160:(m==='ubin'?104:150))+'</div></div>';
+  }
+  function kartuReputasi(m){
+    return '<div class="k3 '+m+'">'
+      + '<div class="atas">'+(m==='ubin'?'':lambangTingkat(74))
+      + '<div style="flex:1;min-width:0">'
+      + '<div class="tk mono">TINGKAT 3 DARI 5</div><h3>PENOLONG</h3>'
+      + '<div class="poin"><b>720</b><i class="mono">POIN</i></div>'
+      + '<div class="jalur"><i></i></div>'
+      + '<p class="sisa mono">180 poin lagi ke Penjaga Kota</p></div></div>'
+      + '<div class="garis"></div>'
+      + '<div class="bawah"><div class="lencana">'+LENCANA+'</div>'
+      + '<div class="hit">5 dari 9 lencana</div></div></div>';
   }
 
   var versi = [
-    {
-      kode:'G', nama:'Dua pintu', pinjam:'dipinjam: kartu pilihan sebesar layar (layar 1)',
-      gelap:false,
-      atas:'<div class="merek">'+logo()
-        + '<div class="pil-aksi">'+IK.tongkat+'<span>Lapor cepat</span></div></div>',
-      badan:
-        '<div class="g-kartu g-terang"><span class="g-pita"></span>'
-        + '<div class="g-pilih g-isi">'+IK.centang+'</div>'
-        + '<h3>Barang saya hilang</h3>'
-        + '<p>Cari di 42 barang yang sedang menunggu pemiliknya di Cisaat, lalu buktikan cirinya.</p>'
-        + '<div class="g-kaki">'+logo(24)+wordmark('#16322B')+'</div></div>'
-        + '<div class="g-kartu g-gelap"><span class="g-pita"></span>'
-        + '<div class="g-pilih g-kosong"></div>'
-        + '<h3>Saya menemukan barang</h3>'
-        + '<p>Serahkan tanpa harus menilai sendiri siapa pemiliknya. Asisten verifikasi yang menanyakan cirinya.</p>'
-        + '<div class="g-kaki">'+logo(24)+wordmark('#FFFFFF')+'</div></div>',
-      alasan:'Percabangan sesungguhnya di Balikin bukan "lapor atau tidak", tapi <strong>kehilangan atau menemukan</strong> '
-        + '— dan sekarang pilihan itu terkubur di halaman tujuan, di balik satu tombol "Buat laporan". '
-        + 'G menaikkannya jadi dua kartu setara sebesar layar. Ini menjawab langsung temuan terkuat skripsi Anda: '
-        + 'penemu ragu bertindak. Kalau jalurnya kartu penuh, bukan pilihan kedua, ragunya berkurang.'
-    },
-    {
-      kode:'H', nama:'Panggung', pinjam:'dipinjam: hero dominan + tab + kartu berpasangan (layar 2)',
-      gelap:true,
-      atas:'<div class="merek">'+logo()
-        + '<div class="pil-aksi" style="color:#fff">'+IK.lokasi+'<span>Cisaat · 2 km</span></div></div>'
+    { kode:'J', nama:'Tumpukan penuh', gelap:false,
+      pinjam:'dipinjam: kartu sebesar layar (layar 1)',
+      atas:'<div class="merek">'+logo()+'<div class="pil-lok">'+IK.lokasi+'<span>Cisaat · 2 km</span></div></div>',
+      badan: kartuBarang('penuh') + kartuLapor('penuh') + kartuReputasi('penuh'),
+      alasan:'Ketiganya kartu penuh selebar layar, bobot setara — <strong>tidak ada yang menang</strong>. '
+        + 'Paling dekat dengan susunan Anda sekarang, hanya lebih tegas dan lebih lapang. '
+        + 'Konsekuensinya layar jadi panjang: panel reputasi hampir pasti perlu digulung.' },
+
+    { kode:'K', nama:'Barang jadi panggung', gelap:true,
+      pinjam:'dipinjam: hero dominan + tab + sepasang kartu (layar 2)',
+      atas:'<div class="merek">'+logo()+'<div class="pil-lok">'+IK.lokasi+'<span>Cisaat · 2 km</span></div></div>'
         + '<div class="segmen"><div class="on">Di sekitarmu</div><div>Punyaku</div></div>',
-      badan:
-        '<div class="h-hero"><div class="h-gelembung">Baru 10 menit lalu</div>'
-        + '<div class="h-kipas">'+folderSolo(214)+'</div>'
-        + '<div class="h-teks"><b>Tas ransel hitam untuk laptop</b>'
-        + '<small class="mono">HALTE CIKOLE · 1,2 KM · 531 DILIHAT</small></div></div>'
-        + '<div class="h-dua">'
-        + '<div class="h-mini h-a"><span class="h-lencana">BARU</span>'
-        + folderMini(74,'#CF693C','#A8502C')+'<b>Dompet cokelat</b><small class="mono">180 M</small></div>'
-        + '<div class="h-mini h-b"><span class="h-lencana">BARU</span>'
-        + folderMini(74,'#19715A','#0B4436')+'<b>Kunci motor</b><small class="mono">640 M</small></div>'
-        + '</div>',
-      alasan:'Beranda sekarang membuka dengan <strong>abstraksi</strong> — kipas folder dan angka 42. '
-        + 'H membukanya dengan satu barang nyata, sebesar mungkin, plus tab untuk memisahkan '
-        + '"di sekitarmu" dari "punyaku". Gelembung terakota meniru tag "Time to Print!" di acuan, '
-        + 'tapi dipakai untuk kebaruan — hal yang benar-benar mendesak di aplikasi lost &amp; found. '
-        + '<strong>Folder gelap di hero itu dudukan, bukan karya jadi:</strong> tempat foto barang '
-        + 'sungguhan nanti dipasang. Tanpa foto itu, H kehilangan sebagian besar kekuatannya.'
-    },
-    {
-      kode:'I', nama:'Kisi pintu', pinjam:'dipinjam: kartu utama + kisi dua kolom berlabel (layar 3)',
-      gelap:false,
-      atas:'<div class="merek">'+logo()
-        + '<div class="pil-aksi">'+IK.lokasi+'<span>Cisaat · 2 km</span></div></div>'
+      badan: kartuBarang('hero') + '<div class="dua-kolom">'+kartuLapor('ubin')+kartuReputasi('ubin')+'</div>',
+      alasan:'Kartu 1 naik jadi hero setinggi 326px; dua kartu lain mengecil jadi sepasang ubin sejajar. '
+        + 'Tab memisahkan "Di sekitarmu" dari "Punyaku". <strong>Semuanya muat tanpa digulung</strong> — '
+        + 'tapi tombol Buat laporan menyusut dan keping ±3 menit hilang.' },
+
+    { kode:'L', nama:'Lapor jadi panggung', gelap:false,
+      pinjam:'dipinjam: kartu utama + kisi dua kolom (layar 3)',
+      atas:'<div class="merek">'+logo()+'<div class="pil-lok">'+IK.lokasi+'<span>Cisaat · 2 km</span></div></div>'
         + '<div class="segmen"><div class="on">Mulai</div><div>Terakhir</div></div>',
-      badan:
-        '<div class="i-hero"><h3>Mau lapor apa hari ini?</h3>'
-        + '<p>Barang hilang atau temuan, mulai di sini. ±3 menit.</p>'
-        + '<div class="i-main">'+IK.main+'</div>'
-        + '<div class="i-gbr">'+kipas(190)+'</div></div>'
-        + '<div class="i-kisi">'
-        + '<div class="i-ubin"><span class="lab">PINTU</span><b>Barang<br>hilang</b>'+folderMini(84,'#CF693C','#A8502C')+'</div>'
-        + '<div class="i-ubin"><span class="lab">PINTU</span><b>Barang<br>temuan</b>'+folderMini(84,'#E5B551','#C79430')+'</div>'
-        + '<div class="i-ubin"><span class="lab">JELAJAH</span><b>Peta<br>Cisaat</b>'+folderMini(84,'#9CD8C6','#86C7B2')+'</div>'
-        + '<div class="i-ubin teal"><span class="lab">TINGKAT 3</span><b>720<br>poin</b>'+folderMini(84,'#1D5348','#0B4436')+'</div>'
-        + '</div>',
-      alasan:'Beranda sekarang adalah <strong>tumpukan vertikal kartu tak setara</strong> — yang di atas menang, '
-        + 'yang di bawah nyaris tak terlihat. I mengubahnya jadi hub sungguhan: satu kartu utama, '
-        + 'lalu empat pintu setara yang bisa dipindai sekali lihat. Reputasi turun jadi satu ubin — '
-        + 'hemat tempat, tapi periksa apakah itu terlalu jauh untuk inti skripsi Anda.'
-    }
+      badan: kartuLapor('hero') + '<div class="dua-kolom">'+kartuBarang('ubin')+kartuReputasi('ubin')+'</div>',
+      alasan:'Kartu 2 naik jadi hero dengan judul 28px; barang dan reputasi turun jadi dua ubin sejajar. '
+        + '<strong>Paling tegas mengarahkan orang untuk bertindak</strong>, bukan menelusur — '
+        + 'cocok kalau tujuan beranda adalah menaikkan jumlah laporan masuk.' }
   ];
 
-  var kisi = document.getElementById('kisi');
-  var tplBar = document.getElementById('tpl-bar');
-
+  var kisi = document.getElementById('kisi'), tplBar = document.getElementById('tpl-bar');
   versi.forEach(function(v){
     var sec = document.createElement('section');
     sec.className = 'kartu';
