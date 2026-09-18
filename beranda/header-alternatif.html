@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiga Arah Header</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    /* nilai diambil langsung dari berkas Figma BALIKIN-APP-EDU */
+    --mint:#DDE7E0; --kream:#ECE5DA; --kertas:#FBF8F3;
+    --teal:#15655B; --teal-terang:#1B7A6E; --emas:#C8952E; --terakota:#BC5A3C;
+    --tinta:#211C16; --tinta-hijau:#22312E; --redup:#8A8175; --kedua:#6B6258;
+
+    --hal-bg:#F4F1EA; --hal-teks:#22312E; --hal-redup:#6B6258;
+    --kartu:#FFFFFF; --garis:#E2DCCF; --chip:#ECE5DA;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --hal-bg:#16201D; --hal-teks:#E8EDE9; --hal-redup:#9DAAA4;
+      --kartu:#1E2A27; --garis:#2C3A36; --chip:#26332F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --hal-bg:#16201D; --hal-teks:#E8EDE9; --hal-redup:#9DAAA4;
+    --kartu:#1E2A27; --garis:#2C3A36; --chip:#26332F;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--hal-bg); color:var(--hal-teks);
+    font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .bungkus{max-width:1180px;margin:0 auto;padding:40px 16px 72px}
+
+  header.judul{max-width:640px;margin-bottom:8px}
+  .kicker{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;
+    letter-spacing:1.6px;color:var(--teal-terang);margin:0 0 10px}
+  h1{font-size:clamp(26px,5vw,38px);line-height:1.12;letter-spacing:-.6px;margin:0 0 14px;font-weight:800}
+  .intro{font-size:15px;line-height:1.6;color:var(--hal-redup);margin:0}
+
+  .kisi{display:grid;gap:22px;margin-top:34px;
+    grid-template-columns:repeat(auto-fill,minmax(316px,1fr))}
+
+  .kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:20px;
+    padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+  .kartu.dasar{border-style:dashed;opacity:.92}
+
+  .tajuk{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .tanda{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;
+    letter-spacing:1.3px;color:#fff;background:var(--teal);padding:3px 8px;border-radius:6px}
+  .kartu.dasar .tanda{background:var(--redup)}
+  .nama{font-size:17px;font-weight:700;letter-spacing:-.2px;margin:0}
+  .alasan{font-size:13.5px;line-height:1.55;color:var(--hal-redup);margin:0}
+
+  /* ---------- bingkai layar 384px ---------- */
+  .panggung{background:var(--chip);border-radius:16px;padding:14px 0;display:flex;justify-content:center;overflow-x:auto}
+  .layar{width:384px;flex:0 0 384px;background:var(--mint);border-radius:26px;overflow:hidden;
+    box-shadow:0 10px 26px rgba(18,42,36,.13);font-size:0}
+  .layar.teal{background:var(--teal)}
+
+  .bar{height:52px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 26px;color:var(--tinta)}
+  .layar.teal .bar{color:#fff}
+  .jam{font-size:15px;font-weight:700;letter-spacing:-.2px}
+  .sinyal{display:flex;align-items:center;gap:7px}
+
+  .umpan{background:var(--kream);border-radius:22px 22px 0 0;margin:0 1px;padding:14px 16px 20px}
+  .umpan-kartu{background:#fff;border-radius:16px;height:56px;display:flex;align-items:center;
+    gap:11px;padding:0 13px;box-shadow:0 3px 10px rgba(18,42,36,.06)}
+  .umpan-bulat{width:32px;height:32px;border-radius:50%;flex:0 0 32px;
+    background:linear-gradient(145deg,#2E9A8B,#15655B)}
+  .umpan-garis{flex:1;display:flex;flex-direction:column;gap:6px}
+  .umpan-garis i{display:block;height:7px;border-radius:4px;background:#E4E0D6}
+  .umpan-garis i:first-child{width:62%}
+  .umpan-garis i:last-child{width:38%;background:#EDEAE2}
+
+  /* elemen bersama */
+  .bulat{width:44px;height:44px;border-radius:50%;background:#fff;flex:0 0 44px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(18,42,36,.09)}
+  .avatar{width:44px;height:44px;border-radius:50%;flex:0 0 44px;display:flex;align-items:center;
+    justify-content:center;background:linear-gradient(145deg,#2E9A8B,#15655B);
+    color:#fff;font-size:18px;font-weight:700;box-shadow:0 2px 6px rgba(18,42,36,.12)}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+
+  /* --- dasar: seperti sekarang --- */
+  .d-baris{display:flex;align-items:center;gap:10px;padding:6px 20px 16px}
+  .d-pil{flex:1;min-width:0;height:44px;background:#fff;border-radius:22px;display:flex;
+    align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 6px rgba(18,42,36,.09)}
+  .d-pil span{font-size:12.5px;font-weight:500;letter-spacing:1.1px;color:var(--teal)}
+
+  /* --- A: satu baris --- */
+  .a-baris{padding:4px 20px 16px}
+  .a-bar{height:58px;background:#fff;border-radius:29px;display:flex;align-items:center;
+    gap:11px;padding:7px 8px 7px 7px;box-shadow:0 4px 14px rgba(18,42,36,.10)}
+  .a-avatar{width:44px;height:44px;flex:0 0 44px}
+  .a-teks{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+  .a-teks b{font-size:15px;font-weight:700;letter-spacing:-.2px;color:var(--tinta-hijau);line-height:1.15}
+  .a-teks small{font-size:9px;font-weight:500;letter-spacing:1.3px;color:var(--redup);line-height:1.3}
+  .a-ikon{display:flex;align-items:center;gap:2px;padding-right:5px}
+  .a-tombol{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+  /* --- B: lokasi utama --- */
+  .b-atas{display:flex;align-items:center;justify-content:space-between;padding:2px 20px 0}
+  .b-kanan{display:flex;gap:8px}
+  .b-teks{padding:14px 20px 18px}
+  .b-lokasi{display:flex;align-items:center;gap:7px}
+  .b-lokasi h2{margin:0;font-size:27px;font-weight:800;letter-spacing:-.8px;color:var(--tinta-hijau);line-height:1.05}
+  .b-meta{margin:7px 0 0;font-size:10px;font-weight:500;letter-spacing:1.4px;color:var(--kedua)}
+  .b-meta em{font-style:normal;color:var(--teal-terang);font-weight:700}
+
+  /* --- C: kanvas teal --- */
+  .c-blok{padding:2px 20px 20px;position:relative;overflow:hidden}
+  .c-sarang{position:absolute;right:-34px;top:-46px;opacity:.10;pointer-events:none}
+  .c-baris{display:flex;align-items:center;gap:12px;position:relative}
+  .c-avatar{border:2px solid rgba(255,255,255,.55);background:linear-gradient(145deg,#3FB49F,#15655B)}
+  .c-teks{flex:1;min-width:0}
+  .c-teks b{display:block;font-size:19px;font-weight:800;letter-spacing:-.4px;color:#fff;line-height:1.15}
+  .c-teks small{display:block;font-size:9.5px;font-weight:500;letter-spacing:1.4px;
+    color:rgba(255,255,255,.72);margin-top:3px}
+  .c-bulat{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;box-shadow:none}
+  .c-rule{height:3px;width:52px;border-radius:2px;background:var(--emas);margin:16px 0 0}
+
+  .catatan{margin:44px 0 0;padding:20px 22px;background:var(--kartu);border:1px solid var(--garis);
+    border-radius:18px;font-size:13.5px;line-height:1.65;color:var(--hal-redup);max-width:760px}
+  .catatan h3{margin:0 0 10px;font-size:15px;font-weight:700;color:var(--hal-teks)}
+  .catatan code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
+    background:var(--chip);padding:1px 5px;border-radius:4px;color:var(--hal-teks)}
+  .catatan ul{margin:10px 0 0;padding-left:18px}
+  .catatan li{margin-bottom:6px}
+
+  @media (max-width:420px){
+    .bungkus{padding:28px 16px 56px}
+    .panggung{border-radius:14px;padding:12px 0}
+  }
+</style>
+</head>
+<body>
+<div class="bungkus">
+
+  <header class="judul">
+    <p class="kicker">BERANDA · BALIKIN</p>
+    <h1>Tiga arah header beranda</h1>
+    <p class="intro">
+      Header sekarang menaruh empat bentuk putih mengambang di atas latar mint — avatar,
+      pil lokasi, cari, dan notifikasi — yang saling berebut perhatian tanpa hierarki.
+      Tiga alternatif di bawah masing-masing mengambil satu sikap berbeda terhadap masalah itu.
+      Seluruh warna dan huruf diambil dari berkas Figma, bukan dikarang.
+    </p>
+  </header>
+
+  <div class="kisi">
+
+    <!-- ============ DASAR ============ -->
+    <section class="kartu dasar">
+      <div class="tajuk">
+        <span class="tanda">SEKARANG</span>
+        <h2 class="nama">Empat bentuk mengambang</h2>
+      </div>
+      <div class="panggung">
+        <div class="layar">
+          <div class="bar">
+            <span class="jam">11:05</span>
+            <span class="sinyal">
+              <svg viewBox="0 0 18 12" width="17" height="11" aria-hidden="true"><rect y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" width="3" height="12" rx="1" fill="currentColor"/></svg>
+              <svg viewBox="0 0 16 12" width="15" height="11" fill="none" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M3.9 7.3a6 6 0 0 1 8.2 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="8" cy="10.3" r="1.3" fill="currentColor"/></svg>
+              <svg viewBox="0 0 25 12" width="24" height="11" fill="none" aria-hidden="true"><rect x=".6" y=".6" width="21" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.2" opacity=".42"/><rect x="2.3" y="2.3" width="17.6" height="7.4" rx="2" fill="currentColor"/><path d="M23.3 4.5v3a1.9 1.9 0 0 0 0-3Z" fill="currentColor" opacity=".42"/></svg>
+            </span>
+          </div>
+          <div class="d-baris">
+            <div class="avatar">P</div>
+            <div class="d-pil">
+              <span class="mono">CISAAT · SUKABUMI</span>
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" style="color:#15655B" aria-hidden="true"><path d="m6 9.5 6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="bulat">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C" aria-hidden="true"><path d="M9.6 3.4 15 6.5v6.2l-5.4 3.1-5.4-3.1V6.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="miter"/><path d="m14.2 13.6 5.4 6.2" stroke="#C8952E" stroke-width="2.6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="bulat">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C" aria-hidden="true"><path d="M6.4 10.4a5.6 5.6 0 0 1 11.2 0c0 3 .7 4.3 1.5 5.2.5.6.1 1.5-.7 1.5H5.6c-.8 0-1.2-.9-.7-1.5.8-.9 1.5-2.2 1.5-5.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10.3 19.8a2.1 2.1 0 0 0 3.4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="17.7" cy="5.9" r="3" fill="#BC5A3C"/></svg>
+            </div>
+          </div>
+          <div class="umpan">
+            <div class="umpan-kartu"><div class="umpan-bulat"></div><div class="umpan-garis"><i></i><i></i></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="alasan">
+        Pil lokasi jadi elemen terlebar padahal lokasi bukan informasi terpenting.
+        Tidak ada satu pun yang memberi tahu <em>ada berapa barang di dekatku sekarang</em>.
+      </p>
+    </section>
+
+    <!-- ============ A ============ -->
+    <section class="kartu">
+      <div class="tajuk">
+        <span class="tanda">A</span>
+        <h2 class="nama">Satu baris</h2>
+      </div>
+      <div class="panggung">
+        <div class="layar">
+          <div class="bar">
+            <span class="jam">11:05</span>
+            <span class="sinyal">
+              <svg viewBox="0 0 18 12" width="17" height="11" aria-hidden="true"><rect y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" width="3" height="12" rx="1" fill="currentColor"/></svg>
+              <svg viewBox="0 0 16 12" width="15" height="11" fill="none" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M3.9 7.3a6 6 0 0 1 8.2 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="8" cy="10.3" r="1.3" fill="currentColor"/></svg>
+              <svg viewBox="0 0 25 12" width="24" height="11" fill="none" aria-hidden="true"><rect x=".6" y=".6" width="21" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.2" opacity=".42"/><rect x="2.3" y="2.3" width="17.6" height="7.4" rx="2" fill="currentColor"/><path d="M23.3 4.5v3a1.9 1.9 0 0 0 0-3Z" fill="currentColor" opacity=".42"/></svg>
+            </span>
+          </div>
+          <div class="a-baris">
+            <div class="a-bar">
+              <div class="avatar a-avatar">P</div>
+              <div class="a-teks">
+                <b>Cisaat</b>
+                <small class="mono">SUKABUMI · 8 BARANG</small>
+              </div>
+              <div class="a-ikon">
+                <div class="a-tombol">
+                  <svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C" aria-hidden="true"><path d="M9.6 3.4 15 6.5v6.2l-5.4 3.1-5.4-3.1V6.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="miter"/><path d="m14.2 13.6 5.4 6.2" stroke="#C8952E" stroke-width="2.6" stroke-linecap="round"/></svg>
+                </div>
+                <div class="a-tombol">
+                  <svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C" aria-hidden="true"><path d="M6.4 10.4a5.6 5.6 0 0 1 11.2 0c0 3 .7 4.3 1.5 5.2.5.6.1 1.5-.7 1.5H5.6c-.8 0-1.2-.9-.7-1.5.8-.9 1.5-2.2 1.5-5.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10.3 19.8a2.1 2.1 0 0 0 3.4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="17.7" cy="5.9" r="3" fill="#BC5A3C"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="umpan">
+            <div class="umpan-kartu"><div class="umpan-bulat"></div><div class="umpan-garis"><i></i><i></i></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="alasan">
+        Empat bentuk putih dilebur jadi <strong>satu</strong>. Lingkaran ikon dilepas —
+        ikonnya berdiri sendiri di dalam bar. Paling tenang, paling sedikit berubah,
+        dan menyisakan ruang paling lapang untuk umpan barang di bawahnya.
+      </p>
+    </section>
+
+    <!-- ============ B ============ -->
+    <section class="kartu">
+      <div class="tajuk">
+        <span class="tanda">B</span>
+        <h2 class="nama">Lokasi jadi judul</h2>
+      </div>
+      <div class="panggung">
+        <div class="layar">
+          <div class="bar">
+            <span class="jam">11:05</span>
+            <span class="sinyal">
+              <svg viewBox="0 0 18 12" width="17" height="11" aria-hidden="true"><rect y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" width="3" height="12" rx="1" fill="currentColor"/></svg>
+              <svg viewBox="0 0 16 12" width="15" height="11" fill="none" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M3.9 7.3a6 6 0 0 1 8.2 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="8" cy="10.3" r="1.3" fill="currentColor"/></svg>
+              <svg viewBox="0 0 25 12" width="24" height="11" fill="none" aria-hidden="true"><rect x=".6" y=".6" width="21" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.2" opacity=".42"/><rect x="2.3" y="2.3" width="17.6" height="7.4" rx="2" fill="currentColor"/><path d="M23.3 4.5v3a1.9 1.9 0 0 0 0-3Z" fill="currentColor" opacity=".42"/></svg>
+            </span>
+          </div>
+          <div class="b-atas">
+            <div class="avatar">P</div>
+            <div class="b-kanan">
+              <div class="bulat">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C" aria-hidden="true"><path d="M9.6 3.4 15 6.5v6.2l-5.4 3.1-5.4-3.1V6.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="miter"/><path d="m14.2 13.6 5.4 6.2" stroke="#C8952E" stroke-width="2.6" stroke-linecap="round"/></svg>
+              </div>
+              <div class="bulat">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C" aria-hidden="true"><path d="M6.4 10.4a5.6 5.6 0 0 1 11.2 0c0 3 .7 4.3 1.5 5.2.5.6.1 1.5-.7 1.5H5.6c-.8 0-1.2-.9-.7-1.5.8-.9 1.5-2.2 1.5-5.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10.3 19.8a2.1 2.1 0 0 0 3.4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="17.7" cy="5.9" r="3" fill="#BC5A3C"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="b-teks">
+            <div class="b-lokasi">
+              <h2>Cisaat</h2>
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" style="color:#15655B" aria-hidden="true"><path d="m6 9.5 6 6 6-6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="b-meta mono">SUKABUMI · <em>8 BARANG</em> DALAM 2 KM</p>
+          </div>
+          <div class="umpan">
+            <div class="umpan-kartu"><div class="umpan-bulat"></div><div class="umpan-garis"><i></i><i></i></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="alasan">
+        Pil dibuang; lokasi naik jadi judul sungguhan dengan Plus Jakarta Sans ExtraBold,
+        meta di bawahnya pakai JetBrains Mono — hierarki yang <strong>sudah dipakai</strong>
+        layar Jelajahi Anda. Header jadi memberi kabar, bukan cuma navigasi.
+      </p>
+    </section>
+
+    <!-- ============ C ============ -->
+    <section class="kartu">
+      <div class="tajuk">
+        <span class="tanda">C</span>
+        <h2 class="nama">Kanvas teal</h2>
+      </div>
+      <div class="panggung">
+        <div class="layar teal">
+          <div class="bar">
+            <span class="jam">11:05</span>
+            <span class="sinyal">
+              <svg viewBox="0 0 18 12" width="17" height="11" aria-hidden="true"><rect y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" width="3" height="12" rx="1" fill="currentColor"/></svg>
+              <svg viewBox="0 0 16 12" width="15" height="11" fill="none" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M3.9 7.3a6 6 0 0 1 8.2 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="8" cy="10.3" r="1.3" fill="currentColor"/></svg>
+              <svg viewBox="0 0 25 12" width="24" height="11" fill="none" aria-hidden="true"><rect x=".6" y=".6" width="21" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="2.3" y="2.3" width="17.6" height="7.4" rx="2" fill="currentColor"/><path d="M23.3 4.5v3a1.9 1.9 0 0 0 0-3Z" fill="currentColor" opacity=".5"/></svg>
+            </span>
+          </div>
+          <div class="c-blok">
+            <svg class="c-sarang" width="190" height="180" viewBox="0 0 190 180" fill="none" aria-hidden="true">
+              <g stroke="#FFFFFF" stroke-width="2.4" fill="none">
+                <path d="M46 8 74 24v32L46 72 18 56V24Z"/><path d="M102 8l28 16v32l-28 16-28-16V24Z"/>
+                <path d="M158 8l28 16v32l-28 16-28-16V24Z"/><path d="M74 56l28 16v32l-28 16-28-16V72Z"/>
+                <path d="M130 56l28 16v32l-28 16-28-16V72Z"/><path d="M102 104l28 16v32l-28 16-28-16v-32Z"/>
+              </g>
+            </svg>
+            <div class="c-baris">
+              <div class="avatar c-avatar">P</div>
+              <div class="c-teks">
+                <b>Cisaat</b>
+                <small class="mono">SUKABUMI · 8 BARANG DALAM 2 KM</small>
+              </div>
+              <div class="c-bulat">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" style="color:#fff" aria-hidden="true"><path d="M9.6 3.4 15 6.5v6.2l-5.4 3.1-5.4-3.1V6.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="miter"/><path d="m14.2 13.6 5.4 6.2" stroke="#F3D77C" stroke-width="2.6" stroke-linecap="round"/></svg>
+              </div>
+              <div class="c-bulat">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" style="color:#fff" aria-hidden="true"><path d="M6.4 10.4a5.6 5.6 0 0 1 11.2 0c0 3 .7 4.3 1.5 5.2.5.6.1 1.5-.7 1.5H5.6c-.8 0-1.2-.9-.7-1.5.8-.9 1.5-2.2 1.5-5.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10.3 19.8a2.1 2.1 0 0 0 3.4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="17.7" cy="5.9" r="3" fill="#F3D77C"/></svg>
+              </div>
+            </div>
+            <div class="c-rule"></div>
+          </div>
+          <div class="umpan">
+            <div class="umpan-kartu"><div class="umpan-bulat"></div><div class="umpan-garis"><i></i><i></i></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="alasan">
+        Header jadi blok teal utuh — jangkar merek di puncak layar, dan kontras paling
+        kuat terhadap umpan kream di bawahnya. Aksen emas dipakai untuk gagang kaca
+        pembesar dan titik notifikasi, supaya tetap terbaca di atas teal.
+      </p>
+    </section>
+
+  </div>
+
+  <div class="catatan">
+    <h3>Yang perlu diperiksa sebelum memilih</h3>
+    <p>
+      Semua nilai di halaman ini diambil dari berkas Figma <code>BALIKIN-APP-EDU</code>:
+      mint <code>#DDE7E0</code>, kream <code>#ECE5DA</code>, teal <code>#15655B</code>,
+      emas <code>#C8952E</code>, terakota <code>#BC5A3C</code>. Hurufnya Plus Jakarta Sans
+      dan JetBrains Mono, sama seperti di file.
+    </p>
+    <ul>
+      <li><strong>Palet repo masih beda.</strong> Kanvas lama di <code>beranda/</code> pakai
+          teal <code>#1B7A63</code> dan latar <code>#F6F2EA</code>. Itu poin 3 di
+          <code>README.md</code> yang belum ditutup — kunci dulu satu sumber sebelum naik cetak.</li>
+      <li><strong>Angka 8 barang.</strong> Dipakai konsisten dengan header lengket yang sudah
+          dipasang di Figma. Layar Jelajahi masih menulis 42 — perlu disamakan.</li>
+      <li><strong>Avatar.</strong> Di sini digambar sebagai lingkaran gradien berinisial,
+          karena fotonya ada di Figma. Di layar asli tetap foto pengguna.</li>
+      <li><strong>Versi C</strong> mengubah bobot seluruh layar, bukan cuma header — perlu
+          dicek ulang terhadap nav bawah dan kartu pertama umpan.</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
