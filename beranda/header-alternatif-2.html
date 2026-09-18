@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Header Beranda Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    /* diambil piksel demi piksel dari tangkapan layar beranda hub */
+    --mint:#DBE8DF; --kream:#EAE7DC; --putih:#FFFFFF;
+    --tinta:#16322B; --tinta-redup:#6B7A75;
+    --teal:#25715F; --teal-label:#2C7661; --teal-tua:#145D52; --teal-heks:#307B6D;
+    --rep:#113932; --rep-isi:#7BDCC5; --rep-jalur:#33564F;
+    --chip:#B8ECE1; --nav-pil:#E6F2EE;
+    --fol-terakota:#CF693C; --fol-emas:#E5B551; --fol-hijau:#19715A;
+    --fol-mint:#9CD8C6; --fol-kream:#E8E1D4; --emas:#C8952E; --terakota:#BC5A3C;
+
+    --hal-bg:#F4F1EA; --hal-teks:#16322B; --hal-redup:#6B7A75;
+    --kartu:#FFFFFF; --garis:#E2DCCF; --panggung:#ECE5DA;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --hal-bg:#141E1B; --hal-teks:#E8EDE9; --hal-redup:#9DAAA4;
+      --kartu:#1D2926; --garis:#2B3835; --panggung:#242F2C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --hal-bg:#141E1B; --hal-teks:#E8EDE9; --hal-redup:#9DAAA4;
+    --kartu:#1D2926; --garis:#2B3835; --panggung:#242F2C;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--hal-bg);color:var(--hal-teks);
+    font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .bungkus{max-width:1320px;margin:0 auto;padding:40px 16px 72px}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+
+  .kicker{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-weight:500;
+    letter-spacing:1.6px;color:var(--teal-label);margin:0 0 10px}
+  h1{font-size:clamp(26px,5vw,38px);line-height:1.12;letter-spacing:-.6px;margin:0 0 14px;font-weight:800}
+  .intro{font-size:15px;line-height:1.6;color:var(--hal-redup);margin:0;max-width:640px}
+
+  .kisi{display:grid;gap:24px;margin-top:36px;grid-template-columns:repeat(auto-fill,minmax(332px,1fr))}
+  .kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:20px;
+    padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+  .tajuk{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .tanda{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;
+    letter-spacing:1.3px;color:#fff;background:var(--teal);padding:3px 8px;border-radius:6px}
+  .nama{font-size:17px;font-weight:700;letter-spacing:-.2px;margin:0}
+  .alasan{font-size:13.5px;line-height:1.55;color:var(--hal-redup);margin:0}
+  .alasan strong{color:var(--hal-teks)}
+
+  .panggung{background:var(--panggung);border-radius:16px;padding:14px 0;display:flex;
+    justify-content:center;overflow-x:auto}
+
+  /* ---------------- layar 384 ---------------- */
+  .layar{width:384px;flex:0 0 384px;border-radius:30px;overflow:hidden;
+    background:linear-gradient(180deg,var(--mint) 0%,var(--mint) 20%,var(--kream) 46%,var(--kream) 100%);
+    box-shadow:0 12px 30px rgba(14,40,33,.16)}
+  .bar{height:50px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 26px;color:var(--tinta)}
+  .jam{font-size:15px;font-weight:700;letter-spacing:-.2px}
+  .sinyal{display:flex;align-items:center;gap:7px}
+
+  .bulat{width:42px;height:42px;border-radius:50%;background:#fff;flex:0 0 42px;display:flex;
+    align-items:center;justify-content:center;box-shadow:0 2px 7px rgba(14,40,33,.10)}
+  .avatar{width:46px;height:46px;border-radius:50%;flex:0 0 46px;display:flex;align-items:center;
+    justify-content:center;background:linear-gradient(145deg,#3AA48F,#15655B);color:#fff;
+    font-size:18px;font-weight:700;box-shadow:0 2px 8px rgba(14,40,33,.16)}
+
+  /* --- D sapaan --- */
+  .hd-d{display:flex;align-items:center;gap:12px;padding:2px 22px 14px}
+  .hd-d .teks{flex:1;min-width:0}
+  .hd-d .teks b{display:block;font-size:21px;font-weight:700;letter-spacing:-.4px;
+    color:var(--tinta);line-height:1.15}
+  .hd-d .teks small{display:block;font-size:10px;font-weight:400;letter-spacing:1.2px;
+    color:#8A8175;margin-top:3px}
+  .hd-d .bulat{width:40px;height:40px;flex:0 0 40px}
+
+  /* --- E heksagon --- */
+  .heks{clip-path:polygon(50% 0%,93.3% 25%,93.3% 75%,50% 100%,6.7% 75%,6.7% 25%)}
+  .hd-e{display:flex;align-items:center;gap:10px;padding:2px 22px 14px}
+  .hd-e .avatar{border-radius:0;box-shadow:none;width:48px;height:48px;flex:0 0 48px}
+  .hd-e .tag{flex:1;min-width:0;height:40px;background:#fff;display:flex;align-items:center;
+    justify-content:center;gap:7px;box-shadow:0 2px 7px rgba(14,40,33,.10);
+    clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px)}
+  .hd-e .tag span{font-size:11.5px;font-weight:500;letter-spacing:1.1px;color:var(--teal-tua)}
+  .hd-e .hx{width:42px;height:46px;flex:0 0 42px;background:#fff;display:flex;align-items:center;
+    justify-content:center}
+
+  /* --- F menyatu --- */
+  .hd-f{height:8px}
+  .f-strip{display:flex;align-items:center;gap:10px;padding:0 0 12px;margin-bottom:12px;
+    border-bottom:1px solid #EFEBE1}
+  .f-strip .avatar{width:34px;height:34px;flex:0 0 34px;font-size:14px}
+  .f-strip .lok{flex:1;min-width:0;font-size:10.5px;font-weight:500;letter-spacing:1.1px;
+    color:var(--teal-tua);display:flex;align-items:center;gap:5px}
+  .f-strip .ikon{width:30px;height:30px;flex:0 0 30px;display:flex;align-items:center;justify-content:center}
+
+  /* ---------------- isi beranda hub ---------------- */
+  .isi{padding:0 18px 0}
+  .blok{background:#fff;border-radius:26px;box-shadow:0 5px 18px rgba(14,40,33,.07);
+    padding:18px 16px;margin-bottom:14px;position:relative;overflow:hidden}
+  .b1{text-align:center}
+  .b1 h3{margin:0;font-size:21px;font-weight:700;letter-spacing:-.5px;color:var(--tinta)}
+  .b1 p{margin:5px 0 0;font-size:12px;color:var(--tinta-redup)}
+  /* hanya kipas folder yang dipusatkan — jangan kena ikon di strip versi F */
+  .b1 .kipas{display:block;margin:6px auto -4px}
+
+  .b2 .label{font-size:9px;font-weight:700;letter-spacing:1.3px;color:var(--teal-label)}
+  .b2 h3{margin:3px 0 0;font-size:17px;font-weight:700;letter-spacing:-.4px;color:var(--tinta)}
+  .b2 p{margin:7px 0 0;font-size:11px;line-height:1.45;color:var(--tinta-redup);max-width:190px}
+  .b2 .aksi{display:flex;align-items:center;gap:9px;margin-top:13px}
+  .b2 .tbl{background:var(--teal);border-radius:16px;padding:8px 14px;display:flex;align-items:center;
+    gap:7px;box-shadow:0 5px 13px rgba(37,113,95,.26)}
+  .b2 .tbl span{font-size:11.5px;font-weight:700;color:#fff}
+  .b2 .kep{background:var(--chip);border-radius:13px;padding:6px 10px}
+  .b2 .kep span{font-size:9px;font-weight:700;letter-spacing:.6px;color:var(--teal-tua)}
+  .b2 .fol{position:absolute;right:-6px;bottom:-10px;pointer-events:none}
+
+  .b3{background:var(--rep);padding:18px 16px 14px}
+  .b3 .atas{display:flex;align-items:center;gap:14px}
+  .b3 .tk{font-size:9px;font-weight:500;letter-spacing:1.5px;color:#8FB8AD}
+  .b3 h3{margin:2px 0 0;font-size:22px;font-weight:800;letter-spacing:.4px;color:#fff;line-height:1.1}
+  .b3 .poin{margin:5px 0 0;display:flex;align-items:baseline;gap:5px}
+  .b3 .poin b{font-size:25px;font-weight:800;color:#fff;letter-spacing:-.5px}
+  .b3 .poin i{font-style:normal;font-size:10px;font-weight:500;color:#8FB8AD;letter-spacing:.8px}
+  .b3 .jalur{height:7px;border-radius:4px;background:var(--rep-jalur);margin-top:9px;overflow:hidden}
+  .b3 .jalur i{display:block;height:100%;width:62%;border-radius:4px;background:var(--rep-isi)}
+  .b3 .sisa{margin:7px 0 0;font-size:9.5px;font-weight:400;color:#B5D6CD;letter-spacing:.3px}
+  .b3 .garis{height:1px;background:rgba(255,255,255,.13);margin:13px 0 11px}
+  .b3 .bawah{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .b3 .lencana{display:flex;gap:7px}
+  .b3 .lencana i{width:22px;height:24px;background:#1D5348;display:flex;align-items:center;
+    justify-content:center;clip-path:polygon(50% 0%,93.3% 25%,93.3% 75%,50% 100%,6.7% 75%,6.7% 25%)}
+  .b3 .hit{font-size:10.5px;font-weight:700;color:var(--rep-isi)}
+
+  .nav{display:flex;align-items:center;gap:10px;padding:10px 18px 18px}
+  .nav .bar-nav{flex:1;min-width:0;height:56px;background:#fff;border-radius:28px;display:flex;
+    align-items:center;padding:8px;gap:2px;box-shadow:0 5px 16px rgba(14,40,33,.09)}
+  .nav .aktif{background:var(--nav-pil);border-radius:20px;height:40px;display:flex;align-items:center;
+    gap:7px;padding:0 14px}
+  .nav .aktif span{font-size:13px;font-weight:700;color:var(--teal-tua)}
+  .nav .tab{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+  .nav .titik{position:absolute;top:2px;right:16px;width:7px;height:7px;border-radius:50%;background:#E5484D}
+  .nav .plus{width:56px;height:60px;flex:0 0 56px;background:linear-gradient(150deg,var(--teal-heks),var(--teal-tua));
+    display:flex;align-items:center;justify-content:center;
+    clip-path:polygon(50% 0%,93.3% 25%,93.3% 75%,50% 100%,6.7% 75%,6.7% 25%)}
+
+  .catatan{margin:44px 0 0;padding:20px 22px;background:var(--kartu);border:1px solid var(--garis);
+    border-radius:18px;font-size:13.5px;line-height:1.65;color:var(--hal-redup);max-width:780px}
+  .catatan h3{margin:0 0 10px;font-size:15px;font-weight:700;color:var(--hal-teks)}
+  .catatan code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;
+    background:var(--panggung);padding:1px 5px;border-radius:4px;color:var(--hal-teks)}
+  .catatan ul{margin:10px 0 0;padding-left:18px}
+  .catatan li{margin-bottom:7px}
+  @media (max-width:420px){ .bungkus{padding:28px 16px 56px} }
+</style>
+</head>
+<body>
+<div class="bungkus">
+
+  <header>
+    <p class="kicker">BERANDA HUB · PUTARAN DUA</p>
+    <h1>Tiga arah header, diuji di halaman asli</h1>
+    <p class="intro">
+      Putaran pertama menguji header di atas kartu abu-abu palsu. Kali ini ketiganya
+      dipasang di atas isi beranda hub yang sebenarnya — tumpukan folder, kartu lapor,
+      dan panel reputasi — karena header hanya bisa dinilai dari bagaimana ia menyerahkan
+      perhatian ke kartu pertama di bawahnya.
+    </p>
+  </header>
+
+  <div class="kisi" id="kisi"></div>
+
+  <div class="catatan">
+    <h3>Yang berubah dari putaran pertama</h3>
+    <p>
+      A, B, dan C kemarin bermain di sumbu <em>berapa banyak bentuk</em> dan
+      <em>seberapa besar tipografinya</em>. D, E, dan F bermain di sumbu lain:
+      <strong>siapa yang disapa</strong>, <strong>bahasa bentuk apa yang dipakai</strong>,
+      dan <strong>apakah header perlu ada sama sekali</strong>.
+    </p>
+    <ul>
+      <li><strong>Palet halaman ini beda lagi.</strong> Tangkapan layar Anda memakai teal
+          <code>#25715F</code> dan mint <code>#DBE8DF</code>; frame Figma memakai
+          <code>#15655B</code> dan <code>#DDE7E0</code>; kanvas lama di folder ini
+          <code>#1B7A63</code> dan <code>#F6F2EA</code>. Tiga sumber untuk satu warna.
+          Halaman ini mengikuti tangkapan layar, karena itu yang Anda tunjuk.</li>
+      <li><strong>Header bukan milik layar ini saja.</strong> Apa pun yang dipilih akan
+          menular ke Jelajahi dan Profil. Versi F paling murah diuji karena tidak menuntut
+          komponen header sama sekali.</li>
+      <li><strong>Angka masih 42 di sini</strong>, sementara header lengket di Figma sudah
+          menulis 8. Salah satu harus mengalah.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- isi beranda hub, dipakai ulang di ketiga bingkai -->
+<template id="tpl-isi">
+  <div class="isi">
+    <div class="blok b1">
+      <h3>Barang di sekitarmu</h3>
+      <p>42 barang menunggu pemiliknya</p>
+      <svg class="kipas" width="300" height="132" viewBox="0 0 300 132" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="fh" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#22876B"/><stop offset="1" stop-color="#0F5A48"/></linearGradient>
+          <linearGradient id="fm" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#ACE2D1"/><stop offset="1" stop-color="#8ACDB8"/></linearGradient>
+        </defs>
+        <g transform="rotate(-15 62 74)"><rect x="12" y="34" width="60" height="16" rx="6" fill="#A8502C"/><rect x="8" y="42" width="84" height="62" rx="12" fill="#CF693C"/></g>
+        <g transform="rotate(-7 104 70)"><rect x="60" y="26" width="62" height="16" rx="6" fill="#C79430"/><rect x="56" y="34" width="88" height="66" rx="12" fill="#E5B551"/></g>
+        <g transform="rotate(13 236 72)"><rect x="196" y="30" width="58" height="15" rx="6" fill="#D6CFC0"/><rect x="192" y="38" width="84" height="62" rx="12" fill="#E8E1D4"/></g>
+        <g transform="rotate(7 206 64)"><rect x="168" y="22" width="60" height="16" rx="6" fill="#86C7B2"/><rect x="164" y="30" width="86" height="64" rx="12" fill="url(#fm)"/></g>
+        <g><rect x="96" y="20" width="76" height="18" rx="7" fill="#0B4436"/><rect x="90" y="30" width="118" height="84" rx="14" fill="url(#fh)"/>
+           <text x="180" y="98" text-anchor="end" font-family="'Plus Jakarta Sans',sans-serif" font-size="30" font-weight="800" fill="#96D8C4" letter-spacing="-1">42</text></g>
+      </svg>
+    </div>
+
+    <div class="blok b2">
+      <div class="label">LAPORAN BARU</div>
+      <h3>Mau lapor apa hari ini?</h3>
+      <p>Barang hilang atau barang temuan, mulai dari sini.</p>
+      <div class="aksi">
+        <div class="tbl"><span>Buat laporan</span>
+          <svg width="12" height="12" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M16 50h62M58 30l20 20-20 20" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="kep"><span class="mono">±3 MENIT</span></div>
+      </div>
+      <svg class="fol" width="150" height="120" viewBox="0 0 150 120" fill="none" aria-hidden="true">
+        <g transform="rotate(-10 58 56)"><rect x="24" y="16" width="52" height="14" rx="5" fill="#A8502C"/><rect x="20" y="24" width="76" height="58" rx="11" fill="#CF693C"/></g>
+        <g transform="rotate(6 104 74)"><rect x="70" y="36" width="56" height="15" rx="6" fill="#0B4436"/><rect x="66" y="44" width="82" height="62" rx="12" fill="#19715A"/></g>
+      </svg>
+    </div>
+
+    <div class="blok b3">
+      <div class="atas">
+        <svg width="74" height="80" viewBox="0 0 74 80" fill="none" aria-hidden="true">
+          <path d="M37 3 66 20v40L37 77 8 60V20Z" fill="#1C5F51"/>
+          <path d="M37 11 59 24v32L37 69 15 56V24Z" fill="#2E8A74" opacity=".85"/>
+          <path d="M37 19 52 28v24l-15 9-15-9V28Z" fill="#7BDCC5" opacity=".5"/>
+          <path d="M37 30l9 10-9 10-9-10Z" fill="#EAFBF5"/>
+        </svg>
+        <div style="flex:1;min-width:0">
+          <div class="tk mono">TINGKAT 3 DARI 5</div>
+          <h3>PENOLONG</h3>
+          <div class="poin"><b>720</b><i class="mono">POIN</i></div>
+          <div class="jalur"><i></i></div>
+          <p class="sisa mono">180 poin lagi ke Penjaga Kota</p>
+        </div>
+      </div>
+      <div class="garis"></div>
+      <div class="bawah">
+        <div class="lencana">
+          <i><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5 9-9" stroke="#7BDCC5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+          <i><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 3 20 8v8l-8 5-8-5V8Z" stroke="#7BDCC5" stroke-width="2.6" stroke-linejoin="miter"/></svg></i>
+          <i><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="12" rx="3" stroke="#7BDCC5" stroke-width="2.6"/></svg></i>
+          <i><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="m12 5 7 7-7 7-7-7Z" stroke="#7BDCC5" stroke-width="2.6" stroke-linejoin="miter"/></svg></i>
+          <i><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 3h8l4 4v14H6Z" stroke="#7BDCC5" stroke-width="2.6" stroke-linejoin="miter"/></svg></i>
+        </div>
+        <div class="hit">5 dari 9 lencana</div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <div class="bar-nav">
+        <div class="aktif">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1Z" fill="#15655B"/></svg>
+          <span>Beranda</span>
+        </div>
+        <div class="tab"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="#8FA39C" stroke-width="1.8"/><path d="m15 9-2.2 4.8L8 16l2.2-4.8Z" fill="#8FA39C"/></svg></div>
+        <div class="tab"><span class="titik"></span><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-4 3.4V15.5H6.5a2 2 0 0 1-2-2Z" stroke="#8FA39C" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="tab"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.2" r="3.6" stroke="#8FA39C" stroke-width="1.8"/><path d="M5.4 19.4a6.8 6.8 0 0 1 13.2 0" stroke="#8FA39C" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="plus">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-bar">
+  <div class="bar">
+    <span class="jam">11:05</span>
+    <span class="sinyal">
+      <svg viewBox="0 0 18 12" width="17" height="11" aria-hidden="true"><rect y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" width="3" height="12" rx="1" fill="currentColor"/></svg>
+      <svg viewBox="0 0 16 12" width="15" height="11" fill="none" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M3.9 7.3a6 6 0 0 1 8.2 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="8" cy="10.3" r="1.3" fill="currentColor"/></svg>
+      <svg viewBox="0 0 25 12" width="24" height="11" fill="none" aria-hidden="true"><rect x=".6" y=".6" width="21" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.2" opacity=".42"/><rect x="2.3" y="2.3" width="17.6" height="7.4" rx="2" fill="currentColor"/><path d="M23.3 4.5v3a1.9 1.9 0 0 0 0-3Z" fill="currentColor" opacity=".42"/></svg>
+    </span>
+  </div>
+</template>
+
+<script>
+(function(){
+  var SEARCH = '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C"><path d="M9.6 3.4 15 6.5v6.2l-5.4 3.1-5.4-3.1V6.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="miter"/><path d="m14.2 13.6 5.4 6.2" stroke="#C8952E" stroke-width="2.6" stroke-linecap="round"/></svg>';
+  var BELL = '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" style="color:#4A443C"><path d="M6.4 10.4a5.6 5.6 0 0 1 11.2 0c0 3 .7 4.3 1.5 5.2.5.6.1 1.5-.7 1.5H5.6c-.8 0-1.2-.9-.7-1.5.8-.9 1.5-2.2 1.5-5.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10.3 19.8a2.1 2.1 0 0 0 3.4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="17.7" cy="5.9" r="3" fill="#BC5A3C"/></svg>';
+  var CHEV = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" style="color:#145D52"><path d="m6 9.5 6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var versi = [
+    { kode:'D', nama:'Sapaan',
+      header:'<div class="hd-d"><div class="avatar">P</div>'
+        + '<div class="teks"><b>Halo, Putri</b><small class="mono">CISAAT, SUKABUMI</small></div>'
+        + '<div class="bulat">'+SEARCH+'</div><div class="bulat">'+BELL+'</div></div>',
+      alasan:'Layar ini dibangun di atas reputasi dan ketetanggaan, tapi headernya bicara seperti direktori. '
+        + '<strong>Menyapa orangnya lebih dulu</strong>, lokasi turun jadi baris kedua. Pola ini sudah ada di file Anda '
+        + '— layar tur onboarding memakai persis "Halo, Putri" plus "CISAAT, SUKABUMI" di JetBrains Mono. '
+        + 'Avatar akhirnya punya alasan untuk sebesar itu.' },
+    { kode:'E', nama:'Heksagon',
+      header:'<div class="hd-e"><div class="avatar heks">P</div>'
+        + '<div class="tag"><span class="mono">CISAAT · SUKABUMI</span>'+CHEV+'</div>'
+        + '<div class="hx heks">'+SEARCH+'</div><div class="hx heks">'+BELL+'</div></div>',
+      alasan:'Seluruh layar sudah berbicara Sudut Enam — tombol tambah heksagon, lencana heksagon, '
+        + 'lambang tingkat heksagon. <strong>Header satu-satunya tempat yang masih memakai lingkaran murni.</strong> '
+        + 'Versi ini memindahkannya ke bahasa bentuk yang sama, dengan pil lokasi jadi tag bersudut pangkas.' },
+    { kode:'F', nama:'Menyatu',
+      header:'<div class="hd-f"></div>',
+      strip:'<div class="f-strip"><div class="avatar">P</div>'
+        + '<div class="lok"><span class="mono">CISAAT · SUKABUMI</span>'+CHEV+'</div>'
+        + '<div class="ikon">'+SEARCH+'</div><div class="ikon">'+BELL+'</div></div>',
+      alasan:'Header berdiri sendiri dihapus. Lokasi dan aksi dilipat ke <strong>dalam</strong> kartu pertama, '
+        + 'jadi layar langsung dibuka oleh isi, bukan oleh perkakas. Menghemat sekitar 70px tinggi — '
+        + 'tumpukan folder dan panel reputasi naik, dan panel reputasi nyaris tidak perlu digulung lagi.' }
+  ];
+
+  var kisi = document.getElementById('kisi');
+  var tplIsi = document.getElementById('tpl-isi');
+  var tplBar = document.getElementById('tpl-bar');
+
+  versi.forEach(function(v){
+    var sec = document.createElement('section');
+    sec.className = 'kartu';
+    sec.innerHTML = '<div class="tajuk"><span class="tanda">'+v.kode+'</span>'
+      + '<h2 class="nama">'+v.nama+'</h2></div>'
+      + '<div class="panggung"><div class="layar"></div></div>'
+      + '<p class="alasan">'+v.alasan+'</p>';
+
+    var layar = sec.querySelector('.layar');
+    layar.appendChild(tplBar.content.cloneNode(true));
+    layar.insertAdjacentHTML('beforeend', v.header);
+    layar.appendChild(tplIsi.content.cloneNode(true));
+
+    if (v.strip) {
+      var b1 = layar.querySelector('.b1');
+      b1.insertAdjacentHTML('afterbegin', v.strip);
+      b1.style.textAlign = 'left';
+      b1.querySelector('h3').style.textAlign = 'center';
+      b1.querySelector('p').style.textAlign = 'center';
+    }
+    kisi.appendChild(sec);
+  });
+})();
+</script>
+</body>
+</html>
