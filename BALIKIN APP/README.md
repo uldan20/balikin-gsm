@@ -4,10 +4,14 @@ Tangkapan layar rancangan aplikasi, diekspor dari berkas Figma
 **BALIKIN-APP-EDU**. Dipakai sebagai acuan waktu menyusun GSM Bab IV, poster
 showcase, dan mockup di booth pameran.
 
-Folder ini adalah **titik serah** antara Figma dan repo. Berkas Figma tidak bisa
-dibaca langsung dari sesi kerja — `figma.com` dan `api.figma.com` ditutup
-kebijakan jaringan — jadi apa pun yang perlu dipakai dari Figma harus mendarat
-di sini dulu sebagai berkas.
+Ada dua jalur dari Figma ke sini, dan keduanya masih dipakai:
+
+- **Konektor Figma** — jalur baca-tulis langsung ke berkas `BALIKIN-APP-EDU`.
+  Dipakai untuk memeriksa struktur, mengambil nilai warna dan huruf, serta
+  menyunting frame. Akses HTTP biasa ke `figma.com` tetap ditutup kebijakan
+  jaringan, jadi hanya konektor yang tembus.
+- **Folder ini** — arsip berkas. Ekspor yang perlu ikut tercatat di repo,
+  dipakai di materi cetak, atau dilihat tanpa membuka Figma, mendarat di sini.
 
 ## Isi sekarang
 
